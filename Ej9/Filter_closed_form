@@ -1,0 +1,84 @@
+import math
+import cmath
+
+class Filter:
+
+    def __init__(self, alfa, betha):
+        self.alfa = alfa
+        self.betha = betha
+        # wsq : discriminant of the cuadratic function that will determine the type of system
+        self.wsq = alfa**2 + 4*betha
+        self.oscillates = False
+        self.osc_freq = 0
+
+        self.coeffs = []
+        self.last_out = 0           # set initial conditions
+
+        # self.poles may contain the poles of the system OR (only in the case in which the poles are complex conjugates)
+        # the abs value (self.poles[0]) and w of oscillation (self.poles[1]) of a single one of the poles.
+        self.poles = []
+        self.construct_filter()
+
+    # this particular filter follows the equation y(n) = 0.5 * x(n-1) + alfa* y(n-1) + betha * y(n-2)
+    # where y is the output sequence and x is the input sequence of the system
+    def in_out(self, in_sequence, n):
+        for i in range(len(in_sequence)):
+            self.last_out += in_sequence[i]*self.impulse_response_in(n-i)
+        return self.last_out
+
+
+    def construct_filter(self):
+        self.oscillates = self.wsq < 0
+        if self.oscillates:
+            self.construct_complex_poles_filter()
+        else:
+            if self.wsq == 0:
+                self.construct_single_pole_filter()
+            else:
+                self.construct_real_poles_filter()
+
+    def construct_single_pole_filter(self):
+        # solution to the characteristic equation of the filter
+        self.poles.append((self.alfa + self.wsq**(1/2))/2)
+        self.poles.append(self.poles[0])
+
+        self.coeffs.append(0)
+        self.coeffs.append((1/2) / self.poles[1])
+
+    def construct_real_poles_filter(self):
+        # notice that there is a direct relationship between pole and coefficient, so that the order
+        # of coeffs and poles should remain the same.
+        # notice that the firt complex pole is the "negative" one.
+        # This was chosen arbitrarily
+        self.poles.append((self.alfa - self.wsq**(1/2)) / 2)
+        self.poles.append((self.alfa + self.wsq**(1/2)) / 2)
+
+        self.coeffs.append(0.5 * self.alfa / (self.poles[0]**2 - self.poles[1]**2))
+        self.coeffs.append(- self.coeffs[0])
+
+    def construct_complex_poles_filter(self):
+        self.osc_freq = (-self.wsq)**(1/2) / (2*math.pi)
+
+        # notice that the complex pole chosen to represent the w is the "negative" one.
+        # This was chosen arbitrarily
+        complex_pole = (self.alfa - self.wsq**(1/2)) / 2
+        self.poles.append((complex_pole.imag**2 + complex_pole.real**2)**(1/2))        # abs value of the complex number
+        self.poles.append(self.osc_freq)
+
+        self.coeffs.append(math.sin(2*self.osc_freq))
+        self.coeffs.append(self.coeffs[0])
+
+    def impulse_response_in(self, n):
+
+        if n <= 0:
+            return 0
+        elif n == 1:
+            return 0.5
+        else:
+            if self.oscillates:
+                return self.coeffs[0]*self.poles[0]
+            elif self.wsq == 0:
+                return self.coeffs[0]*self.poles[0]**n + self.coeffs[1] * n * self.poles[1]**n
+            else:
+                return self.coeffs[0]*self.poles[0]**n + self.coeffs[1] * self.poles[1]**n
+

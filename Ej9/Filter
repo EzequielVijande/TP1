@@ -1,0 +1,44 @@
+import math
+import cmath
+
+class Filter:
+
+    def __init__(self, alfa, betha):
+        self.alfa = alfa
+        self.betha = betha
+        # wsq : discriminant of the cuadratic function that will determine the type of system
+        self.w_sq = alfa**2 + 4*betha
+        self.oscillates = self.w_sq < 0
+
+        self.osc_freq = 0
+        if self.oscillates:
+            self.osc_freq = (-self.w_sq)**(1/2)
+
+        self.coef_x = 0.5
+
+        self.last_out = [0, 0]           # set initial conditions, y[-2], y[-1]
+        self.y = [self.last_out[0], self.last_out[1]]
+
+    def in_out(self, in_sequence):
+        y = [self.last_out[0], self.last_out[1]]
+
+        for i in range(len(in_sequence)):
+            y.append(in_sequence[i]*self.coef_x + self.alfa * y[i] + y[i-1])
+
+        self.y = y
+        self.last_out[0] = self.y[len(y)-2]
+        self.last_out[1] = self.y[len(y)-1]
+
+        return y
+
+    def set_initial_conditions(self, conditions):
+        if (conditions is None ) or (range(conditions) != 2):
+            print("Error en las condiciones inciales. Se necesitan 2 condiciones iniciales.")
+        else:
+            self.last_out[0] = conditions[0]
+            self.last_out[1] = conditions[1]
+
+
+
+
+
