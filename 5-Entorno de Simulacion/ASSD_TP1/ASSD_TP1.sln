@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ASSD_TP1", "ASSD_TP1\ASSD_TP1.pyproj", "{BE6F81C0-6818-4FBE-B6EC-39CB89669DE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE6F81C0-6818-4FBE-B6EC-39CB89669DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE6F81C0-6818-4FBE-B6EC-39CB89669DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AB0E44F-22D8-4064-BFF6-0B1B7A256921}
+	EndGlobalSection
+EndGlobal
