@@ -1,6 +1,7 @@
 import math
 import cmath
 
+
 class Filter:
 
     def __init__(self, alfa, betha):
@@ -31,14 +32,14 @@ class Filter:
 
         return y
 
+    # use after calling in_out(in_sequence) to retrieve a value from the lastly calculated in_out
+    def in_out_last_calc(self, n):
+        return self.y[n]
+
     def set_initial_conditions(self, conditions):
         if (conditions is None ) or (range(conditions) != 2):
             print("Error en las condiciones inciales. Se necesitan 2 condiciones iniciales.")
         else:
             self.last_out[0] = conditions[0]
             self.last_out[1] = conditions[1]
-
-
-
-
 
