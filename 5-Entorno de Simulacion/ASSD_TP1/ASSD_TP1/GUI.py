@@ -73,7 +73,7 @@ class SimGUI:
     def CreatePlot(self):
         #Region donde se grafican las funciones
         self.PlotFrame = LabelFrame(master=self.root, text="Grafica",background=FRAME_COLOR,fg=FRAME_TEXT_COLOR)
-        self.PlotFrame.grid(row=0,column=1,sticky=E)
+        self.PlotFrame.grid(row=0,column=1,sticky=N+S+W+E)
         self.fig=Figure(figsize=(1,1), dpi=200,facecolor="lavender",constrained_layout=True)
         self.Graph = FigureCanvasTkAgg(self.fig,master=self.PlotFrame)
         self.Graph.get_tk_widget().config( width=GRAPH_WIDTH, height=GRAPH_HEIGHT)
@@ -107,7 +107,7 @@ class SimGUI:
         self.InpAmpString= StringVar()
         self.InpFrecString= StringVar()
         self.InputFrame = LabelFrame(master=self.OptionsFrame, text="Entrada",background=FRAME_COLOR,fg=FRAME_TEXT_COLOR)
-        self.InputFrame.grid(row=0,column=0,sticky=S+N,ipadx=120)
+        self.InputFrame.grid(row=0,column=0,sticky=S+N)
         self.selected_func = StringVar(master=self.InputFrame)
         self.selected_func.set(FUNCIONES[0]) # Empieza con coseno como default
         self.pull_down_menu = OptionMenu(self.InputFrame, self.selected_func, *FUNCIONES)
@@ -117,7 +117,7 @@ class SimGUI:
         self.InpFrecLabel= Label(master=self.InputFrame,text="fo(Hz)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.InpFrecLabel.grid(row=1,column=0,sticky=W+E)
         self.entry_inp_fo=Entry(master=self.InputFrame,textvariable=self.InpFrecString)
-        self.entry_inp_fo.grid(row=1,column=1)
+        self.entry_inp_fo.grid(row=1,column=1,ipadx=120)
 
         self.InpAmpLabel= Label(master=self.InputFrame,text="Amp(V)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.InpAmpLabel.grid(row=2,column=0,sticky=W+E)
@@ -131,12 +131,12 @@ class SimGUI:
         self.BypassFR = IntVar()
 
         self.FilterFrame = LabelFrame(master=self.OptionsFrame, text="Filtros",background=FRAME_COLOR,fg=FRAME_TEXT_COLOR)
-        self.FilterFrame.grid(row=0,column=1,sticky=S+N,ipadx=120)
+        self.FilterFrame.grid(row=0,column=1,sticky=S+N)
         #Frecuencia de corte de los filtros
         self.FilterFcLabel= Label(master=self.FilterFrame,text="fc(Hz)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.FilterFcLabel.grid(row=0,column=0,sticky=W+E)
         self.entry_filter_fc= Entry(master=self.FilterFrame,textvariable=self.FilterFcString)
-        self.entry_filter_fc.grid(row=0,column=1,sticky=W+E)
+        self.entry_filter_fc.grid(row=0,column=1,sticky=W+E,ipadx=120)
         #Botones de Bypass
         self.FAA_BypassButton= Checkbutton(master=self.FilterFrame, text="Bypass FAA",
                         variable=self.BypassFAA,onvalue=BYPASS_ON, offvalue=BYPASS_OFF,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
@@ -150,7 +150,7 @@ class SimGUI:
         self.BypassSH= IntVar()
         self.BypassKey= IntVar()
         self.SamplerFrame = LabelFrame(master=self.OptionsFrame, text="Muestreo",background=FRAME_COLOR,fg=FRAME_TEXT_COLOR)
-        self.SamplerFrame.grid(row=0,column=2,sticky=S+N,ipadx=120)
+        self.SamplerFrame.grid(row=0,column=2,sticky=S+N)
         #Entrada para la frecuencia de sampleo
         self.SamplerFsLabel= Label(master=self.SamplerFrame,text="fs(Hz)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.SamplerFsLabel.grid(row=0,column=0,sticky=N+S+W+E)
