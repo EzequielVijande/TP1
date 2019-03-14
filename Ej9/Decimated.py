@@ -3,7 +3,7 @@ import numpy
 
 from matplotlib import pyplot as p
 
-...
+
 # #################################
 # #########decimate################
 # #################################
@@ -27,18 +27,18 @@ from matplotlib import pyplot as p
 #                In other words, real_n = n
 #       3) y : Decimation of x: List of values of the x sequence that were taken when performing
 #               x scaling by m. y(n) = x(n*m) (real_n = n)
-...
+
 
 
 def decimate(x, m):
     y = []
     new_n = []
     real_n = []
-    
+
     abs_m = abs(m)
     if abs_m >= 1:
         for i in range(0, len(x) // abs_m):
-            y.append(x[(len(x)//2) % m + i * m])
+            y.append(x[(len(x)//2) % abs_m + i * abs_m])
         if m < 0:
             y.reverse()
 
@@ -55,8 +55,9 @@ n = list(range(-50, 50, 1))
 x1 = [numpy.sin(2*math.pi*0.125/2*n[i]) for i in range(len(n))]
 p.plot(n, x1)
 
-[n1, y1] = decimate(x1, 4)
+[n1, real_n1, y1] = decimate(x1, 4)
 p.plot(n1, y1)
+p.plot(decimate(x1, -4)[0], decimate(x1, -4)[2])
 p.show()
 
 freq = numpy.fft.fftfreq(len(n))
@@ -65,11 +66,8 @@ numpy.ndarray.sort(freq)
 # p.show()
 
 x2 = numpy.sin(2*math.pi*0.25*n)
-y2 = decimate(x2, 4)
+[n2, real_n2, y2] = decimate(x2, 4)
 
-#p.plot(x2)
-#p.plot(y2)
-# p.show()
 
 p.plot(freq, abs(numpy.fft.fft(x2)))
 p.show()
