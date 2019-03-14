@@ -1,5 +1,4 @@
-import math
-import cmath
+from matplotlib import pyplot as p
 
 
 class Filter:
@@ -18,28 +17,44 @@ class Filter:
         self.coef_x = 0.5
 
         self.last_out = [0, 0]           # set initial conditions, y[-2], y[-1]
+        self.y = []
+
+    # in_sequence should start with x(n = -1) !!!!
+    def in_out(self, in_sequence):
         self.y = [self.last_out[0], self.last_out[1]]
 
-    def in_out(self, in_sequence):
-        y = [self.last_out[0], self.last_out[1]]
-
         for i in range(len(in_sequence)):
-            y.append(in_sequence[i]*self.coef_x + self.alfa * y[i] + y[i-1])
+            self.y.append(in_sequence[i]*self.coef_x + self.alfa * self.y[i+1] + self.betha * self.y[i])
 
-        self.y = y
-        self.last_out[0] = self.y[len(y)-2]
-        self.last_out[1] = self.y[len(y)-1]
+        self.y = self.y[2:len(self.y)]
+        self.last_out[0] = self.y[len(self.y)-1]
+        self.last_out[1] = self.y[len(self.y)-2]
 
-        return y
+        return self.y
 
-    # use after calling in_out(in_sequence) to retrieve a value from the lastly calculated in_out
+        # use after calling in_out(in_sequence) to retrieve a value from the lastly calculated in_out
     def in_out_last_calc(self, n):
         return self.y[n]
 
     def set_initial_conditions(self, conditions):
-        if (conditions is None ) or (range(conditions) != 2):
+        if (conditions is None) or (range(conditions) != 2):
             print("Error en las condiciones inciales. Se necesitan 2 condiciones iniciales.")
         else:
             self.last_out[0] = conditions[0]
             self.last_out[1] = conditions[1]
 
+    def set_null_initial_conditions(self):
+        self.last_out[0] = 0
+        self.last_out[1] = 0
+
+
+f1 = Filter(1, -1/4)
+f2 = Filter(1/3, -1/8)
+f3 = Filter(4/3, -25/32)
+
+
+f1.set_null_initial_conditions()
+n = [0, 1, 2, 3, 4]
+y = f1.in_out(n)
+p.plot([0, 1, 2, 3, 4], y)
+p.show()
