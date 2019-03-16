@@ -13,7 +13,9 @@ from tkinter import messagebox
 #Eventos
 NO_EV=0
 QUIT_EV=1
-GRAPH_BUTTON_EV=2
+TIME_FREQ_BUTTON_EV=2
+PLOT_BUTTON_EV=3
+
 
 #Largos y Anchos
 GRAPH_WIDTH=600
@@ -195,6 +197,8 @@ class SimGUI:
     #Getters
     def GetEvent(self):
         return self.Ev
+    def GetSelectedPlot(self):
+        return ( self.SelectedPlot.get() )
 
     #Callbacks
 
