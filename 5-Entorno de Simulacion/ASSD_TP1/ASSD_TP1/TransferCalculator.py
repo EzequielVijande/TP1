@@ -36,7 +36,19 @@ class TransferCalculator(object):
         
         
     def CalculateSH_InTime(self,data):
-        return
+        (data.GetSH()).clear()
+        input= data.GetFAA()
+        fs=data.GetFs()
+        dc= data.GetDutyCycle()
+        Thigh= (1/(fs*100.0))*dc
+        sh_control = self.GenerateSquareWave(fs,Thigh,data.t)
+        for i in range(0,len(data.t)):
+            if(sh_control[i] == 1):
+                data.SH.append(input[i])
+            else:
+                data.SH.append((data.SH)[i-1])
+
+
     def CalculateAnalogKeyInTime(self,data):
         return
     def CalculateOutputInTime(self,data):
@@ -50,5 +62,16 @@ class TransferCalculator(object):
         data.SignalInFrec = data.SignalInFrec[range(int(self.n/2))]
         data.f = np.linspace(0,1.0/(2.0*self.Ts),(self.n)/2)
 
+    def GenerateSquareWave(self,fs,Thigh,t):
+        T=1.0/fs
+        square=[]
+        for i in range(0,len(t)):
+            if((t[i]%T) <= Thigh):
+                square.append(1)
+            else:
+                square.append(0)
+        return square
 
+
+        
 
