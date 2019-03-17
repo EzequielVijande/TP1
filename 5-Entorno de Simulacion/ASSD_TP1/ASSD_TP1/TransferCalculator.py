@@ -36,33 +36,49 @@ class TransferCalculator(object):
         
         
     def CalculateSH_InTime(self,data):
+        numero_de_periodo=0
+        start=0 #indice en el que empieza a muestrearse un nuevo periodo
         (data.GetSH()).clear()
         input= data.GetFAA()
         fs=data.GetFs()
         dc= data.GetDutyCycle()
         Thigh= (dc/(fs*100.0))
         t_control,sh_control = self.GenerateSquareWave(fs,Thigh,data.t)
+        samples_per_period= int(1000/dc)
         for i in range(0,len(data.t)):
             k=int(i*(self.Ts)*(10.0/Thigh)) #Mappeo el indice de data.t al que mejor corresponde para la cuadrada
+            if(k==len(sh_control)):
+                k=k-1
             if(sh_control[k] == 1):
                 data.SH.append(input[i])
             else:
-                data.SH.append((data.SH)[i-1])
+                numero_de_periodo=np.floor(k/samples_per_period)
+                start=int(numero_de_periodo*samples_per_period)+10
+                l=int(start*(Thigh/(10*self.Ts)))
+                data.SH.append((data.input)[l])
 
 
     def CalculateAnalogKeyInTime(self,data):
+        numero_de_periodo=0
+        start=0 #indice en el que empieza a muestrearse un nuevo periodo
         (data.GetAnalogKey()).clear()
         input = data.GetSH()
         fs= data.GetFs()
         dc= data.GetDutyCycle()
         Thigh= (1/(fs*100.0))*dc
         t_sq,key_control = self.GenerateSquareWave(fs,Thigh,data.t)
+        samples_per_period= int(1000/dc)
         for i in range(0,len(data.t)):
-            k=int(i*(self.Ts)*(10.0/Thigh)) #Mappeo el indice de data.t al que mejor corresponde para la cuadrada
+            k=int(np.floor(i*(self.Ts)*(10.0/Thigh))) #Mappeo el indice de data.t al que mejor corresponde para la cuadrada
+            if(k == len(key_control)):
+               k=k-1
             if(key_control[k] == 1):
                 data.AnalogKey.append(0)
             else:
-                data.AnalogKey.append(input[i])
+                numero_de_periodo=np.floor(k/samples_per_period)
+                start=int(numero_de_periodo*samples_per_period)+10
+                l=int(start*(Thigh/(10*self.Ts)))
+                data.AnalogKey.append(input[l])
 
     def CalculateOutputInTime(self,data):
         (data.GetOutput()).clear()
