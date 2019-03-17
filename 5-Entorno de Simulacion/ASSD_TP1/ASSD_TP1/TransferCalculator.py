@@ -40,19 +40,41 @@ class TransferCalculator(object):
         input= data.GetFAA()
         fs=data.GetFs()
         dc= data.GetDutyCycle()
-        Thigh= (1/(fs*100.0))*dc
-        sh_control = self.GenerateSquareWave(fs,Thigh,data.t)
+        Thigh= (dc/(fs*100.0))
+        t_control,sh_control = self.GenerateSquareWave(fs,Thigh,data.t)
         for i in range(0,len(data.t)):
-            if(sh_control[i] == 1):
+            k=int(i*(self.Ts)*(10.0/Thigh)) #Mappeo el indice de data.t al que mejor corresponde para la cuadrada
+            if(sh_control[k] == 1):
                 data.SH.append(input[i])
             else:
                 data.SH.append((data.SH)[i-1])
 
 
     def CalculateAnalogKeyInTime(self,data):
-        return
+        (data.GetAnalogKey()).clear()
+        input = data.GetSH()
+        fs= data.GetFs()
+        dc= data.GetDutyCycle()
+        Thigh= (1/(fs*100.0))*dc
+        t_sq,key_control = self.GenerateSquareWave(fs,Thigh,data.t)
+        for i in range(0,len(data.t)):
+            k=int(i*(self.Ts)*(10.0/Thigh)) #Mappeo el indice de data.t al que mejor corresponde para la cuadrada
+            if(key_control[k] == 1):
+                data.AnalogKey.append(0)
+            else:
+                data.AnalogKey.append(input[i])
+
     def CalculateOutputInTime(self,data):
-        return
+        (data.GetOutput()).clear()
+        input = data.GetAnalogKey()
+        fo= data.GetFo()
+        wp =2.0*math.pi*(data.GetFc())
+        ws= (1.5*wp)
+        Ap= u.AP
+        As= u.AS
+        lp_filter = signal.iirdesign(wp=wp,ws=ws,gpass=Ap,gstop=As,analog=True,ftype='cheby2')
+        t,data.Output,x= signal.lsim(lp_filter,input,data.t)
+
     #Funcion que pasa del dominio del tiempo a frecuencia
     def CalculateInFrecuency(self,data,x):
         fx= list(2*(fft.fft(x)/self.n) )
@@ -64,13 +86,14 @@ class TransferCalculator(object):
 
     def GenerateSquareWave(self,fs,Thigh,t):
         T=1.0/fs
+        t_square= np.arange(start=0,stop=t[-1],step=Thigh/10)
         square=[]
-        for i in range(0,len(t)):
-            if((t[i]%T) <= Thigh):
+        for i in range(0,len(t_square)):
+            if((t_square[i]%T) <= Thigh):
                 square.append(1)
             else:
                 square.append(0)
-        return square
+        return t_square,square
 
 
         
