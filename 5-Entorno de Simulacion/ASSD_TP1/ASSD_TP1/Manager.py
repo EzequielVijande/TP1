@@ -1,14 +1,16 @@
 import GUI as g
 import UserData as u
+import TransferCalculator as t
 
 #Estados
 INICIAL=0
 EXIT=1
 class Manager(object):
     """Clase que se encarga de manejar los eventos generados"""
-    def __init__(self,GUI,data):
+    def __init__(self,GUI,data,calculator):
         self.GUI=GUI
         self.Data= data
+        self.calc= calculator
         self.estado= INICIAL
     def Dispatch(self, ev):
             if(ev == g.NO_EV):
@@ -48,7 +50,11 @@ class Manager(object):
         #Validar input
         #Actualizar los parametros de input
         self.UpdateUserData()
-      #  if(graph_to_plot == g.INPUT):
+        if(graph_to_plot == g.INPUT):
+            self.calc.CalculateInputInTime(self.Data)
+            self.GUI.PlotInput(self.Data.t,self.Data.GetInput(),Xmin=0,Xmax=4.0/(self.Data.fo),
+                               Ymin=min(self.Data.GetInput()),Ymax=max((self.Data.GetInput())))
+
 
         #elif(graph_to_plot == g.A):
 
@@ -60,5 +66,7 @@ class Manager(object):
         self.Data.fo = float(self.GUI.InpFrecString.get())
         self.Data.func = (self.GUI.selected_func.get())
         self.Data.fs = float(self.GUI.SamplerFsString.get())
+        self.Data.fc = float(self.GUI.FilterFcString.get())
+        self.Data.DutyCycle= self.GUI.SlideDC.get()
 
 

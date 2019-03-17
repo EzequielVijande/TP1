@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>be6f81c0-6818-4fbe-b6ec-39cb89669de0</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>mainDePrueba.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
