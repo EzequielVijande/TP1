@@ -25,7 +25,16 @@
     <Compile Include="main.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="mainDePrueba.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Manager.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TransferCalculator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserData.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

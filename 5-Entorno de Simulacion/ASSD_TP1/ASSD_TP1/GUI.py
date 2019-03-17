@@ -13,7 +13,9 @@ from tkinter import messagebox
 #Eventos
 NO_EV=0
 QUIT_EV=1
-GRAPH_BUTTON_EV=2
+TIME_FREQ_BUTTON_EV=2
+PLOT_BUTTON_EV=3
+
 
 #Largos y Anchos
 GRAPH_WIDTH=600
@@ -83,6 +85,8 @@ class SimGUI:
         self.toolbarFrame.grid(row=1)
         toolbar = NavigationToolbar2Tk(self.Graph, self.toolbarFrame)
         toolbar.grid(row=0)
+        #Inicializo Axes
+        self.InitializeAxes()
 
         #Botones para cambiar de graficas
         self.SelectedGraph= tk.IntVar()
@@ -154,7 +158,7 @@ class SimGUI:
         #Entrada para la frecuencia de sampleo
         self.SamplerFsLabel= Label(master=self.SamplerFrame,text="fs(Hz)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.SamplerFsLabel.grid(row=0,column=0,sticky=N+S+W+E)
-        self.entry_sampler_fs= Entry(master=self.SamplerFrame,textvariable=self.FilterFcString)
+        self.entry_sampler_fs= Entry(master=self.SamplerFrame,textvariable=self.SamplerFsString)
         self.entry_sampler_fs.grid(row=0,column=1,sticky=W+E,ipadx=70)
         #Duty cycle
         self.SlideDC_Label = Label(master=self.SamplerFrame,text="DC(%)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
@@ -195,11 +199,30 @@ class SimGUI:
     #Getters
     def GetEvent(self):
         return self.Ev
+    def GetSelectedPlot(self):
+        return ( self.SelectedPlot.get() )
+
+    #Funciones de la grafica
+    def InitializeAxes(self):
+        #Atenuacion
+        self.Axes= self.fig.add_subplot(111)
+        self.Axes.set_axis_off()
+    def PlotInput(self,t,y,Xmin,Xmax,Ymin,Ymax):
+        self.Input_lines, =self.Axes.plot(t,y)
+        self.Axes.set_xscale("linear")
+        self.Axes.set_xlabel("t(seg)")
+        self.Axes.set_ylabel("V(t) (Volts)")
+        self.Axes.set_title("Xin(t)")
+        self.Axes.set_xlim(left=Xmin,right=Xmax)
+        self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+        self.Input_lines.set_visible(True)
+        self.Axes.grid(b=True,axis='both')
+        self.Axes.set_axis_on()
 
     #Callbacks
 
     def change_graph_button_call(self):
-        self.Ev= GRAPH_BUTTON_EV
+        self.Ev= PLOT_BUTTON_EV
 
     def on_closing(self):
         if messagebox.askokcancel("Cerrar", "Desea cerrar el programa?"):
@@ -210,6 +233,9 @@ class SimGUI:
         self.root.destroy()
     def Update(self):
         self.root.update()
+    def ShowMessage(self,string):
+         messagebox.showinfo("",string)
+
     def EventSolved(self):
         self.Ev = NO_EV
 
