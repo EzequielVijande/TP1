@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>be6f81c0-6818-4fbe-b6ec-39cb89669de0</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>main.py</StartupFile>
+    <StartupFile>mainDePrueba.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,7 +25,13 @@
     <Compile Include="main.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="mainDePrueba.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Manager.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TransferCalculator.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UserData.py">

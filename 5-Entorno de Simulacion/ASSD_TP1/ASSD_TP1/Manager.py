@@ -48,9 +48,9 @@ class Manager(object):
         #Validar input
         #Actualizar los parametros de input
         self.UpdateUserData()
-        if(graph_to_plot == g.INPUT):
+      #  if(graph_to_plot == g.INPUT):
 
-        elif(graph_to_plot == g.A):
+        #elif(graph_to_plot == g.A):
 
     def Error(self):
         return
@@ -58,6 +58,7 @@ class Manager(object):
     def UpdateUserData(self):
         self.Data.Amp =  float(self.GUI.InpAmpString.get() )
         self.Data.fo = float(self.GUI.InpFrecString.get())
-        self.Data.func
+        self.Data.func = (self.GUI.selected_func.get())
+        self.Data.fs = float(self.GUI.SamplerFsString.get())
 
 
