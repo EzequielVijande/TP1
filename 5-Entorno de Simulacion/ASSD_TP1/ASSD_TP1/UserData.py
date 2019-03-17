@@ -1,4 +1,7 @@
 import numpy as np
+#Constantes de la plantilla del filtro
+AP=1
+AS=41
 
 class UserData(object):
     """Clase en la que se almacenan todos los parametros elegido por el usuario"""

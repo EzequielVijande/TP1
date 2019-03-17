@@ -2,6 +2,7 @@ import UserData as u
 import numpy as np
 import math
 import scipy.fftpack as fft
+from scipy import signal
 class TransferCalculator(object):
     """Clase que se encarga de calcular la salida de un bloque cualquiera conociendo la entrada"""
     def __init__(self):
@@ -15,20 +16,23 @@ class TransferCalculator(object):
         T= 1/fo #Periodo de la funcion
         self.Ts= (4*T)/(self.n)
         if(signal == "coseno"):
-            t= np.array( np.arange(start=0,stop=(4*T),step=self.Ts ))
+            t= np.array( np.arange(start=0,stop=(self.n)*(self.Ts),step=self.Ts ))
             data.input.clear()
             for i in range (0,t.size):
                 data.input.append( A*(math.cos(2*(math.pi)*fo*(t[i]))) )
             data.t = t
     def CalculateFAA_InTime(self,data):
+        (data.GetFAA()).clear()
         n=self.n
         fo= data.GetFo()
-        fc =data.GetFc()
-        t= np.array( np.arange(start=0,stop=(4/fc),step=self.Ts ))
-        funcLP = ( math.sin(2*math.pi*fc*t))/(2*math.pi*fc*t)
-        previous_node= list((fft.fft(data.GetInput())) )
-        (data.GetFAA()).clear()
-        data.FAA = np.real(fft.ifft(previous_node))
+        wp =2.0*math.pi*(data.GetFc())
+        ws= (1.5*wp)
+        Ap= u.AP
+        As= u.AS
+        lp_filter = signal.iirdesign(wp=wp,ws=ws,gpass=Ap,gstop=As,analog=True,ftype='cheby2')
+        t,data.FAA,x= signal.lsim(lp_filter,data.GetInput(),data.t)
+
+
         
         
     def CalculateSH_InTime(self,data):
