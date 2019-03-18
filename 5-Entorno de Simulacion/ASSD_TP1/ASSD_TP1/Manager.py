@@ -50,6 +50,7 @@ class Manager(object):
             self.OnPlotEv()
         elif((selected == g.FREQ)and(self.estado != FRECUENCIA)):
             self.estado= FRECUENCIA
+            self.OnPlotEv()
 
     def OnPlotEv(self):
         graph_to_plot= self.GUI.GetSelectedPlot()
@@ -93,11 +94,11 @@ class Manager(object):
             self.Data.Output = self.Data.AnalogKey
 
     def CalculateHarmonics(self):
-        self.calc.CalculateInFrecuency(self.Data,self.Data.GetInput(),self.Data.InputInFrec)
-        self.calc.CalculateInFrecuency(self.Data,self.Data.GetFAA(),self.Data.FAA_InFrec)
-        self.calc.CalculateInFrecuency(self.Data,self.Data.GetSH(),self.Data.SH_InFrec)
-        self.calc.CalculateInFrecuency(self.Data,self.Data.GetAnalogKey(),self.Data.AnalogKeyInFrec)
-        self.calc.CalculateInFrecuency(self.Data,self.Data.GetOutput(),self.Data.OutputInFrec)
+        self.Data.InputInFrec= self.calc.CalculateInFrecuency(self.Data,self.Data.GetInput())
+        self.Data.FAA_InFrec= self.calc.CalculateInFrecuency(self.Data,self.Data.GetFAA())
+        self.Data.SH_InFrec= self.calc.CalculateInFrecuency(self.Data,self.Data.GetSH())
+        self.Data.AnalogKeyInFrec= self.calc.CalculateInFrecuency(self.Data,self.Data.GetAnalogKey())
+        self.Data.OutputInFrec= self.calc.CalculateInFrecuency(self.Data,self.Data.GetOutput())
 
     def ShowGraph(self):
         Xmin=0

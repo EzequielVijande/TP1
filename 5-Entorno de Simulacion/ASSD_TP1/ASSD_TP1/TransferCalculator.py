@@ -94,12 +94,13 @@ class TransferCalculator(object):
         t,data.Output,x= signal.lsim(lp_filter,input,data.t)
 
     #Funcion que pasa del dominio del tiempo a frecuencia
-    def CalculateInFrecuency(self,data,x,y):
+    def CalculateInFrecuency(self,data,x):
         fx= list(2*(fft.fft(x)/self.n) )
 
         y = np.abs(fx)
         y = y[range(int(self.n/2))]
         data.f = np.linspace(0,1.0/(2.0*self.Ts),(self.n)/2)
+        return y
 
     def GenerateSquareWave(self,fs,Thigh,t):
         T=1.0/fs

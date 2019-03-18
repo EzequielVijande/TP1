@@ -247,7 +247,7 @@ class SimGUI:
         self.Inp_container =self.Axes.stem(f,y,basefmt='')
         self.Inp_is_in_plot=True
 
-    def DisplaySelectedGraph(self,Xmin,Xmax,Ymin,Ymax,f,yinp):
+    def DisplaySelectedGraph(self,Xmin,Xmax,Ymin,Ymax,f,y_inp):
         sel = self.GetSelectedPlot()
         self.HideAllLines()
         self.Axes.grid(b=True,axis='both')
