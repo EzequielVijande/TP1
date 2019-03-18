@@ -73,6 +73,7 @@ class Manager(object):
         self.Data.fs = float(self.GUI.SamplerFsString.get())
         self.Data.fc = float(self.GUI.FilterFcString.get())
         self.Data.DutyCycle= self.GUI.SlideDC.get()
+        self.Data.Aproximacion= self.GUI.SelectedAprox.get()
 
     def CalculateAllNodes(self):
         self.calc.CalculateInputInTime(self.Data)

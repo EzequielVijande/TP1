@@ -36,6 +36,13 @@ FUNCIONES=[
     "x^2",
     "cuadrada"
     ]
+#Aproximaciones
+APROXIMACIONES=[
+    "butter",
+    "cheby1",
+    "cheby2",
+    "ellip",
+    "bessel"]
 #Nodos
 A=1
 B=2
@@ -140,6 +147,8 @@ class SimGUI:
 
     def CreateFilterSection(self):
         self.FilterFcString= StringVar()
+        self.SelectedAprox = StringVar()
+        self.SelectedAprox.set("cheby2")
         self.BypassFAA = IntVar()
         self.BypassFR = IntVar()
 
@@ -157,6 +166,11 @@ class SimGUI:
         self.FR_BypassButton= Checkbutton(master=self.FilterFrame, text="Bypass FR",
                         variable=self.BypassFR,onvalue=BYPASS_ON, offvalue=BYPASS_OFF,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.FR_BypassButton.grid(row=1,column=1,sticky=W+E)
+
+        #Aproximacion
+        self.approx_menu = OptionMenu(self.FilterFrame, self.SelectedAprox, *APROXIMACIONES)
+        self.approx_menu.grid(row=2,sticky=W+E)
+
         #Desselecciono los botones
         self.FAA_BypassButton.deselect()
         self.FR_BypassButton.deselect()

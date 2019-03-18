@@ -13,6 +13,7 @@ class UserData(object):
         self.DutyCycle= DC
         self.fs= f_sample
         self.fc =fc
+        self.Aproximacion=""
         #Resultados
         self.input=[]
         self.FAA=[]
