@@ -13,14 +13,27 @@ class TransferCalculator(object):
         signal = data.GetFunc()
         fo = data.GetFo()
         A = data.GetAmp()
-        T= 1/fo #Periodo de la funcion
+        T= 1.0/fo #Periodo de la funcion
         self.Ts= (4*T)/(self.n)
+        t= np.array( np.arange(start=0,stop=(self.n)*(self.Ts),step=self.Ts ))
+        data.input.clear()
+        data.t = t
         if(signal == "coseno"):
-            t= np.array( np.arange(start=0,stop=(self.n)*(self.Ts),step=self.Ts ))
-            data.input.clear()
             for i in range (0,t.size):
                 data.input.append( A*(math.cos(2*(math.pi)*fo*(t[i]))) )
-            data.t = t
+        elif(signal == "x^2"):
+            #coeficientes de fourier
+            a0= (T**2)/12.0
+            an=[]
+            for i in range(1,41):
+                aux= ((-1)**i)*( (T/(i*math.pi))**2)
+                an.append(aux)
+            for i in range (0,t.size):
+                aux2=a0
+                for j in range (0,len(an)):
+                    aux2= aux2+ (an[j]*math.cos(2*(math.pi)*(j+1)*fo*(t[i])))
+                data.input.append(aux2)
+
     def CalculateFAA_InTime(self,data):
         n=self.n
         fo= data.GetFo()
