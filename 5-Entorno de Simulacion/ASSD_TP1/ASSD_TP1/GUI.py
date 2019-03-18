@@ -52,6 +52,8 @@ BYPASS_OFF=2
 class SimGUI:
     """Clase que se encarga de manejar la interfaz grafic de la simulacion"""
     def __init__(self):
+        self.graphed_once= False
+        self.Inp_is_in_plot= False
         self.Ev=NO_EV
         self.root = Tk()
         self.root.geometry('1620x780')
@@ -93,12 +95,12 @@ class SimGUI:
         self.GraphButtonFrame = Frame(master=self.PlotFrame)
         self.GraphButtonFrame.grid(row=2)
         self.TimeButton= Radiobutton(master=self.GraphButtonFrame,text="En tiempo",background=GRAPH_BUTTON_COLOR,fg=GRAPH_BUTTON_TEXT_COLOR,
-                                     indicatoron=False,variable=self.SelectedGraph,value=TIME,command=self.change_graph_button_call)
+                                     indicatoron=False,variable=self.SelectedGraph,value=TIME,command=self.change_domain_of_graph_call)
         self.TimeButton.grid(row=0,column=0,sticky=W+E)
         self.FreqButton= Radiobutton(master=self.GraphButtonFrame,text="En frecuencia",background=GRAPH_BUTTON_COLOR,fg=GRAPH_BUTTON_TEXT_COLOR,
-                                     indicatoron=False,variable=self.SelectedGraph,value=FREQ,command=self.change_graph_button_call)
+                                     indicatoron=False,variable=self.SelectedGraph,value=FREQ,command=self.change_domain_of_graph_call)
         self.FreqButton.grid(row=0,column=1,sticky=W+E)
-
+        self.TimeButton.select() #empieza en tiempo por default
     def CreateOptions(self):
         #Region con los parametros posibles
         self.OptionsFrame = LabelFrame(master=self.root, text="Parametros",background=FRAME_COLOR,fg=FRAME_TEXT_COLOR)
@@ -148,6 +150,9 @@ class SimGUI:
         self.FR_BypassButton= Checkbutton(master=self.FilterFrame, text="Bypass FR",
                         variable=self.BypassFR,onvalue=BYPASS_ON, offvalue=BYPASS_OFF,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.FR_BypassButton.grid(row=1,column=1,sticky=W+E)
+        #Desselecciono los botones
+        self.FAA_BypassButton.deselect()
+        self.FR_BypassButton.deselect()
     def CreateSamplerSection(self):
         #Variables
         self.SamplerFsString= StringVar()
@@ -173,6 +178,9 @@ class SimGUI:
         self.KEY_BypassButton= Checkbutton(master=self.SamplerFrame, text="Bypass Key",
                         variable=self.BypassKey,onvalue=BYPASS_ON, offvalue=BYPASS_OFF,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.KEY_BypassButton.grid(row=2,column=1,sticky=W+E)
+
+        self.SH_BypassButton.deselect()
+        self.KEY_BypassButton.deselect()
 
 
     def PlaceButtons(self):
@@ -201,28 +209,130 @@ class SimGUI:
         return self.Ev
     def GetSelectedPlot(self):
         return ( self.SelectedPlot.get() )
+    def GetSelectedDomain(self):
+        return (self.SelectedGraph.get())
 
     #Funciones de la grafica
     def InitializeAxes(self):
-        #Atenuacion
         self.Axes= self.fig.add_subplot(111)
         self.Axes.set_axis_off()
-    def PlotInput(self,t,y,Xmin,Xmax,Ymin,Ymax):
+
+    def HideAllLines(self):
+        self.Input_lines.set_visible(False)
+        self.NodeA_lines.set_visible(False)
+        self.NodeB_lines.set_visible(False)
+        self.NodeC_lines.set_visible(False)
+        self.Output_lines.set_visible(False)
+        if(self.Inp_is_in_plot):
+            self.Inp_container.remove()
+            self.Inp_is_in_plot=False
+    
+
+    def PlotInput(self,t,y):
         self.Input_lines, =self.Axes.plot(t,y)
-        self.Axes.set_xscale("linear")
-        self.Axes.set_xlabel("t(seg)")
-        self.Axes.set_ylabel("V(t) (Volts)")
-        self.Axes.set_title("Xin(t)")
-        self.Axes.set_xlim(left=Xmin,right=Xmax)
-        self.Axes.set_ylim(bottom=Ymin,top=Ymax)
-        self.Input_lines.set_visible(True)
+
+    def PlotA(self,t,y):
+        self.NodeA_lines, =self.Axes.plot(t,y)
+
+    def PlotB(self,t,y):
+        self.NodeB_lines, =self.Axes.plot(t,y)
+
+    def PlotC(self,t,y):
+        self.NodeC_lines, =self.Axes.plot(t,y)
+
+    def PlotOutput(self,t,y):
+        self.Output_lines, =self.Axes.plot(t,y)
+
+    def PlotInpInFrec(self,f,y):
+        self.Inp_container =self.Axes.stem(f,y,basefmt='')
+        self.Inp_is_in_plot=True
+
+    def DisplaySelectedGraph(self,Xmin,Xmax,Ymin,Ymax,f,yinp):
+        sel = self.GetSelectedPlot()
+        self.HideAllLines()
         self.Axes.grid(b=True,axis='both')
         self.Axes.set_axis_on()
+        if(self.GetSelectedDomain() == TIME):
+            if(sel== INPUT):
+                self.Axes.set_xscale("linear")
+                self.Axes.set_xlabel("t(seg)")
+                self.Axes.set_ylabel("V(t) (Volts)")
+                self.Axes.set_title("Xin(t)")
+                self.Axes.set_xlim(left=Xmin,right=Xmax)
+                if(Ymax ==float('NaN') or Ymax == float('inf') or Ymin ==float('NaN') or Ymin == float('inf')):
+                    self.Axes.set_ylim(bottom=-100,top=100)
+                else:
+                    self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                    self.Input_lines.set_visible(True) 
+            elif(sel == A):
+                self.Axes.set_xscale("linear")
+                self.Axes.set_xlabel("t(seg)")
+                self.Axes.set_ylabel("V(t) (Volts)")
+                self.Axes.set_title("Nodo A(t)")
+                self.Axes.set_xlim(left=Xmin,right=Xmax)
+                if(Ymax ==float('NaN') or Ymax == float('inf') or Ymin ==float('NaN') or Ymin == float('inf')):
+                    self.Axes.set_ylim(bottom=-100,top=100)
+                else:
+                    self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                    self.NodeA_lines.set_visible(True)
+            elif(sel == B):
+                self.Axes.set_xscale("linear")
+                self.Axes.set_xlabel("t(seg)")
+                self.Axes.set_ylabel("V(t) (Volts)")
+                self.Axes.set_title("Nodo B(t)")
+                self.Axes.set_xlim(left=Xmin,right=Xmax)
+                if(Ymax ==float('NaN') or Ymax == float('inf') or Ymin ==float('NaN') or Ymin == float('inf')):
+                    self.Axes.set_ylim(bottom=-100,top=100)
+                else:
+                    self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                    self.NodeB_lines.set_visible(True)
+            elif(sel == C):
+                self.Axes.set_xscale("linear")
+                self.Axes.set_xlabel("t(seg)")
+                self.Axes.set_ylabel("V(t) (Volts)")
+                self.Axes.set_title("Nodo C(t)")
+                self.Axes.set_xlim(left=Xmin,right=Xmax)
+                if(Ymax ==float('NaN') or Ymax == float('inf') or Ymin ==float('NaN') or Ymin == float('inf')):
+                    self.Axes.set_ylim(bottom=-100,top=100)
+                else:
+                    self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                    self.NodeC_lines.set_visible(True)
+            elif(sel == OUTPUT):
+                self.Axes.set_xscale("linear")
+                self.Axes.set_xlabel("t(seg)")
+                self.Axes.set_ylabel("V(t) (Volts)")
+                self.Axes.set_title("Xout(t)")
+                self.Axes.set_xlim(left=Xmin,right=Xmax)
+                if(Ymax ==float('NaN') or Ymax == float('inf') or Ymin ==float('NaN') or Ymin == float('inf')):
+                    self.Axes.set_ylim(bottom=-100,top=100)
+                else:
+                    self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                    self.Output_lines.set_visible(True)
+        else:
+            if(sel == INPUT):
+                if(Ymax ==float('NaN') or Ymax == float('inf')):
+                    self.Axes.set_xlim(left=Xmin,right=Xmax)
+                    self.Axes.set_ylim(bottom=-100,top=100)
+                    return
+                else:
+                    self.Axes.set_xlim(left=Xmin,right=Xmax)
+                    self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                self.Axes.set_xscale("linear")
+                self.Axes.set_xlabel("f(Hz)")
+                self.Axes.set_ylabel("|F{Xin(t)}|(f)")
+                self.Axes.set_title("Harmonicos de Xin")
+                self.Axes.set_xlim(left=Xmin,right=Xmax)
+                self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                self.PlotInpInFrec(f,y_inp)
+            
 
     #Callbacks
 
     def change_graph_button_call(self):
         self.Ev= PLOT_BUTTON_EV
+
+    def change_domain_of_graph_call(self):
+        self.Ev= TIME_FREQ_BUTTON_EV
 
     def on_closing(self):
         if messagebox.askokcancel("Cerrar", "Desea cerrar el programa?"):
@@ -232,6 +342,7 @@ class SimGUI:
     def CloseGUI(self):
         self.root.destroy()
     def Update(self):
+        self.Graph.draw()
         self.root.update()
     def ShowMessage(self,string):
          messagebox.showinfo("",string)

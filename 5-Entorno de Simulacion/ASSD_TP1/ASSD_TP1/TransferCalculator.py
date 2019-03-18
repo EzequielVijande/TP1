@@ -6,7 +6,7 @@ from scipy import signal
 class TransferCalculator(object):
     """Clase que se encarga de calcular la salida de un bloque cualquiera conociendo la entrada"""
     def __init__(self):
-        self.n=200
+        self.n=500
         return
     #Funciones que calculan el valor de la funcion en un nodo
     def CalculateInputInTime(self,data):
@@ -22,7 +22,6 @@ class TransferCalculator(object):
                 data.input.append( A*(math.cos(2*(math.pi)*fo*(t[i]))) )
             data.t = t
     def CalculateFAA_InTime(self,data):
-        (data.GetFAA()).clear()
         n=self.n
         fo= data.GetFo()
         wp =2.0*math.pi*(data.GetFc())
@@ -55,7 +54,9 @@ class TransferCalculator(object):
                 numero_de_periodo=np.floor(k/samples_per_period)
                 start=int(numero_de_periodo*samples_per_period)+10
                 l=int(start*(Thigh/(10*self.Ts)))
-                data.SH.append((data.input)[l])
+                if(l>= len(input)):
+                    l= len(input)-1
+                data.SH.append(input[l])
 
 
     def CalculateAnalogKeyInTime(self,data):
@@ -78,10 +79,11 @@ class TransferCalculator(object):
                 numero_de_periodo=np.floor(k/samples_per_period)
                 start=int(numero_de_periodo*samples_per_period)+10
                 l=int(start*(Thigh/(10*self.Ts)))
+                if(l>= len(input)):
+                    l=len(input)-1
                 data.AnalogKey.append(input[l])
 
     def CalculateOutputInTime(self,data):
-        (data.GetOutput()).clear()
         input = data.GetAnalogKey()
         fo= data.GetFo()
         wp =2.0*math.pi*(data.GetFc())
@@ -92,12 +94,11 @@ class TransferCalculator(object):
         t,data.Output,x= signal.lsim(lp_filter,input,data.t)
 
     #Funcion que pasa del dominio del tiempo a frecuencia
-    def CalculateInFrecuency(self,data,x):
+    def CalculateInFrecuency(self,data,x,y):
         fx= list(2*(fft.fft(x)/self.n) )
 
-        (data.GetSignalInFrec()).clear()
-        data.SignalInFrec = np.abs(fx)
-        data.SignalInFrec = data.SignalInFrec[range(int(self.n/2))]
+        y = np.abs(fx)
+        y = y[range(int(self.n/2))]
         data.f = np.linspace(0,1.0/(2.0*self.Ts),(self.n)/2)
 
     def GenerateSquareWave(self,fs,Thigh,t):

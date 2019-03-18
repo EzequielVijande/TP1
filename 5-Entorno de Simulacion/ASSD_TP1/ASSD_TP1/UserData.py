@@ -21,7 +21,12 @@ class UserData(object):
         self.Output=[]
         self.t=[] #vector con la abscisa del tiempo
         self.f=[] #vector con la abscisa de las frecuencias
-        self.SignalInFrec=[]
+        #Vectores en frecuencia
+        self.InputInFrec=[]
+        self.FAA_InFrec=[]
+        self.SH_InFrec=[]
+        self.AnalogKeyInFrec=[]
+        self.OutputInFrec=[]
 
     #Getters
     def GetFo(self):
@@ -63,6 +68,4 @@ class UserData(object):
     def GetFrequencyVector(self):
         return (self.f)
     
-    def GetSignalInFrec(self):
-        return (self.SignalInFrec)
 
