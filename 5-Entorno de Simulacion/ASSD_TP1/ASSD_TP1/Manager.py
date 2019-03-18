@@ -106,7 +106,13 @@ class Manager(object):
         Ymin=0
         Ymax=0
         f= self.Data.GetFrequencyVector()
+        #Harmonicos
         y_inp =self.Data.InputInFrec
+        y_faa = self.Data.FAA_InFrec
+        y_sh = self.Data.SH_InFrec
+        y_key = self.Data.AnalogKeyInFrec
+        y_out = self.Data.OutputInFrec
+
         self.GUI.Axes.cla()
         self.GUI.PlotInput(self.Data.t,self.Data.GetInput())
         self.GUI.PlotA(self.Data.t,self.Data.GetFAA())
@@ -115,7 +121,7 @@ class Manager(object):
         self.GUI.PlotOutput(self.Data.t,self.Data.GetOutput())
 
         Xmin,Xmax,Ymin,Ymax= self.ObtainScaleLimits()
-        self.GUI.DisplaySelectedGraph(Xmin,Xmax,Ymin,Ymax,f,y_inp)
+        self.GUI.DisplaySelectedGraph(Xmin,Xmax,Ymin,Ymax,f,y_inp,y_faa,y_sh,y_key,y_out)
 
     def ObtainScaleLimits(self):
         selected_graph = (self.GUI.GetSelectedPlot())
@@ -143,15 +149,15 @@ class Manager(object):
             Xmax= 15*(self.Data.fo)
             Ymin=0
             if(selected_graph == g.INPUT):
-                Ymax= max(self.Data.InputInFrec)
+                Ymax= 1.2*max(self.Data.InputInFrec)
             elif(selected_graph == g.A):
-                Ymax= max(self.Data.FAA_InFrec)
+                Ymax= 1.2*max(self.Data.FAA_InFrec)
             elif(selected_graph == g.B):
-                Ymax= max(self.Data.SH_InFrec)
+                Ymax= 1.2*max(self.Data.SH_InFrec)
             elif(selected_graph == g.C):
-                Ymax= max(self.Data.AnalogKeyInFrec)
+                Ymax= 1.2*max(self.Data.AnalogKeyInFrec)
             elif(selected_graph == g.OUTPUT):
-                Ymax= max(self.Data.OutputInFrec)
+                Ymax= 1.2*max(self.Data.OutputInFrec)
         return Xmin, Xmax, Ymin, Ymax
 
 

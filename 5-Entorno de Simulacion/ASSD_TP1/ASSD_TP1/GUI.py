@@ -53,7 +53,14 @@ class SimGUI:
     """Clase que se encarga de manejar la interfaz grafic de la simulacion"""
     def __init__(self):
         self.graphed_once= False
+        self.input_changed= False
+        #Flags para graficas discretas
         self.Inp_is_in_plot= False
+        self.FAA_is_in_plot=False
+        self.SH_is_in_plot=False
+        self.AnalogKey_is_in_plot=False
+        self.Output_is_in_plot=False
+
         self.Ev=NO_EV
         self.root = Tk()
         self.root.geometry('1620x780')
@@ -226,7 +233,18 @@ class SimGUI:
         if(self.Inp_is_in_plot):
             self.Inp_container.remove()
             self.Inp_is_in_plot=False
-    
+        elif(self.FAA_is_in_plot):
+            self.FAA_container.remove()
+            self.FAA_is_in_plot= False
+        elif(self.SH_is_in_plot):
+            self.SH_container.remove()
+            self.SH_is_in_plot= False
+        elif(self.AnalogKey_is_in_plot):
+            self.AnalogKey_container.remove()
+            self.AnalogKey_is_in_plot= False
+        elif(self.Output_is_in_plot):
+            self.Output_container.remove()
+            self.Output_is_in_plot= False
 
     def PlotInput(self,t,y):
         self.Input_lines, =self.Axes.plot(t,y)
@@ -247,7 +265,23 @@ class SimGUI:
         self.Inp_container =self.Axes.stem(f,y,basefmt='')
         self.Inp_is_in_plot=True
 
-    def DisplaySelectedGraph(self,Xmin,Xmax,Ymin,Ymax,f,y_inp):
+    def PlotFAA_InFrec(self,f,y):
+        self.FAA_container= self.Axes.stem(f,y,basefmt='')
+        self.FAA_is_in_plot= True
+
+    def PlotSH_InFrec(self,f,y):
+        self.SH_container= self.Axes.stem(f,y,basefmt='')
+        self.SH_is_in_plot = True
+
+    def PlotAnalogKey_InFrec(self,f,y):
+        self.AnalogKey_container= self.Axes.stem(f,y,basefmt='')
+        self.AnalogKey_is_in_plot = True
+
+    def PlotOutput_InFrec(self,f,y):
+        self.Output_container= self.Axes.stem(f,y,basefmt='')
+        self.Output_is_in_plot = True
+
+    def DisplaySelectedGraph(self,Xmin,Xmax,Ymin,Ymax,f,y_inp,y_faa,y_sh,y_key,y_out):
         sel = self.GetSelectedPlot()
         self.HideAllLines()
         self.Axes.grid(b=True,axis='both')
@@ -324,6 +358,66 @@ class SimGUI:
                 self.Axes.set_xlim(left=Xmin,right=Xmax)
                 self.Axes.set_ylim(bottom=Ymin,top=Ymax)
                 self.PlotInpInFrec(f,y_inp)
+            elif(sel == A):
+                if(Ymax ==float('NaN') or Ymax == float('inf')):
+                    self.Axes.set_xlim(left=Xmin,right=Xmax)
+                    self.Axes.set_ylim(bottom=-100,top=100)
+                    return
+                else:
+                    self.Axes.set_xlim(left=Xmin,right=Xmax)
+                    self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                self.Axes.set_xscale("linear")
+                self.Axes.set_xlabel("f(Hz)")
+                self.Axes.set_ylabel("|F{Va(t)}|(f)")
+                self.Axes.set_title("Harmonicos de V(t) en A")
+                self.Axes.set_xlim(left=Xmin,right=Xmax)
+                self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                self.PlotFAA_InFrec(f,y_faa)
+            elif(sel == B):
+                if(Ymax ==float('NaN') or Ymax == float('inf')):
+                    self.Axes.set_xlim(left=Xmin,right=Xmax)
+                    self.Axes.set_ylim(bottom=-100,top=100)
+                    return
+                else:
+                    self.Axes.set_xlim(left=Xmin,right=Xmax)
+                    self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                self.Axes.set_xscale("linear")
+                self.Axes.set_xlabel("f(Hz)")
+                self.Axes.set_ylabel("|F{Vb(t)}|(f)")
+                self.Axes.set_title("Harmonicos de V(t) en B")
+                self.Axes.set_xlim(left=Xmin,right=Xmax)
+                self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                self.PlotSH_InFrec(f,y_sh)
+            elif(sel == C):
+                if(Ymax ==float('NaN') or Ymax == float('inf')):
+                    self.Axes.set_xlim(left=Xmin,right=Xmax)
+                    self.Axes.set_ylim(bottom=-100,top=100)
+                    return
+                else:
+                    self.Axes.set_xlim(left=Xmin,right=Xmax)
+                    self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                self.Axes.set_xscale("linear")
+                self.Axes.set_xlabel("f(Hz)")
+                self.Axes.set_ylabel("|F{Vc(t)}|(f)")
+                self.Axes.set_title("Harmonicos de V(t) en C")
+                self.Axes.set_xlim(left=Xmin,right=Xmax)
+                self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                self.PlotAnalogKey_InFrec(f,y_key)
+            elif(sel == OUTPUT):
+                if(Ymax ==float('NaN') or Ymax == float('inf')):
+                    self.Axes.set_xlim(left=Xmin,right=Xmax)
+                    self.Axes.set_ylim(bottom=-100,top=100)
+                    return
+                else:
+                    self.Axes.set_xlim(left=Xmin,right=Xmax)
+                    self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                self.Axes.set_xscale("linear")
+                self.Axes.set_xlabel("f(Hz)")
+                self.Axes.set_ylabel("|F{Xout(t)}|(f)")
+                self.Axes.set_title("Harmonicos de Xout")
+                self.Axes.set_xlim(left=Xmin,right=Xmax)
+                self.Axes.set_ylim(bottom=Ymin,top=Ymax)
+                self.PlotOutput_InFrec(f,y_out)
             
 
     #Callbacks
@@ -334,6 +428,8 @@ class SimGUI:
     def change_domain_of_graph_call(self):
         self.Ev= TIME_FREQ_BUTTON_EV
 
+    def input_change_callback(self):
+        self.input_changed = True
     def on_closing(self):
         if messagebox.askokcancel("Cerrar", "Desea cerrar el programa?"):
             self.Ev=QUIT_EV
