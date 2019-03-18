@@ -28,7 +28,7 @@ class TransferCalculator(object):
         ws= (1.5*wp)
         Ap= u.AP
         As= u.AS
-        lp_filter = signal.iirdesign(wp=wp,ws=ws,gpass=Ap,gstop=As,analog=True,ftype='cheby2')
+        lp_filter = signal.iirdesign(wp=wp,ws=ws,gpass=Ap,gstop=As,analog=True,ftype=data.Aproximacion)
         t,data.FAA,x= signal.lsim(lp_filter,data.GetInput(),data.t)
 
 

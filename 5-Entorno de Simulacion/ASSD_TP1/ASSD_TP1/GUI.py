@@ -41,8 +41,7 @@ APROXIMACIONES=[
     "butter",
     "cheby1",
     "cheby2",
-    "ellip",
-    "bessel"]
+    "ellip"]
 #Nodos
 A=1
 B=2
