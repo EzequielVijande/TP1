@@ -34,7 +34,7 @@ FUNCIONES=[
     "coseno",
     "AM",
     "x^2",
-    "cuadrada"
+    "(3/2)seno"
     ]
 #Aproximaciones
 APROXIMACIONES=[

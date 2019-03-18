@@ -33,7 +33,22 @@ class TransferCalculator(object):
                 for j in range (0,len(an)):
                     aux2= aux2+ (an[j]*math.cos(2*(math.pi)*(j+1)*fo*(t[i])))
                 data.input.append(aux2)
-
+        elif(signal == "(3/2)seno"):
+            #coeficientes de fourier
+            a0= 2.0/(3.0*math.pi)
+            an=[]
+            for i in range(1,41):
+                first_term= math.cos( (1.5*math.pi)*( ((2*i)/3.0)-1 ) )/( ((2*i)/3.0)-1)
+                second_term= (-1.0)* ( math.cos( (1.5*math.pi)*( ((2*i)/3.0)+1 ) )/( ((2*i)/3.0)+1) )
+                third_term= 1.0/( ( (2.0*i)/3.0 )+1.0 )
+                fourth_term=  -1.0/( ( (2.0*i)/3.0 )-1.0 ) 
+                aux= (1.0/(3.0*math.pi)) * ( (first_term) + (second_term) + (third_term) + (fourth_term))
+                an.append(aux)
+            for i in range (0,t.size):
+                aux2=a0
+                for j in range (0,len(an)):
+                    aux2= aux2+ (an[j]*math.cos(2*(math.pi)*(j+1)*fo*(t[i])))
+                data.input.append(aux2)
     def CalculateFAA_InTime(self,data):
         n=self.n
         fo= data.GetFo()
