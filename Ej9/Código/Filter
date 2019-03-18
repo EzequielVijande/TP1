@@ -1,5 +1,5 @@
 from matplotlib import pyplot as p
-
+import math
 
 class Filter:
 
@@ -48,13 +48,16 @@ class Filter:
         self.last_out[1] = 0
 
 
-f1 = Filter(1, -1/4)
-f2 = Filter(1/3, -1/8)
-f3 = Filter(4/3, -25/32)
-
-
+f1 = Filter(1, -1/2)
+# f2 = Filter(1/3, -1/8)
+# f3 = Filter(4/3, -25/32)
 f1.set_null_initial_conditions()
-n = [0, 1, 2, 3, 4]
-y = f1.in_out(n)
-p.plot([0, 1, 2, 3, 4], y)
+n = list(range(4000))
+
+f0 = [i*0.01 for i in range(100000)]
+T = 0.001
+
+H = [(1 / (2 + 0.8*math.cos(math.pi*2*f0[i])))**(1/2) for i in range(len(f0))]
+p.plot(f0, H)
 p.show()
+print("hola")
