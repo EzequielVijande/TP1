@@ -11,9 +11,13 @@ class TransferCalculator(object):
     #Funciones que calculan el valor de la funcion en un nodo
     def CalculateInputInTime(self,data):
         signal = data.GetFunc()
-        fo = data.GetFo()
         A = data.GetAmp()
-        T= 1.0/fo #Periodo de la funcion
+        if(data.GetFunc() != "AM"):
+            fo = data.GetFo()
+            T= 1.0/fo #Periodo de la funcion
+        else:
+            T= 1.0/(data.AM_fm)
+
         self.Ts= (4*T)/(self.n)
         t= np.array( np.arange(start=0,stop=(self.n)*(self.Ts),step=self.Ts ))
         data.input.clear()
@@ -21,6 +25,12 @@ class TransferCalculator(object):
         if(signal == "coseno"):
             for i in range (0,t.size):
                 data.input.append( A*(math.cos(2*(math.pi)*fo*(t[i]))) )
+        elif(signal == "AM"):
+            fp = data.AM_fp
+            fm = data.AM_fm
+            for i in range (0,t.size):
+                aux= (1+(data.AM_m_index)*(math.cos(2*(math.pi)*fm*(t[i]))) )*A*(math.sin(2*(math.pi)*fp*(t[i])))
+                data.input.append( aux )
         elif(signal == "x^2"):
             #coeficientes de fourier
             a0= (T**2)/12.0

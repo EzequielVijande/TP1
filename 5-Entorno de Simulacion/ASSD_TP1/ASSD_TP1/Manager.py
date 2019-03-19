@@ -68,12 +68,20 @@ class Manager(object):
 
     def UpdateUserData(self):
         self.Data.Amp =  float(self.GUI.InpAmpString.get() )
-        self.Data.fo = float(self.GUI.InpFrecString.get())
         self.Data.func = (self.GUI.selected_func.get())
+
+        if( self.Data.func == "AM"):
+            self.Data.AM_fp = float(self.GUI.InpAmFpString.get())
+            self.Data.AM_fm = float(self.GUI.InpAmFmString.get())
+            self.Data.AM_m_index = self.GUI.SlideAmIndex.get()
+        else:
+             self.Data.fo = float(self.GUI.InpFrecString.get())
+
         self.Data.fs = float(self.GUI.SamplerFsString.get())
         self.Data.fc = float(self.GUI.FilterFcString.get())
         self.Data.DutyCycle= self.GUI.SlideDC.get()
         self.Data.Aproximacion= self.GUI.SelectedAprox.get()
+
 
     def CalculateAllNodes(self):
         self.calc.CalculateInputInTime(self.Data)

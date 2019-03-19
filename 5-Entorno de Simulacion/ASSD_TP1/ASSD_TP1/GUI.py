@@ -60,6 +60,7 @@ class SimGUI:
     def __init__(self):
         self.graphed_once= False
         self.input_changed= False
+        self.ShowingAmParameters = False #flag que indica que se muestran las entradas para unna funcion AM
         #Flags para graficas discretas
         self.Inp_is_in_plot= False
         self.FAA_is_in_plot=False
@@ -125,6 +126,9 @@ class SimGUI:
     def CreateInputSection(self):
         self.InpAmpString= StringVar()
         self.InpFrecString= StringVar()
+        self.InpAmFpString= StringVar()
+        self.InpAmFmString= StringVar()
+
         self.InputFrame = LabelFrame(master=self.OptionsFrame, text="Entrada",background=FRAME_COLOR,fg=FRAME_TEXT_COLOR)
         self.InputFrame.grid(row=0,column=0,sticky=S+N)
         self.selected_func = StringVar(master=self.InputFrame)
@@ -138,11 +142,23 @@ class SimGUI:
         self.entry_inp_fo=Entry(master=self.InputFrame,textvariable=self.InpFrecString)
         self.entry_inp_fo.grid(row=1,column=1,ipadx=120)
 
+        #Entradas para funcion AM
+        self.InpFpLabel = Label(master=self.InputFrame,text="fp(Hz)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
+        self.entry_inp_fp=Entry(master=self.InputFrame,textvariable=self.InpAmFpString)
+
+        self.InpFmLabel= Label(master=self.InputFrame,text="fm(Hz)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
+        self.entry_inp_fm=Entry(master=self.InputFrame,textvariable=self.InpAmFmString)
+
+        self.AmIndexLabel= Label(master=self.InputFrame,text="m",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
+        self.SlideAmIndex= Scale(master=self.InputFrame, from_=0.01, to=1,resolution=0.01,orient=HORIZONTAL)
+        self.SlideAmIndex.config(bg=BUTTON_COLOR)
+
         self.InpAmpLabel= Label(master=self.InputFrame,text="Amp(V)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.InpAmpLabel.grid(row=2,column=0,sticky=W+E)
         self.entry_inp_amp= Entry(master=self.InputFrame,textvariable=self.InpAmpString)
         self.entry_inp_amp.grid(row=2,column=1,sticky=W+E)
-
+        #Trackeo de la funcion de input
+        self.selected_func.trace("w",self.selected_func_callback)
 
     def CreateFilterSection(self):
         self.FilterFcString= StringVar()
@@ -168,6 +184,7 @@ class SimGUI:
 
         #Aproximacion
         self.approx_menu = OptionMenu(self.FilterFrame, self.SelectedAprox, *APROXIMACIONES)
+        self.approx_menu.config(bg=BUTTON_COLOR)
         self.approx_menu.grid(row=2,sticky=W+E)
 
         #Desselecciono los botones
@@ -443,6 +460,33 @@ class SimGUI:
 
     def input_change_callback(self):
         self.input_changed = True
+
+    def selected_func_callback(self,*args):
+        self.input_changed = True
+        if(self.selected_func.get() == "AM"):
+            self.ShowingAmParameters= True
+            self.InpFrecLabel.grid_forget() #Saco las entradas coresspondientes
+            self.entry_inp_fo.grid_forget() #a otras funciones
+
+            self.InpFpLabel.grid(row=1,column=0,sticky=W+E)        #Coloco las entradas correspondientes
+            self.entry_inp_fp.grid(row=1,column=1,sticky=W+E,ipadx=110)   #a una funcion AM 
+            self.InpFmLabel.grid(row=3,column=0,sticky=W+E)
+            self.entry_inp_fm.grid(row=3,column=1,sticky=W+E)
+            self.AmIndexLabel.grid(row=4,column=0,sticky=N+S+W+E)
+            self.SlideAmIndex.grid(row=4,column=1,sticky=W+E)
+        else:
+            if(self.ShowingAmParameters):
+                self.ShowingAmParameters = False
+                self.InpFpLabel.grid_forget()       #Saco las entradas correspondientes
+                self.entry_inp_fp.grid_forget()     #Correspondientes a una funcion AM
+                self.InpFmLabel.grid_forget() 
+                self.entry_inp_fm.grid_forget() 
+                self.AmIndexLabel.grid_forget() 
+                self.SlideAmIndex.grid_forget() 
+
+                self.InpFrecLabel.grid(row=1,column=0,sticky=W+E)     #Pongo las entradas correspondientes
+                self.entry_inp_fo.grid(row=1,column=1,sticky=W+E,ipadx=120)   #a las demas entradas
+
     def on_closing(self):
         if messagebox.askokcancel("Cerrar", "Desea cerrar el programa?"):
             self.Ev=QUIT_EV

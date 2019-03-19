@@ -14,6 +14,10 @@ class UserData(object):
         self.fs= f_sample
         self.fc =fc
         self.Aproximacion=""
+        #Parametros para funcion AM
+        self.AM_fp=0
+        self.AM_fm=0
+        self.AM_m_index=1
         #Resultados
         self.input=[]
         self.FAA=[]
