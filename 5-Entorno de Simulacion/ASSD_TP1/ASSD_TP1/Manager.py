@@ -54,13 +54,15 @@ class Manager(object):
 
     def OnPlotEv(self):
         graph_to_plot= self.GUI.GetSelectedPlot()
-        #Validar input
-        #Actualizar los parametros de input
-        self.UpdateUserData()
-        self.CalculateAllNodes()
-        self.CalculateHarmonics()
+        result_str= self.ValidateInput()
+        if(result_str!="Ok"):
+            self.GUI.ShowMessage(result_str)
+        else:
+            self.UpdateUserData()
+            self.CalculateAllNodes()
+            self.CalculateHarmonics()
    
-        self.ShowGraph()
+            self.ShowGraph()
     
                      
     def Error(self):
@@ -168,5 +170,60 @@ class Manager(object):
             elif(selected_graph == g.OUTPUT):
                 Ymax= 1.2*max(self.Data.OutputInFrec)
         return Xmin, Xmax, Ymin, Ymax
+
+    def isfloat(self,value):
+      try:
+        float(value)
+        return True
+      except ValueError:
+        return False
+
+    def IsValidNumber(self,arg, argstring):
+        if( self.isfloat(arg)): #valido el argumento
+            arg_f=float(arg)
+            if(arg_f<=0):
+                return ( argstring+" debe ser positivo")
+            elif(arg_f==float("inf")):
+                return (argstring+" debe tener un valor finito")
+
+        else:
+            return ("Error de sintaxis en "+argstring)
+
+        return "Ok" #El numero parece ser valido
+
+    def ValidateInput(self):
+        func = self.GUI.GetSelectedFunc()
+        type_of_plot = self.GUI.GetSelectedPlot()
+        #Valido la amplitud
+        A_str = self.IsValidNumber(self.GUI.InpAmpString.get(),"A")
+        if(A_str != "Ok"):
+            return A_str
+        if(func == "AM"):
+            fpStr = self.IsValidNumber(self.GUI.InpAmFpString.get(),"fp")
+            if(fpStr != "Ok"):
+                return fpStr
+            fmStr = self.IsValidNumber(self.GUI.InpAmFmString.get(),"fm")
+            if(fmStr != "Ok"):
+                return fmStr
+            fp = float(self.GUI.InpAmFpString.get())
+            fm = float(self.GUI.InpAmFmString.get())
+            if(fm >= fp):
+                return "fm debe ser menor que fp"
+        else:
+            foStr = self.IsValidNumber(self.GUI.InpFrecString.get(),"fo")
+            if(foStr != "Ok"):
+                return foStr
+
+
+        fcStr = self.IsValidNumber(self.GUI.FilterFcString.get(),"fc")
+        if( fcStr != "Ok"):
+            return fcStr
+        fsStr = self.IsValidNumber(self.GUI.SamplerFsString.get(), "fs")
+        if( fsStr != "Ok"):
+            return fsStr
+
+        return "Ok"
+
+
 
 

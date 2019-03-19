@@ -248,6 +248,8 @@ class SimGUI:
         return ( self.SelectedPlot.get() )
     def GetSelectedDomain(self):
         return (self.SelectedGraph.get())
+    def GetSelectedFunc(self):
+        return self.selected_func.get()
 
     #Funciones de la grafica
     def InitializeAxes(self):
