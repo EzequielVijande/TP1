@@ -22,6 +22,8 @@ class Manager(object):
                 self.OnTimeFreqEv()
             elif(ev == g.PLOT_BUTTON_EV):
                 self.OnPlotEv()
+            elif(ev == g.INPUT_CHANGED_EV):
+                self.OnInputChangedEv()
             else:
                 self.Error()
 
@@ -43,6 +45,10 @@ class Manager(object):
         self.estado=EXIT
         return
 
+    def OnInputChangedEv(self):
+        if(self.GUI.graphed_once):
+            self.OnPlotEv()
+
     def OnTimeFreqEv(self):
         selected = self.GUI.GetSelectedDomain()
         if( (selected == g.TIME)and(self.estado != TIEMPO)):
@@ -58,9 +64,11 @@ class Manager(object):
         if(result_str!="Ok"):
             self.GUI.ShowMessage(result_str)
         else:
-            self.UpdateUserData()
-            self.CalculateAllNodes()
-            self.CalculateHarmonics()
+            self.GUI.graphed_once = True
+            if(self.GUI.input_changed):
+                self.UpdateUserData()
+                self.CalculateAllNodes()
+                self.CalculateHarmonics()
    
             self.ShowGraph()
     
@@ -135,6 +143,7 @@ class Manager(object):
         self.GUI.DisplaySelectedGraph(Xmin,Xmax,Ymin,Ymax,f,y_inp,y_faa,y_sh,y_key,y_out)
 
     def ObtainScaleLimits(self):
+        func = self.Data.GetFunc()
         selected_graph = (self.GUI.GetSelectedPlot())
         Xmin=0
         Xmax=max(self.Data.GetTimeVector())
@@ -157,7 +166,10 @@ class Manager(object):
                 Ymin= min(self.Data.GetOutput())
                 Ymax= max(self.Data.GetOutput())
         elif(self.estado == FRECUENCIA):
-            Xmax= 15*(self.Data.fo)
+            if(func != "AM"):
+                Xmax= 15*(self.Data.fo)
+            else:
+                Xmax= 2*self.Data.AM_fp
             Ymin=0
             if(selected_graph == g.INPUT):
                 Ymax= 1.2*max(self.Data.InputInFrec)

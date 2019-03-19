@@ -20,7 +20,7 @@ class TransferCalculator(object):
 
         self.Ts= (4*T)/(self.n)
         t= np.array( np.arange(start=0,stop=(self.n)*(self.Ts),step=self.Ts ))
-        data.input.clear()
+        data.input= []
         data.t = t
         if(signal == "coseno"):
             for i in range (0,t.size):
@@ -28,8 +28,9 @@ class TransferCalculator(object):
         elif(signal == "AM"):
             fp = data.AM_fp
             fm = data.AM_fm
+            m = data.AM_m_index
             for i in range (0,t.size):
-                aux= (1+(data.AM_m_index)*(math.cos(2*(math.pi)*fm*(t[i]))) )*A*(math.sin(2*(math.pi)*fp*(t[i])))
+                aux= A*( (math.sin(2*(math.pi)*fp*(t[i])) ) + 0.5*m*( math.sin(2*(math.pi)*(fp+fm)*(t[i])) + math.sin(2*(math.pi)*(fp-fm)*(t[i]))) )
                 data.input.append( aux )
         elif(signal == "x^2"):
             #coeficientes de fourier
@@ -75,7 +76,7 @@ class TransferCalculator(object):
     def CalculateSH_InTime(self,data):
         numero_de_periodo=0
         start=0 #indice en el que empieza a muestrearse un nuevo periodo
-        (data.GetSH()).clear()
+        data.SH =[]
         input= data.GetFAA()
         fs=data.GetFs()
         dc= data.GetDutyCycle()
@@ -100,7 +101,7 @@ class TransferCalculator(object):
     def CalculateAnalogKeyInTime(self,data):
         numero_de_periodo=0
         start=0 #indice en el que empieza a muestrearse un nuevo periodo
-        (data.GetAnalogKey()).clear()
+        data.AnalogKey = []
         input = data.GetSH()
         fs= data.GetFs()
         dc= data.GetDutyCycle()

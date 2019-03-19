@@ -15,6 +15,7 @@ NO_EV=0
 QUIT_EV=1
 TIME_FREQ_BUTTON_EV=2
 PLOT_BUTTON_EV=3
+INPUT_CHANGED_EV=4
 
 
 #Largos y Anchos
@@ -150,7 +151,7 @@ class SimGUI:
         self.entry_inp_fm=Entry(master=self.InputFrame,textvariable=self.InpAmFmString)
 
         self.AmIndexLabel= Label(master=self.InputFrame,text="m",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
-        self.SlideAmIndex= Scale(master=self.InputFrame, from_=0.01, to=1,resolution=0.01,orient=HORIZONTAL)
+        self.SlideAmIndex= Scale(master=self.InputFrame, from_=0.01, to=1,resolution=0.01,orient=HORIZONTAL,command= self.input_change_callback)
         self.SlideAmIndex.config(bg=BUTTON_COLOR)
 
         self.InpAmpLabel= Label(master=self.InputFrame,text="Amp(V)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
@@ -159,6 +160,10 @@ class SimGUI:
         self.entry_inp_amp.grid(row=2,column=1,sticky=W+E)
         #Trackeo de la funcion de input
         self.selected_func.trace("w",self.selected_func_callback)
+        self.InpAmpString.trace("w",self.input_change_callback)
+        self.InpFrecString.trace("w",self.input_change_callback)
+        self.InpAmFpString.trace("w",self.input_change_callback)
+        self.InpAmFmString.trace("w",self.input_change_callback)
 
     def CreateFilterSection(self):
         self.FilterFcString= StringVar()
@@ -175,10 +180,10 @@ class SimGUI:
         self.entry_filter_fc= Entry(master=self.FilterFrame,textvariable=self.FilterFcString)
         self.entry_filter_fc.grid(row=0,column=1,sticky=W+E,ipadx=120)
         #Botones de Bypass
-        self.FAA_BypassButton= Checkbutton(master=self.FilterFrame, text="Bypass FAA",
+        self.FAA_BypassButton= Checkbutton(master=self.FilterFrame, text="Bypass FAA",command= self.input_change_callback,
                         variable=self.BypassFAA,onvalue=BYPASS_ON, offvalue=BYPASS_OFF,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.FAA_BypassButton.grid(row=1,column=0,sticky=W+E)
-        self.FR_BypassButton= Checkbutton(master=self.FilterFrame, text="Bypass FR",
+        self.FR_BypassButton= Checkbutton(master=self.FilterFrame, text="Bypass FR",command= self.input_change_callback,
                         variable=self.BypassFR,onvalue=BYPASS_ON, offvalue=BYPASS_OFF,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.FR_BypassButton.grid(row=1,column=1,sticky=W+E)
 
@@ -190,6 +195,10 @@ class SimGUI:
         #Desselecciono los botones
         self.FAA_BypassButton.deselect()
         self.FR_BypassButton.deselect()
+        #Trackeo de las variables
+        self.FilterFcString.trace("w",self.input_change_callback)
+        self.SelectedAprox.trace("w",self.input_change_callback)
+
     def CreateSamplerSection(self):
         #Variables
         self.SamplerFsString= StringVar()
@@ -205,20 +214,21 @@ class SimGUI:
         #Duty cycle
         self.SlideDC_Label = Label(master=self.SamplerFrame,text="DC(%)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.SlideDC_Label.grid(row=1,column=0,sticky=N+S+W+E)
-        self.SlideDC = Scale(master=self.SamplerFrame, from_=0, to=100,orient=HORIZONTAL)
+        self.SlideDC = Scale(master=self.SamplerFrame, from_=0, to=100,orient=HORIZONTAL,command= self.input_change_callback)
         self.SlideDC.config(bg=BUTTON_COLOR)
         self.SlideDC.grid(row=1,column=1,sticky=W+E,ipadx=120)
         #Botones de Bypass
-        self.SH_BypassButton= Checkbutton(master=self.SamplerFrame, text="Bypass SH",
+        self.SH_BypassButton= Checkbutton(master=self.SamplerFrame, text="Bypass SH",command= self.input_change_callback,
                         variable=self.BypassSH,onvalue=BYPASS_ON, offvalue=BYPASS_OFF,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.SH_BypassButton.grid(row=2,column=0,sticky=W+E)
-        self.KEY_BypassButton= Checkbutton(master=self.SamplerFrame, text="Bypass Key",
+        self.KEY_BypassButton= Checkbutton(master=self.SamplerFrame, text="Bypass Key",command= self.input_change_callback,
                         variable=self.BypassKey,onvalue=BYPASS_ON, offvalue=BYPASS_OFF,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.KEY_BypassButton.grid(row=2,column=1,sticky=W+E)
 
         self.SH_BypassButton.deselect()
         self.KEY_BypassButton.deselect()
-
+        #Trackeo de variables
+        self.SamplerFsString.trace("w", self.input_change_callback)
 
     def PlaceButtons(self):
         self.SelectedPlot = IntVar()
@@ -336,7 +346,7 @@ class SimGUI:
                 self.Axes.set_ylabel("V(t) (Volts)")
                 self.Axes.set_title("Nodo A(t)")
                 self.Axes.set_xlim(left=Xmin,right=Xmax)
-                if(Ymax ==float('NaN') or Ymax == float('inf') or Ymin ==float('NaN') or Ymin == float('inf')):
+                if(Ymax ==float('NaN') or Ymax == float('inf') or Ymin ==float('NaN') or Ymin == float('inf') or Ymin == float('-inf')):
                     self.Axes.set_ylim(bottom=-100,top=100)
                 else:
                     self.Axes.set_ylim(bottom=Ymin,top=Ymax)
@@ -460,11 +470,13 @@ class SimGUI:
     def change_domain_of_graph_call(self):
         self.Ev= TIME_FREQ_BUTTON_EV
 
-    def input_change_callback(self):
+    def input_change_callback(self,*args):
         self.input_changed = True
+        self.Ev = INPUT_CHANGED_EV
 
     def selected_func_callback(self,*args):
         self.input_changed = True
+        self.Ev = INPUT_CHANGED_EV
         if(self.selected_func.get() == "AM"):
             self.ShowingAmParameters= True
             self.InpFrecLabel.grid_forget() #Saco las entradas coresspondientes
