@@ -1,4 +1,4 @@
-Circuit: * C:\Users\lugfe\Documents\GitHub\ASSD\TP1\filtros\filtro no montecarlo.asc
+Circuit: * C:\Users\Tomas\Desktop\ITBA\8° Cuatrimestre\Análisis de Señales y Sistemas Digitales\Trabajos Prácticos\TP N°1\TP1\filtros\filtro no montecarlo.asc
 
 Early termination of direct N-R iteration.
 Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
@@ -7,42 +7,162 @@ Gmin = 10
 vernier = 0.5
 vernier = 0.25
 vernier = 0.125
-Gmin = 5.6588
+Gmin = 5.5165
 vernier = 0.0625
 vernier = 0.03125
 vernier = 0.015625
-Gmin = 5.48561
 vernier = 0.0078125
+Gmin = 5.48432
 vernier = 0.00390625
 vernier = 0.00195313
 vernier = 0.000976563
-Gmin = 5.49362
 vernier = 0.000488281
 Gmin = 0
 Gmin stepping failed
 
 Starting source stepping with srcstepmethod=0
 Source Step = 3.0303%
-Source Step = 33.3333%
-Source Step = 63.6364%
-Source Step = 93.9394%
+Source Step = 9.09979%
+Source Step = 9.12938%
+Source Step = 9.15897%
+Source Step = 9.18857%
+Source Step = 9.21816%
+Source Step = 9.24775%
+vernier = 0.00146484
+Source Step = 9.29214%
+Source Step = 9.33653%
+Source Step = 9.38092%
+Source Step = 9.42531%
+Source Step = 9.4697%
+vernier = 0.00219727
+Source Step = 9.53406%
+Source Step = 9.60065%
+Source Step = 9.66723%
+Source Step = 9.73381%
+Source Step = 9.8004%
+vernier = 0.0032959
+Source Step = 9.89361%
+Source Step = 9.99349%
+Source Step = 10.0934%
+Source Step = 10.1932%
+Source Step = 10.2931%
+vernier = 0.00494385
+Source Step = 10.4279%
+Source Step = 10.5778%
+Source Step = 10.7276%
+Source Step = 10.8774%
+Source Step = 11.0272%
+vernier = 0.00741577
+Source Step = 11.222%
+Source Step = 11.4467%
+Source Step = 11.6714%
+Source Step = 11.8961%
+Source Step = 12.1208%
+vernier = 0.0111237
+Source Step = 12.4017%
+Source Step = 12.7388%
+Source Step = 13.0759%
+Source Step = 13.413%
+Source Step = 13.7501%
+vernier = 0.0166855
+Source Step = 14.1546%
+Source Step = 14.6602%
+Source Step = 15.1658%
+Source Step = 15.6714%
+Source Step = 16.177%
+vernier = 0.0250282
+Source Step = 16.7585%
+Source Step = 17.5169%
+Source Step = 18.2754%
+Source Step = 19.0338%
+Source Step = 19.7922%
+vernier = 0.0375423
+Source Step = 20.6265%
+Source Step = 21.7642%
+Source Step = 22.9018%
+Source Step = 24.0394%
+Source Step = 25.1771%
+vernier = 0.0563135
+Source Step = 26.3716%
+Source Step = 28.0781%
+Source Step = 29.7846%
+Source Step = 31.491%
+Source Step = 33.1975%
+Source Step = 34.904%
+vernier = 0.0844703
+Source Step = 37.4637%
+Source Step = 40.0234%
+Source Step = 42.5831%
+Source Step = 45.1428%
+Source Step = 47.7025%
+vernier = 0.126705
+Source Step = 51.4141%
+Source Step = 55.2536%
+Source Step = 59.0932%
+Source Step = 62.9327%
+Source Step = 66.7723%
+vernier = 0.190058
+Source Step = 72.1477%
+Source Step = 77.907%
+Source Step = 83.6664%
+Source Step = 89.4257%
+Source Step = 91.7564%
+Source Step = 91.8464%
+Source Step = 91.9364%
+Source Step = 92.0264%
+Source Step = 92.1164%
+Source Step = 92.2064%
+Source Step = 92.2964%
+Source Step = 92.3864%
+Source Step = 92.4763%
+Source Step = 92.5663%
+Source Step = 92.6563%
+Source Step = 92.7463%
+vernier = 0.00445449
+Source Step = 92.8498%
+Source Step = 92.9848%
+Source Step = 93.1198%
+Source Step = 93.2548%
+Source Step = 93.3897%
+vernier = 0.00668173
+Source Step = 93.5382%
+Source Step = 93.7407%
+Source Step = 93.9432%
+Source Step = 94.1457%
+Source Step = 94.3481%
+vernier = 0.0100226
+Source Step = 94.5607%
+Source Step = 94.8644%
+Source Step = 95.1682%
+Source Step = 95.4719%
+Source Step = 95.7756%
+Source Step = 96.0793%
+vernier = 0.0150339
+Source Step = 96.5349%
+Source Step = 96.9904%
+Source Step = 97.446%
+Source Step = 97.9016%
+Source Step = 98.3572%
+vernier = 0.0225508
+Source Step = 99.0177%
+Source Step = 99.7011%
 Source stepping succeeded in finding the operating point.
 
 
-Date: Fri Mar 22 12:20:13 2019
-Total elapsed time: 10.660 seconds.
+Date: Fri Mar 22 15:19:30 2019
+Total elapsed time: 167.061 seconds.
 
 tnom = 27
 temp = 27
 method = trap
-totiter = 1644
+totiter = 11590
 traniter = 0
 tranpoints = 0
 accept = 0
 rejected = 0
-matrix size = 284
-fillins = 7873
+matrix size = 263
+fillins = 7062
 solver = Normal
-Matrix Compiler1:  155682 opcodes
-Matrix Compiler2: 161.31 KB object code size  35.9/27.7/[14.5]
+Matrix Compiler1:  131035 opcodes
+Matrix Compiler2: 144.53 KB object code size  42.7/38.1/[34.8]
 
