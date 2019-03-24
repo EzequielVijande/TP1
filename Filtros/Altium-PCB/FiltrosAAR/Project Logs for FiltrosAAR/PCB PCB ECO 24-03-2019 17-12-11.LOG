@@ -1,0 +1,362 @@
+Added Component: Designator=C1(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C2(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C3(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C4(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C5(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C6(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C8(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C9(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C10(CAP200)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J1(JUMPER3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J2(JUMPER3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J3(JUMPER3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=J4(JUMPER3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Jumper1(JUMPER3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Jumper2(JUMPER3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Jumper3(JUMPER3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Jumper4(JUMPER3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Jumper5(JUMPER3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R1.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R1(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R2.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R2(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R3.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R3(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R4.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R4.c(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R4(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R5(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R6.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R6(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R7.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R7(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R8(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R9.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R9(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R10.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R10(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R11(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R12(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R13(PRESET V)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R14(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R15(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R17.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R17(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R18.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R18(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R19(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R20.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R20(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R21(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R22.b(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R22(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R23(RES400)
+Add component. Clean all parameters for all variants
+Added Component: Designator=TT1(DIP14)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer Link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.st.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.st.com/stonline/products/literature/ds/2301/tl084.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Jan-1999"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "06-Jun-2005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Stylized 3D Model Added."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "DIP; 14 Leads; Row Spacing 7.62 mm; Pitch 2.54 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "DIP14"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "Jan-1997"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "24-Aug-2001"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=TT2(DIP14)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer Link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.st.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.st.com/stonline/products/literature/ds/2301/tl084.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Jan-1999"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "06-Jun-2005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Stylized 3D Model Added."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "DIP; 14 Leads; Row Spacing 7.62 mm; Pitch 2.54 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "DIP14"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "Jan-1997"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "24-Aug-2001"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=TT3(DIP14)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer Link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.st.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.st.com/stonline/products/literature/ds/2301/tl084.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Jan-1999"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "06-Jun-2005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Stylized 3D Model Added."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "DIP; 14 Leads; Row Spacing 7.62 mm; Pitch 2.54 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "DIP14"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "Jan-1997"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "24-Aug-2001"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=NetC1_2 Pin=C1-2
+Added Pin To Net: NetName=NetC2_1 Pin=C2-1
+Added Pin To Net: NetName=Vo(J1) Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=NetC3_2 Pin=C3-2
+Added Pin To Net: NetName=NetC4_1 Pin=C4-1
+Added Pin To Net: NetName=Vo(J2) Pin=C4-2
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=NetC5_2 Pin=C5-2
+Added Pin To Net: NetName=NetC6_1 Pin=C6-1
+Added Pin To Net: NetName=Vo(J3) Pin=C6-2
+Added Pin To Net: NetName=NetC8_1 Pin=C8-1
+Added Pin To Net: NetName=Vo(J4) Pin=C8-2
+Added Pin To Net: NetName=NetC9_1 Pin=C9-1
+Added Pin To Net: NetName=NetC9_2 Pin=C9-2
+Added Pin To Net: NetName=NetC10_1 Pin=C10-1
+Added Pin To Net: NetName=NetC10_2 Pin=C10-2
+Added Pin To Net: NetName=Vo(E1) Pin=J1-1
+Added Pin To Net: NetName=NetJ1_2 Pin=J1-2
+Added Pin To Net: NetName=Vi Pin=J1-3
+Added Pin To Net: NetName=Vo(E2) Pin=J2-1
+Added Pin To Net: NetName=NetJ2_2 Pin=J2-2
+Added Pin To Net: NetName=Vi Pin=J2-3
+Added Pin To Net: NetName=Vo(E3) Pin=J3-1
+Added Pin To Net: NetName=NetJ3_2 Pin=J3-2
+Added Pin To Net: NetName=Vi Pin=J3-3
+Added Pin To Net: NetName=Vo(E4) Pin=J4-1
+Added Pin To Net: NetName=NetJ4_2 Pin=J4-2
+Added Pin To Net: NetName=Vi Pin=J4-3
+Added Pin To Net: NetName=NetJumper1_1 Pin=Jumper1-1
+Added Pin To Net: NetName=Vo(J1) Pin=Jumper1-2
+Added Pin To Net: NetName=Vo(E1) Pin=Jumper1-3
+Added Pin To Net: NetName=NetJumper2_1 Pin=Jumper2-1
+Added Pin To Net: NetName=Vo(J2) Pin=Jumper2-2
+Added Pin To Net: NetName=Vo(E2) Pin=Jumper2-3
+Added Pin To Net: NetName=NetJumper3_1 Pin=Jumper3-1
+Added Pin To Net: NetName=Vo(J3) Pin=Jumper3-2
+Added Pin To Net: NetName=Vo(E3) Pin=Jumper3-3
+Added Pin To Net: NetName=NetJumper4_1 Pin=Jumper4-1
+Added Pin To Net: NetName=Vo(J4) Pin=Jumper4-2
+Added Pin To Net: NetName=Vo(E4) Pin=Jumper4-3
+Added Pin To Net: NetName=NetJumper5_1 Pin=Jumper5-1
+Added Pin To Net: NetName=Vo(J5) Pin=Jumper5-2
+Added Pin To Net: NetName=Vo(E5) Pin=Jumper5-3
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Pin To Net: NetName=NetC3_2 Pin=R1-2
+Added Pin To Net: NetName=NetC4_1 Pin=R1.b-1
+Added Pin To Net: NetName=NetR1_1 Pin=R1.b-2
+Added Pin To Net: NetName=NetC2_1 Pin=R2-1
+Added Pin To Net: NetName=NetR2_2 Pin=R2-2
+Added Pin To Net: NetName=NetR2_2 Pin=R2.b-1
+Added Pin To Net: NetName=NetC1_2 Pin=R2.b-2
+Added Pin To Net: NetName=NetR3_1 Pin=R3-1
+Added Pin To Net: NetName=NetC2_1 Pin=R3-2
+Added Pin To Net: NetName=Vi Pin=R3.b-1
+Added Pin To Net: NetName=NetR3_1 Pin=R3.b-2
+Added Pin To Net: NetName=NetR4_1 Pin=R4-1
+Added Pin To Net: NetName=NetR4_2 Pin=R4-2
+Added Pin To Net: NetName=NetR4_1 Pin=R4.b-1
+Added Pin To Net: NetName=NetR4.b_2 Pin=R4.b-2
+Added Pin To Net: NetName=NetR4.b_2 Pin=R4.c-1
+Added Pin To Net: NetName=Vo(J1) Pin=R4.c-2
+Added Pin To Net: NetName=GND Pin=R5-1
+Added Pin To Net: NetName=NetR4_2 Pin=R5-2
+Added Pin To Net: NetName=NetR6_1 Pin=R6-1
+Added Pin To Net: NetName=NetC4_1 Pin=R6-2
+Added Pin To Net: NetName=NetJ1_2 Pin=R6.b-1
+Added Pin To Net: NetName=NetR6_1 Pin=R6.b-2
+Added Pin To Net: NetName=NetR7_1 Pin=R7-1
+Added Pin To Net: NetName=Vo(J2) Pin=R7-2
+Added Pin To Net: NetName=NetR7_1 Pin=R7.b-1
+Added Pin To Net: NetName=NetR7.b_2 Pin=R7.b-2
+Added Pin To Net: NetName=GND Pin=R8-1
+Added Pin To Net: NetName=NetR7.b_2 Pin=R8-2
+Added Pin To Net: NetName=NetR9_1 Pin=R9-1
+Added Pin To Net: NetName=NetC5_2 Pin=R9-2
+Added Pin To Net: NetName=NetC6_1 Pin=R9.b-1
+Added Pin To Net: NetName=NetR9_1 Pin=R9.b-2
+Added Pin To Net: NetName=NetR10_1 Pin=R10-1
+Added Pin To Net: NetName=NetC6_1 Pin=R10-2
+Added Pin To Net: NetName=NetJ2_2 Pin=R10.b-1
+Added Pin To Net: NetName=NetR10_1 Pin=R10.b-2
+Added Pin To Net: NetName=Vo(J3) Pin=R11-1
+Added Pin To Net: NetName=NetR11_2 Pin=R11-2
+Added Pin To Net: NetName=GND Pin=R12-1
+Added Pin To Net: NetName=NetR11_2 Pin=R12-2
+Added Pin To Net: NetName=NetR13_1 Pin=R13-1
+Added Pin To Net: NetName=NetJumper5_1 Pin=R13-2
+Added Pin To Net: NetName=NetJ3_2 Pin=R14-1
+Added Pin To Net: NetName=NetC8_1 Pin=R14-2
+Added Pin To Net: NetName=NetR13_1 Pin=R15-1
+Added Pin To Net: NetName=Vo(E5) Pin=R15-2
+Added Pin To Net: NetName=NetJ4_2 Pin=R17-1
+Added Pin To Net: NetName=NetC9_1 Pin=R17-2
+Added Pin To Net: NetName=NetJ4_2 Pin=R17.b-1
+Added Pin To Net: NetName=NetC9_1 Pin=R17.b-2
+Added Pin To Net: NetName=NetC9_1 Pin=R18-1
+Added Pin To Net: NetName=NetC9_2 Pin=R18-2
+Added Pin To Net: NetName=NetC9_1 Pin=R18.b-1
+Added Pin To Net: NetName=NetC9_2 Pin=R18.b-2
+Added Pin To Net: NetName=NetC10_2 Pin=R19-1
+Added Pin To Net: NetName=NetR19_2 Pin=R19-2
+Added Pin To Net: NetName=NetC9_2 Pin=R20-1
+Added Pin To Net: NetName=NetC10_1 Pin=R20-2
+Added Pin To Net: NetName=NetC9_2 Pin=R20.b-1
+Added Pin To Net: NetName=NetC10_1 Pin=R20.b-2
+Added Pin To Net: NetName=NetR19_2 Pin=R21-1
+Added Pin To Net: NetName=Vo(J5) Pin=R21-2
+Added Pin To Net: NetName=NetC9_1 Pin=R22-1
+Added Pin To Net: NetName=Vo(J5) Pin=R22-2
+Added Pin To Net: NetName=NetC9_1 Pin=R22.b-1
+Added Pin To Net: NetName=Vo(J5) Pin=R22.b-2
+Added Pin To Net: NetName=NetC8_1 Pin=R23-1
+Added Pin To Net: NetName=Vo(J4) Pin=R23-2
+Added Pin To Net: NetName=Vo(J1) Pin=TT1-1
+Added Pin To Net: NetName=NetR4_2 Pin=TT1-2
+Added Pin To Net: NetName=NetC1_2 Pin=TT1-3
+Added Pin To Net: NetName=Vcc+ Pin=TT1-4
+Added Pin To Net: NetName=NetJumper1_1 Pin=TT1-5
+Added Pin To Net: NetName=Vo(E1) Pin=TT1-6
+Added Pin To Net: NetName=Vo(E1) Pin=TT1-7
+Added Pin To Net: NetName=Vo(J2) Pin=TT1-8
+Added Pin To Net: NetName=NetR7.b_2 Pin=TT1-9
+Added Pin To Net: NetName=NetC3_2 Pin=TT1-10
+Added Pin To Net: NetName=Vcc- Pin=TT1-11
+Added Pin To Net: NetName=NetJumper2_1 Pin=TT1-12
+Added Pin To Net: NetName=Vo(E2) Pin=TT1-13
+Added Pin To Net: NetName=Vo(E2) Pin=TT1-14
+Added Pin To Net: NetName=Vo(J3) Pin=TT2-1
+Added Pin To Net: NetName=NetR11_2 Pin=TT2-2
+Added Pin To Net: NetName=NetC5_2 Pin=TT2-3
+Added Pin To Net: NetName=Vcc+ Pin=TT2-4
+Added Pin To Net: NetName=NetJumper3_1 Pin=TT2-5
+Added Pin To Net: NetName=Vo(E3) Pin=TT2-6
+Added Pin To Net: NetName=Vo(E3) Pin=TT2-7
+Added Pin To Net: NetName=Vo(J4) Pin=TT2-8
+Added Pin To Net: NetName=NetC8_1 Pin=TT2-9
+Added Pin To Net: NetName=GND Pin=TT2-10
+Added Pin To Net: NetName=Vcc- Pin=TT2-11
+Added Pin To Net: NetName=NetJumper4_1 Pin=TT2-12
+Added Pin To Net: NetName=Vo(E4) Pin=TT2-13
+Added Pin To Net: NetName=Vo(E4) Pin=TT2-14
+Added Pin To Net: NetName=NetC9_2 Pin=TT3-1
+Added Pin To Net: NetName=NetC9_1 Pin=TT3-2
+Added Pin To Net: NetName=GND Pin=TT3-3
+Added Pin To Net: NetName=Vcc+ Pin=TT3-4
+Added Pin To Net: NetName=GND Pin=TT3-5
+Added Pin To Net: NetName=NetC10_1 Pin=TT3-6
+Added Pin To Net: NetName=NetC10_2 Pin=TT3-7
+Added Pin To Net: NetName=Vo(J5) Pin=TT3-8
+Added Pin To Net: NetName=NetR19_2 Pin=TT3-9
+Added Pin To Net: NetName=GND Pin=TT3-10
+Added Pin To Net: NetName=Vcc- Pin=TT3-11
+Added Pin To Net: NetName=GND Pin=TT3-12
+Added Pin To Net: NetName=NetR13_1 Pin=TT3-13
+Added Pin To Net: NetName=Vo(E5) Pin=TT3-14
+Added Member To Class: ClassName=Schematic Member=Component C1 1n
+Added Member To Class: ClassName=Schematic Member=Component C2 1n
+Added Member To Class: ClassName=Schematic Member=Component C3 1n
+Added Member To Class: ClassName=Schematic Member=Component C4 1n
+Added Member To Class: ClassName=Schematic Member=Component C5 1n
+Added Member To Class: ClassName=Schematic Member=Component C6 1n
+Added Member To Class: ClassName=Schematic Member=Component C8 7.9n
+Added Member To Class: ClassName=Schematic Member=Component C9 10n
+Added Member To Class: ClassName=Schematic Member=Component C10 10n
+Added Member To Class: ClassName=Schematic Member=Component J1 JUMPER
+Added Member To Class: ClassName=Schematic Member=Component J2 JUMPER
+Added Member To Class: ClassName=Schematic Member=Component J3 JUMPER
+Added Member To Class: ClassName=Schematic Member=Component J4 JUMPER
+Added Member To Class: ClassName=Schematic Member=Component Jumper1 JUMPER
+Added Member To Class: ClassName=Schematic Member=Component Jumper2 JUMPER
+Added Member To Class: ClassName=Schematic Member=Component Jumper3 JUMPER
+Added Member To Class: ClassName=Schematic Member=Component Jumper4 JUMPER
+Added Member To Class: ClassName=Schematic Member=Component Jumper5 JUMPER
+Added Member To Class: ClassName=Schematic Member=Component R1.b 39k
+Added Member To Class: ClassName=Schematic Member=Component R1 5.1k
+Added Member To Class: ClassName=Schematic Member=Component R2.b 2.2k
+Added Member To Class: ClassName=Schematic Member=Component R2 33k
+Added Member To Class: ClassName=Schematic Member=Component R3.b 33k
+Added Member To Class: ClassName=Schematic Member=Component R3 2.2k
+Added Member To Class: ClassName=Schematic Member=Component R4.b 6.8k
+Added Member To Class: ClassName=Schematic Member=Component R4.c 1k
+Added Member To Class: ClassName=Schematic Member=Component R4 8.2k
+Added Member To Class: ClassName=Schematic Member=Component R5 10k
+Added Member To Class: ClassName=Schematic Member=Component R6.b 39k
+Added Member To Class: ClassName=Schematic Member=Component R6 5.1k
+Added Member To Class: ClassName=Schematic Member=Component R7.b 10k
+Added Member To Class: ClassName=Schematic Member=Component R7 1.5k
+Added Member To Class: ClassName=Schematic Member=Component R8 10k
+Added Member To Class: ClassName=Schematic Member=Component R9.b 47k
+Added Member To Class: ClassName=Schematic Member=Component R9 15k
+Added Member To Class: ClassName=Schematic Member=Component R10.b 47k
+Added Member To Class: ClassName=Schematic Member=Component R10 15k
+Added Member To Class: ClassName=Schematic Member=Component R11 5.1k
+Added Member To Class: ClassName=Schematic Member=Component R12 10k
+Added Member To Class: ClassName=Schematic Member=Component R13 15k
+Added Member To Class: ClassName=Schematic Member=Component R14 10k
+Added Member To Class: ClassName=Schematic Member=Component R15 1.2k
+Added Member To Class: ClassName=Schematic Member=Component R17.b 6.8k
+Added Member To Class: ClassName=Schematic Member=Component R17 5.6k
+Added Member To Class: ClassName=Schematic Member=Component R18.b 47k
+Added Member To Class: ClassName=Schematic Member=Component R18 47k
+Added Member To Class: ClassName=Schematic Member=Component R19 10k
+Added Member To Class: ClassName=Schematic Member=Component R20.b 6.8k
+Added Member To Class: ClassName=Schematic Member=Component R20 5.6k
+Added Member To Class: ClassName=Schematic Member=Component R21 10k
+Added Member To Class: ClassName=Schematic Member=Component R22.b 6.8k
+Added Member To Class: ClassName=Schematic Member=Component R22 5.6k
+Added Member To Class: ClassName=Schematic Member=Component R23 10k
+Added Member To Class: ClassName=Schematic Member=Component TT1 TL084ACN
+Added Member To Class: ClassName=Schematic Member=Component TT2 TL084ACN
+Added Member To Class: ClassName=Schematic Member=Component TT3 TL084ACN
+Added Room: Name=Schematic
