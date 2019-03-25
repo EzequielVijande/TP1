@@ -16,6 +16,7 @@ QUIT_EV=1
 TIME_FREQ_BUTTON_EV=2
 PLOT_BUTTON_EV=3
 INPUT_CHANGED_EV=4
+GRAPH_BUTTON_EV= 5
 
 
 #Largos y Anchos
@@ -104,18 +105,23 @@ class SimGUI:
         toolbar.grid(row=0)
         #Inicializo Axes
         self.InitializeAxes()
-
-        #Botones para cambiar de graficas
+        #Creo region para botones
         self.SelectedGraph= tk.IntVar()
         self.GraphButtonFrame = Frame(master=self.PlotFrame)
         self.GraphButtonFrame.grid(row=2)
+        #Boton para graficar
+        self.GraphButton = Button(master=self.GraphButtonFrame,text="Graficar",background=GRAPH_BUTTON_COLOR,fg=GRAPH_BUTTON_TEXT_COLOR,command=self.graph_button_call)
+        self.GraphButton.grid(row=0,column=0,sticky=W+E)
+
+        #Botones para cambiar de graficas
         self.TimeButton= Radiobutton(master=self.GraphButtonFrame,text="En tiempo",background=GRAPH_BUTTON_COLOR,fg=GRAPH_BUTTON_TEXT_COLOR,
                                      indicatoron=False,variable=self.SelectedGraph,value=TIME,command=self.change_domain_of_graph_call)
-        self.TimeButton.grid(row=0,column=0,sticky=W+E)
+        self.TimeButton.grid(row=0,column=1,sticky=W+E)
         self.FreqButton= Radiobutton(master=self.GraphButtonFrame,text="En frecuencia",background=GRAPH_BUTTON_COLOR,fg=GRAPH_BUTTON_TEXT_COLOR,
                                      indicatoron=False,variable=self.SelectedGraph,value=FREQ,command=self.change_domain_of_graph_call)
-        self.FreqButton.grid(row=0,column=1,sticky=W+E)
+        self.FreqButton.grid(row=0,column=2,sticky=W+E)
         self.TimeButton.select() #empieza en tiempo por default
+        
     def CreateOptions(self):
         #Region con los parametros posibles
         self.OptionsFrame = LabelFrame(master=self.root, text="Parametros",background=FRAME_COLOR,fg=FRAME_TEXT_COLOR)
@@ -214,7 +220,7 @@ class SimGUI:
         #Duty cycle
         self.SlideDC_Label = Label(master=self.SamplerFrame,text="DC(%)",anchor=W,background=BUTTON_COLOR,fg=BUTTON_FONT_COLOR)
         self.SlideDC_Label.grid(row=1,column=0,sticky=N+S+W+E)
-        self.SlideDC = Scale(master=self.SamplerFrame, from_=0, to=100,orient=HORIZONTAL,command= self.input_change_callback)
+        self.SlideDC = Scale(master=self.SamplerFrame, from_=1, to=100,orient=HORIZONTAL,command= self.input_change_callback)
         self.SlideDC.config(bg=BUTTON_COLOR)
         self.SlideDC.grid(row=1,column=1,sticky=W+E,ipadx=120)
         #Botones de Bypass
@@ -250,6 +256,9 @@ class SimGUI:
         self.PlotOutput_Button= Radiobutton(master=self.SchemeButtonFrame,text="Plot Xout",background=GRAPH_BUTTON_COLOR,fg=GRAPH_BUTTON_TEXT_COLOR,
                                      indicatoron=False,variable=self.SelectedPlot,value=OUTPUT,command=self.change_graph_button_call)
         self.PlotOutput_Button.grid(row=0,column=4,sticky=N+S+W+E,ipadx=50)
+
+        #Setteo valor inicial para el boton
+        self.SelectedPlot.set(INPUT)
 
     #Getters
     def GetEvent(self):
@@ -469,6 +478,9 @@ class SimGUI:
 
     def change_domain_of_graph_call(self):
         self.Ev= TIME_FREQ_BUTTON_EV
+
+    def graph_button_call(self):
+        self.Ev = GRAPH_BUTTON_EV
 
     def input_change_callback(self,*args):
         self.input_changed = True
