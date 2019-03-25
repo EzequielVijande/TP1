@@ -163,7 +163,7 @@ class Manager(object):
                 Ymax= max(self.Data.GetOutput())
         elif(self.estado == FRECUENCIA):
             if(func != "AM"):
-                Xmax= 15*(self.Data.fo)
+                Xmax= 10*(self.Data.fo)
             else:
                 Xmax= 2*self.Data.AM_fp
             Ymin=0
