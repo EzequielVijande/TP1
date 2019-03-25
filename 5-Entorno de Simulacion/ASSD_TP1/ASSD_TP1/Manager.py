@@ -20,10 +20,10 @@ class Manager(object):
                 self.OnQuitEv()
             elif(ev == g.TIME_FREQ_BUTTON_EV):
                 self.OnTimeFreqEv()
+            elif(ev == g.GRAPH_BUTTON_EV):
+                self.OnPlotEv()
             elif(ev == g.PLOT_BUTTON_EV):
                 self.OnPlotEv()
-            elif(ev == g.INPUT_CHANGED_EV):
-                self.OnInputChangedEv()
             else:
                 self.Error()
 
@@ -44,10 +44,6 @@ class Manager(object):
         self.GUI.CloseGUI()
         self.estado=EXIT
         return
-
-    def OnInputChangedEv(self):
-        if(self.GUI.graphed_once):
-            self.OnPlotEv()
 
     def OnTimeFreqEv(self):
         selected = self.GUI.GetSelectedDomain()
