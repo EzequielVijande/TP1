@@ -1,0 +1,98 @@
+Removed Member From Class: ClassName=ANALOG SWITCH Member=Ccoup1
+Removed Member From Class: ClassName=SAMPLE AND HOLD Member=Ccoup1
+Removed Member From Class: ClassName=ANALOG SWITCH Member=Ccoup2
+Removed Member From Class: ClassName=OSCILADOR Member=Ccoup2
+Removed Member From Class: ClassName=SAMPLE AND HOLD Member=Ccoup2
+Removed Member From Class: ClassName=OSCILADOR Member=Ccoup3
+Removed Member From Class: ClassName=OSCILADOR Member=Ccoup4
+Removed Member From Class: ClassName=OSCILADOR Member=Ccoup5
+Removed Member From Class: ClassName=OSCILADOR Member=Ccoup6
+Removed Member From Class: ClassName=ANALOG SWITCH Member=J1
+Removed Member From Class: ClassName=ANALOG SWITCH Member=J2
+Removed Member From Class: ClassName=ANALOG SWITCH Member=R1
+Removed Member From Class: ClassName=ANALOG SWITCH Member=U1
+Removed Member From Class: ClassName=OSCILADOR Member=U1
+Change Component Designator: OldDesignator=Ccoup1 NewDesignator=Ccoup1-2
+Change Component Designator: OldDesignator=Ccoup1 NewDesignator=Ccoup1-3
+Change Component Designator: OldDesignator=Ccoup2 NewDesignator=Ccoup2-2
+Change Component Designator: OldDesignator=Ccoup2 NewDesignator=Ccoup2-3
+Change Component Designator: OldDesignator=Ccoup2 NewDesignator=Ccoup2-4
+Change Component Designator: OldDesignator=Ccoup3 NewDesignator=Ccoup3-4
+Change Component Designator: OldDesignator=Ccoup4 NewDesignator=Ccoup4-4
+Change Component Designator: OldDesignator=Ccoup5 NewDesignator=Ccoup5-5
+Change Component Designator: OldDesignator=Ccoup6 NewDesignator=Ccoup6-5
+Change Component Designator: OldDesignator=Ccoup11 NewDesignator=Ccoup1-4
+Change Component Designator: OldDesignator=J0 NewDesignator=J0-1
+Change Component Designator: OldDesignator=J1 NewDesignator=J1-1
+Change Component Designator: OldDesignator=J1 NewDesignator=J1-3
+Change Component Designator: OldDesignator=J2 NewDesignator=J2-1
+Change Component Designator: OldDesignator=J2 NewDesignator=J2-3
+Change Component Designator: OldDesignator=J3 NewDesignator=J3-1
+Change Component Designator: OldDesignator=J4 NewDesignator=J4-1
+Change Component Designator: OldDesignator=J5 NewDesignator=J5-1
+Change Component Designator: OldDesignator=J6 NewDesignator=J6-1
+Change Component Designator: OldDesignator=J7 NewDesignator=J7-1
+Change Component Designator: OldDesignator=R1 NewDesignator=R1-2
+Change Component Designator: OldDesignator=R1 NewDesignator=R1-3
+Change Component Designator: OldDesignator=R2 NewDesignator=R2-2
+Change Component Designator: OldDesignator=Rb NewDesignator=Rb-3
+Change Component Designator: OldDesignator=U1 NewDesignator=U2
+Change Component Designator: OldDesignator=U1 NewDesignator=U3
+Change Component Designator: OldDesignator=U1 NewDesignator=U10
+Change Component Designator: OldDesignator=U2 NewDesignator=U12
+Change Component Designator: OldDesignator=U3 NewDesignator=U13
+Change Net Name : Old Net Name=Clk New Net Name=Clk1
+Change Net Name : Old Net Name=Input New Net Name=Input2
+Change Net Name : Old Net Name=NetJ0_1 New Net Name=NetJ0-1_1
+Change Net Name : Old Net Name=NetJ1_2 New Net Name=NetJ1-3_2
+Change Net Name : Old Net Name=NetJ2_1 New Net Name=NetJ2-1_1
+Change Net Name : Old Net Name=NetJ2_2 New Net Name=NetJ2-3_2
+Change Net Name : Old Net Name=NetJ3_2 New Net Name=NetJ3-1_2
+Change Net Name : Old Net Name=NetJ4_1 New Net Name=NetJ4-1_1
+Change Net Name : Old Net Name=NetJ5_2 New Net Name=NetJ5-1_2
+Change Net Name : Old Net Name=NetJ6_1 New Net Name=NetJ6-1_1
+Change Net Name : Old Net Name=NetR1_1 New Net Name=NetR1-2_1
+Change Net Name : Old Net Name=NetR1_2 New Net Name=NetR1-2_2
+Change Net Name : Old Net Name=Output New Net Name=Output1
+Added Pin To Net: NetName=Clk2 Pin=U2-13
+Added Pin To Net: NetName=Clk2 Pin=Unot1-2
+Added Net: Name=Clk2
+Added Pin To Net: NetName=Input1 Pin=J2-1-3
+Added Pin To Net: NetName=Input1 Pin=U3-3
+Added Net: Name=Input1
+Added Pin To Net: NetName=Input Pin=Input-2
+Added Pin To Net: NetName=Input Pin=J0-1-2
+Added Net: Name=Input
+Added Pin To Net: NetName=NetJ1-1_2 Pin=J1-1-2
+Added Pin To Net: NetName=NetJ1-1_2 Pin=J2-1-2
+Added Net: Name=NetJ1-1_2
+Added Pin To Net: NetName=NetJ2-3_1 Pin=J2-3-1
+Added Pin To Net: NetName=NetJ2-3_1 Pin=R1-3-1
+Added Net: Name=NetJ2-3_1
+Added Pin To Net: NetName=Output2 Pin=J5-1-1
+Added Pin To Net: NetName=Output2 Pin=R1-3-2
+Added Pin To Net: NetName=Output2 Pin=U2-2
+Added Net: Name=Output2
+Added Pin To Net: NetName=Output Pin=J7-1-2
+Added Pin To Net: NetName=Output Pin=Output-2
+Added Net: Name=Output
+Added Member To Class: ClassName=SAMPLE AND HOLD Member=Component Ccoup1-2 CAP
+Added Member To Class: ClassName=ANALOG SWITCH Member=Component Ccoup1-3 CAP
+Added Member To Class: ClassName=SAMPLE AND HOLD Member=Component Ccoup2-2 CAP
+Added Member To Class: ClassName=ANALOG SWITCH Member=Component Ccoup2-3 CAP
+Added Member To Class: ClassName=OSCILADOR Member=Component Ccoup2-4 CAP
+Added Member To Class: ClassName=OSCILADOR Member=Component Ccoup3-4 CAP
+Added Member To Class: ClassName=OSCILADOR Member=Component Ccoup4-4 CAP
+Added Member To Class: ClassName=OSCILADOR Member=Component Ccoup5-5 CAP
+Added Member To Class: ClassName=OSCILADOR Member=Component Ccoup6-5 CAP
+Added Member To Class: ClassName=ANALOG SWITCH Member=Component J1-3 JUMPER
+Added Member To Class: ClassName=ANALOG SWITCH Member=Component J2-3 JUMPER
+Added Member To Class: ClassName=ANALOG SWITCH Member=Component R1-3 Res1
+Added Member To Class: ClassName=ANALOG SWITCH Member=Component U2 TLC4066IN
+Added Member To Class: ClassName=OSCILADOR Member=Component U10 LM555
+Added Room: Name=ANALOG SWITCH
+Added Room: Name=FAA
+Added Room: Name=FR
+Added Room: Name=OSCILADOR
+Added Room: Name=SAMPLE AND HOLD
+Added Room: Name=sampler

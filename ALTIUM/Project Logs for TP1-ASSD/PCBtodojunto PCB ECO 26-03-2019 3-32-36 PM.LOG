@@ -1,0 +1,24 @@
+Removed Member From Class: ClassName=sampler Member=Ccoup1-2
+Removed Member From Class: ClassName=sampler Member=Ccoup2-3
+Removed Member From Class: ClassName=sampler Member=Ccoup3-4
+Removed Member From Class: ClassName=sampler Member=Ccoup4-4
+Removed Member From Class: ClassName=sampler Member=Ccoup5-5
+Removed Member From Class: ClassName=sampler Member=Ccoup6-5
+Removed Member From Class: ClassName=sampler Member=J1-3
+Removed Member From Class: ClassName=ANALOG SWITCH Member=U12
+Removed Member From Class: ClassName=SAMPLE AND HOLD Member=U12
+Added Member To Class: ClassName=sampler Member=Component Ccoup1 CAP
+Added Member To Class: ClassName=sampler Member=Component Ccoup2 CAP
+Added Member To Class: ClassName=sampler Member=Component Ccoup3 CAP
+Added Member To Class: ClassName=sampler Member=Component Ccoup4 CAP
+Added Member To Class: ClassName=sampler Member=Component Ccoup5 CAP
+Added Member To Class: ClassName=sampler Member=Component Ccoup6 CAP
+Added Member To Class: ClassName=sampler Member=Component J1-1 JUMPER
+Added Member To Class: ClassName=ANALOG SWITCH Member=Component U2 TLC4066IN
+Added Member To Class: ClassName=SAMPLE AND HOLD Member=Component U3 LF398
+Added Room: Name=ANALOG SWITCH
+Added Room: Name=FAA
+Added Room: Name=FR
+Added Room: Name=OSCILADOR
+Added Room: Name=SAMPLE AND HOLD
+Added Room: Name=sampler
