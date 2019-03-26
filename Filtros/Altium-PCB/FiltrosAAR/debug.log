@@ -55,3 +55,27 @@
 [0325/131833:ERROR:cache_util_win.cc(20)] Unable to move the cache: 5
 [0325/131833:ERROR:cache_util.cc(134)] Unable to move cache folder C:\ProgramData\Altium\Altium Designer {D1D1BAFB-8421-4E26-984D-5388B5EC3E32}\BrowserCache to C:\ProgramData\Altium\Altium Designer {D1D1BAFB-8421-4E26-984D-5388B5EC3E32}\old_BrowserCache_000
 [0325/131833:ERROR:cache_creator.cc(129)] Unable to create cache
+[0325/152103:ERROR:backend_impl.cc(2020)] Corrupt Index file
+[0325/152103:ERROR:cache_util_win.cc(20)] Unable to move the cache: 5
+[0325/152103:ERROR:cache_util.cc(134)] Unable to move cache folder C:\ProgramData\Altium\Altium Designer {D1D1BAFB-8421-4E26-984D-5388B5EC3E32}\BrowserCache to C:\ProgramData\Altium\Altium Designer {D1D1BAFB-8421-4E26-984D-5388B5EC3E32}\old_BrowserCache_000
+[0325/152103:ERROR:cache_creator.cc(129)] Unable to create cache
+[0325/155540:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155541:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155541:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155542:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155545:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155546:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155546:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155547:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155550:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155551:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155551:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155552:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155555:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155556:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155556:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/155557:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0325/191700:ERROR:backend_impl.cc(2020)] Corrupt Index file
+[0325/191700:ERROR:cache_util_win.cc(20)] Unable to move the cache: 5
+[0325/191700:ERROR:cache_util.cc(134)] Unable to move cache folder C:\ProgramData\Altium\Altium Designer {D1D1BAFB-8421-4E26-984D-5388B5EC3E32}\BrowserCache to C:\ProgramData\Altium\Altium Designer {D1D1BAFB-8421-4E26-984D-5388B5EC3E32}\old_BrowserCache_000
+[0325/191700:ERROR:cache_creator.cc(129)] Unable to create cache
