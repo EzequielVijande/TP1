@@ -1,0 +1,339 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{makecell}		%Para emprolijar celdas de tablas
+\usepackage{amsmath}
+\usepackage{upgreek}		%puedo usar \uptau que es como \tau pero con mas rulito
+\usepackage{steinmetz}
+\usepackage{mathtools}
+\usepackage{placeins}
+\usepackage[textwidth=14cm]{geometry}	%texto ocupa mas ancho de pagina
+\usepackage{xcolor}		%se usa en \code
+
+
+\usepackage[parfill]{parskip}		%pone espacio entre parrafos
+\setlength{\parindent}{10pt}		%cuanta sangria al principio de un parrafo
+\usepackage{indentfirst}		%pone sangria al primer parrafo de una seccion
+
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter	%magia de categoria de caracteres en Tex, ignorar
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother	%magia de categoria de caracteres en Tex, ignorar
+
+%Definicion comando \parsum: hace re piola el simbolo de la suma en paralelo
+\newcommand{\parsum}{\mathbin{\!/\mkern-5mu/\!}} 
+
+%Definicion comando \code: poen el texto en fuente monoespaciada con fondo gris 
+%al estilo del codigo de stack overflow
+\definecolor{light-gray}{gray}{0.95} 
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Part*
+Filtros
+\end_layout
+
+\begin_layout Standard
+Las señales de entrada a medir, definidas por consigna para el grupo, son:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_1(t) = A
+\backslash
+cdot cos(2
+\backslash
+pi f_{in} t)$
+\end_layout
+
+\end_inset
+
+, con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$f_{in}=1kHz$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La extensión periódica de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_2(t) = A
+\backslash
+cdot sin(2
+\backslash
+pi f_{in} t)$
+\end_layout
+
+\end_inset
+
+, con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t
+\backslash
+epsilon[0;3
+\backslash
+pi]$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+La extensión periódica de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_3(t) = A
+\backslash
+cdot t^2$
+\end_layout
+
+\end_inset
+
+, con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t
+\backslash
+epsilon[-2
+\backslash
+tau;2
+\backslash
+tau]$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$f_0 = 
+\backslash
+frac{1}{4
+\backslash
+tau}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notamos que como todas las señales son periódicas, su espectro estará dado
+ por el Desarrollo en Serie de Fourier (DSF) de las mismas y por ende este
+ espectro será discreto.
+\end_layout
+
+\begin_layout Standard
+Notamos, a su vez, que tanto la función 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+frac{3}{2}$
+\end_layout
+
+\end_inset
+
+ seno como la cuadrática tendrán infinitos armónicos de la frecuencia fundamenta
+l, y que es por esta razón que el filtro pasabajos a utilizar necesariamente
+ tendrá que eliminar algunas componentes en frecuencia de la señal original
+ para poder realizar un muestreo que cumpla con el criterio de Nyquist.
+\end_layout
+
+\begin_layout Standard
+Se buscará entonces diseñar el filtro Anti-Aliasing de manera tal que un
+ porcentaje suficiente de potencia de la señal original se encuentre dentro
+ de la banda pasante, pudiéndose así preservar y muestrear correctamente
+ la información correspondiente a esta señal.
+ A su vez, la frecuencia de corte de este filtro y la limitación en ancho
+ de banda consecuente de la misma deberá ser tal que la frecuencia de muestreo
+ necesaria para cumplir el criterio de Nyquist sea realizable por los componente
+s encargados de realizar el sampleo.
+ Haciendo un análisis previo del oscilador, el Sample and Hold y la llave
+ analógica, se decidió que la máxima frecuencia de sampleo realizable para
+ el sistema es de 50kHz.
+ Como se busca oversamplear (muestrear a frecuencias mayores a las de Nyquist)
+ para lograr una mayor calidad de señal, la frecuencia de corte 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ del filtro deberá entonces ser mucho menor a 25kHz.
+\end_layout
+
+\begin_layout Standard
+Teniendo en cuenta que en realidad el criterio de Nyquist utiliza un filtro
+ pasabajos ideal para llegar a la condicion 
+\begin_inset Formula $f_{b}\leq2\cdot f_{s}$
+\end_inset
+
+, se decide tomar como frecuencia limitante de ancho de banda 
+\begin_inset Formula $f_{b}$
+\end_inset
+
+ no a la frecuencia de corte 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ sino a la frecuencia 
+\begin_inset Formula $f_{a}=1.5f_{p}$
+\end_inset
+
+ definida por consigna.
+ Dado que necesitamos que luego de esta banda la señal esté completamente
+ atenuada, y teniendo en cuenta que el sistema digital cuantiza en 8 bits,
+ sabemos que deberá atenuarse aproximadamente 48 (dB) en la frecuencia 
+\begin_inset Formula $f_{a}$
+\end_inset
+
+ para poder considerar atenuada completamente cualquier componente.
+ 
+\end_layout
+
+\begin_layout Standard
+Procedemos entonces a realizar un análisis espectral de las distintas señales
+ de entrada para poder definir la frecuencia 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+del filtro.
+ Para esto hallamos el DSF de cada una de las señales y buscamos cuál señal
+ será aquella que acumule menor cantidad de potencia a frecuencias mayores,
+ porque ésta será entonces la determinante.
+ 
+\end_layout
+
+\begin_layout Standard
+Debemos aclarar que los cálculos fueron realizados para 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_i^'(t) = 
+\backslash
+frac{x_i(t)}{A}$, i = 1,2,3
+\end_layout
+
+\end_inset
+
+, ya que la constante multiplicativa no afectará a las conclusiones que
+ se llegan en cuanto a frecuencias limitantes.
+ Sí tendrá que tenerse la amplitud en cuenta cuando se verifiquen las condicione
+s de tensión de entrada máxima y mínima para el sistema en su totalidad.
+ 
+\end_layout
+
+\end_body
+\end_document
