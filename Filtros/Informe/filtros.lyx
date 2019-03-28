@@ -144,13 +144,23 @@ $f_{in}=1kHz$
 \end_layout
 
 \begin_layout Enumerate
-La extensión periódica de 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-$x_2(t) = A
+$x_2(t)$
+\end_layout
+
+\end_inset
+
+, siendo esta la extensión periódica de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$A
 \backslash
 cdot sin(2
 \backslash
@@ -178,13 +188,23 @@ pi]$
 \end_layout
 
 \begin_layout Enumerate
-La extensión periódica de 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-$x_3(t) = A
+$x_3(t)$
+\end_layout
+
+\end_inset
+
+, siendo esta la extensión periódica de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$A
 \backslash
 cdot t^2$
 \end_layout
@@ -314,25 +334,526 @@ del filtro.
  
 \end_layout
 
+\begin_layout Subsection*
+Análisis espectral de las señales a muestrear
+\end_layout
+
 \begin_layout Standard
-Debemos aclarar que los cálculos fueron realizados para 
+Se desea determinar la potencia total de las señales a medir y el porcentaje
+ de potencia de la señal original resultante de eliminar armónicos de frecuencia
+s superiores a 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ o 
+\begin_inset Formula $f_{a}$
+\end_inset
+
+ según corresponda.
+ Para esto se calculan los coeficientes de fourier de las señales anteriormente
+ mencionadas 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-$x_i^{'}(t) = 
-\backslash
-frac{x_i(t)}{A}$, i = 1,2,3
+$x_i(t)$
 \end_layout
 
 \end_inset
 
-, ya que la constante multiplicativa no afectará a las conclusiones que
- se llegan en cuanto a frecuencias limitantes.
- Sí tendrá que tenerse la amplitud en cuenta cuando se verifiquen las condicione
-s de tensión de entrada máxima y mínima para el sistema en su totalidad.
+, con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$i = 1;2;3$
+\end_layout
+
+\end_inset
+
+ y luego se aplica la identidad de Párseval para calcular la potencia de
+ la señal como 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+frac{1}{T} 
+\backslash
+cdot $$
+\backslash
+int_{0}^{T} |x(t)|^2 dt$$ = 
+\backslash
+sum_{n
+\backslash
+epsilon Z}|X_{n}|^{2}} = P$
+\end_layout
+
+\end_inset
+
+.
+ Es importante destacar que la potencia de la señal medida será en realidad
+ proporcional a este valor, ya que es necesario tener en cuenta el valor
+ de la carga sobre la cual se la mide para obtener un valor real, pero que
+ sin embargo la relación porcentual entre potencias tendrá el mismo valor
+ que el calculado.
  
+\end_layout
+
+\begin_layout Standard
+Procedemos entonces a calcular el DSF de las 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_i(t)$
+\end_layout
+
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_1(t) = A
+\backslash
+cdot cos(2
+\backslash
+pi f_{in} t)$
+\end_layout
+
+\end_inset
+
+, con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$f_{in}=1kHz$
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ La señal en frecuencia estará representada por 
+\begin_inset Formula $A\cdot\delta(f-f_{in})$
+\end_inset
+
+ y por ende tendrá una única componente en frecuencia en 
+\begin_inset Formula $f_{o1}=1kHz$
+\end_inset
+
+ de amplitud A.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_2(t)$ 
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ Los coeficientes de fourier del desarrollo exponencial, para esta señal,
+ estarán dados por:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $X_{n}=\frac{A\cdot(-1)^{n}}{2f_{o}^{3}\cdot n^{2}\pi^{2}},$
+\end_inset
+
+ con 
+\begin_inset Formula $f_{o2}=\frac{1}{4\cdot\tau}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ De manera tal que
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $x_{2}(t)=\sum_{n\epsilon Z}X_{n}e^{i\cdot2\pi f_{o}n\cdot t}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ Notamos que como la señal es real y par, por lo que los coeficientes 
+\begin_inset Formula $X_{n}$
+\end_inset
+
+ son pares y el DSF de la señal estará expresado en una serie de cosenos,
+ de la forma:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center} $x_{1}(t)=
+\backslash
+sum_{n
+\backslash
+epsilon Z}X_{n}^{'}e^{i
+\backslash
+cdot2
+\backslash
+pi f_{o}t}$
+\end_layout
+
+\end_inset
+
+, con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$X_{n}^{'}=
+\backslash
+frac{A
+\backslash
+cdot (-1)^{n}}{2f_{o}^{3}
+\backslash
+cdot n^{2}
+\backslash
+pi^{2}}$
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_3(t)$ 
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ Los coeficientes de fourier del desarrollo exponencial, para esta señal,
+ estarán dados por: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $C_{n}=\frac{-9\cdot A}{f_{o}\pi(4n^{2}-9)}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ De manera tal que
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $x_{3}(t)=\sum_{n\epsilon Z}C_{n}e^{i\cdot2\pi f_{o}n\cdot t}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$x_3(t)$
+\end_layout
+
+\end_inset
+
+ también es una señal real y par y por ende su DSF también podrá expresarse
+ como una serie de cosenos, dada por: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center} $x_{1}(t)=
+\backslash
+sum_{n
+\backslash
+epsilon Z}C_{n}^{'}e^{i
+\backslash
+cdot2
+\backslash
+pi f_{o}t}$
+\end_layout
+
+\end_inset
+
+, con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$C_{n}=
+\backslash
+frac{-18
+\backslash
+cdot A}{f_{o}
+\backslash
+pi(4n^{2}-9)}$
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
