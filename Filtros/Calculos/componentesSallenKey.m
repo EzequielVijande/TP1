@@ -20,12 +20,12 @@ wo = [wo 2*pi*2568.44];
 Q = [Q 0.68];
 C = [C 1e-9];
 k = [k 3-1/Q(length(Q))];
-R = [R 1/(wo(length(wo))*C(length(C)))];
+R = [R 1/(wo(length(wo))*C(length(C)))]
 
 %Q = 0.5
-wo = [wo 2*pi*2008.98]
-Q = [Q 0.5]
-C = [C 1e-9]
-k = [k 3-1/Q(length(Q))]
-R = [R 1/(wo(length(wo))*C(length(C)))]
+% wo = [wo 2*pi*2008.98]
+% Q = [Q 0.5]
+% C = [C 1e-9]
+% k = [k 3-1/Q(length(Q))]
+% R = [R 1/(wo(length(wo))*C(length(C)))]
 
