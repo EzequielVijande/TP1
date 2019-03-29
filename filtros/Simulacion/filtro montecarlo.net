@@ -1,0 +1,54 @@
+* C:\Users\lugfe\Documents\GitHub\ASSD\TP1\filtros\Simulacion\filtro montecarlo.asc
+XU1 N005 N007 VCC+ VCC- v1 TL082
+V1 VCC+ 0 15
+V2 0 VCC- 15
+R2 N005 N002 {mc{62k, tolr}}
+R3 N002 vi {mc{62k, tolr}}
+R4 v1 N007 {mc{5k, tolr}}
+R5 N007 0 {mc{10k, tolr}}
+C1 N005 0 {mc{1n, tolc}}
+C2 v1 N002 {mc{1n, tolc}}
+XU2 N006 N009 VCC+ VCC- v2 TL082
+R1 N006 N003 {mc{44k, tolr}}
+R6 N003 vi2 {mc{44k, tolr}}
+R7 v2 N009 {mc{11.5k, tolr}}
+R8 N009 0 {mc{10k, tolr}}
+C3 N006 0 {mc{1n, tolc}}
+C4 v2 N003 {mc{1n, tolc}}
+XU3 N008 N010 VCC+ VCC- v3 TL082
+R9 N008 N004 {mc{35k, tolr}}
+R10 N004 vi3 {mc{35k, tolr}}
+R11 v3 N010 {mc{16k, tolr}}
+R12 N010 0 {mc{10k, tolr}}
+C5 N008 0 {mc{1n, tolc}}
+C6 v3 N004 {mc{1n, tolc}}
+XU4 0 N001 VCC+ VCC- v4 TL082
+R14 N001 vi4 {mc{10k, tolr}}
+C8 v4 N001 {mc{7.9n, tolc}}
+XU5 v1 vi2 VCC+ VCC- vi2 TL082
+XU6 v2 vi3 VCC+ VCC- vi3 TL082
+XU7 v3 vi4 VCC+ VCC- vi4 TL082
+R17 N011 vo1 {mc{3.1k, tolr}}
+R18 N015 N011 {mc{23.5k, tolr}}
+C9 N015 N011 {mc{10n, tolc}}
+R20 N013 N015 {mc{3.1k, tolr}}
+XU8 0 N011 VCC+ VCC- N015 TL082
+XU9 0 N013 VCC+ VCC- N014 TL082
+XU10 0 N017 VCC+ VCC- N012 TL082
+C10 N014 N013 {mc{10n, tolc}}
+R19 N017 N014 {mc{10k, tolr}}
+R21 N012 N017 {mc{10k, tolr}}
+R22 N012 N011 {mc{3.1k, tolr}}
+XU11 v4 vo1 VCC+ VCC- vo1 TL082
+V3 vi 0 SINE(0 5) AC 1
+R23 v4 N001 {mc{10k, tolr}}
+XU12 0 N016 VCC+ VCC- vo TL082
+R13 N016 N012 {mc{10k, tolr}}
+R15 vo N016 {mc{1.2k, tolr}}
+.inc "TL082.301"
+.step param run 1 20 1
+.param tolr = 0.01
+.param tolc=0.05
+.ac dec 1000 1m 20k
+.backanno
+.end
