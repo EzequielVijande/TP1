@@ -1,0 +1,8 @@
+A=5 Volts
+fo= 1Khz
+fp= 5Khz
+fa= 7.5Khz
+Aproximacion= cheby 1
+fs=7.5Khz
+DC=5%
+Potencia recuperada= 51.55%
