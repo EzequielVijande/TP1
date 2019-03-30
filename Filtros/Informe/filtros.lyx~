@@ -352,50 +352,19 @@ s superiores a
  según corresponda.
  Para esto se calculan los coeficientes de fourier de las señales anteriormente
  mencionadas 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$x_i(t)$
-\end_layout
-
+\begin_inset Formula $\ensuremath{x_{i}(t)}$
 \end_inset
 
-, con 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$i = 1;2;3$
-\end_layout
-
+ , con 
+\begin_inset Formula $\ensuremath{i=1;2;3}$
 \end_inset
 
  y luego se aplica la identidad de Párseval para calcular la potencia de
  la señal como 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$
-\backslash
-frac{1}{T} 
-\backslash
-cdot $
-\backslash
-int_{0}^{T} |x(t)|^2 dt$ = 
-\backslash
-sum_{n
-\backslash
-epsilon Z}|X_{n}|^{2}} = P$
-\end_layout
-
+\begin_inset Formula $\ensuremath{\frac{1}{T}\cdot}\ensuremath{\int_{0}^{T}|x(t)|^{2}dt}\ensuremath{=\sum_{n\epsilon Z}|X_{n}|^{2}=P}$
 \end_inset
 
-.
+ .
  Es importante destacar que la potencia de la señal medida será en realidad
  proporcional a este valor, ya que es necesario tener en cuenta el valor
  de la carga sobre la cual se la mide para obtener un valor real, pero que
@@ -406,43 +375,18 @@ epsilon Z}|X_{n}|^{2}} = P$
 
 \begin_layout Standard
 Procedemos entonces a calcular el DSF de las 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$x_i(t)$
-\end_layout
-
+\begin_inset Formula $\ensuremath{x_{i}(t)}$
 \end_inset
 
  :
 \end_layout
 
 \begin_layout Itemize
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$x_1(t) = A
-\backslash
-cdot cos(2
-\backslash
-pi f_{in} t)$
-\end_layout
-
+\begin_inset Formula $\ensuremath{x_{1}(t)=A\cdot cos(2\pi f_{in}t)}$
 \end_inset
 
 , con 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$f_{in}=1kHz$
-\end_layout
-
+\begin_inset Formula $\ensuremath{f_{in}=1kHz}$
 \end_inset
 
  
@@ -467,6 +411,12 @@ par
 \end_inset
 
  de amplitud A.
+ Dado que la señal tiene un único armónico, para que esta llegue a cuantizarse
+ se eligirá una 
+\begin_inset Formula $f_{p}>1kHz$
+\end_inset
+
+ de manera tal que la señal no sea atenuada por el filtro.
 \end_layout
 
 \begin_layout Itemize
@@ -510,10 +460,14 @@ begin{center}
 \end_inset
 
  
-\begin_inset Formula $X_{n}=\frac{A\cdot(-1)^{n}}{2f_{o}^{3}\cdot n^{2}\pi^{2}},$
+\begin_inset Formula $X_{n}=\frac{A\cdot(-1)^{n}}{2f_{o}^{3}\cdot n^{2}\pi^{2}}$
 \end_inset
 
- con 
+ y 
+\begin_inset Formula $X_{0}=$
+\end_inset
+
+con 
 \begin_inset Formula $f_{o2}=\frac{1}{4\cdot\tau}$
 \end_inset
 
@@ -625,41 +579,76 @@ status open
 
 
 \backslash
-begin{center} $x_{1}(t)=
-\backslash
-sum_{n
-\backslash
-epsilon Z}X_{n}^{'}e^{i
-\backslash
-cdot2
-\backslash
-pi f_{o}t}$
+begin{center}
 \end_layout
 
 \end_inset
 
+ 
+\begin_inset Formula $\ensuremath{x_{1}(t)=\sum_{n\epsilon Z}X_{n}^{'}cos(2\pi nf_{o}t)}$
+\end_inset
+
 , con 
+\begin_inset Formula $\ensuremath{X_{n}^{'}=\frac{A\cdot(-1)^{n}}{2f_{o}^{3}\cdot n^{2}\pi^{2}}}$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{0}^{'}=X_{0}$
+\end_inset
+
+ 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-$X_{n}^{'}=
-\backslash
-frac{A
-\backslash
-cdot (-1)^{n}}{2f_{o}^{3}
-\backslash
-cdot n^{2}
-\backslash
-pi^{2}}$
+
 \backslash
 end{center}
 \end_layout
 
 \end_inset
 
+ 
+\begin_inset ERT
+status open
 
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ Vemos luego que la potencia de la señal sin filtrar es 
+\begin_inset Formula $\ensuremath{P_{2}=C^{2}\cdot\sum_{n\neq0}\frac{1}{n^{4}}}$
+\end_inset
+
+ y que la potencia de la señal filtrada es 
+\begin_inset Formula $\ensuremath{P_{2}^{'}=C^{2}\cdot2\cdot\sum_{n=1}^{m}\frac{1}{n^{4}}}$
+\end_inset
+
+ , donde 
+\begin_inset Formula $C=\frac{A}{2\cdot f_{o}^{3}\cdot\pi^{2}}$
+\end_inset
+
+ y 
+\begin_inset Formula $m\epsilon N$
+\end_inset
+
+, con m la cantidad de armónicos que no son atenuados por el filtro.
+ Estas igualdades nos permiten obtener la relación entre las potencias de
+ la señal filtrada y sin filtrar como 
+\begin_inset Formula $\frac{P_{2}^{'}}{P_{2}}=$
+\end_inset
+
+
+\begin_inset Formula $\ensuremath{\frac{2\cdot\sum_{n=1}^{m}\frac{1}{n^{4}}}{\sum_{n\neq0}\frac{1}{n^{4}}}}$
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -789,17 +778,10 @@ par
 \end_inset
 
  
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$x_3(t)$
-\end_layout
-
+\begin_inset Formula $\ensuremath{x_{3}(t)}$
 \end_inset
 
- también es una señal real y par y por ende su DSF también podrá expresarse
+también es una señal real y par y por ende su DSF también podrá expresarse
  como una serie de cosenos, dada por: 
 \begin_inset ERT
 status open
@@ -821,38 +803,64 @@ status open
 
 
 \backslash
-begin{center} $x_{1}(t)=
-\backslash
-sum_{n
-\backslash
-epsilon Z}C_{n}^{'}e^{i
-\backslash
-cdot2
-\backslash
-pi f_{o}t}$
+begin{center}
 \end_layout
 
 \end_inset
 
+ 
+\begin_inset Formula $\ensuremath{x_{1}(t)=\sum_{n\epsilon Z}C_{n}^{'}cos(2\pi nf_{o}t)}$
+\end_inset
+
 , con 
+\begin_inset Formula $\ensuremath{C_{n}=\frac{-18\cdot A}{f_{o}\pi(4n^{2}-9)}}$
+\end_inset
+
+ 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-$C_{n}=
-\backslash
-frac{-18
-\backslash
-cdot A}{f_{o}
-\backslash
-pi(4n^{2}-9)}$
+
 \backslash
 end{center}
 \end_layout
 
 \end_inset
 
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ Análogo al caso anterior, la relación de potencias estará dada entonces
+ por 
+\begin_inset Formula $\frac{P_{3}^{'}}{P_{3}}=$
+\end_inset
+
+ 
+\begin_inset Formula $\ensuremath{\frac{\sum_{n=-m}^{m}\frac{1}{(4n^{2}-9)^{2}}}{\sum_{n\epsilon Z}\frac{1}{(4n^{2}-9)^{2}}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ya establecidas las relaciones de potencia entre señal filtrada y sin filtrar,
+ procedemos a graficar estas relaciones en función de la frecuencias para
+ poder elegir la frecuencia de corte del filtro:
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
