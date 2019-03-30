@@ -6,28 +6,40 @@ from scipy import signal
 class TransferCalculator(object):
     """Clase que se encarga de calcular la salida de un bloque cualquiera conociendo la entrada"""
     def __init__(self):
-        self.n=2000 #muestras par el vector que genera la funcion de entrada
-        self.m=1000 #cuantas muestras hay en un Thigh de la cuadrada que samplea
+        self.number_of_periods=6
         return
     #Funciones que calculan el valor de la funcion en un nodo
     def CalculateInputInTime(self,data):
         signal = data.GetFunc()
         A = data.GetAmp()
+        fs = data.GetFs()
         if(data.GetFunc() != "AM"):
             fo = data.GetFo()
             T= 1.0/fo #Periodo de la funcion
+            #defino incremento entre puntos del vector
+            if(fs>=fo):
+                self.Ts= 1.0/(100.0*fs)
+            else:
+                self.Ts= 1.0/(100.0*fo)
         else:
             T= 1.0/(data.AM_fm)
+            fp_am = data.AM_fp
+            #Defino incremento entre muestras para el caso de AM
+            if(fs>= fp_am):
+                self.Ts = 1.0/(100.0*fs)
+            else:
+                self.Ts= 1.0/(50.0*fp_am)
 
-        self.Ts= (4*T)/(self.n)
-        t= np.array( np.arange(start=0,stop=(self.n)*(self.Ts),step=self.Ts ))
+        t= np.array( np.arange(start=0,stop=(self.number_of_periods)*(T),step=self.Ts ))
         data.input= []
         data.t = t
+        self.n = t.size #Numero de muestras
         if(signal == "coseno"):
             for i in range (0,t.size):
                 data.input.append( A*(math.cos(2*(math.pi)*fo*(t[i]))) )
         elif(signal == "AM"):
             fp = data.AM_fp
+
             fm = data.AM_fm
             m = data.AM_m_index
             for i in range (0,t.size):
@@ -64,7 +76,6 @@ class TransferCalculator(object):
                 aux2= aux2*A
                 data.input.append(aux2)
     def CalculateFAA_InTime(self,data):
-        n=self.n
         fo= data.GetFo()
         wp =2.0*math.pi*(data.GetFc())
         ws= (1.5*wp)
@@ -72,58 +83,45 @@ class TransferCalculator(object):
         As= u.AS
         lp_filter = signal.iirdesign(wp=wp,ws=ws,gpass=Ap,gstop=As,analog=True,ftype=data.Aproximacion)
         t,data.FAA,x= signal.lsim(lp_filter,data.GetInput(),data.t)
-
-
         
         
     def CalculateSH_InTime(self,data):
-        numero_de_periodo=0
-        start=0 #indice en el que empieza a muestrearse un nuevo periodo
         data.SH =[]
         input= data.GetFAA()
         fs=data.GetFs()
+        Tsample= 1.0/fs
         dc= data.GetDutyCycle()
         Thigh= (dc/(fs*100.0))
-        t_control,sh_control = self.GenerateSquareWave(fs,Thigh,data.t)
-        samples_per_period= int( (100*self.m)/dc )
-        for i in range(0,len(data.t)):
-            k=int(i*(self.Ts)*((self.m)/Thigh)) #Mappeo el indice de data.t al que mejor corresponde para la cuadrada
-            if(k==len(sh_control)):
-                k=k-1
-            if(sh_control[k] == 1):
-                data.SH.append(input[i])
+        for i in range(0,len(input)):
+            t_transcurrido = i*self.Ts
+            number_of_period = math.floor(t_transcurrido/Tsample)
+            remainder = t_transcurrido - (number_of_period*Tsample)
+            if(remainder<= Thigh):
+                data.SH.append(input[i]) #Esta en modo sample
             else:
-                numero_de_periodo=np.floor(k/samples_per_period)
-                start=int(numero_de_periodo*samples_per_period)+ (self.m)
-                l=int(start*(Thigh/((self.m)*self.Ts)))
-                if(l>= len(input)):
-                    l= len(input)-1
-                data.SH.append(input[l])
+                prev= data.SH[i-1]
+                data.SH.append(prev) #Esta en modo Hold
 
 
     def CalculateAnalogKeyInTime(self,data):
         numero_de_periodo=0
-        start=0 #indice en el que empieza a muestrearse un nuevo periodo
         data.AnalogKey = []
         input = data.GetSH()
         fs= data.GetFs()
+        Tsample= 1.0/fs
         dc= data.GetDutyCycle()
         Thigh= (1/(fs*100.0))*dc
-        t_sq,key_control = self.GenerateSquareWave(fs,Thigh,data.t)
-        samples_per_period= int( (100*self.m)/dc )
-        for i in range(0,len(data.t)):
-            k=int(np.floor(i*(self.Ts)*((self.m)/Thigh))) #Mappeo el indice de data.t al que mejor corresponde para la cuadrada
-            if(k == len(key_control)):
-               k=k-1
-            if(key_control[k] == 1):
-                data.AnalogKey.append(0)
+
+        for i in range(0,len(input)):
+            t_transcurrido = i*self.Ts
+            number_of_period = math.floor(t_transcurrido/Tsample)
+            remainder = t_transcurrido - (number_of_period*Tsample)
+            if(remainder<= Thigh):
+                data.AnalogKey.append(0) #Esta en modo sample
             else:
-                numero_de_periodo=np.floor(k/samples_per_period)
-                start=int(numero_de_periodo*samples_per_period)+ self.m
-                l=int(start*(Thigh/((self.m)*self.Ts)))
-                if(l>= len(input)):
-                    l=len(input)-1
-                data.AnalogKey.append(input[l])
+                data.AnalogKey.append(input[i]) #Esta en modo Hold
+
+        
 
     def CalculateOutputInTime(self,data):
         input = data.GetAnalogKey()
@@ -143,17 +141,6 @@ class TransferCalculator(object):
         y = y[range(int(self.n/2))]
         data.f = np.linspace(0,1.0/(2.0*self.Ts),(self.n)/2)
         return y
-
-    def GenerateSquareWave(self,fs,Thigh,t):
-        T=1.0/fs
-        t_square= np.arange(start=0,stop=t[-1],step=Thigh/(self.m))
-        square=[]
-        for i in range(0,len(t_square)):
-            if((t_square[i]%T) <= Thigh):
-                square.append(1)
-            else:
-                square.append(0)
-        return t_square,square
 
 
         

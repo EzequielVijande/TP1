@@ -206,6 +206,15 @@ class Manager(object):
         A_str = self.IsValidNumber(self.GUI.InpAmpString.get(),"A")
         if(A_str != "Ok"):
             return A_str
+        #Valido frecuencia de corte del filtro
+        fcStr = self.IsValidNumber(self.GUI.FilterFcString.get(),"fc")
+        if( fcStr != "Ok"):
+            return fcStr
+        #valido frecuencia de sampleo
+        fsStr = self.IsValidNumber(self.GUI.SamplerFsString.get(), "fs")
+        if( fsStr != "Ok"):
+            return fsStr
+
         if(func == "AM"):
             fpStr = self.IsValidNumber(self.GUI.InpAmFpString.get(),"fp")
             if(fpStr != "Ok"):
@@ -221,14 +230,11 @@ class Manager(object):
             foStr = self.IsValidNumber(self.GUI.InpFrecString.get(),"fo")
             if(foStr != "Ok"):
                 return foStr
-
-
-        fcStr = self.IsValidNumber(self.GUI.FilterFcString.get(),"fc")
-        if( fcStr != "Ok"):
-            return fcStr
-        fsStr = self.IsValidNumber(self.GUI.SamplerFsString.get(), "fs")
-        if( fsStr != "Ok"):
-            return fsStr
+            fo = float(self.GUI.InpFrecString.get())
+            fs = float(self.GUI.SamplerFsString.get())
+            if( fs> (500*fo)):
+                return "La frecuencia de muestreo no debe superar 500*fo"
+      
 
         return "Ok"
 
