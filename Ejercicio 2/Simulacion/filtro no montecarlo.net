@@ -46,6 +46,6 @@ XU12 0 N016 VCC+ VCC- vo TL082
 R13 N016 N012 10.3k
 R15 vo N016 1.2k
 .inc "TL082.301"
-.ac dec 1000 1m 20k
+.ac dec 1000 1m 50k
 .backanno
 .end
