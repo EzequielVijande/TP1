@@ -115,73 +115,26 @@ Las señales de entrada a medir, definidas por consigna para el grupo, son:
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$x_1(t) = A
-\backslash
-cdot cos(2
-\backslash
-pi f_{in} t)$
-\end_layout
-
+\begin_inset Formula $\ensuremath{x_{1}(t)=A\cdot cos(2\pi f_{in}t)}$
 \end_inset
 
 , con 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$f_{in}=1kHz$
-\end_layout
-
+\begin_inset Formula $\ensuremath{f_{in}=1kHz}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$x_2(t)$
-\end_layout
-
+\begin_inset Formula $\ensuremath{x_{2}(t)}$
 \end_inset
 
 , siendo esta la extensión periódica de 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$A
-\backslash
-cdot sin(2
-\backslash
-pi f_{in} t)$
-\end_layout
-
+\begin_inset Formula $\ensuremath{A\cdot sin(2\pi f_{in}t)}$
 \end_inset
 
 , con 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$t
-\backslash
-epsilon[0;3
-\backslash
-pi]$
-\end_layout
-
+\begin_inset Formula $\ensuremath{t\epsilon[0;3\pi]}$
 \end_inset
 
 
@@ -254,20 +207,11 @@ Notamos que como todas las señales son periódicas, su espectro estará dado
 
 \begin_layout Standard
 Notamos, a su vez, que tanto la función 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$
-\backslash
-frac{3}{2}$
-\end_layout
-
+\begin_inset Formula $\ensuremath{\frac{3}{2}}$
 \end_inset
 
- seno como la cuadrática tendrán infinitos armónicos de la frecuencia fundamenta
-l, y que es por esta razón que el filtro pasabajos a utilizar necesariamente
+seno como la cuadrática tendrán infinitos armónicos de la frecuencia fundamental
+, y que es por esta razón que el filtro pasabajos a utilizar necesariamente
  tendrá que eliminar algunas componentes en frecuencia de la señal original
  para poder realizar un muestreo que cumpla con el criterio de Nyquist.
 \end_layout
@@ -695,7 +639,11 @@ begin{center}
 \begin_inset Formula $C_{n}=\frac{-9\cdot A}{f_{o}\pi(4n^{2}-9)}$
 \end_inset
 
- 
+ , con 
+\begin_inset Formula $f_{o}=\frac{2\cdot f_{in}}{3}$
+\end_inset
+
+
 \begin_inset ERT
 status open
 
@@ -861,16 +809,237 @@ Ya establecidas las relaciones de potencia entre señal filtrada y sin filtrar,
 \end_layout
 
 \begin_layout Standard
-Como conclusión, se deduce que con una frecuencia de corte 
-\begin_inset Formula $f_{p}\text{=}$
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/relacion_potencias_x2.jpg
+	scale 30
+
 \end_inset
 
-se conservará al menos el % de la potencia de las señales originales.
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relación de potencia resultante según los armónicos no atenuados para x2(t)
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/relacion_potencias_x3.jpg
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relación de potencia resultante según los armónicos no atenuados para x3(t)
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como conclusión, se deduce que con una frecuencia de corte 
+\begin_inset Formula $f_{p}\text{=}5kHz$
+\end_inset
+
+ se conservará al menos el 99% de la potencia de las señales originales.
  
 \end_layout
 
 \begin_layout Standard
+De aquí, debido a las condiciones impuestas por consigna, queda determinada
+ 
+\begin_inset Formula $f_{a}\text{=7.5 kHz}$
+\end_inset
 
+.
+ En el caso en que se suponga al filtro como ideal, tomando la frecuencia
+ de muestreo mayor a 10kHz se podrá muestrear la señal correctamente.
+ Si en cambio tomamos la frecuencia 
+\begin_inset Formula $f_{a}$
+\end_inset
+
+ como indicante que no habrá amplitud significativa a partir de esta frecuencia,
+ entonces la frecuencia de muestreo mínima será 15kHz.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Confección del filtro
+\end_layout
+
+\begin_layout Standard
+Para realizar el filtro, se eligió utilizar la aproximación de Legendre
+ para asegurar una buena planicie en la banda de paso a un orden mucho menor
+ que el que se podría obtener con una aproximación de Butterworth.
+ A su vez, la aproximación de Legendre tendrá una fase más lineal que un
+ filtro aproximado mediante Chevyshev I o Chevyshev II.
+ Chevyshev I tendrá el problema adicional de agregar ceros en la banda de
+ paso.
+ El problema de Legendre es que necesariamente agregará un sobrepico cerca
+ de la banda de paso, que mediante un análisis correcto se podrá evitar
+ las complicaciones que este podría conllevar.
+ 
+\end_layout
+
+\begin_layout Standard
+El orden del filtro para las condiciones impuestas de 
+\begin_inset Formula $f_{p}=5kHz$
+\end_inset
+
+ con 
+\begin_inset Formula $A_{p}=1dB$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{a}\text{=7.5kHz}$
+\end_inset
+
+ con 
+\begin_inset Formula $A_{a}=48dB$
+\end_inset
+
+ es de n=9.
+\end_layout
+
+\begin_layout Standard
+Se dividirá entonces al filtro en 5 etapas, 4 de orden 2 y una de orden
+ 1.
+ Las plantillas de dichas etapas serán:
+\end_layout
+
+\begin_layout Standard
+Los Q para las respectivas etapas serán de:
+\end_layout
+
+\begin_layout Itemize
+Etapa 1: Q = 0.5
+\end_layout
+
+\begin_layout Itemize
+Etapa 2: Q = 0.68
+\end_layout
+
+\begin_layout Itemize
+Etapa 3: Q = 1.18
+\end_layout
+
+\begin_layout Itemize
+Etapa 4: Q = 2.33
+\end_layout
+
+\begin_layout Itemize
+Etapa 5: Q =
+\end_layout
+
+\begin_layout Standard
+Por el Q elevado de la etapa 5, se decidió utilizar un filtro universal
+ para la misma, mientras que las demás etapas se realizarán con celdas Sallen
+ Key para minimizar la cantidad de opamps del filtro.
+\end_layout
+
+\begin_layout Standard
+Las etapas, dispuestas en cascada, serán ordenadas de menor Q a mayor Q
+ para asegurar menores desviaciones sobre la plantilla al tener en cuenta
+ el error sobre el valor nominal de los componentes.
+ 
+\end_layout
+
+\begin_layout Standard
+Se eligió usar resistencias SMD por su tolerancia del 1%.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Simulación 
+\end_layout
+
+\begin_layout Standard
+Se procedió a simular el filtro en LTSPICE para verificar que cumpliera
+ plantilla y luego se realizaron simulaciones usando el método de Montecarlo.
+ Los capacitores con 5% de tolerancia.
+\end_layout
+
+\begin_layout Subsection*
+No idealidad de los filtros
+\end_layout
+
+\begin_layout Standard
+Se tendrán que notan las siguientes consecuencia de la no idealidad de los
+ filtros:
+\end_layout
+
+\begin_layout Itemize
+Los filtros agregarán distorsión de módulo y de fase a la señal original
+ incluso en la banda de paso, que se asumió dejaba intacta a la señal.
+\end_layout
+
+\begin_layout Itemize
+Si bien en el ideal se asumió un ancho de banda de frecuencia 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+, la realidad es que componentes posteriores (todas aquellas que se encuentren
+ en 
+\begin_inset Formula $[f_{p};f_{a}]$
+\end_inset
+
+) de la entrada no serán lo suficientemente atenuadas como para ser consideradas
+ elimininadas por el filtro.
+ Esto no sólo afectará a la elección de la frecuencia de muestreo sino que
+ agregará deformación a la señal original a ser muestreada.
+ 
 \end_layout
 
 \begin_layout Standard
