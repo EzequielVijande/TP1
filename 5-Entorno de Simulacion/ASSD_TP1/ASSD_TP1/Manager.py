@@ -6,6 +6,8 @@ import TransferCalculator as t
 TIEMPO=0
 FRECUENCIA=1
 EXIT=2
+#Constantes
+FC_MAX = 6e6
 class Manager(object):
     """Clase que se encarga de manejar los eventos generados"""
     def __init__(self,GUI,data,calculator):
@@ -217,6 +219,9 @@ class Manager(object):
         fcStr = self.IsValidNumber(self.GUI.FilterFcString.get(),"fc")
         if( fcStr != "Ok"):
             return fcStr
+        fc = float(self.GUI.FilterFcString.get())
+        if(fc > FC_MAX):
+            return "fc debe ser menor que 6 MHz"
         #valido frecuencia de sampleo
         fsStr = self.IsValidNumber(self.GUI.SamplerFsString.get(), "fs")
         if( fsStr != "Ok"):
@@ -233,6 +238,13 @@ class Manager(object):
             fm = float(self.GUI.InpAmFmString.get())
             if(fm >= fp):
                 return "fm debe ser menor que fp"
+
+            fs = float(self.GUI.SamplerFsString.get())
+            if(fs > (400.0*fm)):
+                return "fs debe ser menor que 400*fm"
+
+            elif(fp > 800.0*fm):
+                return "fp debe ser menor que 800*fm"
         else:
             foStr = self.IsValidNumber(self.GUI.InpFrecString.get(),"fo")
             if(foStr != "Ok"):

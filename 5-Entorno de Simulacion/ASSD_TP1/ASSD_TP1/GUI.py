@@ -169,7 +169,7 @@ class SimGUI:
     def CreateFilterSection(self):
         self.FilterFcString= StringVar()
         self.SelectedAprox = StringVar()
-        self.SelectedAprox.set("cheby2")
+        self.SelectedAprox.set("ellip")
         self.BypassFAA = IntVar()
         self.BypassFR = IntVar()
 
