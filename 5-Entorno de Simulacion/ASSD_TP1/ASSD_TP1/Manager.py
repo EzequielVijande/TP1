@@ -129,14 +129,21 @@ class Manager(object):
         y_out = self.Data.OutputInFrec
 
         self.GUI.Axes.cla()
-        self.GUI.PlotInput(self.Data.t,self.Data.GetInput())
-        self.GUI.PlotA(self.Data.t,self.Data.GetFAA())
-        self.GUI.PlotB(self.Data.t,self.Data.GetSH())
-        self.GUI.PlotC(self.Data.t,self.Data.GetAnalogKey())
-        self.GUI.PlotOutput(self.Data.t,self.Data.GetOutput())
+        if(self.estado == TIEMPO):
+            self.GUI.PlotInput(self.Data.t,self.Data.GetInput())
+            self.GUI.PlotA(self.Data.t,self.Data.GetFAA())
+            self.GUI.PlotB(self.Data.t,self.Data.GetSH())
+            self.GUI.PlotC(self.Data.t,self.Data.GetAnalogKey())
+            self.GUI.PlotOutput(self.Data.t,self.Data.GetOutput())
+        elif(self.estado == FRECUENCIA):
+            self.GUI.PlotInput(self.Data.f,y_inp)
+            self.GUI.PlotA(self.Data.f,y_faa)
+            self.GUI.PlotB(self.Data.f,y_sh)
+            self.GUI.PlotC(self.Data.f,y_key)
+            self.GUI.PlotOutput(self.Data.f,y_out)
 
         Xmin,Xmax,Ymin,Ymax= self.ObtainScaleLimits()
-        self.GUI.DisplaySelectedGraph(Xmin,Xmax,Ymin,Ymax,f,y_inp,y_faa,y_sh,y_key,y_out)
+        self.GUI.DisplaySelectedGraph(Xmin,Xmax,Ymin,Ymax)
 
     def ObtainScaleLimits(self):
         func = self.Data.GetFunc()
