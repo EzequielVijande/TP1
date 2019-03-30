@@ -927,9 +927,9 @@ Para realizar el filtro, se eligió utilizar la aproximación de Legendre
  filtro aproximado mediante Chevyshev I o Chevyshev II.
  Chevyshev I tendrá el problema adicional de agregar ceros en la banda de
  paso.
- El problema de Legendre es que necesariamente agregará un sobrepico cerca
- de la banda de paso, que mediante un análisis correcto se podrá evitar
- las complicaciones que este podría conllevar.
+ El inconveniente de Legendre, por otro lado, es que necesariamente agregará
+ un sobrepico cerca de la banda de paso, que mediante un análisis correcto
+ se podrá evitar las complicaciones que este podría conllevar.
  
 \end_layout
 
@@ -980,13 +980,14 @@ Etapa 4: Q = 2.33
 \end_layout
 
 \begin_layout Itemize
-Etapa 5: Q =
+Etapa 5: Q = 7.55
 \end_layout
 
 \begin_layout Standard
 Por el Q elevado de la etapa 5, se decidió utilizar un filtro universal
- para la misma, mientras que las demás etapas se realizarán con celdas Sallen
- Key para minimizar la cantidad de opamps del filtro.
+ (en particular la Tow Thomas) para la misma, mientras que las demás etapas
+ se realizarán con celdas Sallen Key para minimizar la cantidad de opamps
+ del filtro.
 \end_layout
 
 \begin_layout Standard

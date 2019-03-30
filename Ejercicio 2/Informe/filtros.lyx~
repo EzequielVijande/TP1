@@ -927,9 +927,9 @@ Para realizar el filtro, se eligió utilizar la aproximación de Legendre
  filtro aproximado mediante Chevyshev I o Chevyshev II.
  Chevyshev I tendrá el problema adicional de agregar ceros en la banda de
  paso.
- El problema de Legendre es que necesariamente agregará un sobrepico cerca
- de la banda de paso, que mediante un análisis correcto se podrá evitar
- las complicaciones que este podría conllevar.
+ El inconveniente de Legendre, por otro lado, es que necesariamente agregará
+ un sobrepico cerca de la banda de paso, que mediante un análisis correcto
+ se podrá evitar las complicaciones que este podría conllevar.
  
 \end_layout
 
@@ -1039,6 +1039,14 @@ Si bien en el ideal se asumió un ancho de banda de frecuencia
  elimininadas por el filtro.
  Esto no sólo afectará a la elección de la frecuencia de muestreo sino que
  agregará deformación a la señal original a ser muestreada.
+ 
+\end_layout
+
+\begin_layout Standard
+Sin embargo, es también importante notar que las consecuencias de estas
+ no idealizaciones pueden ser mitigadas por un posterior filtrado digital
+ sobre la señal ya muestreada en caso de incorporar este sistema de muestreo
+ en un sistema digital.
  
 \end_layout
 
