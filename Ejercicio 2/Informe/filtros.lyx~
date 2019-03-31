@@ -980,13 +980,14 @@ Etapa 4: Q = 2.33
 \end_layout
 
 \begin_layout Itemize
-Etapa 5: Q =
+Etapa 5: Q = 7.55
 \end_layout
 
 \begin_layout Standard
 Por el Q elevado de la etapa 5, se decidió utilizar un filtro universal
- para la misma, mientras que las demás etapas se realizarán con celdas Sallen
- Key para minimizar la cantidad de opamps del filtro.
+ (en particular la Tow Thomas) para la misma, mientras que las demás etapas
+ se realizarán con celdas Sallen Key para minimizar la cantidad de opamps
+ del filtro.
 \end_layout
 
 \begin_layout Standard
@@ -1009,6 +1010,55 @@ Simulación
 Se procedió a simular el filtro en LTSPICE para verificar que cumpliera
  plantilla y luego se realizaron simulaciones usando el método de Montecarlo.
  Los capacitores con 5% de tolerancia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Imagenes/simulacion bode mag.png
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Imagenes/simulacion bode fase.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulación de magnitud y fase con valores nominales
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Subsection*
@@ -1048,10 +1098,6 @@ Sin embargo, es también importante notar que las consecuencias de estas
  sobre la señal ya muestreada en caso de incorporar este sistema de muestreo
  en un sistema digital.
  
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body
