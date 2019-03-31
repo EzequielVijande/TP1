@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -56,6 +56,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -85,6 +87,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -93,7 +96,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -115,12 +121,60 @@ Sea el sistema que muestra la figura, el sistema dado por consigna completo:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/sistema_total.png
+	lyxscale 50
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sistema completo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Donde 
-\begin_inset Formula $q(t)=q_{1}(t)*q_{2}(t)=\pi(\frac{t-\frac{d}{2\cdot T}}{d/T})$
+\begin_inset Formula $q(t)$
 \end_inset
 
  es la respuesta al impulso del sistema conjunto de la llave analógica con
- el sample and hold.
+ el sample and hold, dada por:
+\begin_inset Formula 
+\begin{equation}
+q(t)=q_{1}(t)*q_{2}(t)=\pi(\frac{t-\frac{d}{2\cdot T}}{d/T})
+\end{equation}
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
@@ -128,14 +182,25 @@ Llamando a
 \begin_inset Formula $\frac{d}{T}=\tau$
 \end_inset
 
- el duty cycle de muestreo, donde d es el tiempo de prendido de la llave
- analógica y T es el tiempo de hold del sample and hold, 
+ el duty cycle de muestreo, donde 
+\begin_inset Formula $d$
+\end_inset
+
+ es el tiempo de prendido de la llave analógica y 
+\begin_inset Formula $T$
+\end_inset
+
+ es el tiempo de hold del sample and hold, 
 \begin_inset Formula $q(t)=\pi(\frac{t-\frac{\tau}{2}}{\tau})$
 \end_inset
 
 , cuya transformada de fourier, o respuesta en frecuencia del filtro es
  
-\begin_inset Formula $Q(f)=\tau\cdot sinc(f\tau)\cdot e^{-i\cdot2\pi f\frac{\tau}{2}}$
+\begin_inset Formula 
+\begin{equation}
+Q(f)=\tau\cdot sinc(f\tau)\cdot e^{-i\cdot2\pi f\frac{\tau}{2}}
+\end{equation}
+
 \end_inset
 
 
@@ -151,8 +216,11 @@ Sea la señal de entrada al sistema
 \end_layout
 
 \begin_layout Standard
-H(f) es la respuesta en frecuencia del filtro Anti-Aliasing, que coincide
- con la respuesta en frecuencia del filtro Recuperador.
+\begin_inset Formula $H(f)$
+\end_inset
+
+ es la respuesta en frecuencia del filtro Anti-Aliasing, que coincide con
+ la respuesta en frecuencia del filtro Recuperador.
  
 \end_layout
 
@@ -169,36 +237,14 @@ Entonces, la señal de salida a la entrada
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
+\begin_inset Formula 
+\begin{equation}
+G_{j}(f)=A_{j}\cdot H(f_{j})^{2}\cdot\tau\cdot sinc(f_{j}\cdot\tau)\cdot e^{-i\cdot2\pi f_{j}\cdot\frac{\tau}{2}}\cdot\delta(f-f_{j})
+\end{equation}
 
 \end_inset
 
  
-\begin_inset Formula $G_{j}(f)=A_{j}\cdot H(f_{j})^{2}\cdot\tau\cdot sinc(f_{j}\cdot\tau)\cdot e^{-i\cdot2\pi f_{j}\cdot\frac{\tau}{2}}\cdot\delta(f-f_{j})$
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -226,7 +272,11 @@ Tomando en cuenta que el espectro de la señal
 \uwave off
 \noun off
 \color none
-H(f)
+
+\begin_inset Formula $H(f)$
+\end_inset
+
+
 \family default
 \series default
 \shape default
@@ -238,13 +288,20 @@ H(f)
 \uwave default
 \noun default
 \color inherit
- por ser un filtro pasabajos real, además de la paridad de la función sinc(f),
- por superposición se obtiene la salida a la entrada 
+ por ser un filtro pasabajos real, además de la paridad de la función 
+\begin_inset Formula $sinc(f)$
+\end_inset
+
+, por superposición se obtiene la salida a la entrada 
 \begin_inset Formula $X_{j}(f)$
 \end_inset
 
  como 
-\begin_inset Formula $Y_{j}(f)=A_{j}\cdot H(f_{j})^{2}\cdot\tau\cdot sinc(f_{j}\cdot\tau)\cdot cos(2\pi\cdot f_{j}\cdot\frac{\tau}{2})\cdot[\delta(f-f_{j})+d(f+f_{j})]$
+\begin_inset Formula 
+\begin{equation}
+Y_{j}(f)=A_{j}\cdot H(f_{j})^{2}\cdot\tau\cdot sinc(f_{j}\cdot\tau)\cdot cos(2\pi\cdot f_{j}\cdot\frac{\tau}{2})\cdot[\delta(f-f_{j})+d(f+f_{j})]
+\end{equation}
+
 \end_inset
 
 

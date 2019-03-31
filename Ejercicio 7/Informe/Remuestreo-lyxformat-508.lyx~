@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -56,8 +56,6 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -87,7 +85,6 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -96,10 +93,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -131,7 +125,6 @@ status open
 \align center
 \begin_inset Graphics
 	filename Imagenes/sistema_total.png
-	lyxscale 50
 	scale 60
 
 \end_inset
@@ -143,7 +136,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Sistema completo.
+Sistema completo
 \end_layout
 
 \end_inset
@@ -162,19 +155,11 @@ Sistema completo.
 
 \begin_layout Standard
 Donde 
-\begin_inset Formula $q(t)$
+\begin_inset Formula $q(t)=q_{1}(t)*q_{2}(t)=\pi(\frac{t-\frac{d}{2\cdot T}}{d/T})$
 \end_inset
 
  es la respuesta al impulso del sistema conjunto de la llave analógica con
- el sample and hold, dada por:
-\begin_inset Formula 
-\begin{equation}
-q(t)=q_{1}(t)*q_{2}(t)=\pi(\frac{t-\frac{d}{2\cdot T}}{d/T})
-\end{equation}
-
-\end_inset
-
- 
+ el sample and hold.
 \end_layout
 
 \begin_layout Standard
@@ -182,25 +167,14 @@ Llamando a
 \begin_inset Formula $\frac{d}{T}=\tau$
 \end_inset
 
- el duty cycle de muestreo, donde 
-\begin_inset Formula $d$
-\end_inset
-
- es el tiempo de prendido de la llave analógica y 
-\begin_inset Formula $T$
-\end_inset
-
- es el tiempo de hold del sample and hold, 
+ el duty cycle de muestreo, donde d es el tiempo de prendido de la llave
+ analógica y T es el tiempo de hold del sample and hold, 
 \begin_inset Formula $q(t)=\pi(\frac{t-\frac{\tau}{2}}{\tau})$
 \end_inset
 
 , cuya transformada de fourier, o respuesta en frecuencia del filtro es
  
-\begin_inset Formula 
-\begin{equation}
-Q(f)=\tau\cdot sinc(f\tau)\cdot e^{-i\cdot2\pi f\frac{\tau}{2}}
-\end{equation}
-
+\begin_inset Formula $Q(f)=\tau\cdot sinc(f\tau)\cdot e^{-i\cdot2\pi f\frac{\tau}{2}}$
 \end_inset
 
 
@@ -216,11 +190,8 @@ Sea la señal de entrada al sistema
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $H(f)$
-\end_inset
-
- es la respuesta en frecuencia del filtro Anti-Aliasing, que coincide con
- la respuesta en frecuencia del filtro Recuperador.
+H(f) es la respuesta en frecuencia del filtro Anti-Aliasing, que coincide
+ con la respuesta en frecuencia del filtro Recuperador.
  
 \end_layout
 
@@ -237,14 +208,36 @@ Entonces, la señal de salida a la entrada
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-G_{j}(f)=A_{j}\cdot H(f_{j})^{2}\cdot\tau\cdot sinc(f_{j}\cdot\tau)\cdot e^{-i\cdot2\pi f_{j}\cdot\frac{\tau}{2}}\cdot\delta(f-f_{j})
-\end{equation}
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
 
 \end_inset
 
  
+\begin_inset Formula $G_{j}(f)=A_{j}\cdot H(f_{j})^{2}\cdot\tau\cdot sinc(f_{j}\cdot\tau)\cdot e^{-i\cdot2\pi f_{j}\cdot\frac{\tau}{2}}\cdot\delta(f-f_{j})$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -272,11 +265,7 @@ Tomando en cuenta que el espectro de la señal
 \uwave off
 \noun off
 \color none
-
-\begin_inset Formula $H(f)$
-\end_inset
-
-
+H(f)
 \family default
 \series default
 \shape default
@@ -288,20 +277,13 @@ Tomando en cuenta que el espectro de la señal
 \uwave default
 \noun default
 \color inherit
- por ser un filtro pasabajos real, además de la paridad de la función 
-\begin_inset Formula $sinc(f)$
-\end_inset
-
-, por superposición se obtiene la salida a la entrada 
+ por ser un filtro pasabajos real, además de la paridad de la función sinc(f),
+ por superposición se obtiene la salida a la entrada 
 \begin_inset Formula $X_{j}(f)$
 \end_inset
 
  como 
-\begin_inset Formula 
-\begin{equation}
-Y_{j}(f)=A_{j}\cdot H(f_{j})^{2}\cdot\tau\cdot sinc(f_{j}\cdot\tau)\cdot cos(2\pi\cdot f_{j}\cdot\frac{\tau}{2})\cdot[\delta(f-f_{j})+d(f+f_{j})]
-\end{equation}
-
+\begin_inset Formula $Y_{j}(f)=A_{j}\cdot H(f_{j})^{2}\cdot\tau\cdot sinc(f_{j}\cdot\tau)\cdot cos(2\pi\cdot f_{j}\cdot\frac{\tau}{2})\cdot[\delta(f-f_{j})+d(f+f_{j})]$
 \end_inset
 
 
@@ -324,46 +306,11 @@ Reemplazando entonces por la igualdad anteriormente mencionada
 \begin_inset Formula $\ensuremath{\frac{d}{T}=\tau}$
 \end_inset
 
-, se llega a
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\begin_inset Formula 
-\begin{equation}
-Y_{j}(f)=A_{j}\cdot|H(f_{j})|^{2}\cdot\frac{d}{T}\cdot sinc(f_{j}\cdot\frac{d}{T})\cdot cos(2\pi\cdot f_{j}\cdot(\frac{d}{2T}\text{+}2\cdot\gamma_{j}))\cdot[\delta(f-f_{j})+d(f+f_{j})]
-\end{equation}
-
+, se llega a 
+\begin_inset Formula $Y_{j}(f)=A_{j}\cdot|H(f_{j})|^{2}\cdot\frac{d}{T}\cdot sinc(f_{j}\cdot\frac{d}{T})\cdot cos(2\pi\cdot f_{j}\cdot(\frac{d}{2T}\text{+}2\cdot\gamma_{j}))\cdot[\delta(f-f_{j})+d(f+f_{j})]$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-donde 
+, donde 
 \begin_inset Formula $\gamma_{j}$
 \end_inset
 
@@ -372,16 +319,10 @@ donde
 \end_inset
 
 .
- Notamos que el desfasaje que otorga el filtro 
-\begin_inset Formula $Q(f)$
-\end_inset
-
- es lineal con respecto a la frecuencia y por ende no produce distorsión.
- Esto querrá decir que la distorsión que produce el filtro 
-\begin_inset Formula $Q(f)$
-\end_inset
-
- será únicamente en módulo y no en fase, según el valor de 
+ Notamos que el desfasaje que otorga el filtro Q(f) es lineal con respecto
+ a la frecuencia y por ende no produce distorsión.
+ Esto querrá decir que la distorsión que produce elfiltro Q(f) será únicamente
+ en módulo y no en fase, según el valor de 
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -389,16 +330,9 @@ donde
 \end_layout
 
 \begin_layout Standard
-Asumiendo entonces la salida en función del tiempo puede ser luego escrita
- como:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-y_{j}(t)=A_{j}\cdot|H(f_{j})|^{2}\cdot\frac{d}{T}\cdot sinc(f_{j}\cdot\frac{d}{T})\cdot cos(2\pi\cdot f_{j}\cdot(\frac{d}{2T}+2\cdot\gamma_{j}))\cdot cos(2\pi\cdot f_{j}\cdot t)
-\end{equation}
-
+Asuminendo entonces a salida en función del tiempo puede ser luego escrita
+ como 
+\begin_inset Formula $y_{j}(t)=A_{j}\cdot|H(f_{j})|^{2}\cdot\frac{d}{T}\cdot sinc(f_{j}\cdot\frac{d}{T})\cdot cos(2\pi\cdot f_{j}\cdot(\frac{d}{2T}+2\cdot\gamma_{j}))\cdot cos(2\pi\cdot f_{j}\cdot t)$
 \end_inset
 
 
@@ -409,22 +343,12 @@ Señales moduladas en AM
 \end_layout
 
 \begin_layout Standard
-Dada la siguiente señal modulada en AM:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-x_{c}(t)\text{=}A_{máx}\cdot[\frac{1}{2}\cdot cos(2\pi\cdot1.8\cdot f_{in}\cdot t)+cos(2\pi\cdot2\cdot f_{in}\cdot t)+\frac{1}{2}\cdot cos(2\pi\cdot2.2\cdot f_{in}\cdot t)]
-\end{equation}
-
+Dada la señal modulada en AM 
+\begin_inset Formula $x_{c}(t)\text{=}A_{máx}\cdot[\frac{1}{2}\cdot cos(2\pi\cdot1.8\cdot f_{in}\cdot t)+cos(2\pi\cdot2\cdot f_{in}\cdot t)+\frac{1}{2}\cdot cos(2\pi\cdot2.2\cdot f_{in}\cdot t)]$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-notamos que la misma puede ser escrita como una suma de las funciones 
+, notamos que la misma puede ser escrita como una suma de las funciones
+ 
 \begin_inset Formula $x_{j}(t)$
 \end_inset
 
@@ -494,11 +418,8 @@ De aquí, aplicando nuevamente superposición obtenemos la salida
 
 \begin_layout Standard
 De esta fórmula se desprende que el espectro de la señal modulada se deformará
- más a un duty cycle mayor, ya que la campana del 
-\begin_inset Formula $sinc$
-\end_inset
-
- aumenta en ancho a medida que 
+ más a un duty cycle mayor, ya que la campana del sinc aumenta en ancho
+ a medida que 
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -510,11 +431,7 @@ De esta fórmula se desprende que el espectro de la señal modulada se deformar�
 En cuanto a la potencia, como la salida es una superposición de deltas en
  frecuencia, podemos hallar la potencia total utilizando la identidad de
  Párseval según 
-\begin_inset Formula 
-\begin{equation}
-P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot|H(f_{i})|^{4}\cdot\tau^{2}\cdot sinc^{2}(f_{i}\cdot\tau)
-\end{equation}
-
+\begin_inset Formula $P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot|H(f_{i})|^{4}\cdot\tau^{2}\cdot sinc^{2}(f_{i}\cdot\tau)$
 \end_inset
 
 
@@ -522,15 +439,12 @@ P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot|H(f_{i})|^{4}\cdot\tau^{2}\cdot sinc^{2}(f
 
 \begin_layout Standard
 Luego, aproximando a la ganancia del filtro como unitaria en toda la banda
- de paso:
-\end_layout
+ de paso, 
+\begin_inset Formula $P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot\tau^{2}\cdot sinc^{2}(f_{j}\cdot\tau)$
+\end_inset
 
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot\tau^{2}\cdot sinc^{2}(f_{j}\cdot\tau)=\tau^{2}\cdot\sum_{i=1}^{3}A_{i}^{2}\cdot sinc^{2}(f_{j}\cdot\tau)
-\end{equation}
-
+ = 
+\begin_inset Formula $\tau^{2}\cdot\sum_{i=1}^{3}A_{i}^{2}\cdot sinc^{2}(f_{j}\cdot\tau)$
 \end_inset
 
 
@@ -540,7 +454,7 @@ P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot\tau^{2}\cdot sinc^{2}(f_{j}\cdot\tau)=\tau
 La fórmula anterior indica que la potencia total de la señal muestreada
  será inversamente proporcional al cuadrado del duty cycle.
  De aquí se deduce que tendrá que haber una relación de compromiso entre
- la pérdida de potencia que otorga el duty cycle y la deformación al módulo
+ la pérdida de pontencia que otorga el duty cycle y la deformación al módulo
  del espectro de la señal que produce el mismo (ya mostramos antes que la
  deformación del espectro que produce el valor de 
 \begin_inset Formula $\tau$
