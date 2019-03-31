@@ -1,0 +1,10 @@
+A=5 Volts
+fo= 1Khz
+fp= 5Khz
+fa= 7.5Khz
+Aproximacion= cheby 1
+fs=7.5Khz
+DC=50%
+Potencia recuperada= 56.3%
+
+Nota: Mientras mas grande el duty cycle y la frecuencia de muestreo, mas potencia se recupera
