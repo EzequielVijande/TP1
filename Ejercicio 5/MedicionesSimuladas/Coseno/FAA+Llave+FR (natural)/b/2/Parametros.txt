@@ -3,8 +3,8 @@ fo= 7.5Khz
 fp= 5Khz
 fa= 7.5Khz
 Aproximacion = Cheby 1
-fs= 31Khz
-Potencia recuperada= 0.09% 
+fs= 20Khz
+Potencia recuperada= 0.0008% 
 
-Notas: A frecuencias menores iguales de 30Khz, la amplitud a la ali disminuia casi a la mitad.
+Notas: A frecuencias menores iguales de 30Khz, la amplitud a la salida disminuia casi a la mitad.
 Al subir el Duty cycle baja la potencia.

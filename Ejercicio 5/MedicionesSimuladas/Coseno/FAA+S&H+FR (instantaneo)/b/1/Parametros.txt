@@ -1,0 +1,10 @@
+A=5 Volts
+fo= 100hz
+fp= 5Khz
+fa= 7.5Khz
+Aproximacion= cheby 1
+fs=7.5Khz
+DC=50%
+Potencia recuperada= 96%
+
+Nota: Mientras menor la  fo mayor es la potencia recuperada.
