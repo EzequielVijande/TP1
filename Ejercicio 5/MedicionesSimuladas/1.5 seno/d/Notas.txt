@@ -1,0 +1,2 @@
+A medida que se sube la frecuencia fundamental se pierden mas armonicos por lo que a la salida del
+FAA se tiene cada vez algo mas parecido a una senoidal de frecuencia fo y con un offset debido al a0 de la senal
