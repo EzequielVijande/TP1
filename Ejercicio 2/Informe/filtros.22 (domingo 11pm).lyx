@@ -1,10 +1,15 @@
 #LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -21,8 +26,6 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -32,7 +35,7 @@
 \spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -52,19 +55,19 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 19mm
+\topmargin 19mm
+\rightmargin 19mm
+\bottommargin 42mm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -78,7 +81,7 @@
 \begin_body
 
 \begin_layout Part*
-Filtro Recuperador y Anti-aliasing
+Filtro Recuperador y Anti-Aliasing
 \end_layout
 
 \begin_layout Standard
@@ -1332,6 +1335,7 @@ Los circuitos utilizados para cada celda fueron los siguientes:
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -2328,9 +2332,9 @@ De las figuras anteriores se puede notar como la mayoría de los casos cumplen
  con la plantilla especificada, sin embargo algunos de los casos no cumplen
  exactamente con todas las especificaciones, ya que se pueden notar sobrepicos
  o atenuaciones de menor magnitud para una minoría.
- De todas maneras, estas deciensas de los casos que no cumplen con las especicac
-iones pueden ser contrarrestadas mediante la calibración de los valores
- de los componentes que posean una sensibilidad signicativa.
+ De todas maneras, estas diferencias pueden ser contrarrestadas, por ejemplo,
+ mediante la calibración de los valores de los componentes que posean una
+ sensibilidad significativa.
 \end_layout
 
 \begin_layout Subsection*

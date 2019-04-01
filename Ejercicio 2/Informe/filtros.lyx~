@@ -32,7 +32,7 @@
 \spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -57,6 +57,10 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 19mm
+\topmargin 19mm
+\rightmargin 19mm
+\bottommargin 42mm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -78,7 +82,7 @@
 \begin_body
 
 \begin_layout Part*
-Filtro Recuperador y Anti-aliasing
+Filtro Recuperador y Anti-Aliasing
 \end_layout
 
 \begin_layout Standard
@@ -640,8 +644,9 @@ Diseño del filtro
 Para realizar el filtro, se eligió utilizar la aproximación de Legendre
  para asegurar una buena planicie en la banda de paso a un orden mucho menor
  que el que se podría obtener con una aproximación de Butterworth.
- A su vez, la aproximación de Legendre tendrá una fase más lineal (retardo
- de grupo) que un filtro aproximado mediante Chebyshev I o Chebyshev II.
+ A su vez, la aproximación de Legendre tendrá una fase más lineal (mejor
+ retardo de grupo) que un filtro aproximado mediante Chebyshev I o Chebyshev
+ II.
  Chebyshev I tendrá el problema adicional de agregar ceros en la banda de
  paso.
  El inconveniente de Legendre, por otro lado, es que necesariamente agregará
@@ -2130,7 +2135,38 @@ Simulación
 \begin_layout Standard
 Se procedió a simular el filtro en LTSPICE para verificar que cumpliera
  plantilla y luego se realizaron simulaciones usando el método de Montecarlo.
- Los capacitores con 5% de tolerancia.
+ Cabe aclarar, que el gráfico de fase las aparentes peculiaridades no son
+ para preocuparse ya que la fase pasa de 
+\begin_inset Formula $180°$
+\end_inset
+
+ a 
+\begin_inset Formula $-180°$
+\end_inset
+
+, lo que ocasiona la pendiente brusca.
+ Y recordamos que una fase de 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $-180°$
+\end_inset
+
+ es equivalente a una de 
+\begin_inset Formula $180\text{°}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2150,6 +2186,34 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulación de magnitud con valores nominales.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Imagenes/simulacion bode fase.png
 	lyxscale 30
@@ -2164,7 +2228,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulación de magnitud y fase con valores nominales
+Simulación de fase con valores nominales.
 \end_layout
 
 \end_inset
@@ -2182,7 +2246,217 @@ Simulación de magnitud y fase con valores nominales
 \end_layout
 
 \begin_layout Subsection*
-Rango dinámico
+Análisis de Montecarlo
+\end_layout
+
+\begin_layout Standard
+A continuación se expone el resultado de la simulación del filtro mediante
+ el análisis de Montecarlo, lo cual es útil para corroborar como cambia
+ la respuesta en frecuencia según la variación de los componentes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/montecarlo caps matcheados.PNG
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulación Montecarlo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/ZOOM montecarlo caps matcheados.PNG
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Detalle de la banda de paso.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De las figuras anteriores se puede notar como la mayoría de los casos cumplen
+ con la plantilla especificada, sin embargo algunos de los casos no cumplen
+ exactamente con todas las especificaciones, ya que se pueden notar sobrepicos
+ o atenuaciones de menor magnitud para una minoría.
+ De todas maneras, estas diferencias pueden ser contrarrestadas, por ejemplo,
+ mediante la calibración de los valores de los componentes que posean una
+ sensibilidad significativa.
+\end_layout
+
+\begin_layout Subsection*
+Estudio de rango dinámico
+\end_layout
+
+\begin_layout Standard
+La denición de rango dinámico a utilizar es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+RD_{dB}=20log\left(\frac{V_{in_{max}}}{V_{in_{min}}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Siendo 
+\begin_inset Formula $V_{in_{max}}$
+\end_inset
+
+la amplitud de señal máxima que se puede ingresar al circuito sin que esta
+ sufra alguna alinealidad, y 
+\begin_inset Formula $V_{in_{min}}$
+\end_inset
+
+ la amplitud mínima de la señal que se pueda imponer al sistema sin que
+ esta se confunda con el piso de ruido.
+\end_layout
+
+\begin_layout Standard
+En primer lugar se asume que la alinealidad que puede limitar 
+\begin_inset Formula $V_{in_{max}}$
+\end_inset
+
+ es la saturación de los operacionales.
+ Luego, para hallar esta tensión se procede a identificar la ganancia máxima
+ del filtro, es decir, la ganancia en el sobrepico, y obtener una amplitud
+ máxima para esta etapa mediante la siguiente expresión:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{in_{max}}=\frac{V_{sat}}{G_{max}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La ganancia máxima se tomó como 
+\begin_inset Formula $0.5dB$
+\end_inset
+
+ por las simulaciones realizadas, y 
+\begin_inset Formula $V_{sat}$
+\end_inset
+
+ como 
+\begin_inset Formula $13V$
+\end_inset
+
+.
+ Lo que resulta en una 
+\begin_inset Formula $V_{in_{max}}$
+\end_inset
+
+ de 
+\begin_inset Formula $12.26V$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Por otro lado, al estar cuantizado en 8 bits, se tiene una resolución de
+ 256 niveles, por lo que para no confundir la señal de entrada con el piso
+ de ruido, 
+\begin_inset Formula $V_{in_{min}}$
+\end_inset
+
+ estará dada por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{in_{min}}=\frac{V_{sat}}{256}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta tensión estaría más limitada si se tiene en cuenta que según la plantilla,
+ en la banda de paso podría llegar a atenuar 
+\begin_inset Formula $1dB$
+\end_inset
+
+.
+ Con ésto, 
+\begin_inset Formula $V_{in_{min}}=58mV$
+\end_inset
+
+.
+ De esto, el rango dinámico resulta de 
+\begin_inset Formula $46.5dB$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Subsection*
@@ -2197,6 +2471,9 @@ Se tendrán que notan las siguientes consecuencia de la no idealidad de los
 \begin_layout Itemize
 Los filtros agregarán distorsión de módulo y de fase a la señal original
  incluso en la banda de paso, que se asumió dejaba intacta a la señal.
+ Sin embargo, la distorsión de la fase, al ser el retardo de grupo en una
+ aproximación Legendre, mejor, por ser más lineal, que un Chebyshev I ó
+ II, es la mínima posible.
 \end_layout
 
 \begin_layout Itemize
