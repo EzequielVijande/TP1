@@ -107,7 +107,205 @@
 \begin_body
 
 \begin_layout Section*
-Muestreo SubNyquist
+Ejercicio 8
+\end_layout
+
+\begin_layout Section*
+Muestreo Sub-Nyquist
+\end_layout
+
+\begin_layout Standard
+Se desea muestrear la señal 
+\begin_inset Formula $x_{C}(t)=A_{máx}\cdot[\frac{1}{2}\cdot cos(2\pi\cdot1.8\cdot f_{in}\cdot t)+cos(2\pi\cdot2\cdot f_{in}\cdot t)+\frac{1}{2}\cdot cos(2\pi\cdot2.2\cdot f_{in}\cdot t)]$
+\end_inset
+
+ a frecuencias menores a las de Nyquist, sin utilizar los filtros Anti-Aliasing
+ ni recuperador, en distintas condiciones.
+ 
+\end_layout
+
+\begin_layout Standard
+Se determinará la frecuencia de muestreo óptima de muestreo para cada caso.
+\end_layout
+
+\begin_layout Subsection*
+Muestreo Natural
+\end_layout
+
+\begin_layout Subsection*
+Muestreo con Sample and Hold
+\end_layout
+
+\begin_layout Standard
+Usando el modelo del ejercicio anterior, se cuenta con el siguiente sistema:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que la salida a la entrada 
+\begin_inset Formula $W_{j}(f)$
+\end_inset
+
+ del ejercicio anterior en frecuencia estará dada por:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $G_{j}(f)=f_{o}\cdot\sum_{n\epsilon Z}A_{j}\cdot\delta(f-f_{j}-n\cdot f_{o})\cdot\tau\cdot sinc(f_{j}\tau+n\cdot f_{o}\tau)\cdot e^{-i\cdot2\pi(f_{j}-nf_{o})\frac{\tau}{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $G_{j}(f)=d\cdot\sum_{n\epsilon Z}A_{j}\cdot\delta(f-f_{j}-n\cdot f_{o})\cdot sinc((f_{j}+nf_{o})\cdot d\cdot T)\cdot e^{-i\cdot2\pi(f_{j}-nf_{o})\frac{d\cdot T}{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Teniendo en cuenta que la el la función sinc de la expresión de 
+\begin_inset Formula $G_{j}(f)$
+\end_inset
+
+ está centrada en 
+\begin_inset Formula $f_{j}\cdot d\cdot T$
+\end_inset
+
+, pasamos a analizar a 
+\begin_inset Formula $X_{c}(f)$
+\end_inset
+
+ como una señal modulada en AM, de manera tal que si 
+\begin_inset Formula $\Delta f$
+\end_inset
+
+ es la frecuencia de la onda moduladora y 
+\begin_inset Formula $f_{2}$
+\end_inset
+
+ la frecuencia de la portadora, entonces 
+\begin_inset Formula $f_{2}\text{=}2\cdot f_{in}=1.6f_{p}$
+\end_inset
+
+ , 
+\begin_inset Formula $f_{1}=1.8\cdot f_{in}=2\cdot f_{in}-0.2f_{in}=f_{2}-\frac{1}{10}\cdot f_{2}=f_{2}-\Delta f$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{3}=f_{2}+\Delta f$
+\end_inset
+
+ con 
+\begin_inset Formula $\Delta f=\frac{1}{10}\cdot f_{2}=0.16\cdot f_{p}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Entonces cada 
+\begin_inset Formula $f_{j}$
+\end_inset
+
+ puede ser escrito como 
+\begin_inset Formula $f_{j}\text{=}f_{2}\pm\Delta f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Se logra observar para cada 
+\begin_inset Formula $f_{j}$
+\end_inset
+
+ entonces un sinc centrado en 
+\begin_inset Formula $f_{j}\cdot T$
+\end_inset
+
+ y escalado por un factor de 
+\begin_inset Formula $d$
+\end_inset
+
+, tomando solo los valores de 
+\begin_inset Formula $n\cdot f_{o}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Gráficamente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Espectro de la señal modula a la salida del Sample and Hold
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Claramente se puede apreciar que al modificar los valores de del período
+ de muestreo T, se modificará la frecuencia en la que cada sinc está centrado,
+ y teniendo en cuenta la distancia entre las frecuencias de la moduladora
+ de 
+\begin_inset Formula $\Delta f\cdot T$
+\end_inset
+
+, se pueden acercar o alejar las componentes de frecuencia entre sí con
+ sólo cambiar el período T.
+ Si uno toma un T lo suficientemente grande, se podrán obervar las copias
+ del espectro de las frecuencias negativas en el espectro positivo, y si
+ uno toma un espectro lo suficientemente chico, 
 \end_layout
 
 \end_body
