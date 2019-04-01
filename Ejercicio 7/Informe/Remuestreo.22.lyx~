@@ -548,33 +548,41 @@ La fórmula anterior indica que la potencia total de la señal muestreada
 
 \begin_layout Standard
 Otro aspecto notable de las expresiones anteriores es que el espectro de
- la señal podría llegar a anularse en aquellos puntos en los que 
-\begin_inset Formula $sinc(f_{j}\cdot\frac{d}{T})=0$
+ la señal se anula periódicamente en aquellos puntos en los que 
+\begin_inset Formula $sinc(f\cdot\frac{d}{T})=0$
 \end_inset
 
 , es decir, 
-\begin_inset Formula $\frac{sen(f_{j}\cdot\frac{d}{T})}{f_{j}\cdot\frac{d}{T}}=0$
+\begin_inset Formula $\frac{sen(f\cdot\frac{d}{T})}{f\cdot\frac{d}{T}}=0$
 \end_inset
 
 .
  Estos puntos son 
-\begin_inset Formula $f_{j}\cdot\frac{d}{T}=k\cdot\pi,k\epsilon Z$
+\begin_inset Formula $f\cdot\frac{d}{T}=k\cdot\pi,k\epsilon Z$
 \end_inset
 
 .
- Estos puntos anularía alguna componente del espectro de la señal, volviéndola
- a esta irrecuperable.
- Se requiere entonces que los ceros de la función 
-\begin_inset Formula $sinc(f\cdot\tau)$
+ Tomando entonces el primer cero, 
+\begin_inset Formula $f\cdot\frac{d}{T}=\pi$
 \end_inset
 
- se encuentren en frecuencias distintas a las 
-\begin_inset Formula $f_{j}$
+, se despeja 
+\begin_inset Formula $\frac{d}{T}=\tau=\frac{\pi}{f}$
 \end_inset
 
- y lo suficientemente separados, como para que no se atenúe a cierta componente
- tanto como para considerarla anulada.
- Cualquier deformación podrá ser luego compensada en el caso 
+ como el primer cero de la función, que anularía algún punto del espectro
+ de la señal, volviéndola a esta irrecuperable.
+ Se requiere entonces que este cero se encuentre en frecuencias superiores
+ a 
+\begin_inset Formula $2.2\cdot f_{in}$
+\end_inset
+
+, ancho de banda de 
+\begin_inset Formula $x_{c}(t)$
+\end_inset
+
+.
+ Se pide entonces que:
 \end_layout
 
 \begin_layout Standard

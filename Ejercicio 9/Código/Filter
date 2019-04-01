@@ -60,29 +60,11 @@ class Filter:
         self.last_out[1] = 0
 
 
-f1 = Filter(1, -1/2)
-
-f1.set_null_initial_conditions()
-
 delta = [1] + [0]*30
-f1.in_out(delta, True, ['Respuesta impulsiva', 'n (T = 1)', 'h(n) (T = 1)'])
 u = [1]*31
-f1.in_out(u, True, ['Respuesta al escalon', 'n (T = 1)', 'y(n) (T = 1)'])
-
-
-f2 = Filter(1/3, -1/8)
-f2.set_null_initial_conditions()
-f2.in_out(delta, True, ['Respuesta impulsiva', 'n (T = 1)', 'h(n) (T = 1)'])
-f2.in_out(u, True, ['Respuesta al escalon', 'n (T = 1)', 'y(n) (T = 1)'])
-
-f3 = Filter(4/3, -25/32)
-f3.set_null_initial_conditions()
-f3.in_out(delta, True, ['Respuesta impulsiva', 'n (T = 1)', 'h(n) (T = 1)'])
-f3.in_out(u, True, ['Respuesta al escalon', 'n (T = 1)', 'y(n) (T = 1)'])
-
 
 # casos de prueba adicionales
-filters = [Filter(-1, 1/2), Filter(-1/3, -1/8), Filter(1/10, 1/20), Filter(1, -1/4)]
+filters = [Filter(1, -1/2), Filter(1/3, -1/8), Filter(4/3, -25/32), Filter(-1, 1/2), Filter(-1/3, -1/8), Filter(1/10, 1/20), Filter(1, -1/4)]
 
 for i in range(len(filters)):
     filters[i].set_null_initial_conditions()
