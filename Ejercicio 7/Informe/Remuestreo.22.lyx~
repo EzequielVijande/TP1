@@ -791,7 +791,9 @@ s en el rango
 
 , por lo que se eligirá el duty cycle más grande posible para obtener la
  mayor potencia total posible y preservar lo más posible las señales.
- 
+ Es importante hacer notar que si bien el espectro de la señal se deforma,
+ se podría aplicar un filtro digital una vez que la señal ya ha sido digitalizad
+a podrá revertir esta deformación agregada.
 \end_layout
 
 \end_body
