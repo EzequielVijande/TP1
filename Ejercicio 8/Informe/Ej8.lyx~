@@ -132,6 +132,99 @@ Se determinará la frecuencia de muestreo óptima de muestreo para cada caso.
 Muestreo Natural
 \end_layout
 
+\begin_layout Standard
+El muestreo natural se modela como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modelo del muestreo natural
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este modelo concreta mediante el uso de una llave analógica, que anulará
+ la salida y dejará pasar la entrada 
+\begin_inset Quotes eld
+\end_inset
+
+muestreándola
+\begin_inset Quotes erd
+\end_inset
+
+ por un cierto período de tiempo acorde a un duty cycle d.
+ 
+\end_layout
+
+\begin_layout Standard
+A la salida del sistema correspondiente con la entrada 
+\begin_inset Formula $w(t)$
+\end_inset
+
+ tendré la salida 
+\begin_inset Formula $y(t)$
+\end_inset
+
+ dada por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y(t)=$
+\end_inset
+
+
+\begin_inset Formula $\sum_{n\epsilon Z}\pi(\frac{t-\frac{n\cdot\tau}{2}}{\tau})\cdot w(t)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que 
+\begin_inset Formula $Y(f)=sinc(f\cdot\tau)\cdot\tau\odot W(f)$
+\end_inset
+
+, donde 
+\begin_inset Formula $\odot$
+\end_inset
+
+ es la convolución entre señales.
+ 
+\end_layout
+
+\begin_layout Standard
+Para la entrada particular 
+\begin_inset Formula $W_{j}(f)=A_{j}\cdot\delta(f-f_{j})$
+\end_inset
+
+, la salida será:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Y_{j}(f)=A_{j}$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection*
 Muestreo con Sample and Hold
 \end_layout
@@ -305,7 +398,21 @@ Claramente se puede apreciar que al modificar los valores de del período
  sólo cambiar el período T.
  Si uno toma un T lo suficientemente grande, se podrán obervar las copias
  del espectro de las frecuencias negativas en el espectro positivo, y si
- uno toma un espectro lo suficientemente chico, 
+ uno achica el período T, las componentes se van a acercar entre sí.
+ En particular, si quiero obtener el espectro en las frecuencias originales,
+ deberé elegir una T tal que 
+\begin_inset Formula $d\cdot T$
+\end_inset
+
+=1, por lo que la componente de mayor frecuencia de 
+\begin_inset Formula $G_{j}(f)$
+\end_inset
+
+ estará situada en 
+\begin_inset Formula $f_{j}$
+\end_inset
+
+.
 \end_layout
 
 \end_body
