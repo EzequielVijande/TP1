@@ -1,0 +1,11 @@
+A=5 Volts
+fo= 4Khz
+fp= 5Khz
+fa= 7.5Khz
+Aproximacion= Cauer
+fs=4Khz
+DC=30%
+Potencia recuperada= 7.64%
+
+Nota: Se le agrega un offset a la salida por tener un compoenente de frecuencia en f=0. El valor del duty cycle cambia
+el valor de este offset.

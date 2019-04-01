@@ -1,0 +1,8 @@
+A=6V
+fp=8Khz
+fm=800Hz
+fs=3560Hz
+Aprox= Cauer
+DC=25%
+
+Sin FAA y sin FR

@@ -1,12 +1,13 @@
 from matplotlib import pyplot as p
 import math
 
+
 class Filter:
 
     def __init__(self, alfa, betha):
         self.alfa = alfa
         self.betha = betha
-        # wsq : discriminant of the cuadratic function that will determine the type of system
+        # wsq : discriminant of the quadratic function that will determine the type of system
         self.w_sq = alfa**2 + 4*betha
         self.oscillates = self.w_sq < 0
 
@@ -19,8 +20,10 @@ class Filter:
         self.last_out = [0, 0]           # set initial conditions, y[-2], y[-1]
         self.y = []
 
-    # in_sequence should start with x(n = -1) !!!!
-    def in_out(self, in_sequence):
+    # the first index of in_sequence should be x(0), x being a causal function!!!!
+    # labels is used when plotting. labels[0]->title, labels[1] -> x_label, labels[2] -> y_label
+    def in_out(self, in_sequence, plot=False, labels=[]):
+        in_sequence = [0] + in_sequence
         self.y = [self.last_out[0], self.last_out[1]]
 
         for i in range(len(in_sequence)):
@@ -29,6 +32,15 @@ class Filter:
         self.y = self.y[2:len(self.y)]
         self.last_out[0] = self.y[len(self.y)-1]
         self.last_out[1] = self.y[len(self.y)-2]
+
+        if plot:
+            n = list(range(len(in_sequence)))
+            p.grid(True)
+            p.stem(n, self.y)
+            p.title(labels[0])
+            p.xlabel(labels[1])
+            p.ylabel(labels[2])
+            p.show()
 
         return self.y
 
@@ -49,15 +61,30 @@ class Filter:
 
 
 f1 = Filter(1, -1/2)
-# f2 = Filter(1/3, -1/8)
-# f3 = Filter(4/3, -25/32)
+
 f1.set_null_initial_conditions()
-n = list(range(4000))
 
-f0 = [i*0.01 for i in range(100000)]
-T = 0.001
+delta = [1] + [0]*30
+f1.in_out(delta, True, ['Respuesta impulsiva', 'n (T = 1)', 'h(n) (T = 1)'])
+u = [1]*31
+f1.in_out(u, True, ['Respuesta al escalon', 'n (T = 1)', 'y(n) (T = 1)'])
 
-H = [(1 / (2 + 0.8*math.cos(math.pi*2*f0[i])))**(1/2) for i in range(len(f0))]
-p.plot(f0, H)
-p.show()
-print("hola")
+
+f2 = Filter(1/3, -1/8)
+f2.set_null_initial_conditions()
+f2.in_out(delta, True, ['Respuesta impulsiva', 'n (T = 1)', 'h(n) (T = 1)'])
+f2.in_out(u, True, ['Respuesta al escalon', 'n (T = 1)', 'y(n) (T = 1)'])
+
+f3 = Filter(4/3, -25/32)
+f3.set_null_initial_conditions()
+f3.in_out(delta, True, ['Respuesta impulsiva', 'n (T = 1)', 'h(n) (T = 1)'])
+f3.in_out(u, True, ['Respuesta al escalon', 'n (T = 1)', 'y(n) (T = 1)'])
+
+
+# casos de prueba adicionales
+filters = [Filter(-1, 1/2), Filter(-1/3, -1/8), Filter(1/10, 1/20), Filter(1, -1/4)]
+
+for i in range(len(filters)):
+    filters[i].set_null_initial_conditions()
+    filters[i].in_out(delta, True, ['Respuesta impulsiva', 'n (T = 1)', 'h(n) (T = 1)'])
+    filters[i].in_out(u, True, ['Respuesta al escalon', 'n (T = 1)', 'y(n) (T = 1)'])

@@ -1,0 +1,8 @@
+A=12 Volts
+fo= 100hz
+fp= 5Khz
+fa= 7.5Khz
+Aproximacion= Cauer
+fs=7.5Khz
+DC=50%
+Potencia recuperada= 99.37%

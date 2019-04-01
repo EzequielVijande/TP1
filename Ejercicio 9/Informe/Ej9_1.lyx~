@@ -1,0 +1,1160 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{makecell}		%Para emprolijar celdas de tablas
+\usepackage{amsmath}
+\usepackage{upgreek}		%puedo usar \uptau que es como \tau pero con mas rulito
+\usepackage{steinmetz}
+\usepackage{mathtools}
+\usepackage{placeins}
+\usepackage[textwidth=14cm]{geometry}	%texto ocupa mas ancho de pagina
+\usepackage{xcolor}		%se usa en \code
+
+
+\usepackage[parfill]{parskip}		%pone espacio entre parrafos
+\setlength{\parindent}{10pt}		%cuanta sangria al principio de un parrafo
+\usepackage{indentfirst}		%pone sangria al primer parrafo de una seccion
+
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} %
+\makeatletter	%magia de categoria de caracteres en Tex, ignorar
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother	%magia de categoria de caracteres en Tex, ignorar
+
+%Definicion comando \parsum: hace re piola el simbolo de la suma en paralelo
+\newcommand{\parsum}{\mathbin{\!/\mkern-5mu/\!}} 
+
+%Definicion comando \code: poen el texto en fuente monoespaciada con fondo gris 
+%al estilo del codigo de stack overflow
+\definecolor{light-gray}{gray}{0.95} 
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+Ejercicio 9.1
+\end_layout
+
+\begin_layout Standard
+Se pide implementar el siguiente filtro digital de segundo orden:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/filtro_a_implementar.PNG
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Filtro a implementar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El cual está descripto por la siguiente ecuación en diferencias:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $y(nT)=0.5\cdot x(nT-T)+\alpha\cdot y(nT-T)+\beta\cdot y(nT-2T)$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para facilitar las cuentas, elegimos normalizar el período T a la unidad
+ de manera tal que 
+\begin_inset Formula $T=1$
+\end_inset
+
+, lo cual permite reescribir la ecuación anterior como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $y(n)=0.5\cdot x(n-1)+\alpha\cdot y(n-1)+\beta\cdot y(n-2)$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dada la arbitrariedad de las constantes 
+\begin_inset Formula $\beta$
+\end_inset
+
+ y 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, se decide hacer un análisis previo del sistema para lograr establecer
+ el tipo de respuesta del mismo.
+ 
+\end_layout
+
+\begin_layout Standard
+Dado que la respuesta transitoria del filtro está ligada exclusivamente
+ a la ecuación homogénea del mismo, se decide analizar primeramente dicha
+ ecuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $y_{h}(n)-\alpha\cdot y_{h}(n-1)-\beta\cdot y_{h}(n-2)=0$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset Formula $y_{h}(n)$
+\end_inset
+
+ es la solución homogénea del sistema.
+\end_layout
+
+\begin_layout Standard
+Proponemos entonces 
+\begin_inset Formula $y_{h}(n)=A\cdot\lambda^{n}$
+\end_inset
+
+, 
+\begin_inset Formula $A,\lambda\epsilon C$
+\end_inset
+
+ como solución, lo cual nos lleva a la ecuación carácterística del sistema:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\lambda^{2}-\alpha\cdot\lambda-\beta=0$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De aquí llegamos a los posibles valores de 
+\begin_inset Formula $\lambda$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\lambda_{1,2}=\frac{\alpha\pm\sqrt{\alpha^{2}+4\cdot\beta}}{2}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notamos que 
+\begin_inset Formula $|\lambda_{1,2}|$
+\end_inset
+
+= 
+\begin_inset Formula $\sqrt{\frac{\alpha^{2}}{2}+\beta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Observando el discriminante de la expresión de 
+\begin_inset Formula $\lambda_{1,2}$
+\end_inset
+
+, podemos distinguir entre los siguientes casos: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha^{2}+4\cdot\beta<0$
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ El sistema tendrá una respuesta homogénea de tipo 
+\begin_inset Formula $y_{h}(n)=C_{1}\cdot|\lambda_{1,2}|^{n}\cdot cos(\omega\cdot n)+C_{2}\cdot|\lambda_{1,2}|^{n}\cdot sen(\omega\cdot n)$
+\end_inset
+
+ , con 
+\begin_inset Formula $C_{1},C_{2}\epsilon R$
+\end_inset
+
+ , 
+\begin_inset Formula $w=Arg(\lambda_{1})$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ El sistema por lo tanto oscilará con una frecuencia de 
+\begin_inset Formula $f=\frac{\omega}{2\pi}$
+\end_inset
+
+, y dependerá la del valor de 
+\begin_inset Formula $|\lambda_{1,2}|$
+\end_inset
+
+ la cantidad de períodos en los cuales esta oscilación será apreciable.
+ El sistema cae dento del caso subamortiguado.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ Es importante notar que el sistema será estable únicamente en el caso en
+ que 
+\begin_inset Formula $|\lambda_{1,2}|<1$
+\end_inset
+
+.
+ Utilizando el hecho de que 
+\begin_inset Formula $|\lambda_{1,2}|=e^{ln|\lambda_{1,2}|}$
+\end_inset
+
+, se podrá entonces hallar la constante de tiempo del sistema al resolver
+ la ecuación 
+\begin_inset Formula $e^{ln|\lambda_{1,2}|\cdot n\cdot T}=e^{-1}$
+\end_inset
+
+.
+ Como n es un número entero, en general no se podrá hallar un n que cumpla
+ esta igualdad exactamente y por ende la constante de tiempo 
+\begin_inset Formula $\tau$
+\end_inset
+
+ estará dada por 
+\begin_inset Formula $\tau=n_{0}\cdot T$
+\end_inset
+
+, siendo 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ el mínimo n que cumpla con 
+\begin_inset Formula $n\geq\frac{-1}{ln|\lambda_{1,2}|\cdot T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha^{2}+4\beta>0:$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ El sistema tendrá una respuesta homogénea de tipo 
+\begin_inset Formula $y_{h}(n)=C_{3}\cdot\lambda_{1}^{n}+C_{4}\cdot\lambda_{2}^{n}$
+\end_inset
+
+, con 
+\begin_inset Formula $C_{3},C_{4}\epsilon R$
+\end_inset
+
+ por lo que si 
+\begin_inset Formula $|\lambda_{1,2}|<1$
+\end_inset
+
+ , entonces el sistema será estable.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha^{2}+4\beta=0:$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ El sistema tendrá una respuesta homogénea de tipo 
+\begin_inset Formula $y_{h}(n)=C_{5}\cdot\lambda^{n}+C_{6}\cdot n\cdot\lambda^{n}$
+\end_inset
+
+, con 
+\begin_inset Formula $C_{6},C_{5}\epsilon R$
+\end_inset
+
+, por lo que si 
+\begin_inset Formula $|\lambda_{1,2}|<1$
+\end_inset
+
+ , entonces el sistema será estable.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Implementación digital del filtro
+\end_layout
+
+\begin_layout Standard
+Se implementa el filtro a partir de un programa escrito en python.
+ Se obtienen las respuestas al impulso y al escalón para caracterizar al
+ sistema.
+ Se utilizan los parámetros 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ impuestos por consigna y se prueba con algunos valores extra que podrían
+ resultar de interés.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Casos especiales de prueba
+\end_layout
+
+\begin_layout Standard
+Se utilizaron los siguientes casos de prueba para aquellos parámetros que
+ resultan de interés.
+ Se probaron entonces los parámetros de consigna:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha=1;\beta=-\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha=\frac{1}{3};\beta=-\frac{1}{8}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha=\frac{4}{3};\beta=-\frac{25}{32}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Todos estos sistemas impuestos por consigna, serán oscilantes ya que cumplen
+ con 
+\begin_inset Formula $\alpha^{2}+4\cdot\beta<0$
+\end_inset
+
+.
+ Es por esta razón que sólo probar estos casos resulta insuficiente a la
+ hora de explorar los posibles escenarios que podría presentar esta configuració
+n.
+ 
+\end_layout
+
+\begin_layout Standard
+Se simularon entonces los siguientes casos a enumerar, con las razones de
+ por qué estos fueron elegidos:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha=-1;\beta=\frac{1}{2}$
+\end_inset
+
+ para probar aquellos casos en los que 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ resulta negativo y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ positivo.
+ Este caso en particular resulta en 
+\begin_inset Formula $|\lambda_{1,2}|=1$
+\end_inset
+
+, por lo que el filtro es inestable: caso divergente.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha=-\frac{1}{3};\beta=-\frac{1}{8}$
+\end_inset
+
+ para probar aquellos casos en los que tanto 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ como 
+\begin_inset Formula $\beta$
+\end_inset
+
+ son negativos.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha=\frac{1}{10};\beta=\frac{1}{20}$
+\end_inset
+
+ para probar aquellos casos en los que tanto 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ como 
+\begin_inset Formula $\beta$
+\end_inset
+
+ son positivos.
+ Este caso necesariamente implicará 
+\begin_inset Formula $\alpha^{2}+4\beta>0$
+\end_inset
+
+.
+ Además 
+\begin_inset Formula $|\lambda_{1,2}|<1$
+\end_inset
+
+ y por lo tanto el sistema es bibo-estable.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha=1;\beta=-\frac{1}{4}$
+\end_inset
+
+ para probar aquellos casos en los que 
+\begin_inset Formula $\alpha^{2}+4\beta=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Respuesta impulsiva
+\end_layout
+
+\begin_layout Standard
+Se procederá a mostrar las respuestas impulsivas para el filtro de consigna
+ con distintos parámetros, haciendo un análisis en aquellos casos en los
+ que se considera necesario:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/impulso_alfa1_beta-0.5.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha=1;\beta=\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se observan oscilaciones en la respuesta impulsiva del filtro con los parámetros
+ 
+\begin_inset Formula $\alpha=1;\beta=-\frac{1}{2}$
+\end_inset
+
+.
+ Siguiendo el análisis del transitorio mencionado anteriormente, se observa
+ que 
+\begin_inset Formula $\alpha^{2}+4\cdot\beta\text{=-1}<0$
+\end_inset
+
+, por lo que el filtro con estos parámetros cae dentro del caso oscilatorio,
+ lo cual coincide con lo simulado.
+ Se nota también que habrá que esperar al menos quince períodos de tiempo
+ para que el sistema se estrablezca y se pueda considerar como finalizado
+ el periódo transitorio del sistema.
+ Utilizando el criterio mencionado en la sección anterior y teniendo en
+ cuenta el retardo sobre la entrada, se observa que la constante de tiempo
+ del sistema será 
+\begin_inset Formula $n=4$
+\end_inset
+
+ para un período T =1.
+ Esto se puede visualizar correctamente en el gráfico.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/impulso_alfa1;3_beta-1;8.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha=\frac{1}{3};\beta=-\frac{1}{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se vuelve a apreciar un carácter oscilante para el sistema debido a 
+\begin_inset Formula $\alpha^{2}+4\cdot\beta\text{=-1.88}<0$
+\end_inset
+
+.
+ El sistema tiene una constante de tiempo claramente más chica que el sistema
+ anterior y esto se deduce por un 
+\begin_inset Formula $|\lambda_{1,2}|$
+\end_inset
+
+mucho más chico que para el sistema anterior.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/impulso_alfa4;3_beta-25;32.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha=\frac{4}{3};\beta=-\frac{25}{32}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se vuelve a apreciar un carácter oscilante para el sistema debido a 
+\begin_inset Formula $\alpha^{2}+4\cdot\beta\text{=-1.34}<0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/escalon_alfa-1_beta1;2.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha=-1;\beta=\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/escalon_alfa-1;3_beta-1;8.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha=-\frac{1}{3};\beta=-\frac{1}{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/impulso_alfa1;10_beta1;20.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha=\frac{1}{10};\beta=\frac{1}{20}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/impulso_alfa1_beta-1;4.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha=1;\beta=-\frac{1}{4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Respuesta al escalón
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/escalon_alfa1_beta-0.5.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha=1;\beta=-\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/escalon_alfa1;3_beta-1;8.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha=\frac{1}{3};\beta=-\frac{1}{8}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/escalon_alfa4;3_beta-25;32.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha=\frac{4}{3};\beta=-\frac{25}{32}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\end_body
+\end_document
