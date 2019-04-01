@@ -1,0 +1,11 @@
+A=12 Volts
+fo= 7.5Khz
+fp= 5Khz
+fa= 7.5Khz
+Aproximacion= Cauer
+fs=20Khz
+DC=50%
+Potencia recuperada= 13% (???)
+
+Nota: Parece que el DC no cambie absolutamente nada.La fs tampoco parece cambiar nada, por si acaso diria que tiene que ser
+por lo menos 15Khz
