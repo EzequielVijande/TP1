@@ -140,7 +140,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Sistema completo.
+Sistema impuesto por consigna
 \end_layout
 
 \end_inset
@@ -158,15 +158,54 @@ Sistema completo.
 \end_layout
 
 \begin_layout Standard
-Donde 
+Dicho sistema puede ser modelado como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modelo del sistema impuesto por consigna
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde tanto el muestreo como 
 \begin_inset Formula $q(t)$
 \end_inset
 
- es la respuesta al impulso del sistema conjunto de la llave analógica con
- el sample and hold, dada por:
+ modelan al sub-sistema conjunto de la llave analógica con el sample and
+ hold.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $q(t)$
+\end_inset
+
+ resulta ser la respuesta al impulso del sub-sistema, dada por:
 \begin_inset Formula 
 \begin{equation}
-q(t)=q_{1}(t)*q_{2}(t)=\pi(\frac{t-\frac{d}{2\cdot T}}{d/T})
+q(t)=q_{1}(t)*q_{2}(t)=\pi(\frac{t-\frac{d\cdot T}{2}}{d\cdot T})
 \end{equation}
 
 \end_inset
@@ -175,11 +214,16 @@ q(t)=q_{1}(t)*q_{2}(t)=\pi(\frac{t-\frac{d}{2\cdot T}}{d/T})
 \end_layout
 
 \begin_layout Standard
-Llamando a 
-\begin_inset Formula $\frac{d}{T}=\tau$
+Donde d es el duty cicle (
+\begin_inset Formula $0.05\leq d\leq0.95$
 \end_inset
 
- el duty cycle de muestreo, donde 
+) de muestreo.
+ Llamando a 
+\begin_inset Formula $d\cdot T=\tau$
+\end_inset
+
+, donde 
 \begin_inset Formula $d$
 \end_inset
 
@@ -204,6 +248,102 @@ Q(f)=\tau\cdot sinc(f\tau)\cdot e^{-i\cdot2\pi f\frac{\tau}{2}}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula $H(f)$
+\end_inset
+
+ representa la respuesta en frecuencia del filtro Anti-Aliasing, que coincide
+ con la respuesta en frecuencia del filtro Recuperador.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Respuesta del sistema a una entrada genérica
+\end_layout
+
+\begin_layout Standard
+Sea una entrada genérica al sistema completo 
+\begin_inset Formula $w(t)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta a una entrada genérica, w(t)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Luego de pasar por el filtro Anti-Aliasing y de ser muestreada, esta señal
+ se convertirá en 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $w^{*}(t)=[w(t)\odot h(t)]\cdot\sum_{n\epsilon Z}\delta(t-n\cdot T)=w(t)\cdot\delta_{T}(t)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+donde T es el período de muestreo (sample) del Sample and Hold y 
+\begin_inset Formula $\odot$
+\end_inset
+
+ representa la convolución entre 2 señales..
+ 
+\end_layout
+
+\begin_layout Standard
+Visto en frecuencia, 
+\begin_inset Formula $W^{*}(f)=[W(f)\cdot H(f)]\cdot\frac{1}{T}\odot\sum_{n\epsilon Z}\delta(f-n\cdot f_{o})=W(f)\cdot H(f)\cdot f_{o}\odot\delta_{f_{o}}(f)=f_{o}\cdot\sum_{n\epsilon Z}W(f-n\cdot f_{o})\cdot H(f-n\cdot f_{o})$
+\end_inset
+
+, con 
+\begin_inset Formula $f_{o}=\frac{1}{T}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Luego de pasar por el sample and hold y por el filtro recuperador, se obtiene
+ la salida total del sistema como:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $G(f)=f_{o}\cdot\sum_{n\epsilon Z}W(f-n\cdot f_{o})\cdot H(f-n\cdot f_{o})\cdot H(f)\cdot\tau\cdot sinc(f\tau)\cdot e^{-i\cdot2\pi f\frac{\tau}{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Respuesta del sistema a una entrada particular
+\end_layout
+
+\begin_layout Standard
 Sea la señal de entrada al sistema 
 \begin_inset Formula $W_{j}(f)=A_{j}\cdot\delta(f-f_{j})$
 \end_inset
@@ -213,35 +353,40 @@ Sea la señal de entrada al sistema
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $H(f)$
-\end_inset
-
- es la respuesta en frecuencia del filtro Anti-Aliasing, que coincide con
- la respuesta en frecuencia del filtro Recuperador.
- 
-\end_layout
-
-\begin_layout Standard
-Entonces, la señal de salida a la entrada 
-\begin_inset Formula $W_{j}(f)$
-\end_inset
-
- en frecuencia, 
-\begin_inset Formula $G_{j}(f)$
-\end_inset
-
- estará dada por:
+Entonces, usando la expresión recién obtenida, la señal a esta entrada en
+ frecuencia estará dada por:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-G_{j}(f)=A_{j}\cdot H(f_{j})^{2}\cdot\tau\cdot sinc(f_{j}\cdot\tau)\cdot e^{-i\cdot2\pi f_{j}\cdot\frac{\tau}{2}}\cdot\delta(f-f_{j})
+G_{j}(f)=f_{o}\cdot\sum_{n\epsilon Z}A_{j}\cdot\delta(f-f_{j}-n\cdot f_{o})\cdot H(f_{j})\cdot H(f_{j}-nf_{o})\cdot\tau\cdot sinc(f_{j}\tau-n\cdot f_{o}\tau)\cdot e^{-i\cdot2\pi(f_{j}-nf_{o})\frac{\tau}{2}}
 \end{equation}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+Si el filtro fue diseñado correctamente según el criterio de Nyquist, entonces
  
+\begin_inset Formula $|H(f_{j}-n\cdot f_{o})|\approxeq0,\forall n\neq0$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Entonces, la expresión queda anterior reducida a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $G_{j}(f)=A_{j}\cdot f_{o}\cdot\delta(f-f_{j})\cdot H(f_{j})^{2}\cdot\tau\cdot sinc(f_{j}\tau)\cdot e^{-i\cdot2\pi f_{j}\frac{\tau}{2}}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -296,50 +441,7 @@ Tomando en cuenta que el espectro de la señal
  como 
 \begin_inset Formula 
 \begin{equation}
-Y_{j}(f)=A_{j}\cdot H(f_{j})^{2}\cdot\tau\cdot sinc(f_{j}\cdot\tau)\cdot cos(2\pi\cdot f_{j}\cdot\frac{\tau}{2})\cdot[\delta(f-f_{j})+d(f+f_{j})]
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Reemplazando entonces por la igualdad anteriormente mencionada 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $\ensuremath{\frac{d}{T}=\tau}$
-\end_inset
-
-, se llega a
-\end_layout
-
-\begin_layout Standard
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\begin_inset Formula 
-\begin{equation}
-Y_{j}(f)=A_{j}\cdot|H(f_{j})|^{2}\cdot\frac{d}{T}\cdot sinc(f_{j}\cdot\frac{d}{T})\cdot cos(2\pi\cdot f_{j}\cdot(\frac{d}{2T}\text{+}2\cdot\gamma_{j}))\cdot[\delta(f-f_{j})+d(f+f_{j})]
+Y_{j}(f)=A_{j}\cdot|H(f_{j})|^{2}\cdot\frac{\tau}{T}\cdot sinc(f_{j}\cdot\tau)\cdot cos(2\pi\cdot f_{j}\cdot(\frac{\tau}{2}+2\cdot\gamma_{j}))\cdot[\delta(f-f_{j})+d(f+f_{j})]
 \end{equation}
 
 \end_inset
@@ -369,7 +471,65 @@ donde
 \end_inset
 
 .
- Notamos que el desfasaje que otorga el filtro 
+\end_layout
+
+\begin_layout Standard
+Reemplazando entonces por la igualdad anteriormente mencionada 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\ensuremath{d\cdot T=\tau}$
+\end_inset
+
+, se llega a
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{equation}
+Y_{j}(f)=A_{j}\cdot|H(f_{j})|^{2}\cdot d\cdot sinc(f_{j}\cdot d\cdot T)\cdot cos(2\pi\cdot f_{j}\cdot(\frac{d\cdot T}{2}\text{+}2\cdot\gamma_{j}))\cdot[\delta(f-f_{j})+d(f+f_{j})]
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Notamos que el desfasaje que otorga el filtro 
 \begin_inset Formula $Q(f)$
 \end_inset
 
@@ -393,7 +553,7 @@ Asumiendo entonces la salida en función del tiempo puede ser luego escrita
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-y_{j}(t)=A_{j}\cdot|H(f_{j})|^{2}\cdot\frac{d}{T}\cdot sinc(f_{j}\cdot\frac{d}{T})\cdot cos(2\pi\cdot f_{j}\cdot(\frac{d}{2T}+2\cdot\gamma_{j}))\cdot cos(2\pi\cdot f_{j}\cdot t)
+y_{j}(t)=A_{j}\cdot|H(f_{j})|^{2}\cdot d\cdot sinc(f_{j}\cdot d\cdot T)\cdot cos(2\pi\cdot f_{j}\cdot(\frac{d\cdot T}{2}+2\cdot\gamma_{j}))\cdot cos(2\pi\cdot f_{j}\cdot t)
 \end{equation}
 
 \end_inset
@@ -509,7 +669,7 @@ En cuanto a la potencia, como la salida es una superposición de deltas en
  Párseval según 
 \begin_inset Formula 
 \begin{equation}
-P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot|H(f_{i})|^{4}\cdot\tau^{2}\cdot sinc^{2}(f_{i}\cdot\tau)
+P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot|H(f_{i})|^{4}\cdot\frac{\tau^{2}}{T^{2}}\cdot sinc^{2}(f_{i}\cdot\tau)
 \end{equation}
 
 \end_inset
@@ -525,7 +685,7 @@ Luego, aproximando a la ganancia del filtro como unitaria en toda la banda
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot\tau^{2}\cdot sinc^{2}(f_{j}\cdot\tau)=\tau^{2}\cdot\sum_{i=1}^{3}A_{i}^{2}\cdot sinc^{2}(f_{j}\cdot\tau)
+P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot\frac{\tau^{2}}{T^{2}}\cdot sinc^{2}(f_{j}\cdot\tau)=d^{2}\cdot\sum_{i=1}^{3}A_{i}^{2}\cdot sinc^{2}(f_{j}\cdot d\cdot T)
 \end{equation}
 
 \end_inset
@@ -547,63 +707,89 @@ La fórmula anterior indica que la potencia total de la señal muestreada
 \end_layout
 
 \begin_layout Standard
-Otro aspecto notable de las expresiones anteriores es que el espectro de
- la señal podría llegar a anularse en aquellos puntos en los que 
-\begin_inset Formula $sinc(f_{j}\cdot\frac{d}{T})=0$
+Eligiendo un período de 
+\begin_inset Formula $T=\frac{1}{15x10^{3}}s$
 \end_inset
 
-, es decir, 
-\begin_inset Formula $\frac{sen(f_{j}\cdot\frac{d}{T})}{f_{j}\cdot\frac{d}{T}}=0$
-\end_inset
-
-.
- Estos puntos son 
-\begin_inset Formula $f_{j}\cdot\frac{d}{T}=k\cdot\pi,k\epsilon Z$
-\end_inset
-
-.
- Estos puntos anularía alguna componente del espectro de la señal, volviéndola
- a esta irrecuperable.
- Se requiere entonces que los ceros de la función 
-\begin_inset Formula $sinc(f\cdot\tau)$
-\end_inset
-
- se encuentren en frecuencias distintas a las 
-\begin_inset Formula $f_{j}$
-\end_inset
-
- y lo suficientemente separados, como para que no se atenúe a cierta componente
- tanto como para considerarla anulada.
- Cualquier deformación podrá ser luego compensada en el caso 
+, graficamos la potencia total en función del duty cycle d: 
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
+\begin_inset Float figure
+placement H
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-
-\backslash
-end{center}
+Potencia total en función del duty cycle
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se grafican luego las curvas de potencia de cada componente en frecuencia
+ en función del duty cycle d:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Potencia de cada componente 
+\begin_inset Formula $f_{j}$
+\end_inset
+
+ en función del duty cycle
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se observa que para este valor de T, ambas funciones son estríctamente creciente
+s en el rango 
+\begin_inset Formula $d\epsilon[0;1]$
+\end_inset
+
+, por lo que se eligirá el duty cycle más grande posible para obtener la
+ mayor potencia total posible y preservar lo más posible las señales.
+ Es importante hacer notar que si bien el espectro de la señal se deforma,
+ se podría aplicar un filtro digital una vez que la señal ya ha sido digitalizad
+a podrá revertir esta deformación agregada.
 \end_layout
 
 \end_body
