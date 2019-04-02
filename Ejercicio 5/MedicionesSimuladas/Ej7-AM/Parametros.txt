@@ -1,0 +1,6 @@
+A=6
+fs=15Khz
+fp=2Khz
+fm=200Hz
+Aprox=Cauer
+DC=5%
