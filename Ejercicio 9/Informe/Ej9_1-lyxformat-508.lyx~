@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -56,8 +56,6 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -87,7 +85,6 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -96,10 +93,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -383,22 +377,14 @@ end{center}
 
 \begin_layout Standard
 Notamos que 
-\begin_inset Formula $|\lambda_{1,2}|=|\frac{\alpha\pm\sqrt{\alpha^{2}+4\cdot\beta}}{2}|$
+\begin_inset Formula $|\lambda_{1,2}|$
 \end_inset
 
-, pero si 
-\begin_inset Formula $\alpha^{2}+4\cdot\beta<0$
+= 
+\begin_inset Formula $\sqrt{\frac{\alpha^{2}}{2}+\beta}$
 \end_inset
 
-, el mismo pujede ser reescrito como 
-\begin_inset Formula $|\lambda_{1,2}|=-\beta,$
-\end_inset
 
-donde para este caso 
-\begin_inset Formula $\beta$
-\end_inset
-
- es necesariamente negativo.
 \end_layout
 
 \begin_layout Standard
@@ -435,7 +421,7 @@ par
 \end_inset
 
  , 
-\begin_inset Formula $w=Arg(\lambda_{1})=arctg(\sqrt{\frac{-4\beta-\alpha^{2}}{\alpha}})$
+\begin_inset Formula $w=Arg(\lambda_{1})$
 \end_inset
 
  
