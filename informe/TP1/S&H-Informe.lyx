@@ -1394,28 +1394,12 @@ H->S,
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename mediciones/scope_9.png
-	scale 40
-
-\end_inset
-
-
+A continuación se muestra una lisa de algunos parámetros que se lograron
+ medir:
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-S->H, 
+\begin_layout Standard
+H->S, 
 \begin_inset Formula $C_{H}=100pF$
 \end_inset
 
@@ -1423,30 +1407,23 @@ S->H,
 \begin_inset Formula $f=3.33kHz$
 \end_inset
 
- 
+:
 \end_layout
 
+\begin_layout Itemize
+Tiempo de adquisicion: 
+\begin_inset Formula $550ns$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
+\begin_layout Itemize
+Margen de tolerancia: 
+\begin_inset Formula $650mV$
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-A continuación se muestra una tabla de algunos parámetros que se lograron
- medir:
-\end_layout
-
-\begin_layout Standard
-MEDICIONES DE PARÁMETROS
 \end_layout
 
 \begin_layout Subsection
