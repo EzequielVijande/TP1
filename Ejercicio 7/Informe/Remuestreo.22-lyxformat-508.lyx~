@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -39,6 +39,9 @@
 %al estilo del codigo de stack overflow
 \definecolor{light-gray}{gray}{0.95} 
 \newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -56,8 +59,6 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -87,7 +88,6 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -96,10 +96,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -208,7 +205,7 @@ Donde tanto el muestreo como
  resulta ser la respuesta al impulso del sub-sistema, dada por:
 \begin_inset Formula 
 \begin{equation}
-q(t)=q_{1}(t)*q_{2}(t)=\prod(\frac{t-\frac{d\cdot T}{2}}{d\cdot T})
+q(t)=q_{1}(t)*q_{2}(t)=\pi(\frac{t-\frac{d\cdot T}{2}}{d\cdot T})
 \end{equation}
 
 \end_inset
@@ -235,7 +232,7 @@ Donde d es el duty cicle (
 \end_inset
 
  es el tiempo de hold del sample and hold, 
-\begin_inset Formula $q(t)=\prod(\frac{t-\frac{\tau}{2}}{\tau})$
+\begin_inset Formula $q(t)=\pi(\frac{t-\frac{\tau}{2}}{\tau})$
 \end_inset
 
 , cuya transformada de fourier, o respuesta en frecuencia del filtro es
