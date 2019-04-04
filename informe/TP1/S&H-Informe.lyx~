@@ -1,0 +1,3110 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Sample and Hold
+\end_layout
+
+\begin_layout Subsection
+Introducción
+\end_layout
+
+\begin_layout Standard
+El S&H es un circuito analógico el cual captura el voltaje de una senal
+ analógica y mantiene ese voltaje por un tiempo determinado.
+ Su esquema mas simplificado es el siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Sample-hold-circuit.svg.png
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema elemental
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hace uso de una llave analógica, donde esta se abre y se cierra cada un
+ determinado tiempo establecido por una senal externa (clock).
+ Cuando esta llave esta abierta, el capacitor queda cargado con la tensión
+ correspondiente a la carga almacenada en el mismo, y cuando la llave se
+ cierra, el capacitor sigue a la senal almacenando a cada instante para
+ imitar la tensión instantánea de la senal, así sampleandola constantemente.
+ Ya que el capacitor no es ideal en la practica, este mismo tendrá un transitori
+o correspondiente el cual afectara el sample and hold.
+ Como se puede apreciar en la imagen, gracias a los buffer, el S&H ideal
+ tiene una impedancia de entrada muy grande y una de salida muy chica.
+\end_layout
+
+\begin_layout Subsection
+Marco Teórico
+\end_layout
+
+\begin_layout Subsubsection
+Muestreo Natural
+\end_layout
+
+\begin_layout Standard
+El muestreo natural corresponde a el modo sample.
+ Donde la senal de muestreo es un tren de pulsos de altura 
+\begin_inset Formula $A$
+\end_inset
+
+, ancho de 
+\begin_inset Formula $\tau$
+\end_inset
+
+ y de periodo 
+\begin_inset Formula $T$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $p_{T}(t)=\sum_{n=-\infty}^{\infty}A\cdot\prod(\frac{t-nT}{\tau})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que al multiplicar la señal de entrada con la de muestreo se obtiene:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{N}(t)=f(t)\cdot p_{T}(t)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y visto en frecuencia se tiene:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $F_{N}(\omega)=\frac{1}{2\pi}\cdot F(\omega)*P_{T}(\omega)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para obtener la expresión final en frecuencia se debe hallar 
+\begin_inset Formula $P_{T}(\omega)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $P_{T}(\omega)=A\cdot\tau\cdot\omega_{s}\cdot\sum_{n=-\infty}^{\infty}sinc(\frac{n\cdot\tau\cdot\omega_{s}}{2})\cdot\delta(\omega-n\omega_{s})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que reescribiendo y desarrollando se llega a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $F_{N}(\omega)=\frac{A\cdot\tau}{T}\cdot\sum_{n=-\infty}^{\infty}sinc(\frac{n\cdot\tau\cdot\omega_{s}}{2})\cdot F(\omega-n\cdot\omega_{s})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Estos resultados se pueden ver claramente de manera gráfica en las siguientes
+ imágenes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename natural.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Muestreo Natural
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El espectro de la señal muestreada centrado en 
+\begin_inset Formula $\omega=0$
+\end_inset
+
+ es proporcional al de la señal original, por lo que la recuperación corresponde
+ a un filtro pasa bajos de la frecuencia maxima de la señal original.
+\end_layout
+
+\begin_layout Subsubsection
+Muestreo Instantáneo
+\end_layout
+
+\begin_layout Standard
+El muestreo instantáneo corresponde a modo hold.
+ Donde la señal se muestrea con un tren de deltas y luego se convoluciona
+ en frecuencia con un tren de pulsos.
+ Se puede ver fácilmente en el siguiente esquema:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename esquemainst.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema muestreo instantáneo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset Formula $Q(\omega)$
+\end_inset
+
+ es la respuesta en frecuencia de la función:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $q(t)=A\cdot\prod(\frac{t}{\tau})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $Q(\omega)=F[q(t)]=A\cdot\tau\cdot sinc(\frac{\omega}{2}\cdot\tau)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al multiplicar la señal de entrada con la de muestreo se obtiene:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{i}(t)=f(t)\cdot\delta_{T}(t)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Siendo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta_{T}(t)=\sum_{n=-\infty}^{\infty}\delta(t-nT)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que en frecuencia se tiene:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $F_{i}(\omega)=F[f_{i}(t)]=F[f(t)\cdot\delta_{T}(t)]=F[f(t)]*F[\sum_{n=-\infty}^{\infty}\delta(t-nT)]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\Rightarrow F(\omega)*\sum_{n=-\infty}^{\infty}F[\delta(t-nT)]=F(\omega)*\sum_{n=-\infty}^{\infty}e^{-i\omega nT}F[\delta(t)]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\Rightarrow F(\omega)*\sum_{n=-\infty}^{\infty}e^{-i\omega nT}=\sum_{n=-\infty}^{\infty}[F(\omega)*e^{-i\omega nT}]=\sum_{n=-\infty}^{\infty}\frac{F(\omega-n\omega_{s})}{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y al convolucionar con 
+\begin_inset Formula $Q(\omega)$
+\end_inset
+
+ se tiene:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $F_{s}(\omega)=F_{i}(\omega)\cdot Q(\omega)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $F_{s}(\omega)=A\cdot\tau\cdot sinc(\frac{\omega}{2}\cdot\tau)\cdot\sum_{n=-\infty}^{\infty}\frac{F(\omega-n\omega_{s})}{T}=\frac{A\cdot\tau}{T}\sum_{n=-\infty}^{\infty}sinc(\frac{\omega}{2}\cdot\tau)\cdot F(\omega-n\omega_{s})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El resultado se refleja gráficamente de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename instantaneo.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Muestreo Instantáneo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En este caso, la señal no se puede reconstruir con un filtro pasa bajos
+ sin introducir algún tipo de distorsión a la señal de salida respecto de
+ la entrada.
+\end_layout
+
+\begin_layout Subsubsection
+Modos
+\end_layout
+
+\begin_layout Standard
+El funcionamiento del S&H se divide en 4 modos de acuerdo al estado de la
+ llave analógica vista en la introducción.
+\end_layout
+
+\begin_layout Paragraph
+Modo Sample
+\end_layout
+
+\begin_layout Standard
+Este ocurre cuando la llave analógica esta cerrada, es decir, cuando la
+ salida sigue a la senal de entrada.
+ Corresponde a un muestreo natural.
+\end_layout
+
+\begin_layout Standard
+Los parámetros de interés en este modo son los siguientes:
+\end_layout
+
+\begin_layout Enumerate
+Tensión de Offset: Salida de tensión con entrada cero.
+\end_layout
+
+\begin_layout Enumerate
+Error de Ganancia: Cuanto se aparta de la ganancia unitaria.
+\end_layout
+
+\begin_layout Enumerate
+Linealidad de Ganancia: Desviación maxima de la recta que aproxima la curva
+ entrada-salida.
+\end_layout
+
+\begin_layout Enumerate
+Ancho de Banda (BW)
+\end_layout
+
+\begin_layout Enumerate
+Slew Rate: Depende del capacitor de hold y afecta el BW.
+\end_layout
+
+\begin_layout Paragraph
+Transición Sample a Hold
+\end_layout
+
+\begin_layout Standard
+Ocurre instantes luego de que se abra la llave, de modo que pasa de modo
+ Sample a modo Hold.
+ Los parámetros de interés en este modo son:
+\end_layout
+
+\begin_layout Enumerate
+Tiempo de Apertura
+\end_layout
+
+\begin_layout Enumerate
+Retardo Digital
+\end_layout
+
+\begin_layout Enumerate
+Retardo de Apertura Efectivo
+\end_layout
+
+\begin_layout Enumerate
+Ruido de apertura (jitter): Ruido que se suma a los pulsos de muestreo.
+ Este afecta el momento en que se alcanza el modo hold.
+ De manera que su valor eficaz es el desvío estándar del tiempo de apertura.
+ Afecta la maxima frecuencia con la que se puede trabajar.
+\end_layout
+
+\begin_layout Enumerate
+Transferencia de Carga: Cantidad de carga que recibe el capacitor de hold
+ luego de haberse iniciado la transición.
+ Se debe a capacitancia parásitas.
+\end_layout
+
+\begin_layout Enumerate
+Hold Step
+\end_layout
+
+\begin_layout Enumerate
+Tiempo de establecimiento del modo Hold
+\end_layout
+
+\begin_layout Standard
+Algunos de estos parámetros se pueden visualizar fácilmente en las siguientes
+ imágenes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-02 21.06.54.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Transición S/H
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-02 21.07.05.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Transición S/H
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Modo Hold
+\end_layout
+
+\begin_layout Standard
+El modo hold ocurre cuando la llave analógica esta abierta, es decir, cuando
+ la salida permanece en un valor constante de la muestra.
+ Corresponde a un muestreo instantáneo.
+ Tiene los siguientes parámetros asociados:
+\end_layout
+
+\begin_layout Enumerate
+Corriente de perdidas en 
+\begin_inset Formula $C_{H}$
+\end_inset
+
+ (
+\begin_inset Formula $I_{L}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Enumerate
+Droop Rate: 
+\begin_inset Formula $DR=\frac{d(V_{C_{H}})}{dt}=\frac{I_{L}}{C_{H}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Feedthrough: La tasa de atenuación sufrida por la senal, entre la entrada
+ y la salida durante el modo hold.
+ Deber ser lo suficientemente alta como para que la etapa siguiente pueda
+ ignorar su presencia.
+\end_layout
+
+\begin_layout Paragraph
+Transición de Hold a Sample
+\end_layout
+
+\begin_layout Standard
+Ocurre instantes después de que la llave se cierre y sus parámetros mas
+ importantes son:
+\end_layout
+
+\begin_layout Enumerate
+Tiempo de Adquisición
+\end_layout
+
+\begin_layout Enumerate
+Error de muestreo dinámico (margen de tolerancia)
+\end_layout
+
+\begin_layout Standard
+Se puede ver claramente el tiempo de adquisición en la siguiente imagen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-02 21.07.12.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Transición H/S
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Arquitecturas
+\end_layout
+
+\begin_layout Standard
+Hay varias maneras de implementar un circuito sample and hold.
+ Cada uno tiene sus propias ventajas y desventajas.
+ Dependiendo del uso que se le quiere dar se puede requerir diferentes diseños.
+ A continuación se describen brevemente algunos diseños.
+\end_layout
+
+\begin_layout Paragraph
+Lazo Abierto
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-02 21.07.24.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Lazo abierto
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Corresponde al circuito ideal propuesto en la introducción.
+ Este mismo tiene la ventaja de ser veloz y estable.
+ Pero como consecuencia se tiene un Offset, e incidencia del hold Step.
+\end_layout
+
+\begin_layout Paragraph
+Lazo Cerrado
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-02 21.07.28.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Lazo cerrado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al tener conectado los dos lazos, así teniendo un camino mas directo a la
+ salida cuando llave esta cerrada, se obtiene mas precisión al seguir la
+ senal de entrada.
+ La desventaja es que como consecuencia, es mas lento y tiene mayor feedthrough.
+\end_layout
+
+\begin_layout Paragraph
+Lazo Cerrado Integrador
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-02 21.07.30.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Lazo Cerrado Integrador
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al ser lazo cerrado, tiene gran precisión para seguir la senal de entrada.
+ Ademas, por la ubicación del capacitor, tiene hold step independiente de
+ la entrada.
+ Como desventaja, es lento y tiene mayor feedthrough.
+\end_layout
+
+\begin_layout Paragraph
+Lazo Cerrado Limitador
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-02 21.07.34.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Lazo Cerrado Limitador
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al agregar los diodos, con esta arquitectura se logra bajo hold step y bajo
+ feedthrough.
+ Ya que los diodos logran que el primer amplificador no trabaje en saturación
+ nunca.
+ Ademas al ser lazo cerrado es muy preciso como se discutió anteriormente.
+ Como desventaja, se tiene que los desfasajes son dependientes de la entrada
+ y es lento.
+ Esta arquitectura es la utilizada en el LF398.
+\end_layout
+
+\begin_layout Subsection
+Prueba de Capacitores
+\end_layout
+
+\begin_layout Standard
+Luego de armar el circuito de prueba que se presentara en la próxima sección,
+ se pidió que si midan en osciloscopio las siguientes señales:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $V_{IN_{1}}=V_{MAX}\cdot sen(2\pi t\frac{f_{o}}{12})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $V_{IN_{2}}=V_{MAX}\cdot sen(2\pi t\cdot12f_{o})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{o}=20\cdot NkHz=40kHz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $V_{MAX}=5V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se pidió realizar las mediciones con un 
+\begin_inset Formula $C_{H}\leq150pF$
+\end_inset
+
+ y luego con un 
+\begin_inset Formula $C_{H}\geq47nF$
+\end_inset
+
+.
+ Los capacitores elegidos fueron:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $C_{H_{1}}=100pF$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $C_{H_{2}}=100nF$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las mediciones para 
+\begin_inset Formula $C_{H_{1}}$
+\end_inset
+
+ fueron las siguientes:
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $f=12f_{o}=480kHz$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/scope_1.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{H_{1}}$
+\end_inset
+
+ y 
+\begin_inset Formula $f=480kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $f=\frac{f_{o}}{12}\approx3.33kHz$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/scope_4.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{H_{1}}$
+\end_inset
+
+ y 
+\begin_inset Formula $f=3.33kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las mediciones para 
+\begin_inset Formula $C_{H_{2}}$
+\end_inset
+
+fueron las siguientes:
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $f=12f_{o}=480kHz$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/scope_11.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{H_{2}}$
+\end_inset
+
+ y 
+\begin_inset Formula $f=480kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/scope_12.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{H_{2}}$
+\end_inset
+
+ y 
+\begin_inset Formula $f=480kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para 
+\begin_inset Formula $f=\frac{f_{o}}{12}\approx3.33kHz$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/scope_14.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{H_{2}}$
+\end_inset
+
+ y 
+\begin_inset Formula $f=3.33kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir de las mediciones llevadas a cabo, se puede ver como deja de cumplir
+ su función el S&H para un capacitor muy chico y una frecuencia muy alta
+ (
+\begin_inset Formula $C_{H}=100pF$
+\end_inset
+
+ y 
+\begin_inset Formula $f=480kHz$
+\end_inset
+
+).
+ También se ve una gran falla en su funcionamiento para una frecuencia baja
+ pero un capacitor relativamente grande (
+\begin_inset Formula $C_{H}=100nF$
+\end_inset
+
+ y 
+\begin_inset Formula $f=3.33kHz$
+\end_inset
+
+).
+ En los otros dos casos, se puede ver un funcionamiento medianamente adecuado,
+ pero no optimo.
+ Siendo la combinación 
+\begin_inset Formula $C_{H}=100pF$
+\end_inset
+
+ y 
+\begin_inset Formula $f=3.33kHz$
+\end_inset
+
+ la de mejor funcionamiento.
+ 
+\end_layout
+
+\begin_layout Standard
+Se puede ver como el capacitor de mayor capacidad requiere un mayor tiempo
+ de establecimiento, por lo que a bajas frecuencias, no puede samplear la
+ señal al usar un clock medianamente chico.
+ Esto resulta en gran distorsión a la salida.
+ También se puede apreciar como el error de ganancia cambia cuando se utiliza
+ en los extremos de frecuencia.
+\end_layout
+
+\begin_layout Standard
+Luego se tomaron algunas imágenes adicionales del osciloscopio en el intento
+ de medir algunos parámetros del sample and hold.
+ Muchos no pudieron ser medidos por la gran distorsión causada a a salida
+ por la elección de la capacitancia de los capacitores.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/scope_8.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+H->S, 
+\begin_inset Formula $C_{H}=100pF$
+\end_inset
+
+ y 
+\begin_inset Formula $f=3.33kHz$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/scope_9.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+S->H, 
+\begin_inset Formula $C_{H}=100pF$
+\end_inset
+
+ y 
+\begin_inset Formula $f=3.33kHz$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A continuación se muestra una tabla de algunos parámetros que se lograron
+ medir:
+\end_layout
+
+\begin_layout Standard
+MEDICIONES DE PARÁMETROS
+\end_layout
+
+\begin_layout Subsection
+LF398
+\end_layout
+
+\begin_layout Standard
+La configuración de pines y sus terminales son las siguientes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename lf398pinout.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pin Configuration
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El circuito de prueba básico implementado para el LF398 es el siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename circ472.gif
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito de Prueba LF398
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En el mismo también se puede apreciar un simple esquema de la arquitectura
+ interna del integrado (lazo cerrado limitador).
+ Los diodos de esta arquitectura requieren una resistencia de 
+\begin_inset Formula $30k\Omega$
+\end_inset
+
+ para evitar sobrecargar el amplificador a la salida.
+ Y un resistencia de 
+\begin_inset Formula $300\Omega$
+\end_inset
+
+ se pone en serie con el capacitor de hold para estabilidad y limitar la
+ corriente de carga.
+ Las tensiones de alimentación deben estar entre 
+\begin_inset Formula $\pm5V$
+\end_inset
+
+ y 
+\begin_inset Formula $\pm18V$
+\end_inset
+
+.
+ La resistencia de entrada de el LF398 es de 
+\begin_inset Formula $10^{10}\Omega$
+\end_inset
+
+, mientras que la de salida es menor a 
+\begin_inset Formula $4\Omega$
+\end_inset
+
+, típicamente 
+\begin_inset Formula $0.5\Omega$
+\end_inset
+
+.
+ La corriente de perdidas maxima (
+\begin_inset Formula $I_{l(MAX)}$
+\end_inset
+
+) es de 
+\begin_inset Formula $200pA$
+\end_inset
+
+.
+ Por lo que en nuestro circuito, con un capacitor de 
+\begin_inset Formula $10nF$
+\end_inset
+
+, se tiene un Droop Rate máximo de 
+\begin_inset Formula $DR=\frac{I_{L}}{C_{H}}=\frac{200pA}{10nF}=0.02\frac{A}{F}=20\frac{mV}{s}$
+\end_inset
+
+.
+ La señal de control lógica debe tener una taza de ascenso mayor a 
+\begin_inset Formula $1\frac{V}{\mu s}$
+\end_inset
+
+ o el hold step sera excesivo.
+\end_layout
+
+\begin_layout Standard
+Para implementar un conversos A/D es indispensable el uso de un buen circuito
+ de sample and hold, ya que sino no se puede tener la precisión necesitada.
+ En nuestro circuito, se implemento el LF398 para cumplir esa tarea.
+ El integrado tiene una senal de control, a la cual a mayor tensión que
+ 
+\begin_inset Formula $1.4V$
+\end_inset
+
+, se samplea la senal de entrada.
+ A menor tensión que 
+\begin_inset Formula $1.4V$
+\end_inset
+
+, se holdea la entrada.
+ Hay un tiempo de establecimiento cuando se pasa al modo hold (tiempo de
+ establecimiento del modo hold) el cual es aproximadamente 
+\begin_inset Formula $0.8\mu s$
+\end_inset
+
+ en el LF398.
+ El tiempo de apertura en el LF398 es de entre 
+\begin_inset Formula $150ns$
+\end_inset
+
+ y 
+\begin_inset Formula $200ns$
+\end_inset
+
+.
+ El tiempo de adquisición en cambio, es dependiente del capacitor de hold
+ usado en el circuito.
+ Por ejemplo, para un capacitor de 
+\begin_inset Formula $10nF$
+\end_inset
+
+, este es de aproximadamente 
+\begin_inset Formula $20\mu s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un S&H ideal requiere de una ganancia unitaria.
+ En la practica este numero varia levemente.
+ En el LF398, el error de ganancia es menor al 
+\begin_inset Formula $0.01\%$
+\end_inset
+
+ a 
+\begin_inset Formula $25^{o}C$
+\end_inset
+
+.
+ Lo cual es bastante preciso, gracias a utilizar un lazo cerrado en su interior.
+ El hold step y feedthrough son bajos en el LF398, gracias a los diodos
+ limitadores en su interior, pero varían dependientes de el capacitor de
+ hold.
+ Por ejemplo, para un 
+\begin_inset Formula $C_{H}=10nF$
+\end_inset
+
+, se obtiene un hold step de 
+\begin_inset Formula $0.5mV$
+\end_inset
+
+ típico.
+\end_layout
+
+\begin_layout Standard
+Se debe elegir un capacitor de hold acorde para que el circuito funcione
+ de la mejor manera posible.
+ La elección del capacitor es una relación de compromisos, ya que cuanto
+ mas grande es el mismo, menor es el droop rate pero también es menor el
+ bandwidth.
+ Cuanto mas chico es el mismo, mas rápido se puede cargar y menor es el
+ tiempo de adquisición y mayor el bandwidth, pero menor es el droop rate.
+ Para usos normales, se tiende a elegir entre 
+\begin_inset Formula $1nF$
+\end_inset
+
+ y 
+\begin_inset Formula $1\mu F$
+\end_inset
+
+.
+ Para nuestro circuito se eligió un capacitor de hold de 
+\begin_inset Formula $10nF$
+\end_inset
+
+.
+ También es muy importante el tipo de capacitor que se debe usar.
+ El capacitor debe tener pocas perdidas, para minimizar 
+\begin_inset Formula $I_{L}$
+\end_inset
+
+ y así minimizar el droop rate.
+ Por lo que el uso de los capacitores electrolíticos no es una buena idea.
+ Otra característica importante de los capacitores es la absorción del dieléctri
+co (histéresis en la constante dieléctrica).
+ Este fenómeno es el efecto por el cual un capacitor que estuvo cargado
+ por un largo periodo de tiempo, no se descarga completamente cuando se
+ lo quiere descargar.
+ En un circuito S&H se quiere que la absorción del dieléctrico sea mínima.
+ A continuación se puede ver una tabla donde se puede ver la absorción de
+ diferentes tipos de capacitores, en porcentaje máximo de la carga almacenada
+ tras ser descargado:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tipo de Capacitor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Absorción Dieléctrica (%)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cerámicos (Clase 1)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cerámicos (Clase 2)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Polipropileno Film
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05-0.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Poliester Film
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2-0.5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Polifenileno Film
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.05-0.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Polietileno Film
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1-1.2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Electrolíticos de tantalio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2-3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Electrolíticos de aluminio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10-15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Absorción del dieléctrico
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que se puede llegar a la conclusión que los capacitores mas apropiados
+ para la implementación un circuito S&H son los capacitores de polipropileno,
+ poliester y polifenileno.
+\end_layout
+
+\begin_layout Subsection
+Corrección de Offset
+\end_layout
+
+\begin_layout Standard
+Puede ocurrir un offset de hasta 
+\begin_inset Formula $10mV$
+\end_inset
+
+ usando el integrado LF398.
+ De manera que este viene con un pin para la corrección de offset que pueda
+ llegar a ocurrir.
+ La implementación mas simple es utilizando un divisor resistivo como se
+ puede apreciar en la imagen anterior.
+ Como prevención, se agrego este circuito de corrección de offset al conversor.
+ Ya que si no genera offset, entonces se podrá no utilizar igualmente.
+ Por lo que en el divisor resistivo, se utiliza un preset como una resistencia
+ variable.
+\end_layout
+
+\begin_layout Subsection
+Integrado Alternativo
+\end_layout
+
+\begin_layout Standard
+Se analizaron integrados alternativos, como el LF298 y LF198.
+ Los cuales son mas caros que el LF398, pero con la ventaja de tener un
+ rango de temperaturas mas extendido.
+ El AD781 también se tuvo en consideración.
+ A continuación se puede ver un cuadro para compararlos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LF398
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LF198-LF298
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AD781
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Impedancia de entrada
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10G\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10G\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $50M\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Impedancia de salida
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{L(MAX)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $200pA$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $100pA$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $20pA$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $V_{MAX}$
+\end_inset
+
+ de alimentación
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pm18V$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pm18V$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pm13.2V$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tiempo de establecimiento del modo hold
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.8\mu s$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.8\mu s$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.5\mu s$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tiempo de apertura máximo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $200ns$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $200ns$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+—
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Error de ganancia máximo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.01\%$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.005\%$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.025\%$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación de integrados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se llego a la conclusión que en cuanto a precio-calidad, el LF398 es un
+ gran integrado para aplicaciones simples a circuitos, como el que se pide
+ en el trabajo.
+ Por lo que se decidió usar el LF398, a pesar de que haya otros integrados
+ con levemente mejores especificaciones, pero mas caros.
+\end_layout
+
+\begin_layout Section
+Llave Analógica
+\end_layout
+
+\begin_layout Subsection
+Introducción
+\end_layout
+
+\begin_layout Standard
+Una llave analógica, también llamado switch bilateral, es un componente
+ electrónico que se comporta como una llave de tipo relé, pero sin utilizar
+ componentes mecánicos.
+ Generalmente el switch esta conformado por un par de transistores MOSFET,
+ uno canal P y otro canal N.
+ Esta llave esta controlada por una señal de control que permite o no el
+ paso de la señal.
+ Algunos parámetros importantes a la hora de diseñar una llave analógica
+ son los siguientes:
+\end_layout
+
+\begin_layout Enumerate
+Resistencia On: Resistencia cuando la llave esta activada.
+ Se quiere que esta sea mínima.
+ Típicamente entre 
+\begin_inset Formula $5\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $100\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Resistencia Off: Resistencia cuando la llave esta desactivada.
+ Se quiere que esta sea maxima.
+ Típicamente entre 
+\begin_inset Formula $1M\Omega$
+\end_inset
+
+ y 
+\begin_inset Formula $1G\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Rango de señal: Mínimo y máximo voltajes permitidos para que la senal atraviese
+ el switch.
+ Si estos se superan, se puede destruir el switch por un exceso de corriente.
+\end_layout
+
+\begin_layout Enumerate
+Inyección de carga: Efecto que causa que el switch inyecte una pequeña carga
+ eléctrica en la senal cuando se cierra la llave, así causando un glitch.
+ Se especifica en coulombs.
+\end_layout
+
+\begin_layout Subsection
+Marco Teórico
+\end_layout
+
+\begin_layout Standard
+El principio matemático del funcionamiento de la llave analógica es el correspon
+diente al muestreo natural introducido anteriormente, por lo que no se volverá
+ a llevar a cabo el desarrollo matemático nuevamente.
+\end_layout
+
+\begin_layout Standard
+La llave analógica CMOS (NMOS y PMOS), en su forma mas básica, funciona
+ bajo el principio de una resistencia variable controlada por tensión.
+ Otra ventaja de utilizar MOSFET es que la llave es bilateral.
+ Ya que puede ser utilizada con voltajes negativos y positivos, y en cualquiera
+ de de los dos sentidos.
+ La resistencia ON, de esta manera, se puede ver gráficamente de la siguiente
+ manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-04 14.06.16.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{ON}(V_{in})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para minimizar la 
+\begin_inset Formula $R_{ON}$
+\end_inset
+
+ aun mas se puede proponer el siguiente circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-04 14.06.31.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito switch básicos CMOS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Modelando la llave analógica como una resistencia (
+\begin_inset Formula $R_{ON}$
+\end_inset
+
+) y se corriente de perdidas (
+\begin_inset Formula $I_{LKG}$
+\end_inset
+
+), se puede ver como la salida tiene un cambio en escalamiento en la tensión
+ DC y una continua montada.
+\end_layout
+
+\begin_layout Standard
+Partiendo del siguiente circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-04 14.12.19.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Switch cerrado circuito simplificado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede llegar a la siguiente expresión cuando la llave esta cerrada:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $V_{OUT}=V_{IN}\cdot[\frac{R_{LOAD}}{R_{G}+R_{ON}+R_{LOAD}}]+I_{LKG}\cdot[\frac{R_{LOAD}}{R_{G}+R_{ON}+R_{LOAD}}\cdot(R_{ON}+R_{G})]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y para la llave abierta se tiene el siguiente circuito:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-04 14.12.34.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Switch abierto circuito simplificado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $V_{OUT}=I_{LKG}\cdot R_{LOAD}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En cuanto a la transferencia, para alterna, se tiene el siguiente esquema
+ a llave cerrada:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-04 14.50.43.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito AC a llave cerrada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y desarrollando se llega a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $A_{dB}=20\cdot log[\frac{R_{LOAD}}{R_{LOAD}+R_{ON}}]+10\cdot log[\omega^{2}\cdot(R_{ON}\cdot C_{DS})^{2}+1]-10\cdot log[\omega^{2}\cdot((\frac{R_{LOAD}\cdot R_{ON}}{R_{LOAD}+R_{ON}})^{2}\cdot((C_{LOAD}+C_{D}+C_{DS})^{2}+1)]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La cual corresponde a un pasa bajos de los siguientes parámetros:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{zero}=\frac{0.159}{R_{ON}\cdot C_{DS}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{pole}=\frac{0.159}{(R_{LOAD}//R_{ON})\cdot(C_{LOAD}+C_{D}+C_{DS})}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $A(0)$
+\end_inset
+
+=
+\begin_inset Formula $\frac{R_{LOAD}}{R_{LOAD}+R_{ON}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A llave abierta se tiene el siguiente esquema:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito AC a llave abierta
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El cual planteando la función transferencia se llega a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $A(s)=\frac{s\cdot R_{LOAD}\cdot C_{DS}}{s\cdot R_{LOAD}\cdot(C_{LOAD}+C_{D}+C_{DS})+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El cual corresponde a un pasa altos con los siguientes parámetros:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{zero}=\frac{0.159}{R_{LOAD}\cdot(C_{LOAD}+C_{D}+C_{DS})}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $A(0)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Elección de llave analógica
+\end_layout
+
+\begin_layout Standard
+Para la elección de la llave analógica se tiene que tener en cuenta los
+ cuatro parámetros nombrados en la introducción.
+ Se tomaron en cuenta tres integrados tras explorar las opciones, el integrado
+ CD4066, el CD4016 y el MC74VHC1G66.
+ Para compararlos se construyo la siguiente tabla:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+——
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CD4066
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CD4016
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MC74VHC1G66
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{ON(MAX)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $125\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $280\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $60\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{OFF(MAX)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\approx10^{12}\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\approx1.8\cdot10^{11}\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\approx5.5\cdot10^{10}\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Distorsión
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $<0.5\%$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $<0.5\%$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $<0.3\%$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $I_{LKG(MAX)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10pA$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $100pA$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $100pA$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación de integrados
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se puede apreciar del cuadro, el integrado MC74VHC1G66 es el que tiene
+ las mejores especificaciones.
+ Al no conseguir este, se utilizo el segundo con mejores especificaciones,
+ el CD4066.
+\end_layout
+
+\end_body
+\end_document

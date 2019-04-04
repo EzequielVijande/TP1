@@ -1,0 +1,25 @@
+Circuit: * C:\Users\Manuel Mollon\Dropbox\ASSD\TP1\AnalogSwitch.asc
+
+Limiting rise time of source v2 to 5e-005
+Limiting fall time of source v2 to 5e-005
+Direct Newton iteration for .op point succeeded.
+.step run=1
+.step run=6
+.step run=11
+.step run=16
+.step run=21
+.step run=26
+.step run=31
+.step run=36
+.step run=41
+.step run=46
+.step run=51
+.step run=56
+.step run=61
+.step run=66
+.step run=71
+.step run=76
+.step run=81
+.step run=86
+.step run=91
+.step run=96
