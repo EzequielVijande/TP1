@@ -29,8 +29,7 @@ from matplotlib import pyplot as p
 #               x scaling by m. y(n) = x(n*m) (real_n = n)
 
 
-
-def decimate(x, m):
+def decimate(x, m, n=None, plotea=False, real_n_plot=False):
     y = []
     new_n = []
     real_n = []
@@ -45,29 +44,45 @@ def decimate(x, m):
         new_n = list(range(-(len(x) // 2 // abs_m) * abs_m, (len(x) // 2 // abs_m) * abs_m + 1, abs_m))
         real_n = list(range(-len(x) // abs_m // 2, len(x) // 2 // abs_m))
 
+        for i in range(len(y)):
+            if abs(y[i]) <= 1e-14:
+                y[i] = 0
+        if plotea:
+
+            if real_n_plot:
+                p.grid(True)
+                p.stem(real_n, y)
+                p.show()
+            else:
+                p.plot(n, x)
+                p.stem(new_n, y)
+                p.show()
+
+        freq = numpy.fft.fftfreq(len(n))
+        numpy.ndarray.sort(freq)
+        p.plot(freq, abs(numpy.fft.fft(x)))
+
+        freq_prima = numpy.fft.fftfreq(len(real_n))
+        numpy.ndarray.sort(freq_prima)
+        p.plot(freq_prima, abs(numpy.fft.fft(y)))
+        p.title('X2(f) sin decimar y decimado')
+        p.xlabel('Frecuencia f')
+        p.ylabel('X2(f) y X2(f) decimado')
+
+        p.show()
     else:
         print("Error. Ingreso un  valor no entero para efectuar la decimation!")
 
     return [new_n, real_n, y]
 
 
-n = list(range(-50, 50, 1))
+# original time vector for both x1 and x2
+n = list(range(-50, 51, 1))
+
 x1 = [numpy.sin(2*math.pi*0.125/2*n[i]) for i in range(len(n))]
-p.plot(n, x1)
+decimate(x1, 4, n, True, False)
 
-[n1, real_n1, y1] = decimate(x1, 4)
-p.plot(n1, y1)
-p.plot(decimate(x1, -4)[0], decimate(x1, -4)[2])
-p.show()
-
-freq = numpy.fft.fftfreq(len(n))
-numpy.ndarray.sort(freq)
-# p.plot(freq, abs(numpy.fft.fft(x1)))
-# p.show()
-
-x2 = numpy.sin(2*math.pi*0.25*n)
-[n2, real_n2, y2] = decimate(x2, 4)
+x2 = [numpy.sin(2*math.pi*0.25*n[i]) for i in range(len(n))]
+decimate(x2, 4, n, True, True)
 
 
-p.plot(freq, abs(numpy.fft.fft(x2)))
-p.show()

@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -56,6 +56,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -85,6 +87,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -93,7 +96,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -106,15 +112,467 @@
 
 \begin_body
 
-\begin_layout Section*
-Ejercicio 9.2
-\end_layout
-
-\begin_layout Subsection*
+\begin_layout Section
 Downsampling
 \end_layout
 
 \begin_layout Standard
+Se escribió la función decimate(x, m) en python.
+ Se agregó la posibilidad de que la función grafique el espectro original
+ y el de la señal a la que se le aplicó la decimación.
+\end_layout
+
+\begin_layout Standard
+Se verificó que esta función sirviese para enteros positivos y negativos.
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $x_{1}(n)=sin(2\pi\cdot\frac{0.125}{2}\cdot n)$
+\end_inset
+
+ decimada
+\end_layout
+
+\begin_layout Standard
+A continuación se muestra el gráfico de la función 
+\begin_inset Formula $x_{1}(n)=sin(2\pi\cdot\frac{0.125}{2}\cdot n)$
+\end_inset
+
+, 
+\begin_inset Formula $\forall n\epsilon[-50;50]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/x1(n).png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{1}(n)=sin(2\pi\cdot\frac{0.125}{2}\cdot n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se le aplica a esta función un escalamiento por m=4 con el programa escrito,
+ de manera tal que 
+\begin_inset Formula $x_{1}'(n)=x_{1}(4\cdot n)=sin(8\pi\cdot\frac{0.125}{2}\cdot n)=sin(\frac{\pi}{2}\cdot n)$
+\end_inset
+
+, como se muestra en la siguiente imagen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/x1_decimado.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{1}'(n)=x_{1}(4\cdot n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se comparan los espectros de las señal original y la decimada.
+ Se observa un escalamiento de la función de la frecuencia por un factor
+ de 
+\begin_inset Formula $a=\frac{1}{m}$
+\end_inset
+
+ y una reducción en la amplitud del espectro por un factor de 
+\begin_inset Formula $a$
+\end_inset
+
+, siguiendo la fórmula: 
+\begin_inset Formula $F[x(m\cdot n)](f)=F[x(n)](\frac{f}{m})\frac{1}{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/X1(f).png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Espectros de la señal original y la decimada.
+ Señal original en azul.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado que la señal 
+\begin_inset Formula $x_{1}'(nT)$
+\end_inset
+
+ es la señal 
+\begin_inset Formula $x(t)$
+\end_inset
+
+ muestreada con un período de muestreo 4 veces más grande 
+\begin_inset Formula $(x_{1}'(nT)=x_{1}(n\cdot4T))$
+\end_inset
+
+, se muestran los puntos muestreados de la función x(n):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/x1 muestreados.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señal 
+\begin_inset Formula $x_{1}(t)$
+\end_inset
+
+ muestreada con un período de T y de 4T, según el programa escrito
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $x_{2}(n)=sin(2\pi\cdot0,25\cdot n)$
+\end_inset
+
+ decimada
+\end_layout
+
+\begin_layout Standard
+A continuación se muestra el gráfico de la función 
+\begin_inset Formula $x_{2}(n)=sin(2\pi\cdot0,25\cdot n)$
+\end_inset
+
+, 
+\begin_inset Formula $\forall n\epsilon[-50;50]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/x2(n).png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{2}(n)=sin(2\pi\cdot0,25\cdot n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se le aplica también a esta función un escalamiento por m=4 con el programa
+ escrito, de manera tal que 
+\begin_inset Formula $x_{2}'(n)=x_{2}(4\cdot n)=sin(8\pi\cdot0,25\cdot n)=sin(2\cdot n)=0$
+\end_inset
+
+, como se muestra en la siguiente imagen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/x2(n) decimada.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $x_{2}'(n)=x_{2}(4\cdot n)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se muestran los puntos muestreados de la función 
+\begin_inset Formula $x_{2}(n)$
+\end_inset
+
+ como anteriormente para 
+\begin_inset Formula $x_{1}(n)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/x2 muestras.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señal 
+\begin_inset Formula $x_{2}(t)$
+\end_inset
+
+ muestreada con un período de T y de 4T, según el programa escrito
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se comparan los espectros de las señal original y la decimada:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/X2(f).png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Espectros de
+\begin_inset Formula $X_{2}'(f)$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{2}(f)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $X_{2}(f)$
+\end_inset
+
+ en azul, 
+\begin_inset Formula $X_{2}'(f)$
+\end_inset
+
+ en naranja
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
