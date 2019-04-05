@@ -416,12 +416,12 @@ Muestreo Ideal
 \end_layout
 
 \begin_layout Standard
-Para la funcion dada 
+Para la función dada 
 \begin_inset Formula $x_{c}(t)$
 \end_inset
 
 , si tenemos un muestreo ideal con deltas, el calculo de el rango de frecuencias
- es el explicado en el marco teorico.
+ es el explicado en el marco teórico.
  La señal 
 \begin_inset Formula $x_{c}(t)$
 \end_inset
@@ -438,7 +438,7 @@ Para la funcion dada
 \end_layout
 
 \begin_layout Standard
-Por lo que utilizando la ecuacion obtenida en el marco teorico se obtiene:
+Por lo que utilizando la ecuación obtenida en el marco teórico se obtiene:
 \end_layout
 
 \begin_layout Standard
@@ -499,7 +499,7 @@ En
 \begin_inset Formula $f_{s(MIN)}$
 \end_inset
 
- no cumple la condicion antes impuesta.
+ no cumple la condición antes impuesta.
  Por lo que en 
 \begin_inset Formula $m=4$
 \end_inset
@@ -525,19 +525,19 @@ Muestreo Natural
 \end_layout
 
 \begin_layout Standard
-Se vio una introduccion teorica al muestreo natural dado por la llave analogica
- en la seccion sample and hold.
- De ella se puede observar como el muestreo natural con duty cycle — se
- aproxima al muestreo ideal de deltas.
- Por lo que para iniciar la busqueda del rango optimo, se usara el mismo
+Se vio una introducción teórica al muestreo natural dado por la llave analógica
+ en la sección sample and hold.
+ De ella se puede observar como el muestreo natural con duty cycle mayor,
+ se aproxima al muestreo ideal de deltas.
+ Por lo que para iniciar la búsqueda del rango optimo, se usara el mismo
  obtenido para el muestreo ideal.
- Por lo que se simulo el espectro a la salida de la llave analogica con
+ Por lo que se simulo el espectro a la salida de la llave analógica con
  un 
 \begin_inset Formula $f_{s}=3560Hz$
 \end_inset
 
 .
- El resultado fue el siguiente:
+ El resultado a la salida fue el siguiente:
 \end_layout
 
 \begin_layout Standard
@@ -548,6 +548,13 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/a/Llave(f).png
+	scale 80
+
+\end_inset
+
 
 \end_layout
 
@@ -573,8 +580,51 @@ Espectro en muestreo natural
 \end_layout
 
 \begin_layout Standard
+A la entrada se tenia:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/a/Xin(f)=FAA(f)=S&H(f).png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Espectro a la entrada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Al observar que no se superpone el espectro con otro en la banda deseada,
- se llega a la conclusion de que se puede usar el mismo rango de frecuencias.
+ se llega a la conclusión de que se puede usar el mismo rango de frecuencias.
  Por lo que el optimo para el muestreo natural es:
 \end_layout
 
@@ -591,7 +641,7 @@ Muestreo con Sample and Hold
 \end_layout
 
 \begin_layout Standard
-Para encontrar el rango de frecuencias de muestreo óptima, se comenzo con
+Para encontrar el rango de frecuencias de muestreo óptima, se comenzó con
  el mismo argumento que el muestreo natural.
  Al simularlo, se obtuvo el siguiente resultado:
 \end_layout
@@ -604,6 +654,17 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/b/S&H(f).png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -612,6 +673,49 @@ Espectro en muestreo S&H
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A la entrada se tenia:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/b/Xin(f).png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Espectro a la entrada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 

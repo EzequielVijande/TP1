@@ -173,6 +173,16 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-04 19.44.58.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -250,6 +260,12 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-04 19.44.589.png
+
+\end_inset
+
 
 \end_layout
 
@@ -521,7 +537,7 @@ Se vio una introduccion teorica al muestreo natural dado por la llave analogica
 \end_inset
 
 .
- El resultado fue el siguiente:
+ El resultado a la salida fue el siguiente:
 \end_layout
 
 \begin_layout Standard
@@ -532,6 +548,13 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/a/Llave(f).png
+	scale 80
+
+\end_inset
+
 
 \end_layout
 
@@ -540,6 +563,49 @@ status collapsed
 
 \begin_layout Plain Layout
 Espectro en muestreo natural
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A la entrada se tenia:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/a/Xin(f)=FAA(f)=S&H(f).png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Espectro a la entrada
 \end_layout
 
 \end_inset
@@ -588,6 +654,17 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/b/S&H(f).png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -596,6 +673,49 @@ Espectro en muestreo S&H
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A la entrada se tenia:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/b/Xin(f).png
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Espectro a la entrada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
