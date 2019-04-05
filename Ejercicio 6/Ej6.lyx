@@ -3217,7 +3217,7 @@ Parametros utilizados en la medicion
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3255,7 +3255,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/b/2/Llave(t).png
+	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/b/2/tiempos.png
 	scale 50
 
 \end_inset
@@ -3327,6 +3327,10 @@ Medicion
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 placement H
 wide false
@@ -3336,7 +3340,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/b/2/Llave(f).png
+	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/b/2/frecs.png
 	scale 50
 
 \end_inset
@@ -3365,171 +3369,7 @@ simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Grafica en frecuencia a la salida del Sample and Hold
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Medicion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/b/2/Xout(t).png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Simulacion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Grafica en el tiempo a la salida del circuito
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Medicion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/b/2/Xout(f).png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Simulacion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Grafica en frecuencia de la salida del circuito
+Graficas en frecuencia
 \end_layout
 
 \end_inset
@@ -3706,6 +3546,10 @@ Medicion
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 placement H
 wide false
@@ -3715,7 +3559,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/c/S&H(t).png
+	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/c/tiempos.png
 	scale 50
 
 \end_inset
@@ -3744,7 +3588,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Grafica en el tiempo a la salida del Sample and Hold
+Graficas en el tiempo
 \end_layout
 
 \end_inset
@@ -3788,6 +3632,10 @@ Medicion
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 placement H
 wide false
@@ -3797,7 +3645,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/c/S&H(f).png
+	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/c/frecs.png
 	scale 50
 
 \end_inset
@@ -3826,171 +3674,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Grafica en frecuencia de la salida del Sample And Hold
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Medicion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Imagenes/Coseno/FAA+Llave+FR (natural)/c/Xout(t).png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Simulacion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Grafica en el tiempo a la salida del circuito
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Medicion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename Imagenes/Coseno/FAA+Llave+FR (natural)/b/2/Xout(f).png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Simulacion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Grafica en frecuencia de la salida del circuito
+Graficas en frecuencia
 \end_layout
 
 \end_inset

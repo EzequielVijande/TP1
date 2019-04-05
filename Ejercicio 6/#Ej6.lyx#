@@ -3217,7 +3217,7 @@ Parametros utilizados en la medicion
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3255,7 +3255,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/b/2/Llave(t).png
+	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/b/2/tiempos.png
 	scale 50
 
 \end_inset
@@ -3302,7 +3302,7 @@ Graficas en el tiempo
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3327,11 +3327,15 @@ Medicion
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3365,7 +3369,7 @@ simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Grafica en frecuencia a la salida del Sample and Hold
+Graficas en frecuencia
 \end_layout
 
 \end_inset
