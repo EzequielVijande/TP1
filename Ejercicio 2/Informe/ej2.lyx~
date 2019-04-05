@@ -81,7 +81,7 @@
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Part*
 Filtro Recuperador y Anti-Aliasing
 \end_layout
 
@@ -246,7 +246,7 @@ Procedemos entonces a realizar un análisis espectral de las distintas señales
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Análisis espectral de las señales a muestrear
 \end_layout
 
@@ -636,7 +636,7 @@ De aquí, debido a las condiciones impuestas por consigna, queda determinada
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Diseño del filtro
 \end_layout
 
@@ -2129,7 +2129,7 @@ Componentes para cada etapa.
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Simulación 
 \end_layout
 
@@ -2246,7 +2246,7 @@ Simulación de fase con valores nominales.
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Análisis de Montecarlo
 \end_layout
 
@@ -2338,7 +2338,7 @@ De las figuras anteriores se puede notar como la mayoría de los casos cumplen
  sensibilidad significativa.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Estudio de rango dinámico
 \end_layout
 
@@ -2459,7 +2459,7 @@ Esta tensión estaría más limitada si se tiene en cuenta que según la plantil
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 No idealidad de los filtros
 \end_layout
 

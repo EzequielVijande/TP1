@@ -169,7 +169,7 @@ Dicho sistema puede ser modelado como:
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -232,7 +232,9 @@ Donde d es el duty cicle (
 \begin_inset Formula $0.05\leq d\leq0.95$
 \end_inset
 
-) de muestreo.
+) de muestreo, y el duty cycle es la relación en tiempo entre el tiempo
+ en que se está emitiendo el pulso y el tiempo total entre emisiones de
+ pulso.
  Llamando a 
 \begin_inset Formula $d\cdot T=\tau$
 \end_inset
@@ -744,7 +746,7 @@ Eligiendo un período de
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -785,7 +787,7 @@ Se grafican luego las curvas de potencia de cada componente en frecuencia
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center

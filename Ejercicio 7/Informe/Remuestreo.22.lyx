@@ -112,7 +112,7 @@
 
 \begin_body
 
-\begin_layout Section*
+\begin_layout Section
 Remuestreo
 \end_layout
 
@@ -272,7 +272,7 @@ Q(f)=\tau\cdot sinc(f\tau)\cdot e^{-i\cdot2\pi f\frac{\tau}{2}}
  
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsection
 Respuesta del sistema a una entrada genérica
 \end_layout
 
@@ -366,7 +366,7 @@ Luego de pasar por el sample and hold y por el filtro recuperador, se obtiene
 
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsection
 Respuesta del sistema a una entrada particular
 \end_layout
 
@@ -588,7 +588,7 @@ y_{j}(t)=A_{j}\cdot|H(f_{j})|^{2}\cdot d\cdot sinc(f_{j}\cdot d\cdot T)\cdot cos
 
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsubsection
 Señales moduladas en AM
 \end_layout
 
