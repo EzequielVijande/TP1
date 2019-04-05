@@ -152,6 +152,12 @@ filename "C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 8/Informe/Ej8.lyx"
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 9/Informe/Ej9_1.lyx"
+
+\end_inset
+
 
 \end_layout
 
