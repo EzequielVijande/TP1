@@ -112,7 +112,7 @@
 
 \begin_body
 
-\begin_layout Section*
+\begin_layout Section
 Ejercicio 9.1
 \end_layout
 
@@ -125,7 +125,7 @@ Se pide implementar el siguiente filtro digital de segundo orden:
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -160,33 +160,7 @@ El cual está descripto por la siguiente ecuación en diferencias:
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\end_inset
-
- 
 \begin_inset Formula $y(nT)=0.5\cdot x(nT-T)+\alpha\cdot y(nT-T)+\beta\cdot y(nT-2T)$
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
 \end_inset
 
 
@@ -202,33 +176,7 @@ Para facilitar las cuentas, elegimos normalizar el período T a la unidad
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\end_inset
-
- 
 \begin_inset Formula $y(n)=0.5\cdot x(n-1)+\alpha\cdot y(n-1)+\beta\cdot y(n-2)$
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
 \end_inset
 
 
@@ -255,33 +203,7 @@ Dado que la respuesta transitoria del filtro está ligada exclusivamente
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\end_inset
-
- 
 \begin_inset Formula $y_{h}(n)-\alpha\cdot y_{h}(n-1)-\beta\cdot y_{h}(n-2)=0$
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
 \end_inset
 
 
@@ -308,33 +230,7 @@ Proponemos entonces
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\end_inset
-
- 
 \begin_inset Formula $\lambda^{2}-\alpha\cdot\lambda-\beta=0$
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
 \end_inset
 
 
@@ -349,33 +245,7 @@ De aquí llegamos a los posibles valores de
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\end_inset
-
- 
 \begin_inset Formula $\lambda_{1,2}=\frac{\alpha\pm\sqrt{\alpha^{2}+4\cdot\beta}}{2}$
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
 \end_inset
 
 
@@ -413,20 +283,7 @@ Observando el discriminante de la expresión de
 \begin_inset Formula $\alpha^{2}+4\cdot\beta<0$
 \end_inset
 
-: 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-par
-\end_layout
-
-\end_inset
-
- El sistema tendrá una respuesta homogénea de tipo 
+: El sistema tendrá una respuesta homogénea de tipo 
 \begin_inset Formula $y_{h}(n)=C_{1}\cdot|\lambda_{1,2}|^{n}\cdot cos(\omega\cdot n)+C_{2}\cdot|\lambda_{1,2}|^{n}\cdot sen(\omega\cdot n)$
 \end_inset
 
@@ -436,19 +293,6 @@ par
 
  , 
 \begin_inset Formula $w=Arg(\lambda_{1})=arctg(\sqrt{\frac{-4\beta-\alpha^{2}}{\alpha}})$
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-par
-\end_layout
-
 \end_inset
 
  El sistema por lo tanto oscilará con una frecuencia de 
@@ -461,19 +305,6 @@ par
 
  la cantidad de períodos en los cuales esta oscilación será apreciable.
  El sistema cae dento del caso subamortiguado.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-par
-\end_layout
-
-\end_inset
-
  Es importante notar que el sistema será estable únicamente en el caso en
  que 
 \begin_inset Formula $|\lambda_{1,2}|<1$
@@ -514,19 +345,6 @@ par
 \begin_inset Formula $\alpha^{2}+4\beta>0:$
 \end_inset
 
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-par
-\end_layout
-
-\end_inset
-
  El sistema tendrá una respuesta homogénea de tipo 
 \begin_inset Formula $y_{h}(n)=C_{3}\cdot\lambda_{1}^{n}+C_{4}\cdot\lambda_{2}^{n}$
 \end_inset
@@ -541,39 +359,13 @@ par
 
  , entonces el sistema será estable.
  
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-par
-\end_layout
-
-\end_inset
-
- 
 \end_layout
 
 \begin_layout Itemize
 \begin_inset Formula $\alpha^{2}+4\beta=0:$
 \end_inset
 
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-par
-\end_layout
-
-\end_inset
-
- El sistema tendrá una respuesta homogénea de tipo 
+  El sistema tendrá una respuesta homogénea de tipo 
 \begin_inset Formula $y_{h}(n)=C_{5}\cdot\lambda^{n}+C_{6}\cdot n\cdot\lambda^{n}$
 \end_inset
 
@@ -589,7 +381,7 @@ par
  
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection
 Implementación digital del filtro
 \end_layout
 
@@ -610,7 +402,7 @@ Se implementa el filtro a partir de un programa escrito en python.
  
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection
 Casos especiales de prueba
 \end_layout
 
@@ -730,7 +522,7 @@ Se simularon entonces los siguientes casos a enumerar, con las razones de
 .
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection
 Respuesta impulsiva
 \end_layout
 
@@ -745,7 +537,7 @@ Se procederá a mostrar las respuestas impulsivas para el filtro de consigna
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -810,7 +602,7 @@ Se observan oscilaciones en la respuesta impulsiva del filtro con los parámetro
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -862,7 +654,7 @@ mucho más chico que para el sistema anterior.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -909,7 +701,7 @@ Se vuelve a apreciar un carácter oscilante para el sistema debido a
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -947,7 +739,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -985,7 +777,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1023,7 +815,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1053,6 +845,10 @@ status open
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Subsection
 Respuesta al escalón
 \end_layout
 
@@ -1061,7 +857,7 @@ Respuesta al escalón
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1099,7 +895,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1137,7 +933,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center

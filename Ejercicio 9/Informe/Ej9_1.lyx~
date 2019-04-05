@@ -112,7 +112,7 @@
 
 \begin_body
 
-\begin_layout Section*
+\begin_layout Section
 Ejercicio 9.1
 \end_layout
 
@@ -125,7 +125,7 @@ Se pide implementar el siguiente filtro digital de segundo orden:
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -435,7 +435,7 @@ par
 \end_inset
 
  , 
-\begin_inset Formula $w=Arg(\lambda_{1})$
+\begin_inset Formula $w=Arg(\lambda_{1})=arctg(\sqrt{\frac{-4\beta-\alpha^{2}}{\alpha}})$
 \end_inset
 
  
@@ -589,7 +589,7 @@ par
  
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection
 Implementación digital del filtro
 \end_layout
 
@@ -610,7 +610,7 @@ Se implementa el filtro a partir de un programa escrito en python.
  
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection
 Casos especiales de prueba
 \end_layout
 
@@ -730,7 +730,7 @@ Se simularon entonces los siguientes casos a enumerar, con las razones de
 .
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection
 Respuesta impulsiva
 \end_layout
 
@@ -745,7 +745,7 @@ Se procederá a mostrar las respuestas impulsivas para el filtro de consigna
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -810,7 +810,7 @@ Se observan oscilaciones en la respuesta impulsiva del filtro con los parámetro
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -862,7 +862,7 @@ mucho más chico que para el sistema anterior.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -909,7 +909,7 @@ Se vuelve a apreciar un carácter oscilante para el sistema debido a
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -947,7 +947,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -985,7 +985,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1023,7 +1023,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1053,6 +1053,10 @@ status open
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Subsection
 Respuesta al escalón
 \end_layout
 
@@ -1061,7 +1065,7 @@ Respuesta al escalón
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1099,7 +1103,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1137,7 +1141,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
