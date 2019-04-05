@@ -94,14 +94,17 @@ filename "cover.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "ejercicios guía/ej1.lyx"
+filename "oscilador.lyx"
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "ejercicios guía/ej2.lyx"
+filename "C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 2/Informe/filtros.lyx"
 
 \end_inset
 
@@ -142,16 +145,6 @@ filename "C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 7/Informe/Remuestreo
 \begin_inset CommandInset include
 LatexCommand include
 filename "C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 8/Informe/Ej8.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 9/Informe/Ej9_1.lyx"
 
 \end_inset
 

@@ -1336,6 +1336,7 @@ Los circuitos utilizados para cada celda fueron los siguientes:
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -2361,8 +2362,7 @@ Siendo
 \begin_inset Formula $V_{in_{max}}$
 \end_inset
 
-la amplitud de señal máxima que se puede ingresar al circuito sin que esta
- sufra alguna alinealidad, y 
+la amplitud de señal máxima que se puede ingresar al circuito, y 
 \begin_inset Formula $V_{in_{min}}$
 \end_inset
 

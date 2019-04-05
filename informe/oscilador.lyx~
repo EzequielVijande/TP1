@@ -590,11 +590,11 @@ Para realizar un oscilador que permite variar el duty cycle y la frecuencia
 \begin_layout Standard
 Primero, se procederá a explicar como se puede generar una señal cuadrada
  con duty cycle variable.
- Esto se puede realizar mediante un comparador que compara una tensión de
- referencia con una señal que varíe en el tiempo, es decir que su tensión
- oscile alrededor de la tensión de referencia, de manera que el comparador
- genere un nivel alto o bajo a la salida según la señal sea mayor o menor
- a la tensión de referencia.
+ Esto se puede realizar mediante un comparador que contraste una tensión
+ de referencia con una señal que varíe en el tiempo, es decir que la tensión
+ de la señal variante oscile alrededor de la tensión de referencia, de manera
+ que el comparador genere un nivel alto o bajo a la salida según la señal
+ sea mayor o menor a la tensión de referencia.
  La idea de este circuito es lograr que el duty cycle de la señal de salida
  no cambie ante variaciones de la frecuencia de la señal oscilante, si no
  que varíe solo al cambiar la tensión de referencia.
@@ -611,9 +611,21 @@ Entonces, el circuito propuesto para variar duty cycle independientemente
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/comparador.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -672,6 +684,752 @@ A partir de estas consideraciones se propuso el siguiente circuito:
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/sierraGenerador.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito que genera Diente de Sierra de Frecuencia Variable
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como se puede notar, el circuito cuenta con un transistor PNP configurado
+ como una fuente de corriente, la cual brinda la corriente constante al
+ capacitor para que se produzca la carga lineal de tensión deseada.
+ Esta parte del circuito se encuentra funcionando durante la carga del capacitor
+ hasta que la misma activa el comparador interno del LM555 y este último
+ provoca la descarga a tierra del capacitor.
+ Notese que en la descarga se involucra una resistencia entre el pin 
+\begin_inset Quotes eld
+\end_inset
+
+Discharge
+\begin_inset Quotes erd
+\end_inset
+
+ y el capacitor.
+ Si no estuviera esta resistencia, el capacitor se colocaría a tierra solamente
+ mediante el transistor interno del 
+\begin_inset Quotes eld
+\end_inset
+
+555
+\begin_inset Quotes erd
+\end_inset
+
+ lo cual provocaría una derivada negativa en la tensión extremadamente elevada
+ en módulo(es deseable para la generar la forma de onda de diente de sierra)
+ pero a la vez se produciría un pico de corriente capaz de destruir los
+ componentes del circuito.
+ Entonces, es razonable la incorporación de una resistencia de descarga
+ que limite la corriente de descarga pero que a su vez permita generar disminuci
+ón de tensión en el capacitor en un lapso de tiempo lo suficientemente 
+\begin_inset Quotes eld
+\end_inset
+
+pequeño
+\begin_inset Quotes erd
+\end_inset
+
+ de manera que la señal que resulte se aproxime a un diente de sierra.
+\end_layout
+
+\begin_layout Standard
+Finalmente, se pueden unir los dos circuitos presentados y asi obtener una
+ señal cuadrada con frecuencia y duty cycle variable de manera independiente.
+ A continuación se presentan las ecuaciones relevantes que determinan las
+ características del circuito y de la señal cuadrada resultante:
+\end_layout
+
+\begin_layout Standard
+Sobre el diente de sierra:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $I_{carga}=I_{colector}=\frac{V_{D1}+V_{D2}-V_{BEon}}{R1+R12}\Rightarrow V_{C1}=\frac{V_{D1}+V_{D2}-V_{BEon}}{(R1+R12).C1}.t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta ecuación describe el comportamiento de la tensión del capacitor durante
+ la carga del mismo.
+ Esto es hasta que la tensión 
+\begin_inset Formula $"V_{C1}"$
+\end_inset
+
+ alcanza 
+\begin_inset Formula $\frac{2}{3}Vcc$
+\end_inset
+
+, partiendo inicialmente de la tensión 
+\begin_inset Formula $\frac{1}{3}Vcc$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow t_{carga}:t\;/\:\triangle V_{C1}=\frac{1}{3}Vcc\Rightarrow t_{carga}=\frac{1}{3}Vcc\frac{(R1+R12).C1}{V_{D1}+V_{D2}-V_{BEon}}\thickapprox\frac{Vcc.(R1+R12).C1}{(3).(0.7)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En cuanto a la descarga:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V_{C1}=V_{cc}e^{-\frac{t}{R3C1}}\Rightarrow t_{descarga}=R3.C1.ln(3)-R3.C1.ln(\frac{3}{2})=R3.C1.ln(2)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede notar que el tiempo de carga es considerablemente mayor al tiempo
+ de descarga siempre que el valor de 
+\begin_inset Formula $"R3"$
+\end_inset
+
+ se mantenga por debajo del valor de 
+\begin_inset Formula $"R1+R12"$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sobre el comparador:
+\end_layout
+
+\begin_layout Standard
+Tomando 
+\begin_inset Formula $A=\frac{V_{D1}+V_{D2}-V_{BEon}}{(R1+R12).C1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V_{out}=V_{LOW}\Longleftrightarrow V_{sierra}<V_{ref}\Longleftrightarrow\frac{1}{3}.Vcc+A.t<Vref$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V_{out}=V_{HIGH}\Longleftrightarrow(V_{sierra}>V_{ref})\:\mathcircumflex\:(V_{sierra}<\frac{2}{3}.Vcc)\Longleftrightarrow Vref+A.t<\frac{2}{3}.Vcc$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow\begin{cases}
+t_{HIGH}=\frac{\frac{2}{3}.Vcc-V_{ref}}{A}\\
+t_{LOW}=\frac{V_{ref}-\frac{1}{3}.Vcc}{A}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow\begin{cases}
+f=\frac{1}{t_{HIGH}+t_{LOW}}=\frac{3.A}{Vcc}\\
+DC=\frac{t_{HIGH}}{t_{HIGH}+t_{LOW}}=\frac{2Vcc-3V_{ref}}{Vcc}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De estas últimas dos expresiones se puede observar que la frecuencia no
+ depende de 
+\begin_inset Formula $"V_{ref}"$
+\end_inset
+
+ y que el duty cycle no depende de 
+\begin_inset Formula $"A"$
+\end_inset
+
+, lo cual asegura la independencia de estas dos magnitudes.
+\end_layout
+
+\begin_layout Standard
+No esta demás aclarar que para llegar a la expresión de 
+\begin_inset Formula $t_{HIGH}$
+\end_inset
+
+ y 
+\begin_inset Formula $t_{LOW}$
+\end_inset
+
+ se despreció el tiempo de descarga del capacitor que produce la señal de
+ diente de sierra (se consideró una señal de diente de sierra ideal).
+\end_layout
+
+\begin_layout Standard
+Por último, en cuanto a los valores de tensión 
+\begin_inset Formula $V_{HIGH}$
+\end_inset
+
+ y 
+\begin_inset Formula $V_{LOW}$
+\end_inset
+
+, estos dependerán solamente de los valores de tensión que se utilicen para
+ alimentar el comparador.
+ Si se utiliza un comparador 
+\begin_inset Quotes eld
+\end_inset
+
+LM311
+\begin_inset Quotes erd
+\end_inset
+
+ por ejemplo, se podría generar tanto una cuadrada centrada en 
+\begin_inset Quotes eld
+\end_inset
+
+0v
+\begin_inset Quotes erd
+\end_inset
+
+ (entre 
+\begin_inset Formula $\pm Vcc$
+\end_inset
+
+) como una cuadrada entre +Vcc y 
+\begin_inset Quotes eld
+\end_inset
+
+0V
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Mediciones y Análisis de Funcionamiento
+\end_layout
+
+\begin_layout Standard
+Para corroborar el funcionamiento del circuito propuesto, se implementó
+ el mismo, se realizaron mediciones.
+ A continuación se presentan los gráficos obtenidos de las mismas
+\end_layout
+
+\begin_layout Standard
+Señal de diente de sierra con frecuencia elevada, media y baja:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/Falta.png
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename imagenes/Fmedia.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diente de Sierra - 
+\begin_inset Formula $f=92.2KHz$
+\end_inset
+
+ y 
+\begin_inset Formula $f=9.85KHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/Fbaja.png
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diente de Sierra - 
+\begin_inset Formula $f=1KHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En estas mediciones, se llevó la señal del circuito real a la frecuencia
+ indicada debajo de cada gráfico mediante la variación de un 
+\begin_inset Quotes eld
+\end_inset
+
+preset
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Se puede notar que la señal generada tiene la forma de un diente de sierra
+ para las frecuencias indicadas, sin embargo se observa que a mayor frecuencia
+ existe una deformación al comienzo de cada ciclo de la señal, es decir
+ al comenzar la elevación de la rampa.
+ Esto último se puede explicar por el tiempo de trasmutación entre descarga
+ y carga que provoca el transistor interno del 
+\begin_inset Quotes eld
+\end_inset
+
+LM555
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Este tiempo es relativamente bajo para una frecuencia de conmutación de
+ 
+\begin_inset Formula $10KHz$
+\end_inset
+
+, por ejemplo, pero es considerable para frecuencias de conmutación de 
+\begin_inset Formula $90KHz$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A continuación se observan los gráficos obtenidos de la señal cuadrada de
+ salida para distintas frecuencias y distintos dutys cycles, con 
+\begin_inset Formula $V_{HIGH}=+15V$
+\end_inset
+
+ y 
+\begin_inset Formula $V_{LOW}=-15V$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/DCmedBajo.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señal Cuadrada - 
+\begin_inset Formula $DC=\%3$
+\end_inset
+
+ y 
+\begin_inset Formula $f=10KHz$
+\end_inset
+
+- 
+\begin_inset Formula $DC=50.5\%$
+\end_inset
+
+ y 
+\begin_inset Formula $f=10KHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/DCalto.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señal Cuadrada - 
+\begin_inset Formula $DC=\%94.4$
+\end_inset
+
+ - 
+\begin_inset Formula $f=92.6KHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De estos gráficos se puede observar que la señal cuadrada se deforma a medida
+ que el duty cycle se aparte del 50%.
+ Es decir, se presenta una deformación de la señal cuadrada en los casos
+ extremos de duty cycle, 95% o 5%, por ejemplo.
+ Para el caso de DC 
+\begin_inset Quotes eld
+\end_inset
+
+mucho mayor
+\begin_inset Quotes erd
+\end_inset
+
+ al 50% se observa un riple en el nivel bajo de la señal y este es esperable
+ debido a que el lapso de tiempo durante este nivel de señal es demasiado
+ corto y no se logra llegar a una régimen permanente.
+ Para DC 
+\begin_inset Quotes eld
+\end_inset
+
+mucho menor
+\begin_inset Quotes erd
+\end_inset
+
+ a 50%, en cambio, se observa una deformación en el nivel alto de la cuadrada
+ ya que, nuevamente, el tiempo durante este nivel es menor al transitorio
+ que se genera para llegar al mismo.
+\end_layout
+
+\begin_layout Standard
+Por otra parte, se puede observar que para la señal cuadrada de mayor frecuencia
+ los regímenes transitorios no son despreciables y producen que la cuadrada
+ se observe altamente deformada.
+ 
+\end_layout
+
+\begin_layout Standard
+De todas maneras, para un rango de DC de 5% a 95% y para frecuencias desde
+ 1KHz a 90KHz se logró obtener señales cuadradas altamente identificables.
+\end_layout
+
+\begin_layout Standard
+Finalmente, a continuación se muestra una imagen tomada de la pantalla del
+ osciloscopio con las dos señales que ingresan al comparador del circuito
+ (señal de continua de referencia y diente de sierra) y la cuadrada resultante:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/3señalesDelClock.PNG
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Superposición de Señales del Clock - Medición de Osciloscopio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Consideración para Implementación
+\end_layout
+
+\begin_layout Standard
+El circuito propuesto genera una señal cuadrada con estados 
+\begin_inset Quotes eld
+\end_inset
+
+HIGH
+\begin_inset Quotes erd
+\end_inset
+
+ y 
+\begin_inset Quotes eld
+\end_inset
+
+LOW
+\begin_inset Quotes erd
+\end_inset
+
+, por lo tanto la señal generada es una señal digital.
+ Este circuito entonces generará una señal de control y por ende será integrado
+ en una placa con otros circuitos los cuales pueden ser de naturaleza digital
+ o analógica.
+ A la hora de realizar esta integración con otros circuitos es importante
+ tener en cuenta como los circuitos pueden afectar entre sí su funcionamiento.
+ Es decir, a pesar de que los circuitos se hayan analizado por separado
+ y que el comportamiento interno de estos circuito no sea relevante para
+ los demás que se encuentren en la placa, estos compartirán la misma referencia
+ de tierra (0 V).
+ Este hecho provoca que se reflexione acerca de como los circuitos pueden
+ afectar este nivel de referencia y por ende causar resultados no deseables
+ en otros circuitos vecinos.
+\end_layout
+
+\begin_layout Standard
+En efecto, en los circuitos digitales suelen existir picos de corriente
+ debido a los cambios bruscos de los niveles de tensión, como puede ser
+ una transición de 
+\begin_inset Quotes eld
+\end_inset
+
+HIGH
+\begin_inset Quotes erd
+\end_inset
+
+ a 
+\begin_inset Quotes eld
+\end_inset
+
+LOW
+\begin_inset Quotes erd
+\end_inset
+
+ de una compuerta lógica.
+ Por ejemplo, el LM555 utilizado en el circuito oscilador descripto con
+ anterioridad provoca un pico de corriente elevado en el instante que se
+ descarga el capacitor mediante el pin de 
+\begin_inset Quotes eld
+\end_inset
+
+DISCHARGE
+\begin_inset Quotes erd
+\end_inset
+
+ y su transistor conmutador.
+ Esta gradiente abrupto de corriente puede producir que en ciertas pistas
+ de la placa en las cuales la tensión era 0V, cambie el nivel de tensión
+ de las mismas debido a la caida de potencial generado en la resistencia
+ que conlleva la propia pista.
+ Finalmente, esta modificación de la tensión en puntos del circuito que
+ anteriormente representaban 
+\begin_inset Quotes eld
+\end_inset
+
+tierra
+\begin_inset Quotes erd
+\end_inset
+
+ para algunos módulos que conforman al mismo, producen resultados inesperados.
+ Especialmente, los circuitos analógicos son los más afectados por parte
+ de los circuitos digitales, ya que los circuitos digitales (como los realizados
+ con compuertas lógicas) suelen presentar recaudos de diseño para evitar
+ resultados inesperas ante estas variaciones.
+ En los circuitos analógicos, en cambio, un mínimo cambio en la referencia
+ de tierra puede verse amplificado produciendo, por ejemplo, la saturación
+ de algunos componentes activos y en consecuencia la deformación de las
+ señales eléctricas del circuito.
+\end_layout
+
+\begin_layout Standard
+Para intentar minimizar este efecto, lejos de poder eliminarlo completamente,
+ se puede proponer una topología de la placa de manera que se comparta la
+ menor cantidad de pistas posibles entre los circuitos digitales y los analógico
+s.
+ De todas maneras, estos generalmente deben compartir las pistas que representan
+ las tensiones de alimentación de los componentes activos e inevitablemente
+ deben compartir la 
+\begin_inset Quotes eld
+\end_inset
+
+tierra
+\begin_inset Quotes erd
+\end_inset
+
+ o referencia de 0V.
+ Ante este hecho inevitable de compartir pistas entre ambos tipos de circuitos,
+ debe procurarse que la superficie de pista que compartan se la mínima.
+ Esto es, que las tensiones que deban compartirse solo lo hagan mediante
+ un nodo.
+ A continuación se presenta un gráfico para que se presente mejor la idea
+ de la topología descripta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename imagenes/topologiaEstrella.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de Topología Estrella para Integrar Circuitos Digitales y Analógicos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
