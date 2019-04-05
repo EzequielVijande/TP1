@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -42,7 +42,7 @@
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
-\language english
+\language spanish
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -56,6 +56,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -85,6 +87,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -93,7 +96,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -106,12 +112,12 @@
 
 \begin_body
 
-\begin_layout Section*
-Ejercicio 8
+\begin_layout Section
+Muestreo Sub-Nyquist
 \end_layout
 
-\begin_layout Section*
-Muestreo Sub-Nyquist
+\begin_layout Subsection
+Introducción
 \end_layout
 
 \begin_layout Standard
@@ -125,15 +131,397 @@ Se desea muestrear la señal
 \end_layout
 
 \begin_layout Standard
-Se determinará la frecuencia de muestreo óptima de muestreo para cada caso.
+Se determinará el rango de frecuencias de muestreo óptima para cada caso.
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Standard
+Estas señales muestreadas, las cuales cuyo espectro se encuentra contenido
+ en un banda de frecuencias y no incluyen a 
+\begin_inset Formula $f=0$
+\end_inset
+
+, son llamadas señales pasa banda.
+ Suponiendo que estas están centradas en 
+\begin_inset Formula $f_{c}$
+\end_inset
+
+, puede que haya una 
+\begin_inset Formula $f_{s}<f_{Ny}$
+\end_inset
+
+ si satisface ciertas condiciones.
+\end_layout
+
+\begin_layout Subsection
+Marco Teórico
+\end_layout
+
+\begin_layout Standard
+Se empezara con un ejemplo a modo de motivación a la existencia de frecuencias
+ de sampleo sub nyquist.
+\end_layout
+
+\begin_layout Standard
+Teniendo el siguiente espectro:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Espectro de ejemplo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se puede samplear con una 
+\begin_inset Formula $f_{s}=f_{c}-\frac{B}{2}=17.5MHz$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La multiplicación con los deltas del muestreo nos da:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\delta_{T}(t)\cdot x(t)=x(nT)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al convolucionar el tren de deltas con la señal de entrada en frecuencia,
+ se tiene:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $X(f-n\cdot f_{s})\cdot f_{s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que estará el espectro positivo de banda 
+\begin_inset Formula $B$
+\end_inset
+
+, repetido centrado en 
+\begin_inset Formula $f_{c_{n}}=\pm(f_{c}-n\cdot f_{s})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+De esta manera se obtiene el siguiente espectro:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Espectro tras muestreo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este valor de 
+\begin_inset Formula $f_{s}$
+\end_inset
+
+ vemos que satisface la condición de no-aliasing.
+ Se puede observar que habrá un rango de valores los cuales cumplen esta
+ condición.
+\end_layout
+
+\begin_layout Standard
+Cuando el espectro positivo y negativo coinciden en 
+\begin_inset Formula $f=0$
+\end_inset
+
+, sin inversión, obtenemos la maxima frecuencia de sampleo.
+ Matemáticamente:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $m\cdot f_{s(MAX)}=2\cdot f_{c}-B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde m es las repeticiones del espectro antes de que se llegue al espectro
+ original desde el origen.
+\end_layout
+
+\begin_layout Standard
+Despejando llegamos a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{s(MAX)}=\frac{2\cdot f_{c}-B}{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuando el espectro positivo y negativo coinciden en 
+\begin_inset Formula $f=0$
+\end_inset
+
+, con inversión, obtenemos la mínima frecuencia de sampleo.
+ Matemáticamente:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $(m+1)\cdot f_{s(MIN)}=2\cdot f_{c}+B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Despejando llegamos a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{s(MIN)}=\frac{2\cdot f_{c}+B}{m+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por lo que se tiene:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{2\cdot f_{c}+B}{m+1}<f_{s}<\frac{2\cdot f_{c}-B}{m}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con 
+\begin_inset Formula $m$
+\end_inset
+
+
+\begin_inset Formula $\epsilon$
+\end_inset
+
+
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+, tal que 
+\begin_inset Formula $f_{s}\geq2\cdot B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se quiere la mayor 
+\begin_inset Formula $m$
+\end_inset
+
+ posible, ya que como esta esta dividiendo, al ser la mayor posible, obtenemos
+ el menor 
+\begin_inset Formula $f_{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Muestreo Ideal
+\end_layout
+
+\begin_layout Standard
+Para la funcion dada 
+\begin_inset Formula $x_{c}(t)$
+\end_inset
+
+, si tenemos un muestreo ideal con deltas, el calculo de el rango de frecuencias
+ es el explicado en el marco teorico.
+ La señal 
+\begin_inset Formula $x_{c}(t)$
+\end_inset
+
+ es una señal modulada en AM de 
+\begin_inset Formula $f_{c}=8kHz$
+\end_inset
+
+ y un 
+\begin_inset Formula $B=1.6kHz$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por lo que utilizando la ecuacion obtenida en el marco teorico se obtiene:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{2\cdot8000+1600}{m+1}<f_{s}<\frac{2\cdot8000-1600}{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $\frac{17600}{m+1}<f_{s}<\frac{14400}{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $m$
+\end_inset
+
+ tal que 
+\begin_inset Formula $f_{s}\geq3.2kHz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reemplazando 
+\begin_inset Formula $m$
+\end_inset
+
+ obtenemos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\begin{cases}
+m=1 & 8800Hz<f_{s}<14400Hz\\
+m=2 & 5867Hz<f_{s}<7200Hz\\
+m=3 & 4400Hz<f_{s}<4800Hz\\
+m=4 & 3520Hz<f_{s}<3600Hz\\
+m=5 & 2933Hz<f_{s}<2880Hz
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En 
+\begin_inset Formula $m=5$
+\end_inset
+
+ se llega a un absurdo y la 
+\begin_inset Formula $f_{s(MIN)}$
+\end_inset
+
+ no cumple la condicion antes impuesta.
+ Por lo que en 
+\begin_inset Formula $m=4$
+\end_inset
+
+ se llega al rango 
+\begin_inset Formula $f_{s}$
+\end_inset
+
+ mas eficiente.
+ Teniendo el promedio de los extremos se llega a:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $f_{s}=\frac{3520+3600}{2}Hz=3560Hz$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Muestreo Natural
 \end_layout
 
 \begin_layout Standard
-El muestreo natural se modela como:
+Se vio una introduccion teorica al muestreo natural dado por la llave analogica
+ en la seccion sample and hold.
+ De ella se puede observar como el muestreo natural con duty cycle — se
+ aproxima al muestreo ideal de deltas.
+ Por lo que para iniciar la busqueda del rango optimo, se usara el mismo
+ obtenido para el muestreo ideal.
+ Por lo que se simulo el espectro a la salida de la llave analogica con
+ un 
+\begin_inset Formula $f_{s}=3560Hz$
+\end_inset
+
+.
+ El resultado fue el siguiente:
 \end_layout
 
 \begin_layout Standard
@@ -141,17 +529,25 @@ El muestreo natural se modela como:
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Modelo del muestreo natural
+Espectro en muestreo natural
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -161,76 +557,27 @@ Modelo del muestreo natural
 \end_layout
 
 \begin_layout Standard
-Este modelo concreta mediante el uso de una llave analógica, que anulará
- la salida y dejará pasar la entrada 
-\begin_inset Quotes eld
-\end_inset
-
-muestreándola
-\begin_inset Quotes erd
-\end_inset
-
- por un cierto período de tiempo acorde a un duty cycle d.
- 
+Al observar que no se superpone el espectro con otro en la banda deseada,
+ se llega a la conclusion de que se puede usar el mismo rango de frecuencias.
+ Por lo que el optimo para el muestreo natural es:
 \end_layout
 
 \begin_layout Standard
-A la salida del sistema correspondiente con la entrada 
-\begin_inset Formula $w(t)$
-\end_inset
-
- tendré la salida 
-\begin_inset Formula $y(t)$
-\end_inset
-
- dada por:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $y(t)=$
-\end_inset
-
-
-\begin_inset Formula $\sum_{n\epsilon Z}\pi(\frac{t-\frac{n\cdot\tau}{2}}{\tau})\cdot w(t)$
+\align center
+\begin_inset Formula $3520Hz<f_{s}<3600Hz$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-Por lo que 
-\begin_inset Formula $Y(f)=sinc(f\cdot\tau)\cdot\tau\odot W(f)$
-\end_inset
-
-, donde 
-\begin_inset Formula $\odot$
-\end_inset
-
- es la convolución entre señales.
- 
-\end_layout
-
-\begin_layout Standard
-Para la entrada particular 
-\begin_inset Formula $W_{j}(f)=A_{j}\cdot\delta(f-f_{j})$
-\end_inset
-
-, la salida será:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $Y_{j}(f)=A_{j}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection*
+\begin_layout Subsection
 Muestreo con Sample and Hold
 \end_layout
 
 \begin_layout Standard
-Usando el modelo del ejercicio anterior, se cuenta con el siguiente sistema:
+Para encontrar el rango de frecuencias de muestreo óptima, se comenzo con
+ el mismo argumento que el muestreo natural.
+ Al simularlo, se obtuvo el siguiente resultado:
 \end_layout
 
 \begin_layout Standard
@@ -238,13 +585,13 @@ Usando el modelo del ejercicio anterior, se cuenta con el siguiente sistema:
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
+Espectro en muestreo S&H
 \end_layout
 
 \end_inset
@@ -258,161 +605,24 @@ status open
 \end_layout
 
 \begin_layout Standard
-Por lo que la salida a la entrada 
-\begin_inset Formula $W_{j}(f)$
+Al observar que como el duty cycle (
+\begin_inset Formula $5\%$
 \end_inset
 
- del ejercicio anterior en frecuencia estará dada por:
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Formula $G_{j}(f)=f_{o}\cdot\sum_{n\epsilon Z}A_{j}\cdot\delta(f-f_{j}-n\cdot f_{o})\cdot\tau\cdot sinc(f_{j}\tau+n\cdot f_{o}\tau)\cdot e^{-i\cdot2\pi(f_{j}-nf_{o})\frac{\tau}{2}}$
+), se puede usar el mismo rango de frecuencias, es decir, no es necesario
+ decrementar el 
+\begin_inset Formula $m$
 \end_inset
 
-
+, se llega al mismo rango de frecuencias optimo:
 \end_layout
 
 \begin_layout Standard
 \align center
-\begin_inset Formula $G_{j}(f)=d\cdot\sum_{n\epsilon Z}A_{j}\cdot\delta(f-f_{j}-n\cdot f_{o})\cdot sinc((f_{j}+nf_{o})\cdot d\cdot T)\cdot e^{-i\cdot2\pi(f_{j}-nf_{o})\frac{d\cdot T}{2}}$
+\begin_inset Formula $3520Hz<f_{s}<3600Hz$
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Teniendo en cuenta que la el la función sinc de la expresión de 
-\begin_inset Formula $G_{j}(f)$
-\end_inset
-
- está centrada en 
-\begin_inset Formula $f_{j}\cdot d\cdot T$
-\end_inset
-
-, pasamos a analizar a 
-\begin_inset Formula $X_{c}(f)$
-\end_inset
-
- como una señal modulada en AM, de manera tal que si 
-\begin_inset Formula $\Delta f$
-\end_inset
-
- es la frecuencia de la onda moduladora y 
-\begin_inset Formula $f_{2}$
-\end_inset
-
- la frecuencia de la portadora, entonces 
-\begin_inset Formula $f_{2}\text{=}2\cdot f_{in}=1.6f_{p}$
-\end_inset
-
- , 
-\begin_inset Formula $f_{1}=1.8\cdot f_{in}=2\cdot f_{in}-0.2f_{in}=f_{2}-\frac{1}{10}\cdot f_{2}=f_{2}-\Delta f$
-\end_inset
-
- y 
-\begin_inset Formula $f_{3}=f_{2}+\Delta f$
-\end_inset
-
- con 
-\begin_inset Formula $\Delta f=\frac{1}{10}\cdot f_{2}=0.16\cdot f_{p}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-Entonces cada 
-\begin_inset Formula $f_{j}$
-\end_inset
-
- puede ser escrito como 
-\begin_inset Formula $f_{j}\text{=}f_{2}\pm\Delta f$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Se logra observar para cada 
-\begin_inset Formula $f_{j}$
-\end_inset
-
- entonces un sinc centrado en 
-\begin_inset Formula $f_{j}\cdot T$
-\end_inset
-
- y escalado por un factor de 
-\begin_inset Formula $d$
-\end_inset
-
-, tomando solo los valores de 
-\begin_inset Formula $n\cdot f_{o}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Gráficamente:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Espectro de la señal modula a la salida del Sample and Hold
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Claramente se puede apreciar que al modificar los valores de del período
- de muestreo T, se modificará la frecuencia en la que cada sinc está centrado,
- y teniendo en cuenta la distancia entre las frecuencias de la moduladora
- de 
-\begin_inset Formula $\Delta f\cdot T$
-\end_inset
-
-, se pueden acercar o alejar las componentes de frecuencia entre sí con
- sólo cambiar el período T.
- Si uno toma un T lo suficientemente grande, se podrán obervar las copias
- del espectro de las frecuencias negativas en el espectro positivo, y si
- uno achica el período T, las componentes se van a acercar entre sí.
- En particular, si quiero obtener el espectro en las frecuencias originales,
- deberé elegir una T tal que 
-\begin_inset Formula $d\cdot T$
-\end_inset
-
-=1, por lo que la componente de mayor frecuencia de 
-\begin_inset Formula $G_{j}(f)$
-\end_inset
-
- estará situada en 
-\begin_inset Formula $f_{j}$
-\end_inset
-
-.
 \end_layout
 
 \end_body
