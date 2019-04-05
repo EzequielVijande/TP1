@@ -85,11 +85,11 @@
 \begin_body
 
 \begin_layout Section
-Mediciones basicas
+Mediciones básicas
 \end_layout
 
 \begin_layout Subsection
-Introduccion
+Introducción
 \end_layout
 
 \begin_layout Standard
@@ -126,7 +126,7 @@ Señal
 \begin_inset Text
 
 \begin_layout Plain Layout
-Descripcion
+Descripción
 \end_layout
 
 \end_inset
@@ -223,7 +223,7 @@ Cuadratica
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Lista de senales medidas
+Lista de señales medidas
 \end_layout
 
 \end_inset
@@ -246,7 +246,7 @@ Donde
 \begin_inset Formula $V_{max}$
 \end_inset
 
- es la tenion maxima que admite el circuito y 
+ es la tensión máxima que admite el circuito y 
 \begin_inset Formula $f_{in}==1Khz$
 \end_inset
 
@@ -255,16 +255,16 @@ Donde
 
 \begin_layout Standard
 Para cada entrada de la tabla anterior se realizo el muestreo natural de
- la misma, es decir utizando solo la llave analogica para hacer el muestreo,
- con distintas frecuencias fundamentales para la entrada asi tambien como
+ la misma, es decir utilizando solo la llave analógica para hacer el muestreo,
+ con distintas frecuencias fundamentales para la entrada así también como
  con distintas frecuencias de muestreo.
- Asimismo, se repitieron las mismas mediciones utilizando mustreo instantaneo,
+ Asimismo, se repitieron las mismas mediciones utilizando muestreo instantáneo,
  es decir utilizando el integrado de Sample And Hold en lugar de la llave
- analogica.
+ analógica.
 \end_layout
 
 \begin_layout Standard
-A continuacion se muestra un diagrama que muestra los nombres utilizados
+A continuación se muestra un diagrama que muestra los nombres utilizados
  para los nodos del circuito:
 \end_layout
 
@@ -436,7 +436,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parametros utilizados en la medicion
+Parámetros utilizados en la medición
 \end_layout
 
 \end_inset
@@ -473,7 +473,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -513,7 +513,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -534,7 +534,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -571,7 +571,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -611,7 +611,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -632,7 +632,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en frecuencia
+Gráficas en frecuencia
 \end_layout
 
 \end_inset
@@ -769,7 +769,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parametros utilizados en la medicion
+Parámetros utilizados en la medición
 \end_layout
 
 \end_inset
@@ -785,6 +785,7 @@ Parametros utilizados en la medicion
 \begin_layout Standard
 \align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -801,7 +802,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -841,7 +842,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -862,7 +863,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -882,6 +883,7 @@ Graficas en el tiempo
 \begin_layout Standard
 \align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -898,7 +900,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -938,7 +940,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-simulacion
+simulación
 \end_layout
 
 \end_inset
@@ -959,7 +961,7 @@ simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en frecuencia
+Gráficas en frecuencia
 \end_layout
 
 \end_inset
@@ -1092,7 +1094,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parametros utilizados en la medicion
+Parámetros utilizados en la medición
 \end_layout
 
 \end_inset
@@ -1125,7 +1127,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -1165,7 +1167,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -1186,7 +1188,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -1223,7 +1225,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -1259,7 +1261,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -1280,7 +1282,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en frecuencia
+Gráficas en frecuencia
 \end_layout
 
 \end_inset
@@ -1380,7 +1382,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+12
 \end_layout
 
 \end_inset
@@ -1424,7 +1426,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parametros utilizados en la medicion
+Parámetros utilizados en la medición
 \end_layout
 
 \end_inset
@@ -1457,7 +1459,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -1476,7 +1478,7 @@ Medicion
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1493,7 +1495,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -1510,7 +1512,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -1543,7 +1545,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -1579,7 +1581,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -1596,7 +1598,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en frecuencia
+Gráficas en frecuencia
 \end_layout
 
 \end_inset
@@ -1685,7 +1687,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+12
 \end_layout
 
 \end_inset
@@ -1729,7 +1731,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parametros utilizados en la medicion
+Parámetros utilizados en la medición
 \end_layout
 
 \end_inset
@@ -1762,7 +1764,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -1798,7 +1800,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -1815,7 +1817,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -1848,7 +1850,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -1880,7 +1882,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -1897,7 +1899,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en frecuencia
+Gráficas en frecuencia
 \end_layout
 
 \end_inset
@@ -1915,7 +1917,7 @@ d
 \end_layout
 
 \begin_layout Standard
-A continuacion se muestran mediciones de la salida del FAA a medida que
+A continuación se muestran mediciones de la salida del FAA a medida que
  se va subiendo la frecuencia de la señal:
 \end_layout
 
@@ -1939,7 +1941,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion con 
+Medición con 
 \begin_inset Formula $f_{o}=500Hz$
 \end_inset
 
@@ -1964,7 +1966,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion con 
+Medición con 
 \begin_inset Formula $f_{o}=1Khz$
 \end_inset
 
@@ -1997,7 +1999,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion con 
+Medición con 
 \begin_inset Formula $f_{o}=3Khz$
 \end_inset
 
@@ -2022,7 +2024,177 @@ Medicion con
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Salida del filtro Antialias
+Salida del filtro Anti-alias
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al aumentar la frecuencia de la entrada se pierde mayor potencia en cada
+ vez mas armónicos por lo que la señal se deforma cada vez mas.Llega un punto
+ en el que solo el armónico fundamental y de continua de la señal son relevantes
+, en dicho punto la señal parece un seno con un offset.
+ Esto puede verse en las siguientes simulaciones:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/1.5 seno/d/FAA(t)-fo=500hz.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{o}=500Hz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/1.5 seno/d/FAA(t)-fo=1Khz.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{o}=1Khz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/1.5 seno/d/FAA(t)-fo=3Khz.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{o}=3Khz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Salida del FAA a distintas frecuencias
 \end_layout
 
 \end_inset
@@ -2119,7 +2291,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+12
 \end_layout
 
 \end_inset
@@ -2163,7 +2335,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parametros utilizados en la medicion
+Parámetros utilizados en la medicion
 \end_layout
 
 \end_inset
@@ -2196,7 +2368,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -2232,7 +2404,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -2249,7 +2421,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -2282,7 +2454,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -2318,7 +2490,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -2335,7 +2507,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en frecuencia
+Gráficas en frecuencia
 \end_layout
 
 \end_inset
@@ -2424,7 +2596,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+12
 \end_layout
 
 \end_inset
@@ -2468,7 +2640,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parametros utilizados en la medicion
+Parámetros utilizados en la medicion
 \end_layout
 
 \end_inset
@@ -2501,7 +2673,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -2537,7 +2709,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -2554,7 +2726,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -2587,7 +2759,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion
+Medición
 \end_layout
 
 \end_inset
@@ -2623,7 +2795,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -2640,7 +2812,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en frecuencia
+Gráficas en frecuencia
 \end_layout
 
 \end_inset
@@ -2658,7 +2830,7 @@ d
 \end_layout
 
 \begin_layout Standard
-A continuacion se muestran mediciones de la salida del FAA a medida que
+A continuación se muestran mediciones de la salida del FAA a medida que
  se va subiendo la frecuencia de la señal:
 \end_layout
 
@@ -2682,7 +2854,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion con 
+Medición con 
 \begin_inset Formula $f_{o}=500Hz$
 \end_inset
 
@@ -2707,7 +2879,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion con 
+Medición con 
 \begin_inset Formula $f_{o}=1Khz$
 \end_inset
 
@@ -2736,7 +2908,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medicion con 
+Medición con 
 \begin_inset Formula $f_{o}=3Khz$
 \end_inset
 
@@ -2757,11 +2929,73 @@ Medicion con
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Salida del filtro Antialias
+Salida del filtro Anti-alias
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A medida que se aumenta la frecuencia de la señal de entrada se tiene que
+ la señal se distorsiona y se torna cada vez mas similar a una senoidal
+ con un offset.
+ Esto se explica debido a que la señal de entrada tiene infinitos armónicos
+ que son múltiplos de la frecuencia fundamental.
+ A medida que se aumenta la frecuencia fundamental cada vez mas armónicos
+ de la señal caen en la banda de atenuación por lo que su efecto en la señal
+ disminuye.Llega un punto en el que la frecuencia fundamental y el armónico
+ en continua de la señal son los mas predominantes entonce la señal es similar
+ a un seno con un offset.
+\end_layout
+
+\begin_layout Standard
+El efecto puede verse en la simulación de los armónicos de la señal para
+ distintas frecuencias de entrada:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Cuadratica/d/comparacion.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulaciones de los armonicos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -3215,6 +3449,7 @@ Parametros utilizados en la medicion
 \begin_layout Standard
 \align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -3300,6 +3535,7 @@ Graficas en el tiempo
 \begin_layout Standard
 \align center
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status collapsed
@@ -3770,7 +4006,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+12
 \end_layout
 
 \end_inset
@@ -4075,7 +4311,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+12
 \end_layout
 
 \end_inset
@@ -4384,7 +4620,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+12
 \end_layout
 
 \end_inset
@@ -4689,7 +4925,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+12
 \end_layout
 
 \end_inset
@@ -4846,7 +5082,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
