@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -39,9 +39,6 @@
 %al estilo del codigo de stack overflow
 \definecolor{light-gray}{gray}{0.95} 
 \newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
-% Added by lyx2lyx
-\renewcommand{\textendash}{--}
-\renewcommand{\textemdash}{---}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -59,6 +56,8 @@
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -88,6 +87,7 @@
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -96,7 +96,10 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -129,7 +132,7 @@ status open
 \begin_inset Graphics
 	filename Imagenes/sistema_total.png
 	lyxscale 50
-	scale 60
+	scale 50
 
 \end_inset
 
@@ -166,7 +169,18 @@ Dicho sistema puede ser modelado como:
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/filtro_general.jpeg
+	scale 40
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -205,7 +219,7 @@ Donde tanto el muestreo como
  resulta ser la respuesta al impulso del sub-sistema, dada por:
 \begin_inset Formula 
 \begin{equation}
-q(t)=q_{1}(t)*q_{2}(t)=\pi(\frac{t-\frac{d\cdot T}{2}}{d\cdot T})
+q(t)=q_{1}(t)*q_{2}(t)=\prod(\frac{t-\frac{d\cdot T}{2}}{d\cdot T})
 \end{equation}
 
 \end_inset
@@ -232,7 +246,7 @@ Donde d es el duty cicle (
 \end_inset
 
  es el tiempo de hold del sample and hold, 
-\begin_inset Formula $q(t)=\pi(\frac{t-\frac{\tau}{2}}{\tau})$
+\begin_inset Formula $q(t)=\prod(\frac{t-\frac{\tau}{2}}{\tau})$
 \end_inset
 
 , cuya transformada de fourier, o respuesta en frecuencia del filtro es
@@ -276,11 +290,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Respuesta a una entrada genérica, f(t)
-\end_layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/filtro_con_entrada.jpeg
+	scale 40
 
 \end_inset
 
@@ -288,6 +301,14 @@ Respuesta a una entrada genérica, f(t)
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta a una entrada genérica, w(t)
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -664,7 +685,7 @@ De esta fórmula se desprende que el espectro de la señal modulada se deformar�
 \end_inset
 
  disminuye.
- 
+ 2
 \end_layout
 
 \begin_layout Standard
@@ -673,7 +694,7 @@ En cuanto a la potencia, como la salida es una superposición de deltas en
  Párseval según 
 \begin_inset Formula 
 \begin{equation}
-P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot|H(f_{i})|^{4}\cdot\frac{\tau^{2}}{T^{2}}\cdot sinc^{2}(f_{i}\cdot\tau)
+P\text{=}2\cdot\sum_{i=1}^{3}A_{i}^{2}\cdot|H(f_{i})|^{4}\cdot\frac{\tau^{2}}{T^{2}}\cdot sinc^{2}(f_{i}\cdot\tau)
 \end{equation}
 
 \end_inset
@@ -689,7 +710,7 @@ Luego, aproximando a la ganancia del filtro como unitaria en toda la banda
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-P\text{=}\sum_{i=1}^{3}A_{i}^{2}\cdot\frac{\tau^{2}}{T^{2}}\cdot sinc^{2}(f_{j}\cdot\tau)=d^{2}\cdot\sum_{i=1}^{3}A_{i}^{2}\cdot sinc^{2}(f_{j}\cdot d\cdot T)
+P\text{=}2\cdot\sum_{i=1}^{3}A_{i}^{2}\cdot\frac{\tau^{2}}{T^{2}}\cdot sinc^{2}(f_{j}\cdot\tau)=d^{2}\cdot2\cdot\sum_{i=1}^{3}A_{i}^{2}\cdot sinc^{2}(f_{j}\cdot d\cdot T)
 \end{equation}
 
 \end_inset
@@ -723,9 +744,21 @@ Eligiendo un período de
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/eleccion_duty_cycle_p_total.PNG
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -734,10 +767,6 @@ Potencia total en función del duty cycle
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -756,9 +785,21 @@ Se grafican luego las curvas de potencia de cada componente en frecuencia
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/eleccion_duty_cycle_ps.PNG
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
