@@ -1154,7 +1154,7 @@ fueron las siguientes:
 
 \begin_layout Standard
 Para 
-\begin_inset Formula $f=12f_{o}=480kHz$
+\begin_inset Formula $f=\frac{f_{o}}{12}\approx3.33kHz$
 \end_inset
 
 :
@@ -1186,7 +1186,7 @@ status collapsed
 \end_inset
 
  y 
-\begin_inset Formula $f=480kHz$
+\begin_inset Formula $f=3.33kHz$
 \end_inset
 
 
@@ -1228,7 +1228,7 @@ status collapsed
 \end_inset
 
  y 
-\begin_inset Formula $f=480kHz$
+\begin_inset Formula $f=3.33kHz$
 \end_inset
 
 
@@ -1246,7 +1246,7 @@ status collapsed
 
 \begin_layout Standard
 Para 
-\begin_inset Formula $f=\frac{f_{o}}{12}\approx3.33kHz$
+\begin_inset Formula $f=12f_{o}=480kHz$
 \end_inset
 
 :
@@ -1278,7 +1278,7 @@ status collapsed
 \end_inset
 
  y 
-\begin_inset Formula $f=3.33kHz$
+\begin_inset Formula $f=480kHz$
 \end_inset
 
 
@@ -1306,8 +1306,8 @@ A partir de las mediciones llevadas a cabo, se puede ver como deja de cumplir
 \end_inset
 
 ).
- También se ve una gran falla en su funcionamiento para una frecuencia baja
- pero un capacitor relativamente grande (
+ También se ve una gran falla en su funcionamiento para una frecuencia alta
+ y un capacitor relativamente grande (
 \begin_inset Formula $C_{H}=100nF$
 \end_inset
 
@@ -1333,7 +1333,7 @@ A partir de las mediciones llevadas a cabo, se puede ver como deja de cumplir
 \begin_layout Standard
 Se puede ver como el capacitor de mayor capacidad requiere un mayor tiempo
  de establecimiento, por lo que a bajas frecuencias, no puede samplear la
- señal al usar un clock medianamente chico.
+ señal de manera optima como lo hace un capacitor chico.
  Esto resulta en gran distorsión a la salida.
  También se puede apreciar como el error de ganancia cambia cuando se utiliza
  en los extremos de frecuencia.
@@ -1935,7 +1935,7 @@ Puede ocurrir un offset de hasta
 \end_layout
 
 \begin_layout Subsection
-furtrytIntegrado Alternativo
+Integrado Alternativo
 \end_layout
 
 \begin_layout Standard
@@ -2730,7 +2730,7 @@ A llave abierta se tiene el siguiente esquema:
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center

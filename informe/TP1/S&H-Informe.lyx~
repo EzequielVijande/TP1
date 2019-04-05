@@ -1935,7 +1935,7 @@ Puede ocurrir un offset de hasta
 \end_layout
 
 \begin_layout Subsection
-furtrytIntegrado Alternativo
+Integrado Alternativo
 \end_layout
 
 \begin_layout Standard
@@ -2730,7 +2730,18 @@ A llave abierta se tiene el siguiente esquema:
 placement H
 wide false
 sideways false
-status collapsed
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Screenshot 2019-04-04 15.14.18.png
+	scale 80
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
