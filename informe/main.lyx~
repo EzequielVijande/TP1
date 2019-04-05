@@ -94,6 +94,16 @@ filename "cover.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
+filename "TP1/S&H-Informe.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
 filename "ejercicios guía/ej1.lyx"
 
 \end_inset
