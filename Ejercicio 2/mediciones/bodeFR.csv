@@ -1,20 +1,4 @@
-#Digilent WaveForms Network Analyzer - Bode
-#Device Name: Discovery2
-#Serial Number: SN:210321A35FCC
-#Date Time: 2019-04-05 19:12:34.282
-#Start: 118.893 Hz
-#Stop: 8000 Hz
-#Steps: 1000
-#Wavegen: Wavegen1
-#Amplification: 1 X
-#Settle: 10 ms
-#MinPeriods: 16
-#Channel: Channel 1
-#Range: 5.42537 V
-#Offset: 0.000183761 V
-#Relative: no
-
-Frequency (Hz),Channel 1 Magnitude (dB)
+f,mag
 118.89300000000009,-0.43409444944091591
 119.39497504694125,-0.43350377674508606
 119.89906946968883,-0.433074956802739
