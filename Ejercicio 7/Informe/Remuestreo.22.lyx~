@@ -1270,7 +1270,6 @@ status open
 \align center
 \begin_inset Graphics
 	filename Imagenes/medicionModulacion.png
-	scale 50
 
 \end_inset
 
@@ -1301,9 +1300,9 @@ Mediciones realizadas en la entrada, salida y etapas intermedias de remuestreo
 \begin_layout Standard
 Al ver la señal de salida, no se observa deformación apreciable de la misma
  con respecto a la entrada, como se espera de las simulaciones.
- Sin embargo, sí se observa una reducción de la amplitud/potencia de la
- señal a un valor cercano a la mitad de la original, como era de esperar
- tanto en la simulación como en el análisis teórico anterior.
+ Sin embargo, sí se observa una reducción de la amplitud de la señal, como
+ era de esperar.
+ 
 \end_layout
 
 \end_body

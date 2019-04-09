@@ -274,7 +274,7 @@ A continuación se muestra un diagrama que muestra los nombres utilizados
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -555,6 +555,17 @@ Gráficas en el tiempo
 \end_layout
 
 \begin_layout Standard
+Las mediciones coincidieron con lo teórico y lo simulado.
+ Hay que destacar que el gráfico en función del tiempo de las simulaciones
+ contiene parte de la respuesta transitoria del sistema y esto se evidencia
+ en los gráficos de las mismas.
+\end_layout
+
+\begin_layout Standard
+La señal se pudo muestrear y recuperar correctamente.
+\end_layout
+
+\begin_layout Standard
 \align center
 \begin_inset Float figure
 placement H
@@ -568,13 +579,18 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imagenes/Coseno/FAA+Llave+FR (natural)/a/medFFT.PNG
-	scale 60
+	filename mediciones/natural/coseno/cos7x5kFFTA.png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos7x5kFFTB.png
 
 \end_inset
 
@@ -585,7 +601,47 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medición
+Medición del espectro de la señal en el nodo A y en el C.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos3kFFTxin.png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos7x5kFFTxout.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Medición del espectro de la señal en el nodo In y Out
 \end_layout
 
 \end_inset
@@ -608,7 +664,7 @@ Medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -663,6 +719,13 @@ Gráficas en frecuencia
 
 \end_layout
 
+\begin_layout Standard
+Se observa que las gráficas de lo simulado y lo medido no difieren en forma
+ pero sí en escala: Las frecuencias en las que se observan los picos característ
+icos no coinciden ya que se simuló (1kHz) a distinta frecuencia de la que
+ se midió(3kHz).
+\end_layout
+
 \begin_layout Description
 b.2
 \end_layout
@@ -673,7 +736,7 @@ b.2
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -907,41 +970,24 @@ Gráficas en el tiempo
 \end_layout
 
 \begin_layout Standard
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Medición
-\end_layout
-
+Dado que la frecuencia de oscilación de la señal de entrada es mayor a la
+ frecuencia de corte 
+\begin_inset Formula $f_{p}$
 \end_inset
 
-
+ del filtro, la señal a la salida del filtro Anti-Aliasing ha sido atenuada
+ por debajo del piso de ruido y por ende las señales medidas en el nodo
+ A, C y en la salida serán confundidas con el mismo, por lo cual se consideran
+ correctas las mediciones.
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -949,7 +995,7 @@ Medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -966,7 +1012,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-simulación
+Simulación
 \end_layout
 
 \end_inset
@@ -1000,6 +1046,12 @@ Gráficas en frecuencia
 
 \end_layout
 
+\begin_layout Standard
+Como se dijo anteriormente, la señal queda por debajo del piso de ruido
+ luego de ser filtrada y entonces no tendrá sentido realizar una medición
+ en frecuencia de la misma.
+\end_layout
+
 \begin_layout Description
 c
 \end_layout
@@ -1010,7 +1062,7 @@ c
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1147,7 +1199,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1184,7 +1236,7 @@ Medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1230,13 +1282,15 @@ Gráficas en el tiempo
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Como la frecuencia de sampleo coincide con la de entrada, al no cumplirse
+ Nyquist, se observa en las mediciones aliasing, en particular en este caso
+ de dos frecuencias notorias superpuestas entre sí
 \end_layout
 
 \begin_layout Standard
@@ -1253,13 +1307,69 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos3kFFTA.png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos3kFFTB.png
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medición
+Medición en frecuencia del Nodo A y C
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos3kFFTxin.png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos3kFFTxout.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Medición en frecuencia del Nodo In y el Out
 \end_layout
 
 \end_inset
@@ -1282,7 +1392,7 @@ Medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1325,10 +1435,6 @@ Gráficas en frecuencia
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -1483,7 +1589,7 @@ Parámetros utilizados en la medición
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1491,7 +1597,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1528,7 +1634,7 @@ Medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1581,7 +1687,23 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status collapsed
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos3kFFTA.png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos3kFFTB.png
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \align center
@@ -1589,17 +1711,60 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medición
+MediciónNodo A y C
 \end_layout
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos3kFFTxin.png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos7x5kFFTxout.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Medición In y Out
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -1614,7 +1779,7 @@ Medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1808,7 +1973,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1844,7 +2009,7 @@ Medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1897,7 +2062,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1905,32 +2070,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Medición
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1977,6 +2117,12 @@ Gráficas en frecuencia
 
 \end_layout
 
+\begin_layout Standard
+Por la frecuencia fundamental, todos los armónicos son atenuados debajo
+ del piso de ruido y por ende no es necesario mostrar una medición en frecuencia
+ porque solo se midió ruido.
+\end_layout
+
 \begin_layout Description
 d
 \end_layout
@@ -1992,7 +2138,7 @@ A continuación se muestran mediciones de la salida del FAA a medida que
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2006,7 +2152,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/1.5 seno/d/3sen500.png
-	scale 50
+	scale 20
 
 \end_inset
 
@@ -2042,7 +2188,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/1.5 seno/d/3sen1000.png
-	scale 50
+	scale 20
 
 \end_inset
 
@@ -2082,7 +2228,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/1.5 seno/d/3sen3000.png
-	scale 50
+	scale 40
 
 \end_inset
 
@@ -2137,9 +2283,10 @@ Salida del filtro Anti-alias
 
 \begin_layout Standard
 Al aumentar la frecuencia de la entrada se pierde mayor potencia en cada
- vez mas armónicos por lo que la señal se deforma cada vez mas.Llega un punto
- en el que solo el armónico fundamental y de continua de la señal son relevantes
-, en dicho punto la señal parece un seno con un offset.
+ vez más armónicos, por lo que la señal también se deforma cada vez más.
+ Llega un punto en el que sólo el armónico fundamental y de continua de
+ la señal son relevantes, en dicho punto la señal parece un seno con un
+ offset.
  Esto puede verse en las siguientes simulaciones:
 \end_layout
 
@@ -2157,7 +2304,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2196,7 +2343,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2235,7 +2382,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2444,7 +2591,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2480,7 +2627,7 @@ Medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2528,12 +2675,23 @@ Gráficas en el tiempo
 \end_layout
 
 \begin_layout Standard
+Dado que el FAA resulta ser inversor a la salida por la etapa de corrección
+ de ganancia, se puede apreciar que la señal medida en el Nodo C y en el
+ A es la señal simulada en los mismos nodos pero invertida.
+ El muestreo por ende se estará realizando con la señal invertida en tiempo
+ pero recuperándose correctamente a la salida total del sistema ya que el
+ FR también es inversor.
+ Esto no supone un error importante porque al recibir las muestras se podrá
+ invertir a las mismas digitalmente para luego procesarlas correctamente.
+\end_layout
+
+\begin_layout Standard
 \align center
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2541,7 +2699,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2566,7 +2724,7 @@ Medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2760,7 +2918,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2849,7 +3007,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2944,7 +3102,7 @@ A continuación se muestran mediciones de la salida del FAA a medida que
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2958,7 +3116,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/Cuadratica/d/cuad5000.png
-	scale 50
+	scale 20
 
 \end_inset
 
@@ -2994,7 +3152,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/Cuadratica/d/cuad1000.png
-	scale 50
+	scale 20
 
 \end_inset
 
@@ -3034,7 +3192,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/Cuadratica/d/cuad3000.png
-	scale 50
+	scale 30
 
 \end_inset
 
@@ -3366,7 +3524,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -3385,15 +3543,7 @@ Graficas en el tiempo
 placement H
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3410,24 +3560,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Graficas en frecuencia
+Simulación en frecuencia
 \end_layout
 
 \end_inset
@@ -3657,7 +3790,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -3741,7 +3874,7 @@ c
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3851,7 +3984,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parametros utilizados en la medicion
+Parámetros utilizados en la medicion
 \end_layout
 
 \end_inset
@@ -3870,7 +4003,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3948,7 +4081,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -3967,40 +4100,7 @@ Graficas en el tiempo
 placement H
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Medicion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4017,24 +4117,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Graficas en frecuencia
+Simulación
 \end_layout
 
 \end_inset
@@ -4271,7 +4354,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -4298,7 +4381,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4315,7 +4398,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -4332,7 +4415,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en frecuencia
+Gráficas en frecuencia
 \end_layout
 
 \end_inset
@@ -4562,7 +4645,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -4589,7 +4672,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4606,7 +4689,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
+Simulación
 \end_layout
 
 \end_inset
@@ -4623,7 +4706,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en frecuencia
+Gráficas en frecuencia
 \end_layout
 
 \end_inset
@@ -4857,7 +4940,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -4918,7 +5001,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en frecuencia
+Gráficas en frecuencia
 \end_layout
 
 \end_inset
@@ -5112,7 +5195,7 @@ Simulacion
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graficas en el tiempo
+Gráficas en el tiempo
 \end_layout
 
 \end_inset
@@ -5131,15 +5214,7 @@ Graficas en el tiempo
 placement H
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -5156,24 +5231,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Simulacion
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Graficas en frecuencia
+Simulación en frecuencia
 \end_layout
 
 \end_inset
