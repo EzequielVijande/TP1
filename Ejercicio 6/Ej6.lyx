@@ -1992,7 +1992,7 @@ A continuación se muestran mediciones de la salida del FAA a medida que
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2006,7 +2006,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/1.5 seno/d/3sen500.png
-	scale 50
+	scale 20
 
 \end_inset
 
@@ -2042,7 +2042,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/1.5 seno/d/3sen1000.png
-	scale 50
+	scale 20
 
 \end_inset
 
@@ -2082,7 +2082,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/1.5 seno/d/3sen3000.png
-	scale 50
+	scale 40
 
 \end_inset
 
@@ -2944,7 +2944,7 @@ A continuación se muestran mediciones de la salida del FAA a medida que
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2958,7 +2958,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/Cuadratica/d/cuad5000.png
-	scale 50
+	scale 20
 
 \end_inset
 
@@ -2994,7 +2994,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/Cuadratica/d/cuad1000.png
-	scale 50
+	scale 20
 
 \end_inset
 
@@ -3034,7 +3034,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Imagenes/Cuadratica/d/cuad3000.png
-	scale 50
+	scale 30
 
 \end_inset
 
