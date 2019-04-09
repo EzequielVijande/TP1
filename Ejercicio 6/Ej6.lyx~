@@ -326,7 +326,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -342,7 +342,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $Amplitud(Vp)$
+\begin_inset Formula $Amplitud(Vpp)$
 \end_inset
 
 
@@ -392,7 +392,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+500mv
 \end_layout
 
 \end_inset
@@ -419,7 +419,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+50
 \end_layout
 
 \end_inset
@@ -659,7 +659,7 @@ b.2
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -675,7 +675,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $Amplitud(Vp)$
+\begin_inset Formula $Amplitud(Vpp)$
 \end_inset
 
 
@@ -725,7 +725,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+500mv
 \end_layout
 
 \end_inset
@@ -752,7 +752,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+50
 \end_layout
 
 \end_inset
@@ -984,7 +984,7 @@ c
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1000,7 +1000,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $Amplitud(Vp)$
+\begin_inset Formula $Amplitud(Vpp)$
 \end_inset
 
 
@@ -1050,7 +1050,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+500mV
 \end_layout
 
 \end_inset
@@ -1077,7 +1077,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+50
 \end_layout
 
 \end_inset
@@ -1113,7 +1113,7 @@ Parámetros utilizados en la medición
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1211,7 +1211,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1316,7 +1316,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1332,7 +1332,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $Amplitud(Vp)$
+\begin_inset Formula $Amplitud(Vpp)$
 \end_inset
 
 
@@ -1382,7 +1382,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-12
+500mV
 \end_layout
 
 \end_inset
@@ -1409,7 +1409,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+50
 \end_layout
 
 \end_inset
@@ -1621,7 +1621,7 @@ b.2
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1637,7 +1637,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $Amplitud(Vp)$
+\begin_inset Formula $Amplitud(Vpp)$
 \end_inset
 
 
@@ -1687,7 +1687,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-12
+500mV
 \end_layout
 
 \end_inset
@@ -1714,7 +1714,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+50
 \end_layout
 
 \end_inset
@@ -1927,7 +1927,7 @@ A continuación se muestran mediciones de la salida del FAA a medida que
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2055,7 +2055,7 @@ Al aumentar la frecuencia de la entrada se pierde mayor potencia en cada
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2229,7 +2229,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $Amplitud(Vp)$
+\begin_inset Formula $Amplitud(Vpp)$
 \end_inset
 
 
@@ -2279,7 +2279,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-12
+500mV
 \end_layout
 
 \end_inset
@@ -2306,7 +2306,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+50
 \end_layout
 
 \end_inset
@@ -2534,7 +2534,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $Amplitud(Vp)$
+\begin_inset Formula $Amplitud(Vpp)$
 \end_inset
 
 
@@ -2584,7 +2584,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-12
+500mV
 \end_layout
 
 \end_inset
@@ -2611,7 +2611,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+50
 \end_layout
 
 \end_inset
@@ -4095,7 +4095,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imagenes/1.5 seno/FAA+Llave+FR (natural)/a/tiempos.png
+	filename Imagenes/1.5 seno/FAA+S&H+FR (instantaneo)/a/tiempos.png
 	scale 50
 
 \end_inset
@@ -4181,7 +4181,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imagenes/1.5 seno/FAA+Llave+FR (natural)/a/frecs.png
+	filename Imagenes/1.5 seno/FAA+S&H+FR (instantaneo)/a/frecs.png
 	scale 50
 
 \end_inset
@@ -4400,7 +4400,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imagenes/Cuadratica/FAA+Llave+FR (natural)/b/2/tiempos.png
+	filename Imagenes/1.5 seno/FAA+S&H+FR (instantaneo)/b/2/tiempos.png
 	scale 50
 
 \end_inset
@@ -4486,7 +4486,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename Imagenes/Cuadratica/FAA+Llave+FR (natural)/b/2/frecs.png
+	filename Imagenes/1.5 seno/FAA+S&H+FR (instantaneo)/b/2/frecs.png
 	scale 50
 
 \end_inset
