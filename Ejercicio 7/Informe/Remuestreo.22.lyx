@@ -839,5 +839,472 @@ s en el rango
 a podrá revertir esta deformación agregada.
 \end_layout
 
+\begin_layout Subsection
+Simulaciones
+\end_layout
+
+\begin_layout Standard
+Las simulaciones realizadas para el remuestreo siguieron las siguientes
+ indicaciones:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $A$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{p}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $fm$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $DC$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2kHz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+200Hz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15kHz
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Parámetros de las simulaciones
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset Formula $A$
+\end_inset
+
+ es la amplitud de la señal de entrada, 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ es la frecuencia de la señal portadora, 
+\begin_inset Formula $f_{m}$
+\end_inset
+
+ la frecuencia de la señal moduladora, y DC es el duty cycle utilizado,
+ bajo la misma interpretación que la del ejercicio 5.
+\end_layout
+
+\begin_layout Standard
+Hay que hacer notar que la aproximación utilizada para el filtro a la hora
+ de simular elegida fue Cauer, mientras que la construcción del filtro fue
+ utilizando una aproximación Legendre.
+ Sin embargo, no se esperan diferencias importantes en los resultados obtenidos
+ por simulación y luego de medir.
+\end_layout
+
+\begin_layout Standard
+Las simulaciones a mostrar irán en el mismo orden en el que la señal recorre
+ el circuito.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xin(f).png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xin(t).png
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señal de entrada simulada 
+\begin_inset Formula $X_{c}$
+\end_inset
+
+ del sistema, vista en tiempo y en frecuencia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/FAA(f).png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/FAA(t).png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Salida del filtro Anti-Aliasing
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/S&H(f).png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/S&H(t).png
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulación a la salida del Sample and Hold
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Llave(f).png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Llave(t).png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulación a la salida de la llave analógica
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xout(f).png
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xout(t).png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señal de salida simulada 
+\begin_inset Formula $X_{c}$
+\end_inset
+
+ del sistema, vista en tiempo y en frecuencia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Mediciones
+\end_layout
+
+\begin_layout Standard
+Las mediciones a continuación se realizaron en los mismos nodos que se señalaron
+ en el ejercicio 6.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/medicionModulacion.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mediciones realizadas en la entrada, salida y etapas intermedias de remuestreo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al ver la señal de salida, no se observa deformación apreciable de la misma
+ con respecto a la entrada, como se espera de las simulaciones.
+ Sin embargo, sí se observa una reducción de la amplitud/potencia de la
+ señal de salida a un valor cercano a la mitad de la original, como era
+ de esperar tanto en la simulación como en el análisis teórico anterior.
+\end_layout
+
 \end_body
 \end_document
