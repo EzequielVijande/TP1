@@ -326,7 +326,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -459,7 +459,7 @@ Parámetros utilizados en la medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -482,6 +482,13 @@ Medición
 \end_layout
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Coseno/FAA+Llave+FR (natural)/a/medCos7x5k.png
+	scale 50
+
+\end_inset
+
 
 \end_layout
 
@@ -542,10 +549,6 @@ Gráficas en el tiempo
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -557,7 +560,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -565,7 +568,18 @@ status collapsed
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Coseno/FAA+Llave+FR (natural)/a/medFFT.PNG
+	scale 60
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -788,7 +802,7 @@ Parámetros utilizados en la medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -799,6 +813,18 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Coseno/FAA+Llave+FR (natural)/b/2/medCos20k.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1124,6 +1150,18 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Coseno/FAA+Llave+FR (natural)/c/medCos3k.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1132,10 +1170,6 @@ Medición
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -1320,7 +1354,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1449,7 +1483,7 @@ Parámetros utilizados en la medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1460,6 +1494,18 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/1.5 seno/FAA+Llave+FR (natural)/a/3sen7x5k.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1625,7 +1671,7 @@ b.2
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1754,7 +1800,7 @@ Parámetros utilizados en la medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1763,6 +1809,17 @@ placement H
 wide false
 sideways false
 status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/1.5 seno/FAA+Llave+FR (natural)/b/2/3sen20k.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1946,6 +2003,17 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/1.5 seno/d/3sen500.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1971,6 +2039,17 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/1.5 seno/d/3sen1000.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1986,10 +2065,6 @@ Medición con
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -2002,6 +2077,17 @@ placement H
 wide false
 sideways false
 status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/1.5 seno/d/3sen3000.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2221,7 +2307,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2350,7 +2436,7 @@ Parámetros utilizados en la medicion
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2359,6 +2445,17 @@ placement H
 wide false
 sideways false
 status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Cuadratica/FAA+Llave+FR (natural)/a/cuad7x5k.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2526,7 +2623,7 @@ b.2
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2655,7 +2752,7 @@ Parámetros utilizados en la medicion
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2664,6 +2761,17 @@ placement H
 wide false
 sideways false
 status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Cuadratica/FAA+Llave+FR (natural)/b/2/cuad20k.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2844,7 +2952,18 @@ status collapsed
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Cuadratica/d/cuad5000.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2869,7 +2988,18 @@ Medición con
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Cuadratica/d/cuad1000.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2898,7 +3028,18 @@ Medición con
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Cuadratica/d/cuad3000.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3753,7 +3894,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3936,7 +4077,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4241,7 +4382,7 @@ b.2
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4550,7 +4691,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
