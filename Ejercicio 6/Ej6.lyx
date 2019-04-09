@@ -326,7 +326,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -459,7 +459,7 @@ Parámetros utilizados en la medición
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -579,7 +579,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -627,7 +627,7 @@ Medición del espectro de la señal en el nodo A y en el C.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -680,7 +680,7 @@ Medición del espectro de la señal en el nodo In y Out
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -752,7 +752,7 @@ b.2
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1003,7 +1003,7 @@ Dado que la frecuencia de oscilación de la señal de entrada es mayor a la
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1011,7 +1011,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1488,7 +1488,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1715,7 +1715,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1763,7 +1763,7 @@ Medición Nodo A y C
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1869,7 +1869,7 @@ b.2
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2006,7 +2006,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2042,7 +2042,7 @@ Medición
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2103,7 +2103,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2487,7 +2487,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2616,7 +2616,7 @@ Parámetros utilizados en la medicion
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2624,7 +2624,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2724,7 +2724,7 @@ Dado que el FAA resulta ser inversor a la salida por la etapa de corrección
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -3389,7 +3389,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $Amplitud(Vp)$
+\begin_inset Formula $Amplitud(Vpp)$
 \end_inset
 
 
@@ -3439,7 +3439,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+1
 \end_layout
 
 \end_inset
@@ -3502,7 +3502,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3599,7 +3599,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3705,7 +3705,7 @@ status collapsed
 \begin_inset Text
 
 \begin_layout Plain Layout
-5
+0.5
 \end_layout
 
 \end_inset
@@ -3768,7 +3768,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3873,7 +3873,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3930,7 +3930,7 @@ c
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4059,7 +4059,7 @@ Parámetros utilizados en la medicion
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4156,7 +4156,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4332,7 +4332,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4429,7 +4429,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4623,7 +4623,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4720,7 +4720,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4789,7 +4789,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4918,7 +4918,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5015,7 +5015,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5080,7 +5080,7 @@ b.2
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5209,7 +5209,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -5270,7 +5270,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
