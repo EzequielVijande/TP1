@@ -7,7 +7,7 @@
 \textclass article
 \use_default_options true
 \maintain_unincluded_children false
-\language spanish
+\language english
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -63,7 +63,7 @@
 \paragraph_indentation default
 \is_math_indent 0
 \math_numbering_side default
-\quotes_style french
+\quotes_style english
 \dynamic_quotes 0
 \papercolumns 1
 \papersides 1
@@ -78,32 +78,25 @@
 \begin_body
 
 \begin_layout Section
-
-\lang english
 Filtro Digital
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Se pide implementar el siguiente filtro digital de segundo orden:
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename Imagenes/filtro_a_implementar.PNG
+	lyxscale 50
 	scale 40
 
 \end_inset
@@ -112,13 +105,9 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang english
 Filtro a implementar
 \end_layout
 
@@ -133,14 +122,10 @@ Filtro a implementar
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 El cual está descripto por la siguiente ecuación en diferencias:
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Formula $y(nT)=0.5\cdot x(nT-T)+\alpha\cdot y(nT-T)+\beta\cdot y(nT-2T)$
 \end_inset
 
@@ -148,8 +133,6 @@ El cual está descripto por la siguiente ecuación en diferencias:
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Para facilitar las cuentas, elegimos normalizar el período T a la unidad
  de manera tal que 
 \begin_inset Formula $T=1$
@@ -159,8 +142,6 @@ Para facilitar las cuentas, elegimos normalizar el período T a la unidad
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Formula $y(n)=0.5\cdot x(n-1)+\alpha\cdot y(n-1)+\beta\cdot y(n-2)$
 \end_inset
 
@@ -168,8 +149,6 @@ Para facilitar las cuentas, elegimos normalizar el período T a la unidad
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Dada la arbitrariedad de las constantes 
 \begin_inset Formula $\beta$
 \end_inset
@@ -184,16 +163,12 @@ Dada la arbitrariedad de las constantes
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Dado que la respuesta transitoria del filtro está ligada exclusivamente
  a la ecuación homogénea del mismo, se decide analizar primeramente dicha
  ecuación:
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Formula $y_{h}(n)-\alpha\cdot y_{h}(n-1)-\beta\cdot y_{h}(n-2)=0$
 \end_inset
 
@@ -201,8 +176,6 @@ Dado que la respuesta transitoria del filtro está ligada exclusivamente
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Donde 
 \begin_inset Formula $y_{h}(n)$
 \end_inset
@@ -211,8 +184,6 @@ Donde
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Proponemos entonces 
 \begin_inset Formula $y_{h}(n)=A\cdot\lambda^{n}$
 \end_inset
@@ -225,8 +196,6 @@ Proponemos entonces
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Formula $\lambda^{2}-\alpha\cdot\lambda-\beta=0$
 \end_inset
 
@@ -234,8 +203,6 @@ Proponemos entonces
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 De aquí llegamos a los posibles valores de 
 \begin_inset Formula $\lambda$
 \end_inset
@@ -244,8 +211,6 @@ De aquí llegamos a los posibles valores de
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Formula $\lambda_{1,2}=\frac{\alpha\pm\sqrt{\alpha^{2}+4\cdot\beta}}{2}$
 \end_inset
 
@@ -253,8 +218,6 @@ De aquí llegamos a los posibles valores de
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Notamos que 
 \begin_inset Formula $|\lambda_{1,2}|=|\frac{\alpha\pm\sqrt{\alpha^{2}+4\cdot\beta}}{2}|$
 \end_inset
@@ -275,8 +238,6 @@ donde para este caso
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Observando el discriminante de la expresión de 
 \begin_inset Formula $\lambda_{1,2}$
 \end_inset
@@ -285,8 +246,6 @@ Observando el discriminante de la expresión de
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 \begin_inset Formula $\alpha^{2}+4\cdot\beta<0$
 \end_inset
 
@@ -349,8 +308,6 @@ Observando el discriminante de la expresión de
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 \begin_inset Formula $\alpha^{2}+4\beta>0:$
 \end_inset
 
@@ -371,8 +328,6 @@ Observando el discriminante de la expresión de
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 \begin_inset Formula $\alpha^{2}+4\beta=0:$
 \end_inset
 
@@ -393,14 +348,10 @@ Observando el discriminante de la expresión de
 \end_layout
 
 \begin_layout Subsection
-
-\lang english
 Implementación digital del filtro
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Se implementa el filtro a partir de un programa escrito en python.
  Se obtienen las respuestas al impulso y al escalón para caracterizar al
  sistema.
@@ -418,22 +369,16 @@ Se implementa el filtro a partir de un programa escrito en python.
 \end_layout
 
 \begin_layout Subsection
-
-\lang english
 Casos especiales de prueba
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Se utilizaron los siguientes casos de prueba para aquellos parámetros que
  resultan de interés.
  Se probaron entonces los parámetros de consigna:
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 \begin_inset Formula $\alpha=1;\beta=-\frac{1}{2}$
 \end_inset
 
@@ -441,8 +386,6 @@ Se utilizaron los siguientes casos de prueba para aquellos parámetros que
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 \begin_inset Formula $\alpha=\frac{1}{3};\beta=-\frac{1}{8}$
 \end_inset
 
@@ -450,8 +393,6 @@ Se utilizaron los siguientes casos de prueba para aquellos parámetros que
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 \begin_inset Formula $\alpha=\frac{4}{3};\beta=-\frac{25}{32}$
 \end_inset
 
@@ -459,8 +400,6 @@ Se utilizaron los siguientes casos de prueba para aquellos parámetros que
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Todos estos sistemas impuestos por consigna, serán oscilantes ya que cumplen
  con 
 \begin_inset Formula $\alpha^{2}+4\cdot\beta<0$
@@ -474,15 +413,11 @@ n.
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Se simularon entonces los siguientes casos a enumerar, con las razones de
  por qué estos fueron elegidos:
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 \begin_inset Formula $\alpha=-1;\beta=\frac{1}{2}$
 \end_inset
 
@@ -503,8 +438,6 @@ Se simularon entonces los siguientes casos a enumerar, con las razones de
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 \begin_inset Formula $\alpha=-\frac{1}{3};\beta=-\frac{1}{8}$
 \end_inset
 
@@ -520,8 +453,6 @@ Se simularon entonces los siguientes casos a enumerar, con las razones de
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 \begin_inset Formula $\alpha=\frac{1}{10};\beta=\frac{1}{20}$
 \end_inset
 
@@ -547,8 +478,6 @@ Se simularon entonces los siguientes casos a enumerar, con las razones de
 \end_layout
 
 \begin_layout Itemize
-
-\lang english
 \begin_inset Formula $\alpha=1;\beta=-\frac{1}{4}$
 \end_inset
 
@@ -560,32 +489,24 @@ Se simularon entonces los siguientes casos a enumerar, con las razones de
 \end_layout
 
 \begin_layout Subsection
-
-\lang english
 Respuesta impulsiva
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Se procederá a mostrar las respuestas impulsivas para el filtro de consigna
  con distintos parámetros, haciendo un análisis en aquellos casos en los
  que se considera necesario:
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename Imagenes/impulso_alfa1_beta-0.5.png
 	scale 30
@@ -596,14 +517,18 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
 
-\lang english
-\begin_inset Formula $\alpha=1;\beta=\frac{1}{2}$
+
+\begin_inset Formula $\alpha=1,\beta=\frac{1}{2}$
+\end_inset
+
+
+\begin_inset space ~
 \end_inset
 
 
@@ -620,8 +545,6 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Se observan oscilaciones en la respuesta impulsiva del filtro con los parámetros
  
 \begin_inset Formula $\alpha=1;\beta=-\frac{1}{2}$
@@ -649,18 +572,14 @@ Se observan oscilaciones en la respuesta impulsiva del filtro con los parámetro
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename Imagenes/impulso_alfa1;3_beta-1;8.png
 	scale 50
@@ -671,13 +590,9 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Formula $\alpha=\frac{1}{3};\beta=-\frac{1}{8}$
 \end_inset
 
@@ -695,8 +610,6 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Se vuelve a apreciar un carácter oscilante para el sistema debido a 
 \begin_inset Formula $\alpha^{2}+4\cdot\beta\text{=-1.88}<0$
 \end_inset
@@ -711,18 +624,14 @@ mucho más chico que para el sistema anterior.
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename Imagenes/impulso_alfa4;3_beta-25;32.png
 	scale 50
@@ -733,13 +642,9 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Formula $\alpha=\frac{4}{3};\beta=-\frac{25}{32}$
 \end_inset
 
@@ -757,8 +662,6 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Se vuelve a apreciar un carácter oscilante para el sistema debido a 
 \begin_inset Formula $\alpha^{2}+4\cdot\beta\text{=-1.34}<0$
 \end_inset
@@ -768,18 +671,14 @@ Se vuelve a apreciar un carácter oscilante para el sistema debido a
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename Imagenes/escalon_alfa-1_beta1;2.png
 	scale 50
@@ -790,13 +689,9 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Formula $\alpha=-1;\beta=\frac{1}{2}$
 \end_inset
 
@@ -814,18 +709,14 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename Imagenes/escalon_alfa-1;3_beta-1;8.png
 	scale 50
@@ -836,13 +727,9 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Formula $\alpha=-\frac{1}{3};\beta=-\frac{1}{8}$
 \end_inset
 
@@ -860,18 +747,14 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename Imagenes/impulso_alfa1;10_beta1;20.png
 	scale 50
@@ -882,13 +765,9 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Formula $\alpha=\frac{1}{10};\beta=\frac{1}{20}$
 \end_inset
 
@@ -905,19 +784,15 @@ status collapsed
 
 \end_layout
 
-\begin_layout Subsubsection*
-
-\lang english
+\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename Imagenes/impulso_alfa1_beta-1;4.png
 	scale 30
@@ -928,14 +803,10 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang english
-\begin_inset Formula $\alpha=1;\beta=-\frac{1}{4}$
+\begin_inset Formula $\alpha=1,\beta=-\frac{1}{4}$
 \end_inset
 
 
@@ -952,26 +823,21 @@ status collapsed
 \end_layout
 
 \begin_layout Subsection
-
-\lang english
 Respuesta al escalón
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename Imagenes/escalon_alfa1_beta-0.5.png
+	lyxscale 40
 	scale 50
 
 \end_inset
@@ -980,14 +846,10 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang english
-\begin_inset Formula $\alpha=1;\beta=-\frac{1}{2}$
+\begin_inset Formula $\alpha=1,\beta=-\frac{1}{2}$
 \end_inset
 
 
@@ -1004,18 +866,14 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename Imagenes/escalon_alfa1;3_beta-1;8.png
 	scale 50
@@ -1026,14 +884,10 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang english
-\begin_inset Formula $\alpha=\frac{1}{3};\beta=-\frac{1}{8}$
+\begin_inset Formula $\alpha=\frac{1}{3},\beta=-\frac{1}{8}$
 \end_inset
 
 
@@ -1050,18 +904,14 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 \begin_inset Float figure
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
-
-\lang english
 \begin_inset Graphics
 	filename Imagenes/escalon_alfa4;3_beta-25;32.png
 	scale 50
@@ -1072,14 +922,10 @@ status collapsed
 \end_layout
 
 \begin_layout Plain Layout
-
-\lang english
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\lang english
-\begin_inset Formula $\alpha=\frac{4}{3};\beta=-\frac{25}{32}$
+\begin_inset Formula $\alpha=\frac{4}{3},\beta=-\frac{25}{32}$
 \end_inset
 
 

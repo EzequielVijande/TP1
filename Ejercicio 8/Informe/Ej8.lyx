@@ -170,7 +170,7 @@ Teniendo el siguiente espectro:
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -257,7 +257,7 @@ De esta manera se obtiene el siguiente espectro:
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -545,12 +545,12 @@ Se vio una introducción teórica al muestreo natural dado por la llave analógi
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/a/Llave(f).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/a/Llave(f).png
 	scale 80
 
 \end_inset
@@ -588,12 +588,12 @@ A la entrada se tenia:
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/a/Xin(f)=FAA(f)=S&H(f).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/a/Xin(f)=FAA(f)=S&H(f).png
 	scale 80
 
 \end_inset
@@ -651,12 +651,12 @@ Para encontrar el rango de frecuencias de muestreo óptima, se comenzó con
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/b/S&H(f).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/b/S&H(f).png
 	scale 80
 
 \end_inset
@@ -690,12 +690,12 @@ A la entrada se tenia:
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Manuel Mollon/source/repos/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/b/Xin(f).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/SubNyquist/b/Xin(f).png
 	scale 80
 
 \end_inset

@@ -571,7 +571,7 @@ La señal se pudo muestrear y recuperar correctamente.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -585,12 +585,20 @@ status open
 \align center
 \begin_inset Graphics
 	filename mediciones/natural/coseno/cos7x5kFFTA.png
+	lyxscale 30
+	scale 30
 
+\end_inset
+
+
+\begin_inset space \hfill{}
 \end_inset
 
 
 \begin_inset Graphics
 	filename mediciones/natural/coseno/cos7x5kFFTB.png
+	lyxscale 30
+	scale 30
 
 \end_inset
 
@@ -625,12 +633,20 @@ status open
 \align center
 \begin_inset Graphics
 	filename mediciones/natural/coseno/cos3kFFTxin.png
+	lyxscale 30
+	scale 30
 
+\end_inset
+
+
+\begin_inset space \hfill{}
 \end_inset
 
 
 \begin_inset Graphics
 	filename mediciones/natural/coseno/cos7x5kFFTxout.png
+	lyxscale 30
+	scale 30
 
 \end_inset
 
@@ -865,7 +881,7 @@ Parámetros utilizados en la medición
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -873,7 +889,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -914,7 +930,7 @@ Medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1299,7 +1315,7 @@ Como la frecuencia de sampleo coincide con la de entrada, al no cumplirse
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1313,12 +1329,20 @@ status open
 \align center
 \begin_inset Graphics
 	filename mediciones/natural/coseno/cos3kFFTA.png
+	lyxscale 30
+	scale 30
 
+\end_inset
+
+
+\begin_inset space \hfill{}
 \end_inset
 
 
 \begin_inset Graphics
 	filename mediciones/natural/coseno/cos3kFFTB.png
+	lyxscale 30
+	scale 30
 
 \end_inset
 
@@ -1353,12 +1377,20 @@ status open
 \align center
 \begin_inset Graphics
 	filename mediciones/natural/coseno/cos3kFFTxin.png
+	lyxscale 30
+	scale 30
 
+\end_inset
+
+
+\begin_inset space \hfill{}
 \end_inset
 
 
 \begin_inset Graphics
 	filename mediciones/natural/coseno/cos3kFFTxout.png
+	lyxscale 30
+	scale 30
 
 \end_inset
 
@@ -1374,10 +1406,6 @@ Medición en frecuencia del Nodo In y el Out
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -1597,7 +1625,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1634,7 +1662,7 @@ Medición
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1691,22 +1719,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename mediciones/natural/coseno/cos3kFFTA.png
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mediciones/natural/coseno/cos3kFFTB.png
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 placement H
 wide false
@@ -1714,10 +1726,27 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos3kFFTA.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mediciones/natural/coseno/cos3kFFTB.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-MediciónNodo A y C
+Medición Nodo A y C
 \end_layout
 
 \end_inset
@@ -1740,12 +1769,16 @@ status open
 \align center
 \begin_inset Graphics
 	filename mediciones/natural/coseno/cos3kFFTxin.png
+	lyxscale 30
+	scale 30
 
 \end_inset
 
 
 \begin_inset Graphics
 	filename mediciones/natural/coseno/cos7x5kFFTxout.png
+	lyxscale 30
+	scale 30
 
 \end_inset
 
@@ -1965,7 +1998,7 @@ Parámetros utilizados en la medición
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2062,7 +2095,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2138,7 +2171,7 @@ A continuación se muestran mediciones de la salida del FAA a medida que
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2706,10 +2739,45 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename mediciones/natural/cuadratica/cuad7x5kFFTA.png
+	lyxscale 30
+	scale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mediciones/natural/cuadratica/cuad7x5kFFTB.png
+	lyxscale 30
+	scale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mediciones/natural/cuadratica/cuad7x5kFFTxin.png
+	lyxscale 30
+	scale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mediciones/natural/cuadratica/cuad7x5kFFTxout.png
+	lyxscale 30
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Medición
+Medición Nodo A, B, In y Out respectivamente.
 \end_layout
 
 \end_inset
@@ -2734,6 +2802,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Imagenes/Cuadratica/FAA+Llave+FR (natural)/a/frecs.png
+	lyxscale 80
 	scale 50
 
 \end_inset
@@ -2773,6 +2842,14 @@ Gráficas en frecuencia
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Se puede observar que los armónicos principales que se encuentran en 
+\begin_inset Formula $100Hz$
+\end_inset
+
+ coinciden tanto en la medición como en la simulación.
 \end_layout
 
 \begin_layout Description
@@ -3019,32 +3096,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Medición
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3321,7 +3373,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3813,7 +3865,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4971,7 +5023,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center

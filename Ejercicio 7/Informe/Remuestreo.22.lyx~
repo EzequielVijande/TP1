@@ -1042,13 +1042,13 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xin(f).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xin(f).png
 
 \end_inset
 
 
 \begin_inset Graphics
-	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xin(t).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xin(t).png
 
 \end_inset
 
@@ -1083,13 +1083,13 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/FAA(f).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/FAA(f).png
 
 \end_inset
 
 
 \begin_inset Graphics
-	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/FAA(t).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/FAA(t).png
 
 \end_inset
 
@@ -1127,13 +1127,13 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/S&H(f).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/S&H(f).png
 
 \end_inset
 
 
 \begin_inset Graphics
-	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/S&H(t).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/S&H(t).png
 
 \end_inset
 
@@ -1166,15 +1166,14 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\align center
 \begin_inset Graphics
-	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Llave(f).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Llave(f).png
 
 \end_inset
 
 
 \begin_inset Graphics
-	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Llave(t).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Llave(t).png
 
 \end_inset
 
@@ -1212,13 +1211,13 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xout(f).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xout(f).png
 
 \end_inset
 
 
 \begin_inset Graphics
-	filename C:/Users/Tomas/Desktop/ITBA/8° Cuatrimestre/Análisis de Señales y Sistemas Digitales/Trabajos Prácticos/TP1/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xout(t).png
+	filename C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 5/MedicionesSimuladas/Ej7-AM/Xout(t).png
 
 \end_inset
 
@@ -1270,6 +1269,8 @@ status open
 \align center
 \begin_inset Graphics
 	filename Imagenes/medicionModulacion.png
+	lyxscale 40
+	scale 20
 
 \end_inset
 
@@ -1300,9 +1301,6 @@ Mediciones realizadas en la entrada, salida y etapas intermedias de remuestreo
 \begin_layout Standard
 Al ver la señal de salida, no se observa deformación apreciable de la misma
  con respecto a la entrada, como se espera de las simulaciones.
- Sin embargo, sí se observa una reducción de la amplitud de la señal, como
- era de esperar.
- 
 \end_layout
 
 \end_body
