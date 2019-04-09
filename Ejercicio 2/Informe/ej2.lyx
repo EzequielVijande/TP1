@@ -305,7 +305,7 @@ Procedemos entonces a calcular el DSF de las
 \end_layout
 
 \begin_layout Standard
-La señal en frecuencia estará representada por 
+La señal en frecuencias positivas estará representada por 
 \begin_inset Formula $A\cdot\delta(f-f_{in})$
 \end_inset
 
@@ -327,14 +327,18 @@ La señal en frecuencia estará representada por
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\ensuremath{x_{2}(t)=A\cdot sin(2\pi f_{in}t)}$
+\begin_inset Formula $x_{3}(t)=A\cdot t^{2}$
 \end_inset
 
 , con 
-\begin_inset Formula $\ensuremath{t\,\epsilon\,[0;3\pi]}$
+\begin_inset Formula $t\,\epsilon\,[-2\tau;2\tau]$
 \end_inset
 
-.
+ y 
+\begin_inset Formula $f_{03}=\frac{1}{4\tau}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -345,7 +349,7 @@ Los coeficientes de fourier del desarrollo exponencial, para esta señal,
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-X_{n}=\frac{A\cdot(-1)^{n}}{2f_{o2}^{3}\cdot n^{2}\pi^{2}}yX_{0}=\frac{1}{12\cdot f_{o2}^{3}}conf_{o2}=\frac{1}{4\cdot\tau}
+X_{n}=\frac{A\cdot(-1)^{n}}{2f_{o3}^{3}\cdot n^{2}\pi^{2}}yX_{0}=\frac{1}{12\cdot f_{o3}^{3}}conf_{o3}=\frac{1}{4\tau}\cdot
 \end{equation}
 
 \end_inset
@@ -360,7 +364,7 @@ De manera tal que
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-x_{2}(t)=\sum_{n\epsilon Z}X_{n}e^{i\cdot2\pi f_{o2}n\cdot t}
+x_{2}(t)=\sum_{n\epsilon Z}X_{n}e^{i\cdot2\pi f_{o3}n\cdot t}
 \end{equation}
 
 \end_inset
@@ -380,7 +384,7 @@ Notamos que como la señal es real y par, por lo que los coeficientes
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\ensuremath{x_{1}(t)=\sum_{n\epsilon Z}X_{n}^{'}cos(2\pi nf_{o2}t)}
+\ensuremath{x_{1}(t)=\sum_{n\epsilon Z}X_{n}^{'}cos(2\pi nf_{o3}t)}
 \end{equation}
 
 \end_inset
@@ -390,7 +394,7 @@ Notamos que como la señal es real y par, por lo que los coeficientes
 
 \begin_layout Standard
 con 
-\begin_inset Formula $\ensuremath{X_{n}^{'}=\frac{A\cdot(-1)^{n}}{2f_{o2}^{3}\cdot n^{2}\pi^{2}}}$
+\begin_inset Formula $\ensuremath{X_{n}^{'}=\frac{A\cdot(-1)^{n}}{f_{o3}^{3}\cdot n^{2}\pi^{2}}}$
 \end_inset
 
  y 
@@ -407,7 +411,7 @@ con
 \end_inset
 
  , donde 
-\begin_inset Formula $C=\frac{A}{2\cdot f_{o2}^{3}\cdot\pi^{2}}$
+\begin_inset Formula $C=\frac{A}{2\cdot f_{o3}^{3}\cdot\pi^{2}}$
 \end_inset
 
  y 
@@ -435,18 +439,18 @@ con
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $x_{3}(t)=A\cdot t^{2}$
+\begin_inset Formula $x_{2}(t)=2$
+\end_inset
+
+
+\begin_inset Formula $\ensuremath{A\cdot sin(2\pi f_{in}t)}$
 \end_inset
 
 , con 
-\begin_inset Formula $t\,\epsilon\,[-2\tau;2\tau]$
+\begin_inset Formula $\ensuremath{t\,\epsilon\,[0;3\pi]}$
 \end_inset
 
- y 
-\begin_inset Formula $f_{0}=\frac{1}{4\tau}$
-\end_inset
-
-.
+ .
 \end_layout
 
 \begin_layout Standard
@@ -2129,8 +2133,17 @@ Componentes para cada etapa.
 
 \end_layout
 
+\begin_layout Standard
+Es importante mencionar que debido a la etapa final de correción de ganancia
+ del filtro, que se realizó con un circuito inversor, la salida del filtro
+ Anti-Aliasing será invertida al igual que a la salida del filtro recuperador,
+ por lo que al final del circuito la señal será recuperada correctamente,
+ además de que esto no presupondrá problemas para el muestreo digital ya
+ que los datos recibidos podrán ser invertidos digitalmente con gran facilidad.
+\end_layout
+
 \begin_layout Subsection
-Simulación 
+Simulación
 \end_layout
 
 \begin_layout Standard
@@ -2498,7 +2511,72 @@ Sin embargo, es también importante notar que las consecuencias de estas
  no idealizaciones pueden ser mitigadas por un posterior filtrado digital
  sobre la señal ya muestreada en caso de incorporar este sistema de muestreo
  en un sistema digital.
- 
+\end_layout
+
+\begin_layout Subsection
+Mediciones
+\end_layout
+
+\begin_layout Standard
+Se procedió a medir la respuesta en frecuencia de los filtros Anti-Aliasing
+ y recuperador para verificar que cumpliesen con plantilla o que funcionen
+ dentro de rangos aceptables.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/bodesFAAyFR.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia del filtro Anti-Aliasing y recuperador, superpuestas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado que la consigna no imponía una frecuencia de corte 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ en particular, y teniendo en cuenta que la elección de la misma dependió
+ estrictamente del porcentaje de potencia de las señales a muestrear que
+ lograba atravezar el filtro, bajo una inspección de los gráficos de potencia
+ mencionados en las secciones anteriores, se deduce que con las frecuencias
+ de corte obtenidas se podrá lograr el correcto funcionamiento del sistema
+ con una frecuencia de corte cercana a los 
+\begin_inset Formula $3.7$
+\end_inset
+
+kHz y cumpliendo así plantilla.
 \end_layout
 
 \end_body

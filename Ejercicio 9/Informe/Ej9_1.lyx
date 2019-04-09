@@ -261,7 +261,7 @@ Notamos que
 \end_inset
 
 , el mismo pujede ser reescrito como 
-\begin_inset Formula $|\lambda_{1,2}|=-\beta,$
+\begin_inset Formula $|\lambda_{1,2}|=(-\beta)^{0.5},$
 \end_inset
 
 donde para este caso 

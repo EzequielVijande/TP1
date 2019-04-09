@@ -164,13 +164,6 @@ filename "C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 9/Informe/Ej9_1.lyx
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 9/Informe/Ej9_1b.lyx"
-
-\end_inset
-
-
-\begin_inset CommandInset include
-LatexCommand include
 filename "C:/Users/lugfe/Documents/GitHub/ASSD/TP1/Ejercicio 9/Informe/Ej9_2.lyx"
 
 \end_inset

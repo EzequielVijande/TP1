@@ -687,7 +687,6 @@ De esta fórmula se desprende que el espectro de la señal modulada se deformar�
 \end_inset
 
  disminuye.
- 2
 \end_layout
 
 \begin_layout Standard
@@ -738,7 +737,7 @@ Eligiendo un período de
 \begin_inset Formula $T=\frac{1}{15x10^{3}}s$
 \end_inset
 
-, graficamos la potencia total en función del duty cycle d: 
+, graficamos la potencia total en función del duty cycle d:
 \end_layout
 
 \begin_layout Standard
@@ -834,7 +833,10 @@ s en el rango
 
 , por lo que se eligirá el duty cycle más grande posible para obtener la
  mayor potencia total posible y preservar lo más posible las señales.
- Es importante hacer notar que si bien el espectro de la señal se deforma,
+\end_layout
+
+\begin_layout Standard
+Es importante hacer notar que si bien el espectro de la señal se deforma,
  se podría aplicar un filtro digital una vez que la señal ya ha sido digitalizad
 a podrá revertir esta deformación agregada.
 \end_layout
@@ -1016,7 +1018,9 @@ Donde
 \end_inset
 
  la frecuencia de la señal moduladora, y DC es el duty cycle utilizado,
- bajo la misma interpretación que la del ejercicio 5.
+ bajo la misma interpretación que la del ejercicio 5 para ser coherente
+ con las simulaciones, por lo que un duty cycle del 5% implica un 95% de
+ duty cycle para el razonamiento mencionado anteriormente.
 \end_layout
 
 \begin_layout Standard
@@ -1255,7 +1259,7 @@ Mediciones
 
 \begin_layout Standard
 Las mediciones a continuación se realizaron en los mismos nodos que se señalaron
- en el ejercicio 6.
+ en las mediciones generales/básicas.
 \end_layout
 
 \begin_layout Standard
