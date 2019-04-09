@@ -2444,9 +2444,10 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename Imagenes/Cuadratica/FAA+Llave+FR (natural)/a/cuad7x5k.png
 	scale 50
@@ -2622,7 +2623,7 @@ b.2
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2751,7 +2752,7 @@ Parámetros utilizados en la medicion
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2760,6 +2761,17 @@ placement H
 wide false
 sideways false
 status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Cuadratica/FAA+Llave+FR (natural)/b/2/cuad20k.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2940,7 +2952,18 @@ status collapsed
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Cuadratica/d/cuad5000.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2965,7 +2988,18 @@ Medición con
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Cuadratica/d/cuad1000.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2994,7 +3028,18 @@ Medición con
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Cuadratica/d/cuad3000.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3243,7 +3288,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3251,7 +3296,18 @@ status collapsed
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/a/cos7x5k.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3544,7 +3600,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3552,7 +3608,18 @@ status collapsed
 placement H
 wide false
 sideways false
-status open
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/b/2/cos20k.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3720,7 +3787,7 @@ c
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3857,7 +3924,18 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/Coseno/FAA+S&H+FR (instantaneo)/c/cos3k.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4032,7 +4110,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4161,7 +4239,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4169,7 +4247,17 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Imagenes/1.5 seno/FAA+S&H+FR (instantaneo)/a/3sin7x5k.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4337,7 +4425,7 @@ b.2
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4646,7 +4734,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center

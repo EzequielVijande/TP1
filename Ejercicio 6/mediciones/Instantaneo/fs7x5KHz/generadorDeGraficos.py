@@ -19,8 +19,7 @@ medCuadXout = pd.read_csv("muestreoCuadXout.csv")
 medCuadSHin = pd.read_csv("muestreoCuadSHin.csv")
 medCuadSHout = pd.read_csv("muestreoCuadSHout.csv")
 
-a=len((medCosSHin["second"]+(1/1000)))
-print(a)
+
 
 
 
@@ -72,7 +71,7 @@ datacursor(formatter="f:{x:.2f} Hz\n mag:{y:.2f} dB".format, display='multiple',
 
 
 
-plt.figure(3) #GRAFICOS DE MEDICIONES 1.5 SENO EN TIEMPO
+plt.figure(2) #GRAFICOS DE MEDICIONES 1.5 SENO EN TIEMPO
 plt.subplot(1,4,1)
 plt.plot(med3senSHin["second"]+(1/1000), med3senSHin["Volt"], 'r', label='Nodo A')
 plt.xlabel("t (seg)")
@@ -87,7 +86,7 @@ datacursor(formatter="f:{x:.2f} Hz\n mag:{y:.2f} dB".format, display='multiple',
 plt.subplot(1,4,2)
 plt.plot(med3senSHout["second"]+(1/1000), med3senSHout["Volt"], 'g', label='Nodo C')
 plt.xlabel("t (seg)")
-plt.ylabel("V(t) (Volts)")
+
 plt.title("Nodo C(t)")
 plt.grid(True)
 plt.xticks()
@@ -98,7 +97,7 @@ datacursor(formatter="f:{x:.2f} Hz\n mag:{y:.2f} dB".format, display='multiple',
 plt.subplot(1,4,3)
 plt.plot(med3senXin["second"]+(1/1000), med3senXin["Volt"], 'b', label='Xin(t)')
 plt.xlabel("t (seg)")
-plt.ylabel("V(t) (Volts)")
+
 plt.title("Xin(t)")
 plt.grid(True)
 plt.xticks()
@@ -109,7 +108,7 @@ datacursor(formatter="f:{x:.2f} Hz\n mag:{y:.2f} dB".format, display='multiple',
 plt.subplot(1,4,4)
 plt.plot(med3senXout["second"]+(1/1000), med3senXout["Volt"], 'm', label='Xout(t)')
 plt.xlabel("t (seg)")
-plt.ylabel("V(t) (Volts)")
+
 plt.title("Xout(t)")
 plt.grid(True)
 plt.xticks()
@@ -118,7 +117,7 @@ plt.legend(loc = 'lower right')
 datacursor(formatter="f:{x:.2f} Hz\n mag:{y:.2f} dB".format, display='multiple', draggable=True)
 
 
-plt.figure(5) #GRAFICOS DE MEDICIONES CUADRATICA EN TIEMPO
+plt.figure(3) #GRAFICOS DE MEDICIONES CUADRATICA EN TIEMPO
 plt.subplot(1,4,1)
 plt.plot(medCuadSHin["second"]+(1/1000), medCuadSHin["Volt"], 'r', label='Nodo A')
 plt.xlabel("t (seg)")
@@ -133,7 +132,7 @@ datacursor(formatter="f:{x:.2f} Hz\n mag:{y:.2f} dB".format, display='multiple',
 plt.subplot(1,4,2)
 plt.plot(medCuadSHout["second"]+(1/1000), medCuadSHout["Volt"], 'g', label='Nodo C')
 plt.xlabel("t (seg)")
-plt.ylabel("V(t) (Volts)")
+
 plt.title("Nodo C(t)")
 plt.grid(True)
 plt.xticks()
@@ -144,7 +143,7 @@ datacursor(formatter="f:{x:.2f} Hz\n mag:{y:.2f} dB".format, display='multiple',
 plt.subplot(1,4,3)
 plt.plot(medCuadXin["second"]+(1/1000), medCuadXin["Volt"], 'b', label='Xin(t)')
 plt.xlabel("t (seg)")
-plt.ylabel("V(t) (Volts)")
+
 plt.title("Xin(t)")
 plt.grid(True)
 plt.xticks()
@@ -155,7 +154,7 @@ datacursor(formatter="f:{x:.2f} Hz\n mag:{y:.2f} dB".format, display='multiple',
 plt.subplot(1,4,4)
 plt.plot(medCuadXout["second"]+(1/1000), medCuadXout["Volt"], 'm', label='Xout(t)')
 plt.xlabel("t (seg)")
-plt.ylabel("V(t) (Volts)")
+
 plt.title("Xout(t)")
 plt.grid(True)
 plt.xticks()
