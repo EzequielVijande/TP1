@@ -1,10 +1,9 @@
-A=12 Volts
+A=0.25 Volts
 fo= 7.5Khz
-fp= 5Khz
-fa= 7.5Khz
+fp= 3.5Khz
+fa= 5.25Khz
 Aproximacion= Cauer
 fs=20Khz
-DC=5%
-Potencia recuperada= ???(4.6% creo)
+DC=50%
 
 Conclusion: La unica informacion util que se puede recuperar de la entrada es su valor medio.El FAA y el FR matan todo lo demas

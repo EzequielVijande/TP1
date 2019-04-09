@@ -1,10 +1,8 @@
-A=5 volts
+A=0.25 volts
 fo= 7.5Khz
-fp= 5Khz
-fa= 7.5Khz
-Aproximacion = Cheby 1
+fp= 3.5Khz
+fa= 5.25Khz
+Aproximacion = Cauer
 fs= 20Khz
-Potencia recuperada= 0.0008% 
 
-Notas: A frecuencias menores iguales de 30Khz, la amplitud a la salida disminuia casi a la mitad.
-Al subir el Duty cycle baja la potencia.
+Al subir el el tiempo en el que la llave esta abierta baja la potencia.

@@ -1,10 +1,10 @@
-A=5 volts
+A=0.25 volts
 fo= 3Khz
-fp= 5Khz
-fa= 7.5Khz
+fp= 3.5Khz
+fa= 5.25Khz
 Aproximacion = Cauer
 fs= 3Khz
-Potencia recuperada= 61.78% 
+DC=50%
 
 Notas: Mientras mas cercana la frecuencia a la fp, menos distorsion tiene a la salida.Sin embargo, mientras mas cerca de la fp
 se reccupera menos potencia.

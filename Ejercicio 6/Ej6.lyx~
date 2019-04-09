@@ -326,7 +326,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -436,7 +436,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parámetros utilizados en la medicion
+Parámetros utilizados en la medición
 \end_layout
 
 \end_inset
@@ -565,7 +565,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -659,7 +659,7 @@ b.2
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -769,7 +769,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parámetros utilizados en la medicion
+Parámetros utilizados en la medición
 \end_layout
 
 \end_inset
@@ -796,7 +796,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -894,7 +894,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -984,7 +984,7 @@ c
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1094,7 +1094,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parámetros utilizados en la medicion
+Parámetros utilizados en la medición
 \end_layout
 
 \end_inset
@@ -1113,7 +1113,7 @@ Parámetros utilizados en la medicion
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1211,7 +1211,7 @@ Gráficas en el tiempo
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1316,7 +1316,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1426,7 +1426,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parámetros utilizados en la medicion
+Parámetros utilizados en la medición
 \end_layout
 
 \end_inset
@@ -1539,7 +1539,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1564,7 +1564,7 @@ Medición
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1621,7 +1621,7 @@ b.2
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1731,7 +1731,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Parámetros utilizados en la medicion
+Parámetros utilizados en la medición
 \end_layout
 
 \end_inset
@@ -1927,7 +1927,7 @@ A continuación se muestran mediciones de la salida del FAA a medida que
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1935,7 +1935,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1960,7 +1960,7 @@ Medición con
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1993,7 +1993,7 @@ Medición con
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2055,11 +2055,7 @@ Al aumentar la frecuencia de la entrada se pierde mayor potencia en cada
 placement H
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2068,10 +2064,6 @@ placement H
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \align center
@@ -2150,10 +2142,6 @@ placement H
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \align center
@@ -2362,7 +2350,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2848,7 +2836,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2873,7 +2861,7 @@ Medición con
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2902,7 +2890,7 @@ Medición con
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2946,17 +2934,17 @@ Salida del filtro Anti-alias
 A medida que se aumenta la frecuencia de la señal de entrada se tiene que
  la señal se distorsiona y se torna cada vez mas similar a una senoidal
  con un offset.
- Esto se explica debido a que la señal de entrada tiene infinitos armonicos
- que son multiplos de la frecuencia fundamental.
- A medida que se aumenta la frecuencia fundamental cada vez mas armonicos
- de la señal caen en la banda de ateenuacion por lo que su efecto en la
- señal disminuye.Llega un punto en el que la frecuencia fundamental y el
- armonico en continua de la señal son los mas predominantes entonce la señal
- es similar a un seno con un offset.
+ Esto se explica debido a que la señal de entrada tiene infinitos armónicos
+ que son múltiplos de la frecuencia fundamental.
+ A medida que se aumenta la frecuencia fundamental cada vez mas armónicos
+ de la señal caen en la banda de atenuación por lo que su efecto en la señal
+ disminuye.Llega un punto en el que la frecuencia fundamental y el armónico
+ en continua de la señal son los mas predominantes entonce la señal es similar
+ a un seno con un offset.
 \end_layout
 
 \begin_layout Standard
-El efecto puede verse en la simulacion de los armonicos de la señal para
+El efecto puede verse en la simulación de los armónicos de la señal para
  distintas frecuencias de entrada:
 \end_layout
 
@@ -3159,7 +3147,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3460,7 +3448,7 @@ status collapsed
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3571,7 +3559,7 @@ Medicion
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3628,7 +3616,7 @@ c
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3757,7 +3745,7 @@ Parametros utilizados en la medicion
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3940,7 +3928,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4245,7 +4233,7 @@ b.2
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4554,7 +4542,7 @@ a,b.1
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4859,7 +4847,7 @@ b.2
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
