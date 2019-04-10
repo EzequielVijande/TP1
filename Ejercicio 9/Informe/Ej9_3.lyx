@@ -112,335 +112,408 @@
 
 \begin_body
 
+\begin_layout Section
+Retardo de Grupo
+\end_layout
+
+\begin_layout Subsection
+Filtros FIR
+\end_layout
+
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-section{Retardo de Grupo}
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-subsection{Filtros FIR} 	
-\end_layout
-
-\begin_layout Plain Layout
-
-			Los filtros FIR (Finite Impulse Response) son filtros de respuesta impulsiva
+Los filtros FIR (Finite Impulse Response) son filtros de respuesta impulsiva
  finita.
  El filtro de la consigna resulta ser un filtro FIR, y en particular nos
  interesa estudiar aquellos filtros FIR sin distorsión de fase, es decir,
  aquellos filtros cuya fase sea lineal en función de la frecuencia, o cuyo
  retardo de grupo sea constante.
- 
-\backslash
-par
 \end_layout
 
-\begin_layout Plain Layout
-
+\begin_layout Subsection
+Filtro de fase lineal
 \end_layout
 
-\begin_layout Plain Layout
-
-		
-\backslash
-subsection{Filtro de fase lineal}
-\end_layout
-
-\begin_layout Plain Layout
-
- 			Según el libro Discrete Time Signal Processing, de Openheim y Schafer
- (libro de la bibliografía de la cátedra), los filtros FIR de fase lineal
- se dividen en cuatro tipos básicos según la forma de la respuesta impulsiva
- que los caracteriza.
+\begin_layout Standard
+Según el libro Discrete Time Signal Processing, de Openheim y Schafer (libro
+ de la bibliografía de la cátedra), los filtros FIR de fase lineal se dividen
+ en cuatro tipos básicos según la forma de la respuesta impulsiva que los
+ caracteriza.
   
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Enumerate
+Filtro de fase lineal de Tipo I: La respuesta impulsiva 
+\begin_inset Formula $a(n)$
+\end_inset
 
-		
-\backslash
-begin{enumerate}
+ del filtro cumple con 
+\begin_inset Formula $a(n)=a(m-n)$
+\end_inset
+
+, con 
+\begin_inset Formula $m=2k$
+\end_inset
+
+, 
+\begin_inset Formula $k\,\epsilon\mathbb{\,N}$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Enumerate
+Filtro de fase lineal de Tipo II: La respuesta impulsiva 
+\begin_inset Formula $a(n)$
+\end_inset
 
-		
-\backslash
-item 
-\backslash
-underline{Filtro de fase lineal de Tipo I}:
-\backslash
-par
+ del filtro cumple con 
+\begin_inset Formula $a(n)=a(\frac{m-1}{2}-n)$
+\end_inset
+
+, con 
+\begin_inset Formula $m=2k+1$
+\end_inset
+
+, 
+\begin_inset Formula $k\,\epsilon\mathbb{\,N}$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Enumerate
+Filtro de fase lineal de Tipo III: La respuesta impulsiva 
+\begin_inset Formula $a(n)$
+\end_inset
 
-			La respuesta impulsiva $a(n)$ del filtro cumple con $a(n)$ $=$ $a(m -
- n)$, con $m$ $=$ $2k$, $k
-\backslash
-epsilon 
-\backslash
-mathbb{N}$.
-\backslash
-par
+ del filtro cumple con 
+\begin_inset Formula $a(n)=-a(m-n)$
+\end_inset
+
+, con 
+\begin_inset Formula $m=2k$
+\end_inset
+
+, 
+\begin_inset Formula $k\,\epsilon\mathbb{\,N}$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Enumerate
+Filtro de fase lineal de Tipo IV: La respuesta impulsiva 
+\begin_inset Formula $a(n)$
+\end_inset
 
-		
-\backslash
-item 
-\backslash
-underline{Filtro de fase lineal de Tipo II}:
-\backslash
-par
+ del filtro cumple con 
+\begin_inset Formula $a(n)=-a(\frac{m-1}{2}-n)$
+\end_inset
+
+, con 
+\begin_inset Formula $m=2k+1$
+\end_inset
+
+, 
+\begin_inset Formula $k\,\epsilon\mathbb{\,N}$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Plain Layout
-
-			La respuesta impulsiva $a(n)$ del filtro cumple con $a(n)$ $=$ $a(
-\backslash
-frac{m-1}{2} - n)$, con $m$ $=$ $2k+1$, $k
-\backslash
-epsilon
-\backslash
-mathbb{N}$
+\begin_layout Subsection
+Análisis de filtros de fase lineal de Tipo I y II
 \end_layout
 
-\begin_layout Plain Layout
-
-		
-\backslash
-item 
-\backslash
-underline{Filtro de fase lineal de Tipo III}:
-\backslash
-par
+\begin_layout Standard
+Procedemos a demostrar por qué los filtro de tipo I y II son filtros de
+ fase lineal:
 \end_layout
 
-\begin_layout Plain Layout
-
-			La respuesta impulsiva $a(n)$ del filtro cumple con $a(n)$ $=$ $-a(m-n)$,
- con $m$ $=$ $2k$, $k 
-\backslash
-epsilon 
-\backslash
-mathbb{N}$
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-item 
-\backslash
-underline{Filtro de fase lineal de Tipo IV}:
-\backslash
-par
-\end_layout
-
-\begin_layout Plain Layout
-
-			La respuesta impulsiva $a(n)$ del filtro cumple con $a(n)$ $=$ $-a(
-\backslash
-frac{m-1}{2} - n)$, con $m$ $=$ $2k+1$, $k
-\backslash
-epsilon
-\backslash
-mathbb{N}$
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{enumerate}
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-subsection{Análisis de filtros de fase lineal de Tipo I y II} 
-\end_layout
-
-\begin_layout Plain Layout
-
-			Procedemos a demostrar por qué los filtro de tipo I y II son filtros
- de fase lineal:
-\backslash
-par 	
-\end_layout
-
-\begin_layout Plain Layout
-
-			Sea $h(n)$ $
-\backslash
-epsilon$ $
-\backslash
-mathbb{R}$  $/$  $h(n) = h(-n)$, con $n
-\backslash
-epsilon 
-\backslash
-mathbb{Z}$.
- Entonces, su transformada de fourier $H(f)$ será $H(f)$ $
-\backslash
-epsilon$ $
-\backslash
-mathbb{R}$ $/$ $H(f)$ $=$ $H(-f)$, por lo que $|H(f)|$ $=$ $|H(-f)|$.
- 
-\backslash
-par
-\end_layout
-
-\begin_layout Plain Layout
-
-			Sea entonces un filtro discreto realizable de la forma $y(n)$ $=$ $
-\backslash
-sum_{n=0}^{m} a_{j}
-\backslash
-cdot x(n-j)$, con $a_j 
-\backslash
-epsilon 
-\backslash
-mathbb{R}$, $m
-\backslash
-epsilon 
-\backslash
-mathbb{N}$ de manera tal que $a_j = a_{m-j}$.
- La respuesta impulsiva $a(n)$ del filtro estará dada entonces por sus coeficien
-tes, que describen una función simétrica con respecto a algún valor $k
-\backslash
-epsilon
-\backslash
-mathbb{N}$.
- Luego, $a(n) = h(n-k)$, $h(n)$ par.
- Entonces, si $A(f)$ es la transformada de fourier de $a(n)$, notamos que
- $A(f)$ $=$ $H(f)
-\backslash
-cdot e^{i2
-\backslash
-pi f
-\backslash
-cdot k}$.
- De aquí obtenemos las siguientes propiedades para $A(f)$: 
-\backslash
-par 	
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-begin{itemize} 
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item $|A(f)| = |H(f)|$, función real y par.
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item Como H(f) es una función real, entonces la fase de A(f) será lineal
- con respecto a la frecuencia y por lo tanto su retardo de grupo $
-\backslash
-tau_{g}$ será constante.
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-item Dada la propiedad anterior, como la fase de A(f) será de la forma $h$
- $+$ $2
-\backslash
-pi f
-\backslash
-cdot k$, entonces $
-\backslash
-tau_{g}$ $=$ $k$, que tomando el período de muestreo de la señal T,  será
-  $
-\backslash
-tau_{g}$ $=$ $kT$.
-\end_layout
-
-\begin_layout Plain Layout
-
-		
-\backslash
-end{itemize}   	
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-subsection{Análisis de un filtro particular}
-\end_layout
-
-\begin_layout Plain Layout
-
-		Dado el filtro de consigna descripto por la ecuación:
-\backslash
-par
-\end_layout
-
-\begin_layout Plain Layout
-
-$y(nT)$ $=$ $x(nT) + 2x(nT-T) + 3x(nT-2T) + 4x(nT-3T) + 3x(nT-4T) + 2x(nT-5T)
- + x(nT-6T)$
-\backslash
-par
-\end_layout
-
-\begin_layout Plain Layout
-
-Observamos que su respuesta impulsiva $a(n)$ resulta ser simétrica con respecto
- a $k$ $=$ $3$, por lo que cae dentro del caso particular descripto anteriorment
-e y por ende su retardo de grupo será constante.
- En particular, dado que $a(n)$ $=$ $a(m-n)$, $
-\backslash
-forall n 
-\backslash
-epsilon [0;m]$, su retardo de grupo será ${
-\backslash
-tau}_{g}$ $=$ $3T$
-\end_layout
-
+\begin_layout Standard
+Sea 
+\begin_inset Formula $h(n)\,$
 \end_inset
 
 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+
+\begin_inset Formula $/$
+\end_inset
+
+
+\begin_inset Formula $h(n)=h(-n)$
+\end_inset
+
+, con 
+\begin_inset Formula $n\epsilon\mathbb{Z}$
+\end_inset
+
+.
+ Entonces, su transformada de fourier 
+\begin_inset Formula $H(f)$
+\end_inset
+
+ será 
+\begin_inset Formula $H(f)$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\epsilon\,$
+\end_inset
+
+
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+
+\begin_inset Formula $/$
+\end_inset
+
+
+\begin_inset Formula $H(f)$
+\end_inset
+
+
+\begin_inset Formula $=$
+\end_inset
+
+
+\begin_inset Formula $H(-f)$
+\end_inset
+
+, por lo que 
+\begin_inset Formula $|H(f)|$
+\end_inset
+
+
+\begin_inset Formula $=$
+\end_inset
+
+
+\begin_inset Formula $|H(-f)|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+			Sea entonces un filtro discreto realizable de la forma 
+\begin_inset Formula $y(n)$
+\end_inset
+
+
+\begin_inset Formula $=$
+\end_inset
+
+
+\begin_inset Formula $\sum_{n=0}^{m}a_{j}\cdot x(n-j)$
+\end_inset
+
+, con 
+\begin_inset Formula $a_{j}\epsilon\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $m\epsilon\mathbb{N}$
+\end_inset
+
+ de manera tal que 
+\begin_inset Formula $a_{j}=a_{m-j}$
+\end_inset
+
+.
+ La respuesta impulsiva 
+\begin_inset Formula $a(n)$
+\end_inset
+
+ del filtro estará dada entonces por sus coeficientes, que describen una
+ función simétrica con respecto a algún valor 
+\begin_inset Formula $k\epsilon\mathbb{N}$
+\end_inset
+
+.
+ Luego, 
+\begin_inset Formula $a(n)=h(n-k)$
+\end_inset
+
+, 
+\begin_inset Formula $h(n)$
+\end_inset
+
+ par.
+ Entonces, si 
+\begin_inset Formula $A(f)$
+\end_inset
+
+ es la transformada de fourier de 
+\begin_inset Formula $a(n)$
+\end_inset
+
+, notamos que 
+\begin_inset Formula $A(f)$
+\end_inset
+
+
+\begin_inset Formula $=$
+\end_inset
+
+
+\begin_inset Formula $H(f)\cdot e^{i2\pi f\cdot k}$
+\end_inset
+
+.
+ De aquí obtenemos las siguientes propiedades para 
+\begin_inset Formula $A(f)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $|A(f)|=|H(f)|$
+\end_inset
+
+, función real y par.
+\end_layout
+
+\begin_layout Itemize
+Como H(f) es una función real, entonces la fase de A(f) será lineal con
+ respecto a la frecuencia y por lo tanto su retardo de grupo 
+\begin_inset Formula $\tau_{g}$
+\end_inset
+
+ será constante.
+ 
+\end_layout
+
+\begin_layout Itemize
+Dada la propiedad anterior, como la fase de A(f) será de la forma 
+\begin_inset Formula $h$
+\end_inset
+
+
+\begin_inset Formula $+$
+\end_inset
+
+
+\begin_inset Formula $2\pi f\cdot k$
+\end_inset
+
+, entonces 
+\begin_inset Formula $\tau_{g}$
+\end_inset
+
+
+\begin_inset Formula $=$
+\end_inset
+
+
+\begin_inset Formula $k$
+\end_inset
+
+, que tomando el período de muestreo de la señal T,  será  
+\begin_inset Formula $\tau_{g}$
+\end_inset
+
+
+\begin_inset Formula $=$
+\end_inset
+
+
+\begin_inset Formula $kT$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Análisis de un filtro particular
+\end_layout
+
+\begin_layout Standard
+Dado el filtro de consigna descripto por la ecuación:
+\backslash
+par
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y(nT)$
+\end_inset
+
+
+\begin_inset Formula $=$
+\end_inset
+
+
+\begin_inset Formula $x(nT)+2x(nT-T)+3x(nT-2T)+4x(nT-3T)+3x(nT-4T)+2x(nT-5T)+x(nT-6T)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Observamos que su respuesta impulsiva 
+\begin_inset Formula $a(n)$
+\end_inset
+
+ resulta ser simétrica con respecto a 
+\begin_inset Formula $k$
+\end_inset
+
+
+\begin_inset Formula $=$
+\end_inset
+
+
+\begin_inset Formula $3$
+\end_inset
+
+, por lo que cae dentro del caso particular descripto anteriormente y por
+ ende su retardo de grupo será constante.
+ En particular, dado que 
+\begin_inset Formula $a(n)$
+\end_inset
+
+
+\begin_inset Formula $=$
+\end_inset
+
+
+\begin_inset Formula $a(m-n)$
+\end_inset
+
+, 
+\begin_inset Formula $\forall\,n\,\epsilon\,[0;m]$
+\end_inset
+
+, su retardo de grupo será 
+\begin_inset Formula ${\tau}_{g}$
+\end_inset
+
+
+\begin_inset Formula $=$
+\end_inset
+
+
+\begin_inset Formula $3T$
+\end_inset
+
+.
 \end_layout
 
 \end_body

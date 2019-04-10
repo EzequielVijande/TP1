@@ -2384,8 +2384,8 @@ la amplitud de señal máxima que se puede ingresar al circuito, y
 \end_layout
 
 \begin_layout Standard
-En primer lugar, la entrada máxima al circuito se tomó como 5V (
-\begin_inset Formula $V_{in_{max}}=5V$
+En primer lugar, la entrada máxima al circuito se tomó como 600mV (
+\begin_inset Formula $V_{in_{max}}=600mV$
 \end_inset
 
 ).
@@ -2415,7 +2415,7 @@ La ganancia máxima se tomó como
 \end_inset
 
  como 
-\begin_inset Formula $5V$
+\begin_inset Formula $600mV$
 \end_inset
 
 .
@@ -2424,7 +2424,7 @@ La ganancia máxima se tomó como
 \end_inset
 
  de 
-\begin_inset Formula $4.72V$
+\begin_inset Formula $566mV$
 \end_inset
 
 .
@@ -2459,13 +2459,13 @@ Esta tensión estaría más limitada si se tiene en cuenta que según la plantil
 \end_inset
 
 .
- Con ésto, 
-\begin_inset Formula $V_{in_{min}}=17mV$
+ Con ésto, podemos tomar 
+\begin_inset Formula $V_{in_{min}}=5mV$
 \end_inset
 
 .
  De esto, el rango dinámico resulta de 
-\begin_inset Formula $48.9dB$
+\begin_inset Formula $41.1dB$
 \end_inset
 
 .

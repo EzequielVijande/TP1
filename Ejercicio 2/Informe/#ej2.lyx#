@@ -1,0 +1,2583 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 19mm
+\topmargin 19mm
+\rightmargin 19mm
+\bottommargin 42mm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Filtro Recuperador y Anti-Aliasing
+\end_layout
+
+\begin_layout Standard
+Las señales de entrada a medir, definidas por consigna para el grupo, son:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\ensuremath{x_{1}(t)=A\cdot cos(2\pi f_{in}t)}$
+\end_inset
+
+, con 
+\begin_inset Formula $\ensuremath{f_{in}=1kHz}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\ensuremath{x_{2}(t)}$
+\end_inset
+
+, siendo esta la extensión periódica de 
+\begin_inset Formula $\ensuremath{A\cdot sin(2\pi f_{in}t)}$
+\end_inset
+
+, con 
+\begin_inset Formula $\ensuremath{t\,\epsilon\,[0;3\pi]}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{3}(t)$
+\end_inset
+
+, siendo esta la extensión periódica de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$A
+\backslash
+cdot t^2$
+\end_layout
+
+\end_inset
+
+, con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$t
+\backslash
+epsilon[-2
+\backslash
+tau;2
+\backslash
+tau]$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$f_0 = 
+\backslash
+frac{1}{4
+\backslash
+tau}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notamos que como todas las señales son periódicas, su espectro estará dado
+ por el Desarrollo en Serie de Fourier (DSF) de las mismas y por ende este
+ espectro será discreto.
+\end_layout
+
+\begin_layout Standard
+Notamos, a su vez, que tanto la función 
+\begin_inset Formula $\ensuremath{\frac{3}{2}}seno$
+\end_inset
+
+ como la cuadrática tendrán infinitos armónicos de la frecuencia fundamental,
+ y que es por esta razón que el filtro pasabajos a utilizar necesariamente
+ tendrá que eliminar algunas componentes en frecuencia de la señal original
+ para poder realizar un muestreo que cumpla con el criterio de Nyquist.
+\end_layout
+
+\begin_layout Standard
+Se buscará entonces diseñar el filtro Anti-Aliasing de manera tal que un
+ porcentaje suficiente de potencia de la señal original se encuentre dentro
+ de la banda pasante, pudiéndose así preservar y muestrear correctamente
+ la información correspondiente a esta señal.
+ A su vez, la frecuencia de corte de este filtro y la limitación en ancho
+ de banda consecuente de la misma deberá ser tal que la frecuencia de muestreo
+ necesaria para cumplir el criterio de Nyquist sea realizable por los componente
+s encargados de realizar el sampleo.
+ Haciendo un análisis previo del oscilador, el Sample and Hold y la llave
+ analógica, se decidió que la máxima frecuencia de sampleo realizable para
+ el sistema es de 50kHz.
+ Como se busca oversamplear (muestrear a frecuencias mayores a las de Nyquist)
+ para lograr una mayor calidad de señal, la frecuencia de corte 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ del filtro deberá entonces ser mucho menor a 25kHz.
+\end_layout
+
+\begin_layout Standard
+Teniendo en cuenta que en realidad el criterio de Nyquist utiliza un filtro
+ pasabajos ideal para llegar a la condicion 
+\begin_inset Formula $f_{b}\leq2\cdot f_{s}$
+\end_inset
+
+, se decide tomar como frecuencia limitante de ancho de banda 
+\begin_inset Formula $f_{b}$
+\end_inset
+
+ no a la frecuencia de corte 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ sino a la frecuencia 
+\begin_inset Formula $f_{a}=1.5f_{p}$
+\end_inset
+
+ definida por consigna.
+ Dado que necesitamos que luego de esta banda la señal esté completamente
+ atenuada, y teniendo en cuenta que el sistema digital cuantiza en 8 bits,
+ sabemos que deberá atenuarse aproximadamente 48 (dB) en la frecuencia 
+\begin_inset Formula $f_{a}$
+\end_inset
+
+ para poder considerar atenuada completamente cualquier componente.
+ 
+\end_layout
+
+\begin_layout Standard
+Procedemos entonces a realizar un análisis espectral de las distintas señales
+ de entrada para poder definir la frecuencia 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ del filtro.
+ Para esto hallamos el DSF de cada una de las señales y buscamos cuál señal
+ será aquella que acumule menor cantidad de potencia a frecuencias mayores,
+ porque ésta será entonces la determinante.
+ 
+\end_layout
+
+\begin_layout Subsection
+Análisis espectral de las señales a muestrear
+\end_layout
+
+\begin_layout Standard
+Se desea determinar la potencia total de las señales a medir y el porcentaje
+ de potencia de la señal original resultante de eliminar armónicos de frecuencia
+s superiores a 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ o 
+\begin_inset Formula $f_{a}$
+\end_inset
+
+ según corresponda.
+ Para esto se calculan los coeficientes de fourier de las señales anteriormente
+ mencionadas 
+\begin_inset Formula $\ensuremath{x_{i}(t)}$
+\end_inset
+
+ , con 
+\begin_inset Formula $\ensuremath{i=1;2;3}$
+\end_inset
+
+ y luego se aplica la identidad de Párseval para calcular la potencia de
+ la señal como 
+\begin_inset Formula $\ensuremath{P=\frac{1}{T}\cdot}\ensuremath{\int_{0}^{T}|x(t)|^{2}dt}\ensuremath{=\sum_{n\epsilon Z}|X_{n}|^{2}}$
+\end_inset
+
+ .
+ Es importante destacar que la potencia de la señal medida será en realidad
+ proporcional a este valor, ya que es necesario tener en cuenta el valor
+ de la carga sobre la cual se la mide para obtener un valor real, pero que
+ sin embargo la relación porcentual entre potencias tendrá el mismo valor
+ que el calculado.
+ 
+\end_layout
+
+\begin_layout Standard
+Procedemos entonces a calcular el DSF de las 
+\begin_inset Formula $\ensuremath{x_{i}(t)}$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\ensuremath{x_{1}(t)=A\cdot cos(2\pi f_{in}t)}$
+\end_inset
+
+, con 
+\begin_inset Formula $\ensuremath{f_{in}=1kHz}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La señal en frecuencias positivas estará representada por 
+\begin_inset Formula $A\cdot\delta(f-f_{in})$
+\end_inset
+
+ y por ende tendrá, idealmente, una única componente en frecuencia en 
+\begin_inset Formula $f_{o1}=1kHz$
+\end_inset
+
+ de amplitud 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Dado que la señal tiene un único armónico, para que esta llegue a cuantizarse
+ se eligirá una 
+\begin_inset Formula $f_{p}>1kHz$
+\end_inset
+
+ de manera tal que la señal no sea atenuada por el filtro.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{3}(t)=A\cdot t^{2}$
+\end_inset
+
+, con 
+\begin_inset Formula $t\,\epsilon\,[-2\tau;2\tau]$
+\end_inset
+
+ y 
+\begin_inset Formula $f_{03}=\frac{1}{4\tau}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los coeficientes de fourier del desarrollo exponencial, para esta señal,
+ estarán dados por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+X_{n}=\frac{A\cdot(-1)^{n}}{2f_{o3}^{3}\cdot n^{2}\pi^{2}}yX_{0}=\frac{1}{12\cdot f_{o3}^{3}}conf_{o3}=\frac{1}{4\tau}\cdot
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De manera tal que
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x_{2}(t)=\sum_{n\epsilon Z}X_{n}e^{i\cdot2\pi f_{o3}n\cdot t}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notamos que como la señal es real y par, por lo que los coeficientes 
+\begin_inset Formula $X_{n}$
+\end_inset
+
+ son pares y el DSF de la señal estará expresado en una serie de cosenos,
+ de la forma:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\ensuremath{x_{1}(t)=\sum_{n\epsilon Z}X_{n}^{'}cos(2\pi nf_{o3}t)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+con 
+\begin_inset Formula $\ensuremath{X_{n}^{'}=\frac{A\cdot(-1)^{n}}{f_{o3}^{3}\cdot n^{2}\pi^{2}}}$
+\end_inset
+
+ y 
+\begin_inset Formula $X_{0}^{'}=X_{0}$
+\end_inset
+
+.
+ Vemos luego que la potencia de la señal sin filtrar es 
+\begin_inset Formula $\ensuremath{P_{2}=C^{2}\cdot\sum_{n\neq0}\frac{1}{n^{4}}+X_{0}^{2}}$
+\end_inset
+
+ y que la potencia de la señal filtrada es 
+\begin_inset Formula $\ensuremath{P_{2}^{'}=C^{2}\cdot2\cdot\sum_{n=1}^{m}\frac{1}{n^{4}}}+X_{0}^{2}$
+\end_inset
+
+ , donde 
+\begin_inset Formula $C=\frac{A}{2\cdot f_{o3}^{3}\cdot\pi^{2}}$
+\end_inset
+
+ y 
+\begin_inset Formula $m\,\epsilon\,\mathbb{N}$
+\end_inset
+
+, con 
+\begin_inset Formula $m$
+\end_inset
+
+ la cantidad de armónicos que no son atenuados por el filtro.
+ Estas igualdades nos permiten obtener la relación entre las potencias de
+ la señal filtrada y sin filtrar como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{P_{2}^{'}}{P_{2}}=\ensuremath{\frac{X_{0}^{2}+2\cdot\sum_{n=1}^{m}\frac{1}{n^{4}}}{X_{0}^{2}+\sum_{n\neq0}\frac{1}{n^{4}}}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{2}(t)=2$
+\end_inset
+
+
+\begin_inset Formula $\ensuremath{A\cdot sin(2\pi f_{in}t)}$
+\end_inset
+
+, con 
+\begin_inset Formula $\ensuremath{t\,\epsilon\,[0;3\pi]}$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Standard
+Los coeficientes de fourier del desarrollo exponencial, para esta señal,
+ estarán dados por: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C_{n}=\frac{-9\cdot A}{f_{o}\pi(4n^{2}-9)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+con 
+\begin_inset Formula $f_{o}=\frac{2\cdot f_{in}}{3}$
+\end_inset
+
+.
+ De manera tal que:
+\begin_inset Formula 
+\begin{equation}
+x_{3}(t)=\sum_{n\epsilon Z}C_{n}e^{i\cdot2\pi f_{o}n\cdot t}
+\end{equation}
+
+\end_inset
+
+ 
+\begin_inset Formula $\ensuremath{x_{3}(t)}$
+\end_inset
+
+ también es una señal real y par y por ende su DSF también podrá expresarse
+ como una serie de cosenos, dada por: 
+\begin_inset Formula 
+\begin{equation}
+\ensuremath{x_{3}(t)=\sum_{n\epsilon Z}C_{n}^{'}cos(2\pi nf_{o}t)}
+\end{equation}
+
+\end_inset
+
+ con 
+\begin_inset Formula $\ensuremath{C_{n}=\frac{-18\cdot A}{f_{o}\pi(4n^{2}-9)}}$
+\end_inset
+
+.
+ Análogo al caso anterior, la relación de potencias estará dada entonces
+ por:
+\begin_inset Formula 
+\begin{equation}
+\frac{P_{3}^{'}}{P_{3}}=\ensuremath{\frac{\sum_{n=-m}^{m}\frac{1}{(4n^{2}-9)^{2}}}{\sum_{n\epsilon Z}\frac{1}{(4n^{2}-9)^{2}}}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ya establecidas las relaciones de potencia entre señal filtrada y sin filtrar,
+ procedemos a graficar estas relaciones en función de la frecuencias para
+ poder elegir la frecuencia de corte del filtro:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/relacion_potencias_x2.jpg
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relación de potencia resultante según los armónicos no atenuados para 
+\begin_inset Formula $x_{2}(t)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/relacion_potencias_x3.jpg
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relación de potencia resultante según los armónicos no atenuados para 
+\begin_inset Formula $x_{3}(t)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como conclusión, se deduce que con una frecuencia de corte 
+\begin_inset Formula $f_{p}\text{=}5kHz$
+\end_inset
+
+ se conservará al menos el 99% de la potencia de las señales originales.
+ 
+\end_layout
+
+\begin_layout Standard
+De aquí, debido a las condiciones impuestas por consigna, queda determinada
+ 
+\begin_inset Formula $f_{a}=\ensuremath{7.5kHz}$
+\end_inset
+
+.
+ En el caso en que se suponga al filtro como ideal, tomando la frecuencia
+ de muestreo mayor a 
+\begin_inset Formula $10kHz$
+\end_inset
+
+ se podrá muestrear la señal correctamente.
+ Si en cambio tomamos la frecuencia 
+\begin_inset Formula $f_{a}$
+\end_inset
+
+ como indicante que no habrá amplitud significativa a partir de esta frecuencia,
+ entonces la frecuencia de muestreo mínima será 
+\begin_inset Formula $15kHz$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Diseño del filtro
+\end_layout
+
+\begin_layout Standard
+Para realizar el filtro, se eligió utilizar la aproximación de Legendre
+ para asegurar una buena planicie en la banda de paso a un orden mucho menor
+ que el que se podría obtener con una aproximación de Butterworth.
+ A su vez, la aproximación de Legendre tendrá una fase más lineal (mejor
+ retardo de grupo) que un filtro aproximado mediante Chebyshev I o Chebyshev
+ II.
+ Chebyshev I tendrá el problema adicional de agregar ceros en la banda de
+ paso.
+ El inconveniente de Legendre, por otro lado, es que necesariamente agregará
+ un sobrepico cerca de 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+, que mediante un análisis correcto se podrá evitar las complicaciones que
+ este podría conllevar.
+ 
+\end_layout
+
+\begin_layout Standard
+Entonces, la plantilla queda delimitada de la siguiente manera:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/filtro teorico/plantilla.png
+	lyxscale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Plantilla pasabajos.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{p}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{a}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $A_{a}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $A_{p}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $orden$
+\end_inset
+
+
+\begin_inset Formula $\,del\,filtro$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $7.5kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $48dB$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1dB$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $9$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Plantilla de ambos filtros.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se dividirá entonces al filtro en 5 etapas, 4 de orden 2 y una de orden
+ 1.
+\begin_inset Newline newline
+\end_inset
+
+Las etapas, dispuestas en cascada, serán ordenadas de menor Q a mayor Q
+ para asegurar menores desviaciones sobre la plantilla al tener en cuenta
+ el error sobre el valor nominal de los componentes y eliminar el efecto
+ del sobrepico dado por la etapa de mayor Q.
+ 
+\end_layout
+
+\begin_layout Standard
+Por el Q elevado de la etapa 5, se decidió utilizar un filtro universal
+ (en particular la Tow Thomas) para la misma, mientras que las demás etapas
+ se realizarán con celdas Sallen Key para minimizar la cantidad de opamps
+ del filtro, y por su buena sensibilidad para Q bajos.
+ Por otro lado, la de primer orden (etapa 1) se diseñó con un circuito integrado
+r.
+\end_layout
+
+\begin_layout Standard
+Los parámetros de las etapas son las siguientes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+orden
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Celda
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Q
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tipo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etapa 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+integrador
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pasabajos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etapa 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sallen Key
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.68$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.6kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pasabajos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etapa 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sallen Key
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1.18$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3.6kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pasabajos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etapa 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sallen Key
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2.33$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $4.5kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pasabajos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etapa 5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Universal (Tow Thomas)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $7.55$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.1kHz$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pasabajos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Detalles de cada etapa.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los circuitos utilizados para cada celda fueron los siguientes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align right
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/filtro teorico/sallen key.PNG
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Celda Sallen Key utilizada.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/filtro teorico/inversor.png
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Filtro de primer orden - circuito integrador.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/filtro teorico/TowThomas.JPG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Celda Universal Tow Thomas utilizada.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A continuación, se calcularon los componentes para cada etapa, que se resumen
+ a continuación:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Integrador
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{1}(\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{2}(\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{1}\,(F)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etapa 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $7.9n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sallen-Key
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{1}(\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{2}(\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{1}=C_{2}\,(F)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{3}(\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{4}(\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etapa 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $62k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $62k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5.1k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etapa 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $44k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $44k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $11.5k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etapa 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $35k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $35k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $16k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tow Thomas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R(\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{1}(\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{2}(\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{3}(\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{4}(\Omega)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{1}=C_{2}\,(F)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etapa 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $23.5k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3.1k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3.1k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3.1k$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Componentes para cada etapa.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es importante mencionar que debido a la etapa final de correción de ganancia
+ del filtro, que se realizó con un circuito inversor, la salida del filtro
+ Anti-Aliasing será invertida al igual que a la salida del filtro recuperador,
+ por lo que al final del circuito la señal será recuperada correctamente,
+ además de que esto no presupondrá problemas para el muestreo digital ya
+ que los datos recibidos podrán ser invertidos digitalmente con gran facilidad.
+\end_layout
+
+\begin_layout Subsection
+Simulación
+\end_layout
+
+\begin_layout Standard
+Se procedió a simular el filtro en LTSPICE para verificar que cumpliera
+ plantilla y luego se realizaron simulaciones usando el método de Montecarlo.
+ Cabe aclarar, que el gráfico de fase las aparentes peculiaridades no son
+ para preocuparse ya que la fase pasa de 
+\begin_inset Formula $180°$
+\end_inset
+
+ a 
+\begin_inset Formula $-180°$
+\end_inset
+
+, lo que ocasiona la pendiente brusca.
+ Y recordamos que una fase de 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $-180°$
+\end_inset
+
+ es equivalente a una de 
+\begin_inset Formula $180\text{°}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/simulacion bode mag.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulación de magnitud con valores nominales.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/simulacion bode fase.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulación de fase con valores nominales.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Análisis de Montecarlo
+\end_layout
+
+\begin_layout Standard
+A continuación se expone el resultado de la simulación del filtro mediante
+ el análisis de Montecarlo, lo cual es útil para corroborar como cambia
+ la respuesta en frecuencia según la variación de los componentes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/montecarlo caps matcheados.PNG
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simulación Montecarlo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/ZOOM montecarlo caps matcheados.PNG
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Detalle de la banda de paso.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De las figuras anteriores se puede notar como la mayoría de los casos cumplen
+ con la plantilla especificada, sin embargo algunos de los casos no cumplen
+ exactamente con todas las especificaciones, ya que se pueden notar sobrepicos
+ o atenuaciones de menor magnitud para una minoría.
+ De todas maneras, estas diferencias pueden ser contrarrestadas, por ejemplo,
+ mediante la calibración de los valores de los componentes que posean una
+ sensibilidad significativa.
+\end_layout
+
+\begin_layout Subsection
+Estudio de rango dinámico
+\end_layout
+
+\begin_layout Standard
+La denición de rango dinámico a utilizar es la siguiente:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+RD_{dB}=20log\left(\frac{V_{in_{max}}}{V_{in_{min}}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Siendo 
+\begin_inset Formula $V_{in_{max}}$
+\end_inset
+
+la amplitud de señal máxima que se puede ingresar al circuito, y 
+\begin_inset Formula $V_{in_{min}}$
+\end_inset
+
+ la amplitud mínima de la señal que se pueda imponer al sistema sin que
+ esta se confunda con el piso de ruido.
+\end_layout
+
+\begin_layout Standard
+En primer lugar, la entrada máxima al circuito se tomó como 600mV (
+\begin_inset Formula $V_{in_{max}}=600mV$
+\end_inset
+
+).
+ Luego, para hallar esta tensión se procede a identificar la ganancia máxima
+ del filtro, es decir, la ganancia en el sobrepico, y obtener una amplitud
+ máxima para esta etapa mediante la siguiente expresión:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{in_{max}}=\frac{V_{1}}{G_{max}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La ganancia máxima se tomó como 
+\begin_inset Formula $0.5dB$
+\end_inset
+
+ por las simulaciones realizadas, y 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+ como 
+\begin_inset Formula $600mV$
+\end_inset
+
+.
+ Lo que resulta en una 
+\begin_inset Formula $V_{in_{max}}$
+\end_inset
+
+ de 
+\begin_inset Formula $566V$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Por otro lado, al estar cuantizado en 8 bits, se tiene una resolución de
+ 256 niveles, por lo que para no confundir la señal de entrada con el piso
+ de ruido, 
+\begin_inset Formula $V_{in_{min}}$
+\end_inset
+
+ estará dada por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{in_{min}}=\frac{V_{1}}{256}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta tensión estaría más limitada si se tiene en cuenta que según la plantilla,
+ en la banda de paso podría llegar a atenuar 
+\begin_inset Formula $1dB$
+\end_inset
+
+.
+ Con ésto, 
+\begin_inset Formula $V_{in_{min}}=5mV$
+\end_inset
+
+.
+ De esto, el rango dinámico resulta de 
+\begin_inset Formula $48.9dB$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+No idealidad de los filtros
+\end_layout
+
+\begin_layout Standard
+Se tendrán que notan las siguientes consecuencia de la no idealidad de los
+ filtros:
+\end_layout
+
+\begin_layout Itemize
+Los filtros agregarán distorsión de módulo y de fase a la señal original
+ incluso en la banda de paso, que se asumió dejaba intacta a la señal.
+ Sin embargo, la distorsión de la fase, al ser el retardo de grupo en una
+ aproximación Legendre, mejor, por ser más lineal, que un Chebyshev I ó
+ II, es la mínima posible.
+\end_layout
+
+\begin_layout Itemize
+Si bien en el ideal se asumió un ancho de banda de frecuencia 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+, la realidad es que componentes posteriores (todas aquellas que se encuentren
+ en 
+\begin_inset Formula $[f_{p};f_{a}]$
+\end_inset
+
+) de la entrada no serán lo suficientemente atenuadas como para ser consideradas
+ elimininadas por el filtro.
+ Esto no sólo afectará a la elección de la frecuencia de muestreo sino que
+ agregará deformación a la señal original a ser muestreada.
+ 
+\end_layout
+
+\begin_layout Standard
+Sin embargo, es también importante notar que las consecuencias de estas
+ no idealizaciones pueden ser mitigadas por un posterior filtrado digital
+ sobre la señal ya muestreada en caso de incorporar este sistema de muestreo
+ en un sistema digital.
+\end_layout
+
+\begin_layout Subsection
+Mediciones
+\end_layout
+
+\begin_layout Standard
+Se procedió a medir la respuesta en frecuencia de los filtros Anti-Aliasing
+ y recuperador para verificar que cumpliesen con plantilla o que funcionen
+ dentro de rangos aceptables.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Imagenes/bodesFAAyFR.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia del filtro Anti-Aliasing y recuperador, superpuestas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado que la consigna no imponía una frecuencia de corte 
+\begin_inset Formula $f_{p}$
+\end_inset
+
+ en particular, y teniendo en cuenta que la elección de la misma dependió
+ estrictamente del porcentaje de potencia de las señales a muestrear que
+ lograba atravezar el filtro, bajo una inspección de los gráficos de potencia
+ mencionados en las secciones anteriores, se deduce que con las frecuencias
+ de corte obtenidas se podrá lograr el correcto funcionamiento del sistema
+ con una frecuencia de corte cercana a los 
+\begin_inset Formula $3.7$
+\end_inset
+
+kHz y cumpliendo así plantilla.
+\end_layout
+
+\end_body
+\end_document

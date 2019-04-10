@@ -1,0 +1,72 @@
+from matplotlib import pyplot as p
+import math
+
+
+class Filter:
+
+    def __init__(self, alfa, betha):
+        self.alfa = alfa
+        self.betha = betha
+        # wsq : discriminant of the quadratic function that will determine the type of system
+        self.w_sq = alfa**2 + 4*betha
+        self.oscillates = self.w_sq < 0
+
+        self.osc_freq = 0
+        if self.oscillates:
+            self.osc_freq = (-self.w_sq)**(1/2)
+
+        self.coef_x = 0.5
+
+        self.last_out = [0, 0]           # set initial conditions, y[-2], y[-1]
+        self.y = []
+
+    # the first index of in_sequence should be x(0), x being a causal function!!!!
+    # labels is used when plotting. labels[0]->title, labels[1] -> x_label, labels[2] -> y_label
+    def in_out(self, in_sequence, plot=False, labels=[]):
+        in_sequence = [0] + in_sequence
+        self.y = [self.last_out[0], self.last_out[1]]
+
+        for i in range(len(in_sequence)):
+            self.y.append(in_sequence[i]*self.coef_x + self.alfa * self.y[i+1] + self.betha * self.y[i])
+
+        self.y = self.y[2:len(self.y)]
+        self.last_out[0] = self.y[len(self.y)-1]
+        self.last_out[1] = self.y[len(self.y)-2]
+
+        if plot:
+            n = list(range(len(in_sequence)))
+            p.grid(True)
+            p.stem(n, self.y)
+            p.title(labels[0])
+            p.xlabel(labels[1])
+            p.ylabel(labels[2])
+            p.show()
+
+        return self.y
+
+        # use after calling in_out(in_sequence) to retrieve a value from the lastly calculated in_out
+    def in_out_last_calc(self, n):
+        return self.y[n]
+
+    def set_initial_conditions(self, conditions):
+        if (conditions is None) or (range(conditions) != 2):
+            print("Error en las condiciones inciales. Se necesitan 2 condiciones iniciales.")
+        else:
+            self.last_out[0] = conditions[0]
+            self.last_out[1] = conditions[1]
+
+    def set_null_initial_conditions(self):
+        self.last_out[0] = 0
+        self.last_out[1] = 0
+
+
+delta = [1] + [0]*30
+u = [1]*31
+
+# casos de prueba adicionales
+filters = [Filter(1, -1/2), Filter(1/3, -1/8), Filter(4/3, -25/32), Filter(-1, 1/2), Filter(-1/3, -1/8), Filter(1/10, 1/20), Filter(1, -1/4)]
+
+for i in range(len(filters)):
+    filters[i].set_null_initial_conditions()
+    filters[i].in_out(delta, True, ['Respuesta impulsiva', 'n (T = 1)', 'h(n) (T = 1)'])
+    filters[i].in_out(u, True, ['Respuesta al escalon', 'n (T = 1)', 'y(n) (T = 1)'])
